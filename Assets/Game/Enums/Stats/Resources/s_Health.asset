@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b770d7c05505244a8ef2d6ada7e5e64, type: 3}
+  m_Name: s_Health
+  m_EditorClassIdentifier: 
+  itemId: 8664f285-6447-43e6-91a6-f54bc3a563b7
+  description: Health
+  extendedDescription: What your condition is in right now.  Run out of this, and
+    it's a Game Over screen for you, so stock up on those healing potions.
+  sources:
+  - stat: {fileID: 11400000, guid: 3e07f4a50a266704284df4f1c764dc8f, type: 2}
+    effectPerLevel: 10

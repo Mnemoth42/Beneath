@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098bd122fea3a2343b3857bf9c6e0803, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  itemId: 97c2ae2a-1f30-4c24-b956-ae166c21ab6c
+  description: 'That would be you.  A bravehardy fool who entered this world with
+    nothing on his mind but killing monsters.   '
+  formula:
+  - stat: {fileID: 11400000, guid: 6abb4d47f38ff3a48993fe29c2953618, type: 2}
+    startingValue: 100
+    percentageAdded: 0.5
+    absoluteAdded: 10
+  - stat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
+    startingValue: 5
+    percentageAdded: 0
+    absoluteAdded: 3
+  - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
+    startingValue: 5
+    percentageAdded: 0
+    absoluteAdded: 3
+  - stat: {fileID: 11400000, guid: a325e4185a8003d42a6148b192df88eb, type: 2}
+    startingValue: 100
+    percentageAdded: 9.56
+    absoluteAdded: 100
+  - stat: {fileID: 11400000, guid: 57590c9b3bde0714a92efbcaf98457bc, type: 2}
+    startingValue: 3
+    percentageAdded: 0
+    absoluteAdded: 1
+  - stat: {fileID: 11400000, guid: 3e07f4a50a266704284df4f1c764dc8f, type: 2}
+    startingValue: 3
+    percentageAdded: 0
+    absoluteAdded: 1
+  - stat: {fileID: 11400000, guid: 8ba086a12f9eafc42a893374995d17ee, type: 2}
+    startingValue: 3
+    percentageAdded: 0
+    absoluteAdded: 1
+  - stat: {fileID: 11400000, guid: 20b1b98bf010fae4fbe990665a91f758, type: 2}
+    startingValue: 3
+    percentageAdded: 0
+    absoluteAdded: 1
+  - stat: {fileID: 11400000, guid: d5e8aaf33d5aaf4469141f8d38f93597, type: 2}
+    startingValue: 3
+    percentageAdded: 0
+    absoluteAdded: 1
+  - stat: {fileID: 11400000, guid: a19d98afd044ebf4f9102e9483362251, type: 2}
+    startingValue: 6.5
+    percentageAdded: 0
+    absoluteAdded: 0.25
+  - stat: {fileID: 11400000, guid: 22215a7f67ae3334abbe1a63b23c0211, type: 2}
+    startingValue: 4
+    percentageAdded: 0
+    absoluteAdded: 3
+  - stat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
+    startingValue: 3
+    percentageAdded: 0
+    absoluteAdded: 2.5
+  - stat: {fileID: 11400000, guid: 8721c49195c629747b3e609300d5c220, type: 2}
+    startingValue: 3.06
+    percentageAdded: 0
+    absoluteAdded: 0.05

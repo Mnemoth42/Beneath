@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da6285b7e6b57614baa45ce23367481d, type: 3}
+  m_Name: w_MonsterPlant
+  m_EditorClassIdentifier: 
+  itemId: 188f9104-9f61-4f2d-a87f-df6556e3907d
+  displayName: 
+  description: 
+  icon: {fileID: 0}
+  pickup: {fileID: 0}
+  stackable: 0
+  potentialStatBoosts: []
+  allowedEquipLocation: {fileID: 0}
+  model: {fileID: 0}
+  controller: {fileID: 9100000, guid: b7d73eaa59bb6744c92c0e9f74e5c755, type: 2}
+  damage: 1
+  leftHanded: 0
+  offensiveStat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
+  defensiveStat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
+  stylesAndDamage:
+  - 8
+  - 6
+  - 7

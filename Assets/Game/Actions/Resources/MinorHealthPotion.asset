@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e5256c2dc33c714d9cf345e62ff08c4, type: 3}
+  m_Name: MinorHealthPotion
+  m_EditorClassIdentifier: 
+  itemId: 19c9a6eb-69a4-4447-9224-63e1137256b1
+  displayName: Minor Health Potion
+  description: Better than a bandaid, but not much.  The taste leaves a bit to be
+    desired as well!
+  icon: {fileID: 21300000, guid: 52772ee24b01ff34c9e2597340e7274d, type: 3}
+  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  stackable: 1
+  potentialStatBoosts: []
+  consumable: 1
+  cooldown: 3
+  useOnPickup: 0
+  amountToHeal: 10
+  isPercentage: 0
+  particleGameObject: {fileID: 1041383898900682, guid: 6415f946f87d42f408f61c846221beb6,
+    type: 3}
+  audioArray: {fileID: 11400000, guid: ee23ad19c5628e843b3a0da734646587, type: 2}

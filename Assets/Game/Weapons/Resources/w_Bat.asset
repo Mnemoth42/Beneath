@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da6285b7e6b57614baa45ce23367481d, type: 3}
+  m_Name: w_Bat
+  m_EditorClassIdentifier: 
+  itemId: f14120c5-045f-4306-8ffe-39e368917abf
+  displayName: 
+  description: 
+  icon: {fileID: 0}
+  pickup: {fileID: 0}
+  stackable: 0
+  potentialStatBoosts: []
+  allowedEquipLocation: {fileID: 0}
+  model: {fileID: 0}
+  controller: {fileID: 9100000, guid: a8fef1da60a213b40b94fa4724b1dc86, type: 2}
+  damage: 1
+  leftHanded: 0
+  offensiveStat: {fileID: 11400000, guid: 22215a7f67ae3334abbe1a63b23c0211, type: 2}
+  defensiveStat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
+  stylesAndDamage:
+  - 4
+  - 6
+  - 7
+  - 9

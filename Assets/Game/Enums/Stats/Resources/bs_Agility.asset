@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b770d7c05505244a8ef2d6ada7e5e64, type: 3}
+  m_Name: bs_Agility
+  m_EditorClassIdentifier: 
+  itemId: f01bd101-0207-43f4-8005-eb909a2d6589
+  description: Agility
+  extendedDescription: A measure of your speed and accuracy under pressure.  An agile
+    warrior can dodge more effectively and make quicker decisions.
+  sources: []
