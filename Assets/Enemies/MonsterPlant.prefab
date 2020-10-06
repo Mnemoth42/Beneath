@@ -1268,6 +1268,7 @@ GameObject:
   - component: {fileID: 2808405709229279450}
   - component: {fileID: 22038036689762998}
   - component: {fileID: 5819828170006202612}
+  - component: {fileID: 8579446616754469857}
   m_Layer: 9
   m_Name: MonsterPlant
   m_TagString: Untagged
@@ -1422,7 +1423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6d930ffbb48194f9134bada1b6b22a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  personalClass: {fileID: 11400000, guid: 0973d4ece3f3b344f98e961eaf1e4c98, type: 2}
+  personalClass: {fileID: 11400000, guid: d8064d0788cd8174db532335ef95862e, type: 2}
   level: 1
   shouldUseModifiers: 0
   avatar: {fileID: 21300000, guid: 1aaa77a30b83afc4d82aef0f3b3a622b, type: 3}
@@ -1442,6 +1443,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   droppedItems: []
   library: {fileID: 11400000, guid: 68d2eb4c3e5eb6b40902926f15da9db5, type: 2}
+--- !u!114 &8579446616754469857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618574005888820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a3fa71d7c53de48b6af3700ddf94dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1649652223661238
 GameObject:
   m_ObjectHideFlags: 0

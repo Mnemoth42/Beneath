@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Slime
   m_EditorClassIdentifier: 
   itemId: ec279003-f776-48d4-916e-38541dd19e70
+  displayName: Creeping Slime
   description: Disgusting oozy things that like to zap you.   Highly resistive to
     magic and ranged weapons.
   formula:

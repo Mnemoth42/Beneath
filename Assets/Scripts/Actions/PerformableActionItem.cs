@@ -12,10 +12,9 @@ namespace TkrainDesigns.Tiles.Actions
             return false;
         }
 
-        public virtual void PerformAction(GameObject user, GameObject target = null, List<Vector2Int> path = null,
-                                          System.Action callback = null)
+        public virtual void PerformAction(GameObject user, GameObject target = null, System.Action callback = null)
         {
-            
+            callback?.Invoke();
         }
     }
 }

@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using TkrainDesigns.Grids.Stats;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
+using TkrainDesigns.Tiles.Actions;
 using TkrainDesigns.Tiles.Combat;
 using TkrainDesigns.Tiles.Grids;
 using TkrainDesigns.Tiles.Movement;
@@ -16,7 +17,7 @@ namespace TkrainDesigns.Tiles.Control
 {
     public struct SMovementRequest
     {
-        public bool PerformAttack;
+        public bool Perform;  //renamed from PerformAttack to Perform as it really means do the current action
         public List<Vector2Int> Path;
         public BaseController target;
     }
@@ -24,6 +25,7 @@ namespace TkrainDesigns.Tiles.Control
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(GridMover))]
     [RequireComponent(typeof(GridFighter))]
+    [RequireComponent(typeof(ActionPerformer))]
     public abstract class BaseController : MonoBehaviour
     {
         protected System.Action OnTurnFinished = null;
@@ -49,6 +51,7 @@ namespace TkrainDesigns.Tiles.Control
         protected GridMover Mover { get; private set; }
         protected GridFighter Fighter { get; private set; }
         protected Health health { get; private set; }
+        protected ActionPerformer actionPerformer { get; private set; }
 
         protected CooldownManager cooldownManager { get; private set; }
 
@@ -74,7 +77,9 @@ namespace TkrainDesigns.Tiles.Control
             Fighter = GetComponent<GridFighter>();
             health = GetComponent<Health>();
             stats = GetComponent<PersonalStats>();
+            actionPerformer = GetComponent<ActionPerformer>();
             cooldownManager = GetComponent<CooldownManager>();
+
         }
 
         void OnEnable()

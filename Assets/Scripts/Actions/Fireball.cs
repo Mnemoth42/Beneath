@@ -49,7 +49,7 @@ namespace TkrainDesigns.Tiles.Actions
         GameObject currentTarget;
         Action callbackAction;
 
-        public override void PerformAction(GameObject user, GameObject target = null, List<Vector2Int> path = null, Action callback = null)
+        public override void PerformAction(GameObject user, GameObject target = null,  Action callback = null)
         {
             if (!target)
             {

@@ -72,14 +72,14 @@ namespace TkrainDesigns.ScriptableEnums.Editor
                 GUIStyle style = new GUIStyle();
                 style.fixedWidth = position.width - 10;
                 EditorGUILayout.BeginVertical(style);
-                selectedScriptableClass.Description = EditorGUILayout.
-                    TextField(selectedScriptableClass.Description);
+                selectedScriptableClass.SetDisplayName(EditorGUILayout.TextField("Display Name", selectedScriptableClass.GetDisplayName()));
+                selectedScriptableClass.SetDescription(EditorGUILayout.TextField("Description",selectedScriptableClass.Description));
                 int statToRemove = -1;
                 for (int i=0;i<selectedScriptableClass.Formula.Count;i++)
                 
                 {
                     var formula = selectedScriptableClass.Formula[i];
-                    EditorGUILayout.Separator();
+                    
                     if (formula.Stat!=null)
                     {
                         EditorGUILayout.BeginHorizontal();

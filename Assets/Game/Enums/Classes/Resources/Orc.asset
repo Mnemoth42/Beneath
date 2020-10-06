@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Orc
   m_EditorClassIdentifier: 
   itemId: e1395cfd-6778-4008-8c99-6b45d9a51640
-  description: 
+  displayName: Orc
+  description: A big brutish thug with murder on his mind.  Watch out for his special
+    attack, it will make your head spin.
   formula:
   - stat: {fileID: 11400000, guid: 6abb4d47f38ff3a48993fe29c2953618, type: 2}
     startingValue: 20

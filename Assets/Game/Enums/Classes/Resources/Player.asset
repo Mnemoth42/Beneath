@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   itemId: 97c2ae2a-1f30-4c24-b956-ae166c21ab6c
+  displayName: Player
   description: 'That would be you.  A bravehardy fool who entered this world with
     nothing on his mind but killing monsters.   '
   formula:

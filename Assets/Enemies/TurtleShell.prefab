@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: 8190218203934770391}
   - component: {fileID: 7319386567162600406}
   - component: {fileID: -7932717242239120381}
+  - component: {fileID: -7759591001315507561}
   m_Layer: 9
   m_Name: TurtleShell
   m_TagString: Untagged
@@ -513,6 +514,7 @@ MonoBehaviour:
   personalClass: {fileID: 11400000, guid: 0973d4ece3f3b344f98e961eaf1e4c98, type: 2}
   level: 1
   shouldUseModifiers: 0
+  avatar: {fileID: 0}
   experienceGainedStat: {fileID: 11400000, guid: 46c84e87dda9fba4e93a8949823326bb,
     type: 2}
 --- !u!114 &-7932717242239120381
@@ -529,6 +531,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   droppedItems: []
   library: {fileID: 11400000, guid: 68d2eb4c3e5eb6b40902926f15da9db5, type: 2}
+--- !u!114 &-7759591001315507561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228834762862560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a3fa71d7c53de48b6af3700ddf94dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1249373359732670
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Bat
   m_EditorClassIdentifier: 
   itemId: 28eacc3d-1699-4e00-9eda-e62036b44d3e
+  displayName: Bat
   description: Fast fliers who will pester you until you are completely drained.
   formula:
   - stat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}

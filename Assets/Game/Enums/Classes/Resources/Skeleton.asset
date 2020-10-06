@@ -10,41 +10,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 098bd122fea3a2343b3857bf9c6e0803, type: 3}
-  m_Name: Spider
+  m_Name: Skeleton
   m_EditorClassIdentifier: 
-  itemId: a3e75ddc-0388-4024-b874-bb0bdb353a08
-  displayName: Cave Spider
-  description: Not the garden variety.  These spiders have gotten huge eating adventurers.
+  itemId: 626be8d5-54bb-4020-aea4-44d851d83f57
+  displayName: Skeleton
+  description: How hard can it be to kill something that's already dead?  Strong
+    against ranged attacks.
   formula:
-  - stat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
-    startingValue: 2
-    percentageAdded: 1
-    absoluteAdded: 2
   - stat: {fileID: 11400000, guid: 6abb4d47f38ff3a48993fe29c2953618, type: 2}
-    startingValue: 4
-    percentageAdded: 1
-    absoluteAdded: 1
-  - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
-    startingValue: 2
-    percentageAdded: 0
-    absoluteAdded: 0.75
-  - stat: {fileID: 11400000, guid: 46c84e87dda9fba4e93a8949823326bb, type: 2}
     startingValue: 10
     percentageAdded: 1
     absoluteAdded: 5
-  - stat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
-    startingValue: 1
-    percentageAdded: 0
-    absoluteAdded: 1
-  - stat: {fileID: 11400000, guid: 9194085696e99304dac7ff5bf404edd9, type: 2}
-    startingValue: 2
+  - stat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
+    startingValue: 4
     percentageAdded: 0
     absoluteAdded: 2
-  - stat: {fileID: 11400000, guid: a19d98afd044ebf4f9102e9483362251, type: 2}
-    startingValue: 15
-    percentageAdded: 0
-    absoluteAdded: 0.6
-  - stat: {fileID: 11400000, guid: 8721c49195c629747b3e609300d5c220, type: 2}
+  - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
     startingValue: 3
     percentageAdded: 0
-    absoluteAdded: 0.1
+    absoluteAdded: 2.5
+  - stat: {fileID: 11400000, guid: 46c84e87dda9fba4e93a8949823326bb, type: 2}
+    startingValue: 20
+    percentageAdded: 3
+    absoluteAdded: 20
+  - stat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
+    startingValue: 3
+    percentageAdded: 0
+    absoluteAdded: 2
+  - stat: {fileID: 11400000, guid: 9194085696e99304dac7ff5bf404edd9, type: 2}
+    startingValue: 15
+    percentageAdded: 0
+    absoluteAdded: 5
+  - stat: {fileID: 11400000, guid: a19d98afd044ebf4f9102e9483362251, type: 2}
+    startingValue: 6.5
+    percentageAdded: 0
+    absoluteAdded: 0.25
+  - stat: {fileID: 11400000, guid: 8721c49195c629747b3e609300d5c220, type: 2}
+    startingValue: 3.05
+    percentageAdded: 0
+    absoluteAdded: 0.06

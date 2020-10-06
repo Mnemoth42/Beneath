@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Vagabond
   m_EditorClassIdentifier: 
   itemId: e1395cfd-6778-4008-8c99-6b45d9a51640
-  description: 
+  displayName: Plunderer
+  description: Roguish fighter exploring the caves for treasure.  I think he's hoping
+    you have some.
   formula:
   - stat: {fileID: 11400000, guid: 6abb4d47f38ff3a48993fe29c2953618, type: 2}
     startingValue: 20

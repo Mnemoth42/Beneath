@@ -361,6 +361,7 @@ GameObject:
   - component: {fileID: 3244270510479364411}
   - component: {fileID: 1999715648263413319}
   - component: {fileID: -6927433019417599099}
+  - component: {fileID: -5360518090206240118}
   m_Layer: 9
   m_Name: Orc
   m_TagString: Untagged
@@ -548,6 +549,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   droppedItems: []
   library: {fileID: 11400000, guid: 68d2eb4c3e5eb6b40902926f15da9db5, type: 2}
+--- !u!114 &-5360518090206240118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091293637548798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a3fa71d7c53de48b6af3700ddf94dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1146339826024242
 GameObject:
   m_ObjectHideFlags: 0

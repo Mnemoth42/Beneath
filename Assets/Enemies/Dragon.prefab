@@ -483,6 +483,7 @@ GameObject:
   - component: {fileID: 3251425682520799402}
   - component: {fileID: 4868126226351210789}
   - component: {fileID: 4483046114335288265}
+  - component: {fileID: 6354191542529478063}
   m_Layer: 9
   m_Name: Dragon
   m_TagString: Untagged
@@ -637,7 +638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6d930ffbb48194f9134bada1b6b22a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  personalClass: {fileID: 11400000, guid: 0973d4ece3f3b344f98e961eaf1e4c98, type: 2}
+  personalClass: {fileID: 11400000, guid: 3ae8b42ae30edcd4db22f4b71bbd32b0, type: 2}
   level: 1
   shouldUseModifiers: 0
   avatar: {fileID: 21300000, guid: 2d2eb07467e534a4b87eb72bc90b556b, type: 3}
@@ -657,6 +658,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   droppedItems: []
   library: {fileID: 11400000, guid: 68d2eb4c3e5eb6b40902926f15da9db5, type: 2}
+--- !u!114 &6354191542529478063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269815030824246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a3fa71d7c53de48b6af3700ddf94dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1274756088140504
 GameObject:
   m_ObjectHideFlags: 0

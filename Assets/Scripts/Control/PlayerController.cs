@@ -71,12 +71,13 @@ namespace TkrainDesigns.Tiles.Control
                 if (request.Path == null) return;
                 {
                     ResetAllColorChangers();
-                    if (request.PerformAttack)
+                    if (request.Perform)
                     {
                         onTargetChanged(request.target);
                         if (currentActionItem != null)
                         {
-                            currentActionItem.PerformAction(gameObject, request.target.gameObject.gameObject, request.Path, PathComplete);
+                            Debug.Log($"{name} calling {currentActionItem.displayName}.BeginAction");
+                            actionPerformer.BeginAction(currentActionItem, request.target.GetComponent<Health>(), request.Path, PathComplete);
                         }
                         else
                         {
@@ -176,7 +177,7 @@ namespace TkrainDesigns.Tiles.Control
         {
             SMovementRequest request = new SMovementRequest();
             request.Path = null;
-            request.PerformAttack = false;
+            request.Perform = false;
             if (lastChanger)
             {
                 lastChanger.SetMouseOver(false);
@@ -224,14 +225,19 @@ namespace TkrainDesigns.Tiles.Control
                     if (obstacles.ContainsKey(clickedGridLocation))
                     {
                         obstacles.Remove(clickedGridLocation);
-                        request.PerformAttack = true;
+                        request.Perform = true;
                         request.target = LocateControllerAt(clickedGridLocation);
                         Debug.Log($"{request.target} at {clickedGridLocation}");
                     }
                     GridPathFinder<Tile>.ConductInventory();
-                    
+                    int availableMoves = Mover.MaxStepsPerTurn + 1;
+                    if (currentActionItem)
+                    {
+                        Debug.Log($"{name} has {availableMoves-1}+{currentActionItem.Range(gameObject)} range.");
+                        availableMoves += currentActionItem.Range(gameObject);
+                    }
                     var potentialPath = GridPathFinder<Tile>.FindPath(currentPosition, clickedGridLocation, obstacles);
-                    if (potentialPath.Count > 1 && potentialPath.Count <= Mover.MaxStepsPerTurn + 1)
+                    if (potentialPath.Count > 1 && potentialPath.Count <= availableMoves)
                     {
                         if (debug)
                         {

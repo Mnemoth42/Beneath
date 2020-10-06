@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using TkrainDesigns.ResourceRetriever;
+using UnityEditor;
 using UnityEngine;
 #pragma warning disable CS0649
 namespace TkrainDesigns.ScriptableEnums
@@ -8,7 +9,9 @@ namespace TkrainDesigns.ScriptableEnums
     public class ScriptableClass : RetrievableScriptableObject
     {
         #region Fields
-        [SerializeField] string description;
+
+        [SerializeField] string displayName = "";
+        [SerializeField] string description="";
         [Header("Put Stats here.  Set size to the number of stats", order =0), Space(-15,order =2), Header("Select a ScriptableStat, a Level 1 value (S), and amount added per level (A).",order =3)]
         //[Header("Select a ScriptableStat, a Level 1 value (S), and amount added per level (A).")]
         [SerializeField] List<StatFormula> formula;
@@ -18,7 +21,12 @@ namespace TkrainDesigns.ScriptableEnums
         public string Description { get => description;
             set => description=value;
         }
-        
+
+        public string GetDisplayName()
+        {
+            return displayName;
+        }
+
         public List<StatFormula> Formula { get => formula;  }
         #endregion
 
@@ -57,6 +65,24 @@ namespace TkrainDesigns.ScriptableEnums
             frm.Stat = newStat;
             formula.Add(frm);
         }
+
+#if UNITY_EDITOR
+        public void SetDisplayName(string newName)
+        {
+            if (displayName == newName) return;
+            Undo.RecordObject(this, "Change DisplayName");
+            displayName = newName;
+            EditorUtility.SetDirty(this);
+        }
+        public void SetDescription(string newDescription)
+        {
+            if (description == newDescription) return;
+            Undo.RecordObject(this, "Change Description");
+            description = newDescription;
+            EditorUtility.SetDirty(this);
+        }
+
+#endif
 
     }
 
