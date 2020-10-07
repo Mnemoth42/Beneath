@@ -27,7 +27,7 @@ namespace GameDevTV.UI.Inventories
         GameObject player;
         CooldownManager cooldownManager;
 
-        float lastUsed = 0;
+
         int turnsToWait = 0;
         bool isPlayerTurn = false;
 

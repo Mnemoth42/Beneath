@@ -32,8 +32,7 @@ namespace TkrainDesigns.Tiles.Control
 
         bool turnChosen = false;
         
-        bool moveSelected = false;
-        bool actionSelected = false;
+
         System.Action finishLocated;
         Vector2Int finish;
 

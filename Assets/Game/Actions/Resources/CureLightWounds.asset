@@ -23,7 +23,7 @@ MonoBehaviour:
   consumable: 0
   cooldown: 4
   useOnPickup: 0
-  amountToHeal: 10
+  amountToHeal: 20
   isPercentage: 1
   particleGameObject: {fileID: 1041383898900682, guid: 6415f946f87d42f408f61c846221beb6,
     type: 3}

@@ -10,7 +10,7 @@ namespace GameDevTV.Inventories
     /// This class should be used as a base. Subclasses must implement the `Use`
     /// method.
     /// </remarks>
-    [CreateAssetMenu(menuName = ("GameDevTV/GameDevTV.UI.InventorySystem/Action Item"))]
+    
     public class ActionItem : InventoryItem
     {
         // CONFIG DATA
@@ -31,6 +31,11 @@ namespace GameDevTV.Inventories
         }
 
         public bool UseOnPickup { get => useOnPickup; protected set => useOnPickup = value; }
+
+        public virtual bool ShouldPerform()
+        {
+            return false;
+        }
 
         public float Cooldown => cooldown;
 

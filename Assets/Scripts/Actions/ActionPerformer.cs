@@ -40,7 +40,7 @@ namespace TkrainDesigns.Tiles.Actions
             currentActionItem = actionToPerform;
             int stepsRequired = pathToFollow.Count - actionToPerform.Range(gameObject);
             Debug.Log($"{name} requires {stepsRequired} steps before performing action");
-            if (stepsRequired > 0)
+            if (stepsRequired > 0 && actionToPerform.AIRangedAttackSpell())
             {
                 List<Vector2Int> newPath = new List<Vector2Int>();
                 for(int i=0;i < stepsRequired; i++)

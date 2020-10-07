@@ -2,7 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.WindowsRuntime;
+using GameDevTV.Inventories;
 using TkrainDesigns.Grids.Stats;
+using TkrainDesigns.Tiles.Actions;
 using TkrainDesigns.Tiles.Grids;
 using TkrainDesigns.Tiles.Pathfinding;
 using UnityEngine;
@@ -30,6 +33,12 @@ namespace TkrainDesigns.Tiles.Control
                 ConsiderRandomMove();
                 return;
             }
+
+            if (player.GetComponent<Health>().IsDead)
+            {
+                ConsiderRandomMove();
+                return;
+            }
             if (Vector3.Distance(player.transform.position, transform.position) < pursuitDistance)
             {
                 ConsiderMove();
@@ -48,26 +57,87 @@ namespace TkrainDesigns.Tiles.Control
             
             Dictionary<Vector2Int, bool> others = GetObstacles();
             others.Remove(playerPosition);
-
+            PerformableActionItem potentialActionItem = GetAvailableAction();
+            Debug.Log(potentialActionItem);
+            int maxSteps = Mover.MaxStepsPerTurn+1 + (potentialActionItem ? potentialActionItem.Range(gameObject) : 0);
             var path = GridPathFinder<Tile>.FindPath(ourPosition, playerPosition, others);
             
             int radius = PositionInList(path, playerPosition);
-            //Debug.Log($"{name} is within {radius} moves of player.");
+            Debug.Log($"{name}: Max Steps = {maxSteps}, Radius = {radius}");
             if (radius >= 0)
             {
-                if (radius > Mover.MaxStepsPerTurn)
+                if (radius > maxSteps)
                 {
                     path.Remove(playerPosition);
                     Mover.BeginMoveAction(path, TurnCompleted);
                     return;
                 }
 
+                if (potentialActionItem)
+                {
+                    Debug.Log($"{name} is performing {potentialActionItem.displayName}");
+                    actionPerformer.BeginAction(potentialActionItem, player.GetComponent<Health>(), path,TurnCompleted);
+                    return;
+                }
                 Fighter.BeginAttackAction(player.GetComponent<Health>(), path, TurnCompleted);
                 return;
             }
 
             TurnCompleted();
         }
+        /// <summary>
+        /// The AI will cycle through the available actions in the ActionStore and choose either the first available combat spell or
+        /// the first available healing/buff type spell that it can use.  If no actions are available, no action is returned.
+        /// Priority is always given to Attack spells if available.
+        /// </summary>
+        /// <returns></returns>
+        public PerformableActionItem GetAvailableAction()
+        {
+            Debug.Log($"{name} is considering an action.");
+            if (!actionStore)
+            {
+                Debug.Log($"{name} has no Action Store");
+                return null;
+            }
+            PerformableActionItem result = null;
+            for (int i = 0; i < 6; i++)
+            {
+                Debug.Log($"Considering {i}");
+                PerformableActionItem potentialAction = actionStore.GetAction(i) as PerformableActionItem;
+
+                if (potentialAction == null)
+                {
+                    Debug.Log($"{name}'s Action Item {i} is null or not a PerformableActionItem");
+                    continue;
+                }
+
+                if (!potentialAction.CanUse(gameObject))
+                {
+                    Debug.Log($"{name}'s spell {potentialAction.displayName} cannot be used at this time.");
+                    continue;
+                }
+
+                if (potentialAction.AIRangedAttackSpell())
+                {
+                    Debug.Log($"{name} has selected {potentialAction.displayName} because it is an offensive action.");
+                    return potentialAction;
+                }
+
+                if (potentialAction.AIHealingSpell() && result == null)
+                {
+                    Debug.Log($"{name} has potentially selected {potentialAction.displayName} as it is a healing spell.");
+                    result = potentialAction;
+                }
+            }
+
+            Debug.Log(result
+                          ? $"{name} has decided upon {result.displayName}"
+                          : $"{name} could not find a suitable spell/action this turn, will fight instead.");
+            return result;
+        }
+
+        
+
 
         void ConsiderRandomMove()
         {

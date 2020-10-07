@@ -33,6 +33,11 @@ namespace TkrainDesigns.Tiles.Actions
             return true;
         }
 
+        public override bool AIRangedAttackSpell()
+        {
+            return true;
+        }
+
         public override int Range(GameObject user)
         {
             if (user == null) return 0;

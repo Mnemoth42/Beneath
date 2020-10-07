@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using GameDevTV.Inventories;
 using JetBrains.Annotations;
 using TkrainDesigns.Grids.Stats;
 using TkrainDesigns.ScriptableEnums;
@@ -54,6 +55,7 @@ namespace TkrainDesigns.Tiles.Control
         protected ActionPerformer actionPerformer { get; private set; }
 
         protected CooldownManager cooldownManager { get; private set; }
+        protected ActionStore actionStore { get; private set; }
 
 
         public bool IsAlive => health.IsAlive;
@@ -79,7 +81,7 @@ namespace TkrainDesigns.Tiles.Control
             stats = GetComponent<PersonalStats>();
             actionPerformer = GetComponent<ActionPerformer>();
             cooldownManager = GetComponent<CooldownManager>();
-
+            actionStore = GetComponent<ActionStore>();
         }
 
         void OnEnable()

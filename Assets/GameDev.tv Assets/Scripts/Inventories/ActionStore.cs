@@ -17,11 +17,22 @@ namespace GameDevTV.Inventories
     {
         // STATE
         Dictionary<int, DockedItemSlot> dockedItems = new Dictionary<int, DockedItemSlot>();
+
+       
         private class DockedItemSlot 
         {
             public ActionItem item;
             public int number;
-            public RandomStatDecorator decorator;
+        }
+
+        [SerializeField] List<ActionItem> defaultItems = new List<ActionItem>();
+
+        void Awake()
+        {
+            for (int i=0;i<defaultItems.Count;i++)
+            {
+                AddAction(defaultItems[i],i, 1);
+            }
         }
 
         // PUBLIC

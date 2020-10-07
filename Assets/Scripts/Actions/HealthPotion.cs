@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using GameDevTV.Inventories;
 using TkrainDesigns.Grids.Stats;
@@ -36,9 +37,26 @@ namespace TkrainDesigns.Tiles.Actions
             return true;
         }
 
+        public override void PerformAction(GameObject user, GameObject target = null, Action callback = null)
+        {
+            Debug.Log($"{user} has caleld HealthPotion.PerformAction");
+            Use(user);
+            callback?.Invoke();
+        }
+
+        public override bool AIHealingSpell()
+        {
+            return true;
+        }
+
+        public override int Range(GameObject user)
+        {
+            return 300;
+        }
+
         public override string TimerToken()
         {
-            return "HealthPotion";
+            return "Health"+(IsConsumable()?"Potion":"Spell");
         }
 
         public override bool CanUse(GameObject user)
