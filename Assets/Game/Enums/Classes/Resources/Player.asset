@@ -62,8 +62,8 @@ MonoBehaviour:
     percentageAdded: 0
     absoluteAdded: 3
   - stat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
-    startingValue: 3
-    percentageAdded: 0
+    startingValue: 2
+    percentageAdded: 2
     absoluteAdded: 2.5
   - stat: {fileID: 11400000, guid: 8721c49195c629747b3e609300d5c220, type: 2}
     startingValue: 3.06

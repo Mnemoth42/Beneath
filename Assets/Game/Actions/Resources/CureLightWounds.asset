@@ -25,6 +25,6 @@ MonoBehaviour:
   useOnPickup: 0
   amountToHeal: 20
   isPercentage: 1
-  particleGameObject: {fileID: 1041383898900682, guid: 6415f946f87d42f408f61c846221beb6,
+  particleGameObject: {fileID: 69192902441116622, guid: 85f1bd52cccafb34fb428f1998771dbc,
     type: 3}
   audioArray: {fileID: 11400000, guid: ee23ad19c5628e843b3a0da734646587, type: 2}

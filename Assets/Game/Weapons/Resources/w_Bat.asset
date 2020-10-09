@@ -24,10 +24,10 @@ MonoBehaviour:
   controller: {fileID: 9100000, guid: a8fef1da60a213b40b94fa4724b1dc86, type: 2}
   damage: 1
   leftHanded: 0
-  offensiveStat: {fileID: 11400000, guid: 22215a7f67ae3334abbe1a63b23c0211, type: 2}
+  offensiveStat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
   defensiveStat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
   stylesAndDamage:
+  - 2
+  - 3
   - 4
   - 6
-  - 7
-  - 9

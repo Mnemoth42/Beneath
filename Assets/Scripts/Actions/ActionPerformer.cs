@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TkrainDesigns.Grids.Stats;
 using TkrainDesigns.Tiles.Movement;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace TkrainDesigns.Tiles.Actions
         Health target;
         PerformableActionItem currentActionItem;
         System.Action callbackAction;
+        List<Vector2Int> path;
 
         public void BeginAction(PerformableActionItem actionToPerform, Health targetHealth, List<Vector2Int> pathToFollow,
                                 System.Action callback)
@@ -38,14 +40,17 @@ namespace TkrainDesigns.Tiles.Actions
             target = targetHealth;
             callbackAction = callback;
             currentActionItem = actionToPerform;
-            int stepsRequired = pathToFollow.Count - actionToPerform.Range(gameObject);
+            path = pathToFollow;
+            Vector2Int targetLocation = pathToFollow.Last();
+            path.Remove(targetLocation);
+            int stepsRequired = path.Count - actionToPerform.Range(gameObject);
             Debug.Log($"{name} requires {stepsRequired} steps before performing action");
             if (stepsRequired > 0 && actionToPerform.AIRangedAttackSpell())
             {
                 List<Vector2Int> newPath = new List<Vector2Int>();
                 for(int i=0;i < stepsRequired; i++)
                 {
-                    newPath.Add(pathToFollow[i]);
+                    newPath.Add(path[i]);
                 }
                 mover.BeginMoveAction(newPath, ExecuteAction);
             }

@@ -21,11 +21,11 @@ MonoBehaviour:
     percentageAdded: 1
     absoluteAdded: 2
   - stat: {fileID: 11400000, guid: 6abb4d47f38ff3a48993fe29c2953618, type: 2}
-    startingValue: 4
+    startingValue: 8
     percentageAdded: 1
     absoluteAdded: 3
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
-    startingValue: 2
+    startingValue: 4
     percentageAdded: 0
     absoluteAdded: 3
   - stat: {fileID: 11400000, guid: 46c84e87dda9fba4e93a8949823326bb, type: 2}
@@ -48,3 +48,7 @@ MonoBehaviour:
     startingValue: 1.05
     percentageAdded: 0
     absoluteAdded: 0.05
+  - stat: {fileID: 11400000, guid: 22215a7f67ae3334abbe1a63b23c0211, type: 2}
+    startingValue: 8
+    percentageAdded: 3
+    absoluteAdded: 3

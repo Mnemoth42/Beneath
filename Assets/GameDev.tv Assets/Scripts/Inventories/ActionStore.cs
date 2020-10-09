@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TkrainDesigns.Saving;
 using TkrainDesigns.Stats;
+using TkrainDesigns.Tiles.Actions;
 
 #pragma warning disable CS0649
 namespace GameDevTV.Inventories
@@ -31,7 +32,12 @@ namespace GameDevTV.Inventories
         {
             for (int i=0;i<defaultItems.Count;i++)
             {
-                AddAction(defaultItems[i],i, 1);
+                if (defaultItems[i] != null)
+                {
+                    PerformableActionItem item = Instantiate(defaultItems[i]) as PerformableActionItem;
+                    AddAction(item, i, 1);
+                }
+               
             }
         }
 
