@@ -3,6 +3,7 @@ using TkrainDesigns.Saving;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Tiles.Stats;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 namespace TkrainDesigns.Stats
@@ -24,7 +25,8 @@ namespace TkrainDesigns.Stats
 
         [Header("Put stat representing experience value here")] [SerializeField]
         ScriptableStat experienceGainedStat = null;
-        public event System.Action OnLevelUpEvent;
+
+        public UnityEvent onLevelUpEvent;
 
         public string GetCharacterName()
         {
@@ -48,7 +50,7 @@ namespace TkrainDesigns.Stats
             Level = newLevel;
             if (Level>oldLevel)
             {
-                OnLevelUpEvent?.Invoke(); 
+                onLevelUpEvent?.Invoke(); 
             }
         }
 

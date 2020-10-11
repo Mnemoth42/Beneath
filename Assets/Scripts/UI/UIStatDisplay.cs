@@ -44,7 +44,7 @@ namespace RPG.UI
         }
         void OnSomethingChanged()
         {
-            Debug.Log("SoemthingChanged");
+
             if (baseStats && valueText)
             {
                 valueText.text = Mathf.RoundToInt(baseStats.GetStatValue(stat)).ToString();

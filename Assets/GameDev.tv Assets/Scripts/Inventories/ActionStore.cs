@@ -19,8 +19,8 @@ namespace GameDevTV.Inventories
         // STATE
         Dictionary<int, DockedItemSlot> dockedItems = new Dictionary<int, DockedItemSlot>();
 
-       
-        private class DockedItemSlot 
+
+        private class DockedItemSlot
         {
             public ActionItem item;
             public int number;
@@ -30,14 +30,14 @@ namespace GameDevTV.Inventories
 
         void Awake()
         {
-            for (int i=0;i<defaultItems.Count;i++)
+            for (int i = 0; i < defaultItems.Count; i++)
             {
                 if (defaultItems[i] != null)
                 {
                     PerformableActionItem item = Instantiate(defaultItems[i]) as PerformableActionItem;
                     AddAction(item, i, 1);
                 }
-               
+
             }
         }
 
@@ -49,7 +49,12 @@ namespace GameDevTV.Inventories
         public event Action StoreUpdated;
 
         public event Action OnBeginTurn;
-        public event Action OnEndTurn; 
+        public event Action OnEndTurn;
+
+        public void AnnounceUpdate()
+        {
+            StoreUpdated?.Invoke();
+        }
 
         public void BeginTurn()
         {
@@ -97,9 +102,9 @@ namespace GameDevTV.Inventories
         /// <param name="number">How many items to add.</param>
         public void AddAction(InventoryItem item, int index, int number)
         {
-            Debug.Log($"Adding {item.GetDescription()} to Action slot {index}");
+            Debug.Log($"{name}Adding {item.GetDisplayName()} to Action slot {index}");
             if (dockedItems.ContainsKey(index))
-            {  
+            {
                 if (object.ReferenceEquals(item, dockedItems[index].item))
                 {
                     dockedItems[index].number += number;
@@ -107,9 +112,11 @@ namespace GameDevTV.Inventories
             }
             else
             {
-                var slot = new DockedItemSlot {item = item as ActionItem, number = number};
+                var slot = new DockedItemSlot { item = item as ActionItem, number = number };
                 dockedItems[index] = slot;
             }
+            ActionItem ac = (ActionItem)item;
+            ac.ActivateCooldown(gameObject);
             StoreUpdated?.Invoke();
         }
 
@@ -151,7 +158,7 @@ namespace GameDevTV.Inventories
                 }
                 StoreUpdated?.Invoke();
             }
-            
+
         }
 
         /// <summary>
@@ -174,14 +181,14 @@ namespace GameDevTV.Inventories
             if (existingSlot >= 0 && existingSlot != index) return 0; //No duplicate actions, so there.
             if (actionItem.IsConsumable())
             {
-                if(existingSlot<0) return 5; //int.maxvalue;
-                return 5-dockedItems[index].number;
+                if (existingSlot < 0) return 5; //int.maxvalue;
+                return 5 - dockedItems[index].number;
             }
             if (dockedItems.ContainsKey(index) && !object.ReferenceEquals(item, dockedItems[index].item))
             {
                 return 0;
             }
-            
+
             if (dockedItems.ContainsKey(index))
             {
                 return 0;
@@ -214,7 +221,7 @@ namespace GameDevTV.Inventories
             var state = new Dictionary<int, DockedItemRecord>();
             foreach (var pair in dockedItems)
             {
-                DockedItemRecord record = new DockedItemRecord {itemID = pair.Value.item.GetItemID(), number = pair.Value.number};
+                DockedItemRecord record = new DockedItemRecord { itemID = pair.Value.item.GetItemID(), number = pair.Value.number };
                 state[pair.Key] = record;
             }
             SaveBundle bundle = new SaveBundle();
@@ -227,7 +234,7 @@ namespace GameDevTV.Inventories
             if (bundle != null)
             {
                 object state = bundle.GetObject("ActionStore");
-                Dictionary<int, DockedItemRecord> stateDict = (Dictionary<int, DockedItemRecord>) state;
+                Dictionary<int, DockedItemRecord> stateDict = (Dictionary<int, DockedItemRecord>)state;
                 foreach (KeyValuePair<int, DockedItemRecord> pair in stateDict)
                 {
                     AddAction(InventoryItem.GetFromId(pair.Value.itemID), pair.Key, pair.Value.number);

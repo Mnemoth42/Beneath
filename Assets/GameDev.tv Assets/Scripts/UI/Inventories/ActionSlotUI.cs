@@ -13,15 +13,15 @@ namespace GameDevTV.UI.Inventories
     /// </summary>
     public class ActionSlotUI : MonoBehaviour, IItemHolder, IDragContainer<InventoryItem>, IPointerClickHandler
     {
-        
-        
+
+
 
         // CONFIG DATA
         [SerializeField] InventoryItemIcon icon = null;
         [SerializeField] int index = 0;
         [SerializeField] CooldownUI cooldownTimer;
         [SerializeField] Image HighlightImage = null;
-        
+
         // CACHE
         ActionStore store;
         GameObject player;
@@ -37,7 +37,7 @@ namespace GameDevTV.UI.Inventories
             player = GameObject.FindGameObjectWithTag("Player");
             cooldownManager = player.GetComponent<CooldownManager>();
             cooldownManager.onCooldownChanged += SetTimer;
-            store =player.GetComponent<ActionStore>();
+            store = player.GetComponent<ActionStore>();
             store.StoreUpdated += UpdateIcon;
             store.OnBeginTurn += OnBeginTurn;
             store.OnEndTurn += OnEndTurn;
@@ -49,9 +49,9 @@ namespace GameDevTV.UI.Inventories
             ActionItem item = store.GetAction(index);
             if (item)
             {
-                
-                    turnsToWait = (cooldownManager.TurnsRemaining(item.TimerToken()));
-                
+
+                turnsToWait = (cooldownManager.TurnsRemaining(item.TimerToken()));
+
             }
             else turnsToWait = 0;
             cooldownTimer.SetCooldownTimer(turnsToWait);
@@ -91,27 +91,14 @@ namespace GameDevTV.UI.Inventories
         void UpdateIcon()
         {
             icon.SetItem(GetItem(), GetNumber());
+            SetTimer();
         }
 
         void OnBeginTurn()
         {
             ActionItem item = store.GetAction(index);
-            
             isPlayerTurn = true;
-            if (item)
-            {
-
-                turnsToWait = cooldownManager.TurnsRemaining(item.TimerToken());
-            }
-            else
-            {
-                turnsToWait = 0;
-            }
-
-            if (cooldownTimer)
-            {
-                cooldownTimer.SetCooldownTimer(turnsToWait);
-            }
+            SetTimer();
         }
 
         void OnEndTurn()
@@ -128,6 +115,14 @@ namespace GameDevTV.UI.Inventories
             }
         }
 
+        public static void ClearHighlights()
+        {
+            foreach (ActionSlotUI ui in FindObjectsOfType<ActionSlotUI>())
+            {
+                ui.Highlight(Color.white);
+            }
+        }
+
         public void OnPointerClick(PointerEventData eventData)
         {
             Debug.Log($"OnPointerClick {name}");
@@ -137,14 +132,11 @@ namespace GameDevTV.UI.Inventories
             {
                 if (store.Use(index, player))
                 {
+                    ClearHighlights();
                     Highlight(Color.blue);
                 }
-                else
-                {
-                    Highlight(Color.white);
-                }
+
             }
-            
         }
     }
 }

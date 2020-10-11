@@ -6,6 +6,7 @@ using TkrainDesigns.Tiles.Control;
 using TkrainDesigns.Tiles.Stats;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UiExperienceDisplay : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class UiExperienceDisplay : MonoBehaviour
     PersonalStats stats;
     BaseController target;
     PlayerController player;
+    [SerializeField] Slider slider;
 
     void Awake()
     {
@@ -51,7 +53,10 @@ public class UiExperienceDisplay : MonoBehaviour
 
     void UpdateDisplay()
     {
-
+        if (slider)
+        {
+            slider.value = experience.GetExperience / stats.GetStatValue(experience.ExperienceNeededStat);
+        }
         text.text = $"Exp: {experience.GetExperience}/{(int)stats.GetStatValue(experience.ExperienceNeededStat)}";
     }
 }

@@ -6,6 +6,7 @@ using GameDevTV.Inventories;
 using TkrainDesigns.Grids.Stats;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
+using TkrainDesigns.Tiles.Combat;
 using TkrainDesigns.Tiles.Control;
 using UnityEditor;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace TkrainDesigns.Tiles.Actions
     {
         [SerializeField] float baseDamage = 5.0f;
         [SerializeField] GameObject fireball;
+
         [SerializeField] ScriptableStat damageStat;
         [SerializeField] ScriptableStat defenseStat;
         [SerializeField] ScriptableStat intelligenceStat;
@@ -54,7 +56,7 @@ namespace TkrainDesigns.Tiles.Actions
         GameObject currentTarget;
         Action callbackAction;
 
-        public override void PerformAction(GameObject user, GameObject target = null,  Action callback = null)
+        public override void PerformAction(GameObject user, GameObject target = null, Action callback = null)
         {
             if (!target)
             {
@@ -75,7 +77,14 @@ namespace TkrainDesigns.Tiles.Actions
 
         void ReleaseFireball()
         {
-            GameObject go = Instantiate(fireball, currentUser.transform.position, Quaternion.identity);
+            Vector3 startPosition = currentUser.transform.position + Vector3.up;
+            GridFighter fighter = currentUser.GetComponent<GridFighter>();
+            if (fighter.GetRightHandTransform() != null)
+            {
+                startPosition = fighter.GetRightHandTransform().position;
+            }
+
+            GameObject go = Instantiate(fireball, startPosition, Quaternion.identity);
             FireballMover mover = go.GetComponent<FireballMover>();
             mover.SetTarget(currentTarget.transform, Damage);
 
@@ -85,7 +94,7 @@ namespace TkrainDesigns.Tiles.Actions
         void Damage()
         {
             currentTarget.GetComponent<Health>()
-                         .TakeDamage(baseDamage * currentUser.GetComponent<PersonalStats>().GetStatValue(damageStat)/10f , defenseStat,
+                         .TakeDamage(baseDamage * currentUser.GetComponent<PersonalStats>().GetStatValue(damageStat) / 10f, defenseStat,
                                      currentUser);
             callbackAction();
         }
@@ -94,11 +103,11 @@ namespace TkrainDesigns.Tiles.Actions
         {
             if (user.TryGetComponent(out PlayerController controller))
             {
-                controller.SetCurrentAction(this);
-                
+                return controller.SetCurrentAction(this);
+
             }
 
-            return true;
+            return false;
         }
 
 #if UNITY_EDITOR
@@ -133,7 +142,7 @@ namespace TkrainDesigns.Tiles.Actions
             intelligenceStat = stat;
             Dirty();
         }
-    
+
 
         void SetFireball(GameObject go)
         {
@@ -142,6 +151,8 @@ namespace TkrainDesigns.Tiles.Actions
             fireball = go;
             Dirty();
         }
+
+        
 
         void SetRange(int newRange)
         {
@@ -154,11 +165,11 @@ namespace TkrainDesigns.Tiles.Actions
         {
             base.DrawCustomInspector(width, style);
             SetFireball((GameObject)EditorGUILayout.ObjectField("Projectile", fireball, typeof(GameObject), true));
-            SetBaseDamage((float)EditorGUILayout.IntSlider("Base Damage",(int) baseDamage, 1, 100));
-            SetRange(EditorGUILayout.IntSlider("Range", range, 0,8));
+            SetBaseDamage((float)EditorGUILayout.IntSlider("Base Damage", (int)baseDamage, 1, 100));
+            SetRange(EditorGUILayout.IntSlider("Range", range, 0, 8));
             SetDamageStat((ScriptableStat)EditorGUILayout.ObjectField("Damage Stat", damageStat,
                                                                       typeof(ScriptableStat), false));
-            SetDefenseStat((ScriptableStat) EditorGUILayout.ObjectField("Defense Stat", defenseStat, typeof(ScriptableStat), false));
+            SetDefenseStat((ScriptableStat)EditorGUILayout.ObjectField("Defense Stat", defenseStat, typeof(ScriptableStat), false));
             SetIntelligenceStat((ScriptableStat)EditorGUILayout.ObjectField("Intelligence Stat", intelligenceStat, typeof(ScriptableStat), false));
         }
 

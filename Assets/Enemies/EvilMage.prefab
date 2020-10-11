@@ -1165,10 +1165,10 @@ GameObject:
   - component: {fileID: 4785771511634961408}
   - component: {fileID: -7510162779787947453}
   - component: {fileID: 5230761679497093233}
-  - component: {fileID: 6237734032306273069}
   - component: {fileID: 8266374303946312645}
   - component: {fileID: -3293366836850863189}
-  - component: {fileID: 5738881588724074694}
+  - component: {fileID: -885796797468213182}
+  - component: {fileID: 7284479435221869464}
   m_Layer: 9
   m_Name: EvilMage
   m_TagString: Untagged
@@ -1356,20 +1356,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   droppedItems: []
   library: {fileID: 11400000, guid: 68d2eb4c3e5eb6b40902926f15da9db5, type: 2}
---- !u!114 &6237734032306273069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580023137681114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd052ba8d1b3d7a44a72bb92aee4cf00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingActionItems:
-  - {fileID: 11400000, guid: e6d562c4634c70d44a950d568efcc644, type: 2}
 --- !u!114 &8266374303946312645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1394,7 +1380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf6fc02acfbe09d409f937d1fa3154bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5738881588724074694
+--- !u!114 &-885796797468213182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1403,9 +1389,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1580023137681114}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65a3fa71d7c53de48b6af3700ddf94dd, type: 3}
+  m_Script: {fileID: 11500000, guid: a6efcda32bb08ba438a4385d7f051f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  affiliation: 2
+  aimPoint: {x: 0, y: 0.88311076, z: 0}
+--- !u!114 &7284479435221869464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580023137681114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a19ff972ec6859b48870488d7b1e81b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultItems:
+  - {fileID: 11400000, guid: e6d562c4634c70d44a950d568efcc644, type: 2}
+  - {fileID: 11400000, guid: 0515fcb451e74604d90d87b35d3a0977, type: 2}
 --- !u!1 &1583688891333824
 GameObject:
   m_ObjectHideFlags: 0

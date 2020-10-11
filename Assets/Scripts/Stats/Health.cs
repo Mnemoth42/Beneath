@@ -38,7 +38,7 @@ namespace TkrainDesigns.Grids.Stats
         {
             if (stats)
             {
-                stats.OnLevelUpEvent += OnLevelUp;
+                stats.onLevelUpEvent.AddListener(OnLevelUp);
             }
         }
 
@@ -46,7 +46,7 @@ namespace TkrainDesigns.Grids.Stats
         {
             if (stats)
             {
-                stats.OnLevelUpEvent -= OnLevelUp;
+                stats.onLevelUpEvent.RemoveListener(OnLevelUp);
             }
         }
 

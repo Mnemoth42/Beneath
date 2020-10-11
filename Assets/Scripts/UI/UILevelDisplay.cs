@@ -31,7 +31,7 @@ public class UILevelDisplay : MonoBehaviour
         if (!isTarget)
         
         {
-            stats.OnLevelUpEvent += UpdateDisplay;
+            stats.onLevelUpEvent.AddListener(UpdateDisplay);
             UpdateDisplay();
         }
     }
@@ -41,7 +41,7 @@ public class UILevelDisplay : MonoBehaviour
         if (!isTarget)
         
         {
-            stats.OnLevelUpEvent -= UpdateDisplay;
+            stats.onLevelUpEvent.RemoveListener(UpdateDisplay);
         }
     }
 

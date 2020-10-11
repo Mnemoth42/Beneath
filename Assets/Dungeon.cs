@@ -250,7 +250,8 @@ namespace TkrainDesigns.Tiles.Dungeons
 
             }
 
-            Instantiate(exit, TileUtilities.IdealWorldPosition(finish), Quaternion.identity);
+            GameObject exitObject = Instantiate(exit, TileUtilities.IdealWorldPosition(finish), Quaternion.identity);
+            exitObject.transform.SetParent(transform);
         }
         //TODO: Calculate bounds of actual dungeon 
         void CreateWalls()

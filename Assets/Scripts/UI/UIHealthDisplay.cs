@@ -5,6 +5,7 @@ using TkrainDesigns.Grids.Stats;
 using TkrainDesigns.Tiles.Control;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIHealthDisplay : MonoBehaviour
 {
@@ -13,12 +14,14 @@ public class UIHealthDisplay : MonoBehaviour
     TextMeshProUGUI text;
     Health health;
     PlayerController player;
+    [SerializeField] Slider slider;
 
     void Awake()
     {
         text = GetComponent<TextMeshProUGUI>();
         player = FindObjectOfType<PlayerController>();
         health = player.GetComponent<Health>();
+
     }
 
     void Start()
@@ -56,7 +59,10 @@ public class UIHealthDisplay : MonoBehaviour
 
     void UpdateDisplay()
     {
-       
+        if (slider)
+        {
+            slider.value = health.HealthAsPercentage;
+        }
         text.text = $"Health: {(int)health.CurrentHealth}/{(int)health.MaxHealth}";
     }
 }

@@ -23,8 +23,16 @@ namespace TkrainDesigns.Tiles.Combat
         
         [Header("Events")]
         [SerializeField] UnityEvent onHitEvent;
-        
 
+        public Transform GetRightHandTransform()
+        {
+            return rightHandTransform;
+        }
+
+        public Transform GetLeftHandTransform()
+        {
+            return leftHandTransform;
+        }
         
 
         System.Action callbackAction;
