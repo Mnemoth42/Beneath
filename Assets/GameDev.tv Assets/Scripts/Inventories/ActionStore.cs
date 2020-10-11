@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 using TkrainDesigns.Saving;
-using TkrainDesigns.Stats;
-using TkrainDesigns.Tiles.Actions;
+using UnityEngine;
 
 #pragma warning disable CS0649
 namespace GameDevTV.Inventories
@@ -34,7 +32,7 @@ namespace GameDevTV.Inventories
             {
                 if (defaultItems[i] != null)
                 {
-                    PerformableActionItem item = Instantiate(defaultItems[i]) as PerformableActionItem;
+                    ActionItem item = Instantiate(defaultItems[i]) as ActionItem;
                     AddAction(item, i, 1);
                 }
 
@@ -115,8 +113,7 @@ namespace GameDevTV.Inventories
                 var slot = new DockedItemSlot { item = item as ActionItem, number = number };
                 dockedItems[index] = slot;
             }
-            ActionItem ac = (ActionItem)item;
-            ac.ActivateCooldown(gameObject);
+
             StoreUpdated?.Invoke();
         }
 

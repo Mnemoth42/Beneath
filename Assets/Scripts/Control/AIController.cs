@@ -107,25 +107,25 @@ namespace TkrainDesigns.Tiles.Control
 
                 if (potentialAction == null)
                 {
-                    Debug.Log($"{name}'s Action Item {i} is null or not a PerformableActionItem");
+                    //Debug.Log($"{name}'s Action Item {i} is null or not a PerformableActionItem");
                     continue;
                 }
 
                 if (!potentialAction.CanUse(gameObject))
                 {
-                    Debug.Log($"{name}'s spell {potentialAction.displayName} cannot be used at this time.");
+                    //Debug.Log($"{name}'s spell {potentialAction.displayName} cannot be used at this time.");
                     continue;
                 }
 
                 if (potentialAction.AIRangedAttackSpell())
                 {
-                    Debug.Log($"{name} has selected {potentialAction.displayName} because it is an offensive action.");
+                    //Debug.Log($"{name} has selected {potentialAction.displayName} because it is an offensive action.");
                     return potentialAction;
                 }
 
                 if (potentialAction.AIHealingSpell() && result == null)
                 {
-                    Debug.Log($"{name} has potentially selected {potentialAction.displayName} as it is a healing spell.");
+                    //Debug.Log($"{name} has potentially selected {potentialAction.displayName} as it is a healing spell.");
                     result = potentialAction;
                 }
             }

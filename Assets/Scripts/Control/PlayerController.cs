@@ -19,7 +19,10 @@ namespace TkrainDesigns.Tiles.Control
     {
         [SerializeField] bool debug = false;
 
+        [SerializeField] float pickupRadius;
+
         public  UnityEvent onItemPickedUp;
+        public UnityEvent<Vector3, string> onItemPickedTextSpawn;
 
         
         public Dictionary<Vector2Int, bool> obstacleList=new Dictionary<Vector2Int, bool>();
@@ -109,11 +112,15 @@ namespace TkrainDesigns.Tiles.Control
             GetComponent<ActionStore>().EndTurn();
             Vector2Int currentPosition = TileUtilities.GridPosition(transform.position);
             GridPathFinder<Pickup>.ConductInventory();
-            var pickups = GridPathFinder<Pickup>.GetItemsAt(currentPosition);
+            //var pickups = GridPathFinder<Pickup>.GetItemsAt(currentPosition);
+            var pickups = FindObjectsOfType<Pickup>()
+                .Where(p => Vector3.Distance(p.transform.position, transform.position) < pickupRadius);
             foreach (Pickup pickup in pickups)
             {
-                pickup.PickupItem();
+                
                 onItemPickedUp?.Invoke();
+                onItemPickedTextSpawn?.Invoke(pickup.transform.position, pickup.GetItem().GetDisplayName());
+                pickup.PickupItem();
             }
 
             currentActionItem = null;

@@ -22,11 +22,14 @@ namespace TkrainDesigns.Tiles.Control
         public List<Vector2Int> Path;
         public BaseController target;
     }
+    [RequireComponent(typeof(PersonalStats))]
     [RequireComponent(typeof(Health))]
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(GridMover))]
     [RequireComponent(typeof(GridFighter))]
     [RequireComponent(typeof(ActionPerformer))]
+    [RequireComponent(typeof(ActionStore))]
+    
     public abstract class BaseController : MonoBehaviour
     {
         protected System.Action OnTurnFinished = null;

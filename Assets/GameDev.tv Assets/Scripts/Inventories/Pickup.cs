@@ -83,6 +83,7 @@ namespace GameDevTV.Inventories
             bool foundSlot = inventory.AddToFirstEmptySlot(item, number);
             if (foundSlot)
             {
+                
                 Destroy(gameObject);
             }
         }

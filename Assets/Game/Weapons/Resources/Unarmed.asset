@@ -10,29 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da6285b7e6b57614baa45ce23367481d, type: 3}
-  m_Name: w_BasicPlayerSword
+  m_Name: Unarmed
   m_EditorClassIdentifier: 
-  itemId: 6cab8b15-57a5-4390-8a79-e1d032cedede
-  displayName: Basic Sword
-  description: 'Just your run of the mill basic sword.  Nothing to get excited about. 
-    It''s not a horrible sword, mind you.  It works rather well, if you think about
-    it.  It''s just a sword.  '
-  icon: {fileID: 21300000, guid: e7e5c84b3bb7c2c419f60b8873fdae66, type: 3}
-  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  itemId: 12556445-85e2-4e3e-a685-d919e118ebe9
+  displayName: 
+  description: 
+  icon: {fileID: 21300000, guid: aadb7541f78207747bc84582718754f4, type: 3}
+  pickup: {fileID: 0}
   stackable: 0
   potentialStatBoosts: []
   allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,
     type: 2}
-  model: {fileID: 1221624550297679130, guid: 42901ad781bc95d4db16dcdec25e2a4c, type: 3}
-  controller: {fileID: 9100000, guid: accadbbe3e4192e47a2b168937caa4f9, type: 2}
+  model: {fileID: 0}
+  controller: {fileID: 22100000, guid: 71158755ad94cf641a5154ab24b7452d, type: 2}
   damage: 5
   leftHanded: 0
   offensiveStat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
   defensiveStat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
   stylesAndDamage:
+  - 3
+  - 4
   - 5
-  - 6
-  - 7
-  - 12
-  - 6
-  - 9
+  - 4
+  - 3
