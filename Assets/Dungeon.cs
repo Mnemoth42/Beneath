@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TkrainDesigns.Stats;
 using TkrainDesigns.Tiles.Control;
+using TkrainDesigns.Tiles.Core;
 using TkrainDesigns.Tiles.Grids;
 using UnityEngine;
 using UnityEngine.AI;
@@ -29,6 +30,8 @@ namespace TkrainDesigns.Tiles.Dungeons
 
         [Header("Dropped Items/Enemies")] [SerializeField]
         GameObject[] drops;
+
+        [SerializeField] EnemyDrops enemyDrops;
 
         int level = 0;
 
@@ -235,7 +238,7 @@ namespace TkrainDesigns.Tiles.Dungeons
                     inst.transform.SetParent(transform);
                     if (pair.Value > 1 && pair.Key!=start && pair.Key!=finish)
                     {
-                        GameObject go = Instantiate(drops[Random.Range(0, drops.Length)],
+                        GameObject go = Instantiate(enemyDrops.GetDrop(level),
                                                     TileUtilities.IdealWorldPosition(pair.Key), Quaternion.identity);
                         go.transform.SetParent(transform);
                         if (go.TryGetComponent<PersonalStats>(out PersonalStats stats))

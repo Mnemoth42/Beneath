@@ -108,7 +108,7 @@ namespace TkrainDesigns.Tiles.Movement
             anim.SetTrigger("Idle");
             while (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Idle"))
             {
-                // Debug.Log($"{name} waiting to be idle.");
+                transform.position = destination;
                 yield return new WaitForEndOfFrame();
             }
 
@@ -139,6 +139,16 @@ namespace TkrainDesigns.Tiles.Movement
             }
 
             transform.position = newLocation;
+        }
+
+        void FootR()
+        {
+
+        }
+
+        void FootL()
+        {
+
         }
     }
 }

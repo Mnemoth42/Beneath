@@ -55,7 +55,7 @@ namespace RPG.Inventory
                 Drop drop = library.GetRandomDrop(level);
                 if (drop.item != null)
                 {
-                    Debug.Log($"{name} has dropped {drop.item}");
+                    //Debug.Log($"{name} has dropped {drop.item}");
                     DropItem(drop.item, drop.count);
                 }
             }

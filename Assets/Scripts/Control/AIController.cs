@@ -58,12 +58,12 @@ namespace TkrainDesigns.Tiles.Control
             Dictionary<Vector2Int, bool> others = GetObstacles();
             others.Remove(playerPosition);
             PerformableActionItem potentialActionItem = GetAvailableAction();
-            Debug.Log(potentialActionItem);
+            //Debug.Log(potentialActionItem);
             int maxSteps = Mover.MaxStepsPerTurn+1 + (potentialActionItem ? potentialActionItem.Range(gameObject) : 0);
             var path = GridPathFinder<Tile>.FindPath(ourPosition, playerPosition, others);
             
             int radius = PositionInList(path, playerPosition);
-            Debug.Log($"{name}: Max Steps = {maxSteps}, Radius = {radius}");
+            //Debug.Log($"{name}: Max Steps = {maxSteps}, Radius = {radius}");
             if (radius >= 0)
             {
                 if (radius > maxSteps)
@@ -102,7 +102,7 @@ namespace TkrainDesigns.Tiles.Control
             PerformableActionItem result = null;
             for (int i = 0; i < 6; i++)
             {
-                Debug.Log($"Considering {i}");
+                //Debug.Log($"Considering {i}");
                 PerformableActionItem potentialAction = actionStore.GetAction(i) as PerformableActionItem;
 
                 if (potentialAction == null)

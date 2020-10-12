@@ -36,11 +36,16 @@ namespace TkrainDesigns.Tiles.Combat
             return currentAttackForm;
         }
 
-        public GridWeapon EquipWeapon(Transform rightHand, Transform leftHand, GridWeapon oldWeapon)
+        public GridWeapon EquipWeapon(Transform rightHand, Transform leftHand, GridWeapon oldWeapon, Animator animator)
         {
             if (oldWeapon!=null)
             {
                 Destroy(oldWeapon);
+            }
+
+            if (controller)
+            {
+                animator.runtimeAnimatorController = controller;
             }
 
             if (model)

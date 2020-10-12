@@ -233,7 +233,7 @@ namespace TkrainDesigns.Tiles.Control
                         obstacles.Remove(clickedGridLocation);
                         request.Perform = true;
                         request.target = LocateControllerAt(clickedGridLocation);
-                        Debug.Log($"{request.target} at {clickedGridLocation}");
+                        //Debug.Log($"{request.target} at {clickedGridLocation}");
                     }
                     GridPathFinder<Tile>.ConductInventory();
                     int availableMoves = Mover.MaxStepsPerTurn + 1;

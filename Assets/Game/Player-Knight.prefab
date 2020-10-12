@@ -2295,10 +2295,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86cca537b4f36f4e8f3360b72c27437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultWeaponConfig: {fileID: 11400000, guid: d68dfccea0ed2064dbe41de99c936c74,
+  defaultWeaponConfig: {fileID: 11400000, guid: 07ee8a30a215b924193bf10919042f28,
     type: 2}
   rightHandTransform: {fileID: 1038350539170021436}
   leftHandTransform: {fileID: 1042202228460129994}
+  weaponSlot: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19, type: 2}
   onHitEvent:
     m_PersistentCalls:
       m_Calls: []

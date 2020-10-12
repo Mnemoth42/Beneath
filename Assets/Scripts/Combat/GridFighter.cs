@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using RPG.Inventory;
 using TkrainDesigns.Grids.Stats;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
@@ -20,6 +21,8 @@ namespace TkrainDesigns.Tiles.Combat
         [SerializeField] GridWeaponConfig defaultWeaponConfig = null;
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
+        [Header("Put Weapon Slot token here")]
+        [SerializeField] ScriptableEquipSlot weaponSlot;
         
         [Header("Events")]
         [SerializeField] UnityEvent onHitEvent;
@@ -44,6 +47,9 @@ namespace TkrainDesigns.Tiles.Combat
         GridWeapon weapon=null;
         GridWeaponConfig currentWeaponConfig;
         PersonalStats personalStats;
+        StatsEquipment equipment;
+
+        
 
         void Awake()
         {
@@ -51,6 +57,11 @@ namespace TkrainDesigns.Tiles.Combat
             mover = GetComponent<GridMover>();
             EquipWeapon(defaultWeaponConfig);
             personalStats = GetComponent<PersonalStats>();
+            if (TryGetComponent(out StatsEquipment e) && weaponSlot!=null)
+            {
+                equipment = e;
+                equipment.EquipmentUpdated += CheckEquipment;
+            }
         }
 
         public void EquipWeapon(GridWeaponConfig config)
@@ -60,8 +71,22 @@ namespace TkrainDesigns.Tiles.Combat
                 Debug.Log($"{name} is trying to equip a non-existent weapon.  You might want to fix that.");
                 return;
             }
-            weapon = config.EquipWeapon(rightHandTransform, leftHandTransform, weapon);
+            Debug.Log($"Equipping {config.displayName}");
+            weapon = config.EquipWeapon(rightHandTransform, leftHandTransform, weapon, anim);
             currentWeaponConfig = config;
+        }
+
+        void CheckEquipment()
+        {
+            Debug.Log("CheckEquipment");
+            GridWeaponConfig config = equipment.GetItemInSlot(weaponSlot) as GridWeaponConfig;
+            Debug.Log(config==null?"No Weapon?":$"{config.GetDisplayName()}");
+            if (!config)
+            {
+                EquipWeapon(defaultWeaponConfig);
+                return;
+            }
+            EquipWeapon(config);
         }
 
         float DamageCalculation()
