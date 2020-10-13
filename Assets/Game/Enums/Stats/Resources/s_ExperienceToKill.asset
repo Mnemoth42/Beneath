@@ -15,4 +15,6 @@ MonoBehaviour:
   itemId: 205f88a9-71e0-468b-9f7c-91da35aec386
   description: Experience For Killing
   extendedDescription: How much experience you get for killing this monster.
+  minimum: 1
+  maximum: 5000
   sources: []

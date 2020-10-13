@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-
+using GameDevTV.Inventories;
+using GameDevTV.UI.Inventories;
 using TkrainDesigns.Stats;
+using TkrainDesigns.Tiles.Combat;
 using TkrainDesigns.Tiles.Control;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIAvater : MonoBehaviour
+public class UIAvater : MonoBehaviour, IItemHolder
 {
     [SerializeField] bool isTarget = false;
 
@@ -37,5 +39,11 @@ public class UIAvater : MonoBehaviour
             stats = target.GetComponent<PersonalStats>();
             image.sprite = stats.Avatar;
         }
+    }
+
+    public InventoryItem GetItem()
+    {
+        GridFighter fighter = stats.GetComponent<GridFighter>();
+        return fighter.GetCurrentWeaponConfig();
     }
 }

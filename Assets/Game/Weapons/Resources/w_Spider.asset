@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: w_Spider
   m_EditorClassIdentifier: 
   itemId: 15d44822-61f6-4b6b-98ba-afadc788b718
-  displayName: 
-  description: 
+  displayName: Piercing Bite
+  description: I hope you're not allergic to spiders.  Lucky for you, they're not
+    poisonous, but those bites still hurt!
   icon: {fileID: 0}
   pickup: {fileID: 0}
   stackable: 0
@@ -27,4 +28,4 @@ MonoBehaviour:
   offensiveStat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
   defensiveStat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
   stylesAndDamage:
-  - 6
+  - 4

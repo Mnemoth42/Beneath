@@ -28,7 +28,7 @@ MonoBehaviour:
   offensiveStat: {fileID: 11400000, guid: 22215a7f67ae3334abbe1a63b23c0211, type: 2}
   defensiveStat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
   stylesAndDamage:
-  - 6
-  - 6
-  - 9
-  - 11
+  - 4
+  - 4
+  - 7
+  - 8

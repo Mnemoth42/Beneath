@@ -118,6 +118,30 @@ namespace TkrainDesigns.Grids.Stats
             return currentHealth;
         }
 
+        public float TakeDamage(float amount, GameObject instigator)
+        {
+            if (IsAlive)
+            {
+                GetComponent<Animator>().SetTrigger("GetHit");
+                currentHealth = Mathf.Clamp(currentHealth - amount, 0, MaxHealth);
+                onTakeDamage?.Invoke();
+                onTakeDamageFloat?.Invoke(-amount);
+                if ((int)currentHealth < 1)
+                {
+                    isAlive = false;
+                    if (instigator)
+                    {
+                        if (stats && instigator.TryGetComponent<Experience>(out Experience experience))
+                        {
+                            experience.GainExperience(stats.GetExperienceForKilling());
+                        }
+                    }
+                    onDeath?.Invoke();
+                }
+            }
+            return currentHealth;
+        }
+
         public float Heal(float amountToHeal)
         {
             if (IsAlive)

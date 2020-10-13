@@ -89,11 +89,16 @@ namespace TkrainDesigns.Tiles.Combat
             EquipWeapon(config);
         }
 
+        public GridWeaponConfig GetCurrentWeaponConfig() => currentWeaponConfig;
+
         float DamageCalculation()
         {
             float rawDamage = currentWeaponConfig.Damage;
-            if (personalStats == null || currentWeaponConfig.GetOffensiveStat() == null) return rawDamage;
-            return rawDamage * (personalStats.GetStatValue(currentWeaponConfig.GetOffensiveStat())/10f);
+            return CombatBroker.CalculateDamage(gameObject,
+                                                target.gameObject,
+                                                rawDamage,
+                                                currentWeaponConfig.GetOffensiveStat(),
+                                                currentWeaponConfig.GetDefensiveStat());
         }
 
         void Hit()
@@ -106,7 +111,7 @@ namespace TkrainDesigns.Tiles.Combat
                 return;
             }
             
-            target.TakeDamage(DamageCalculation(), currentWeaponConfig.GetDefensiveStat(), gameObject);
+            target.TakeDamage(DamageCalculation(), gameObject);
             if (weapon)
             {
                 weapon.OnHit();

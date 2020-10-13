@@ -55,11 +55,9 @@ public class DrainLife : PerformableActionItem
 
     void Leech()
     {
-        float damageToDo = baseDamage * currentUser.GetComponent<PersonalStats>().GetStatValue(attackStat) / 20.0f;
-        
+        float damageToDo = CombatBroker.CalculateDamage(currentUser, currentTarget, baseDamage, attackStat, defenseStat);
         Debug.Log($"{currentUser.name} is attacking for {damageToDo} Drain points.");
-        currentTarget.GetComponent<Health>().onTakeDamageFloat.AddListener(Heal);
-        currentTarget.GetComponent<Health>().TakeDamage(damageToDo, defenseStat, currentUser);
+        Heal(currentTarget.GetComponent<Health>().TakeDamage(damageToDo, defenseStat, currentUser));
     }
 
     float HealPercent()
@@ -69,9 +67,7 @@ public class DrainLife : PerformableActionItem
 
     void Heal(float amount)
     {
-        Debug.Log($"{currentUser.name}'s actual damage was {amount}");
-        currentTarget.GetComponent<Health>().onTakeDamageFloat.RemoveListener(Heal);
-        currentUser.GetComponent<Health>().Heal(-amount*currentUser.GetComponent<PersonalStats>().GetPercentageModifiers(attackStat)*HealPercent());
+        currentUser.GetComponent<Health>().Heal(amount*currentUser.GetComponent<PersonalStats>().GetPercentageModifiers(attackStat)*HealPercent());
         callbackAction?.Invoke();
     }
 

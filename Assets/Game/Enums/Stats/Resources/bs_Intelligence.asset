@@ -16,4 +16,6 @@ MonoBehaviour:
   description: Intelligence
   extendedDescription: A measure of how well you think on your feet.  This is more
     than just drinking and knowing things, this is recalling those things under pressure.
+  minimum: 1
+  maximum: 100
   sources: []

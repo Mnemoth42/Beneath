@@ -299,6 +299,7 @@ MonoBehaviour:
     type: 2}
   rightHandTransform: {fileID: 4789883093486450}
   leftHandTransform: {fileID: 4423546522079336}
+  weaponSlot: {fileID: 0}
   onHitEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -337,6 +338,9 @@ MonoBehaviour:
   avatar: {fileID: 21300000, guid: d6b5d2f8546c70b458c82bcd0dfca358, type: 3}
   experienceGainedStat: {fileID: 11400000, guid: 46c84e87dda9fba4e93a8949823326bb,
     type: 2}
+  onLevelUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3431690527865391667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   droppedItems: []
-  library: {fileID: 11400000, guid: 68d2eb4c3e5eb6b40902926f15da9db5, type: 2}
+  library: {fileID: 11400000, guid: 4aa873766be98234d81d11f40895c2cc, type: 2}
 --- !u!114 &-2490439332271715506
 MonoBehaviour:
   m_ObjectHideFlags: 0

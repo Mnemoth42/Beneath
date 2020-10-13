@@ -609,6 +609,7 @@ MonoBehaviour:
     type: 2}
   rightHandTransform: {fileID: 4246916032337482}
   leftHandTransform: {fileID: 4246916032337482}
+  weaponSlot: {fileID: 0}
   onHitEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -663,7 +664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   droppedItems: []
-  library: {fileID: 11400000, guid: 68d2eb4c3e5eb6b40902926f15da9db5, type: 2}
+  library: {fileID: 11400000, guid: 4aa873766be98234d81d11f40895c2cc, type: 2}
 --- !u!114 &6354191542529478063
 MonoBehaviour:
   m_ObjectHideFlags: 0

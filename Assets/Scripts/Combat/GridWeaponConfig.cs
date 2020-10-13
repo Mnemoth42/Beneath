@@ -74,7 +74,7 @@ namespace TkrainDesigns.Tiles.Combat
             result += "\n\n";
             if (stylesAndDamage.Count == 0)
             {
-                result += $"Hits for {damage} points.";
+                result += $"Base Damage: {damage}";
             }
             else
             {
@@ -86,7 +86,7 @@ namespace TkrainDesigns.Tiles.Combat
                     max = Mathf.Max(style, max);
                     
                 }
-                result += $"Hits for between {min} and {max} points.";
+                result += $"Base Damage between {min} and {max}.";
             }
 
             return result;

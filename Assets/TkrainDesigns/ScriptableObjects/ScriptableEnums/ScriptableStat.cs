@@ -29,10 +29,15 @@ namespace TkrainDesigns.ScriptableEnums
     {
         [SerializeField] string description="";
         [SerializeField] string extendedDescription="";
+        [SerializeField] float minimum = 1.0f;
+        [SerializeField] float maximum = 1000f;
         public List<StatSource> sources = new List<StatSource>();
 
         public string Description => description;
         public string ExtendedDescripton => extendedDescription;
+
+        public float Minumum => minimum;
+        public float Maximum => maximum;
 
         public List<StatSource> GetSources()
         {
@@ -71,6 +76,22 @@ namespace TkrainDesigns.ScriptableEnums
                 sources.RemoveAt(index);
                 EditorUtility.SetDirty(this);
             
+        }
+
+        public void SetMinimum(float newMinimum)
+        {
+            if (minimum.Equals(newMinimum)) return;
+            Undo.RecordObject(this, "Change Minimum Value");
+            minimum = newMinimum;
+            EditorUtility.SetDirty(this);
+        }
+
+        public void SetMaximum(float newMaximum)
+        {
+            if (maximum.Equals(newMaximum)) return;
+            Undo.RecordObject(this, "Change Maximum Value");
+            maximum = newMaximum;
+            EditorUtility.SetDirty(this);
         }
 
         public void ChangeStatSource(int index, StatSource newStatSource)

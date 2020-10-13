@@ -70,7 +70,7 @@ namespace TkrainDesigns.ScriptableEnums.Editor
                 }
                 scrollDescription = EditorGUILayout.BeginScrollView(scrollDescription);
                 GUIStyle style = new GUIStyle();
-                style.fixedWidth = position.width - 10;
+                style.padding=new RectOffset(5,15,0,0);
                 EditorGUILayout.BeginVertical(style);
                 selectedScriptableClass.SetDisplayName(EditorGUILayout.TextField("Display Name", selectedScriptableClass.GetDisplayName()));
                 selectedScriptableClass.SetDescription(EditorGUILayout.TextField("Description",selectedScriptableClass.Description));
@@ -82,13 +82,17 @@ namespace TkrainDesigns.ScriptableEnums.Editor
                     
                     if (formula.Stat!=null)
                     {
-                        EditorGUILayout.BeginHorizontal();
-                        //EditorGUILayout.LabelField($"{formula.Stat.Description}: ");
-                        EditorGUILayout.LabelField($"Level 1: {Mathf.Floor(formula.Calculate(1))}");
-                        EditorGUILayout.LabelField($"Level 5: {Mathf.Floor(formula.Calculate(5))}");
-                        EditorGUILayout.LabelField($"Level 10: {Mathf.Floor(formula.Calculate(10))}");
-                        EditorGUILayout.LabelField($"Level 20: {Mathf.Floor(formula.Calculate(20))}");
-                        EditorGUILayout.LabelField($"Level 50: {Mathf.Floor(formula.Calculate(50))}"); 
+                        GUIStyle hStyle = new GUIStyle();
+                        hStyle.fixedWidth = position.width - 60.0f;
+                        EditorGUILayout.BeginHorizontal(hStyle);
+                        GUIStyle labelStyle = GUI.skin.label;
+                        labelStyle.fixedWidth = position.width / 6.0f;
+                        EditorGUILayout.LabelField($"Level 1: {Mathf.Floor(formula.Calculate(1))}"+
+                                                   $" | Level 5: {Mathf.Floor(formula.Calculate(5))}"+
+                                                    $" | Level 10: {Mathf.Floor(formula.Calculate(10))}"+
+                                                    $" | Level 20: {Mathf.Floor(formula.Calculate(20))}"+
+                                                    $" | Level 50: {Mathf.Floor(formula.Calculate(50))}"+
+                                                    $" | Level 100:{Mathf.Floor(formula.Calculate(100))}");
                         EditorGUILayout.EndHorizontal();
                     }
                     
@@ -96,18 +100,40 @@ namespace TkrainDesigns.ScriptableEnums.Editor
                     string statDesc = formula.Stat == null ? "Select Stat" : formula.Stat.Description;
                     EditorGUI.BeginChangeCheck();
                     ScriptableStat newStat = (ScriptableStat)EditorGUILayout.ObjectField($"{statDesc}" ,formula.Stat, typeof(ScriptableStat), false);
-                    if (newStat == null) statToRemove = i;
-                    float newStartingValue = EditorGUILayout.FloatField("Base:", formula.startingValue);
-                    float newAbsoluteAdded = EditorGUILayout.FloatField("Absolute: ", formula.absoluteAdded);
-                    float newPercentageAdded = EditorGUILayout.FloatField("Percentage: ", formula.percentageAdded);
-                    if (EditorGUI.EndChangeCheck() && newStat!=null)
+                    if (newStat == null) {statToRemove = i;}
+                    else
                     {
-                        Undo.RecordObject(selectedScriptableClass, "Undo Formula Change");
-                        formula.Stat = newStat;
-                        formula.startingValue = newStartingValue;
-                        formula.absoluteAdded = newAbsoluteAdded;
-                        formula.percentageAdded = newPercentageAdded;
+                        formula.showCurve = EditorGUILayout.Toggle(formula.showCurve);
+                        int maxValue = (int)newStat.Maximum;
+                        int minValue = (int)newStat.Minumum;
+                        float newStartValue=formula.GetStartValue();
+                        float newEndValue=formula.GetEndValue();
+                        AnimationCurve newCurve=new AnimationCurve();
+                        if (!formula.showCurve)
+                        {
+                            newStartValue = EditorGUILayout.IntSlider( (int)formula.GetStartValue(), minValue, maxValue);
+                            newEndValue = EditorGUILayout.IntSlider( (int)formula.GetEndValue(), minValue, maxValue); 
+                        }
+                        else
+                        {
+                            newCurve = EditorGUILayout.CurveField(formula.ValueCurve);
+                        }
+                        if (EditorGUI.EndChangeCheck() && newStat != null)
+                        {
+                            Undo.RecordObject(selectedScriptableClass, "Undo Formula Change");
+                            formula.Stat = newStat;
+                            if (!formula.showCurve)
+                            {
+                                formula.SetStartValue(newStartValue, newEndValue);
+                            }
+                            else
+                            {
+                                formula.ValueCurve = newCurve;
+                            }
+                            EditorUtility.SetDirty(selectedScriptableClass);
+                        }
                     }
+
                     EditorGUILayout.EndHorizontal();
                 }
 

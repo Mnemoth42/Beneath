@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: w_Golem
   m_EditorClassIdentifier: 
   itemId: 83da9bde-c8c6-442a-91db-a81955ec7dce
-  displayName: 
-  description: 
+  displayName: Hardened Punch
+  description: Golems know how to do two things, hit hard, and hit harder.
   icon: {fileID: 0}
   pickup: {fileID: 0}
   stackable: 0

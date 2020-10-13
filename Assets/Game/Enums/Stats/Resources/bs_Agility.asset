@@ -16,4 +16,6 @@ MonoBehaviour:
   description: Agility
   extendedDescription: A measure of your speed and accuracy under pressure.  An agile
     warrior can dodge more effectively and make quicker decisions.
+  minimum: 1
+  maximum: 100
   sources: []

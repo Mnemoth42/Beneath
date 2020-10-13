@@ -94,8 +94,8 @@ namespace TkrainDesigns.Tiles.Actions
         void Damage()
         {
             currentTarget.GetComponent<Health>()
-                         .TakeDamage(baseDamage * currentUser.GetComponent<PersonalStats>().GetStatValue(damageStat) / 10f, defenseStat,
-                                     currentUser);
+                         .TakeDamage(CombatBroker.CalculateDamage(currentUser, currentTarget,
+                                                                  baseDamage, damageStat, defenseStat), currentUser);
             callbackAction();
         }
 

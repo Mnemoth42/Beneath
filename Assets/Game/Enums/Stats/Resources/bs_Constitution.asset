@@ -16,4 +16,6 @@ MonoBehaviour:
   description: Constitution
   extendedDescription: 'A measure of your overall health, in the "do you get sick
     often" sort of way.  '
+  minimum: 1
+  maximum: 100
   sources: []

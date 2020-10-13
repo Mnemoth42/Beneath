@@ -9,6 +9,7 @@ using TkrainDesigns.Tiles.Pathfinding;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 
 namespace TkrainDesigns.Tiles.Control
@@ -175,7 +176,13 @@ namespace TkrainDesigns.Tiles.Control
         protected override void Die()
         {
             Anim.enabled = false;
+            Invoke(nameof(ReloadGame), 2.0f);
             base.Die();
+        }
+
+        void ReloadGame()
+        {
+            SceneManager.LoadScene(0);
         }
 
         ColorChanger lastChanger = null;

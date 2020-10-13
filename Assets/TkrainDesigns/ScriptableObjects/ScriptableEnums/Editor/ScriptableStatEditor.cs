@@ -62,7 +62,8 @@ namespace TkrainDesigns.ScriptableEnums.Editor
             string extendedDescription = EditorGUILayout.TextArea(selectedScriptableStat.ExtendedDescripton);
             selectedScriptableStat.SetDescription(newDescription);
             selectedScriptableStat.SetExtendedDescription(extendedDescription);
-
+            selectedScriptableStat.SetMinimum(EditorGUILayout.FloatField("Minimum Value", selectedScriptableStat.Minumum));
+            selectedScriptableStat.SetMaximum(EditorGUILayout.FloatField("Maximum", selectedScriptableStat.Maximum));
 
             int statToRemove = -1;
             for (int i=0; i < selectedScriptableStat.GetSources().Count;i++)
@@ -74,9 +75,7 @@ namespace TkrainDesigns.ScriptableEnums.Editor
                         (ScriptableStat) EditorGUILayout.ObjectField(statLabel,statSource.stat, typeof(ScriptableStat), false);
                     float effectPerLevel = EditorGUILayout.FloatField("Effect Per Level", statSource.effectPerLevel);
                     selectedScriptableStat.ChangeStatSource(i, new StatSource(stat, effectPerLevel));
-                
-
-                if (GUILayout.Button("-"))
+                    if (GUILayout.Button("-"))
                 {
                     statToRemove = i;
                 }
