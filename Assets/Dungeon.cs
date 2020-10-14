@@ -236,7 +236,7 @@ namespace TkrainDesigns.Tiles.Dungeons
                 {
                     Tile inst = Instantiate(tile, TileUtilities.IdealWorldPosition(pair.Key), rotation);
                     inst.transform.SetParent(transform);
-                    if (pair.Value > 1 && pair.Key!=start && pair.Key!=finish)
+                    if (pair.Value > 1 && pair.Key!=start && pair.Key!=finish && Vector2.Distance(start,pair.Key)>4)
                     {
                         GameObject go = Instantiate(enemyDrops.GetDrop(level),
                                                     TileUtilities.IdealWorldPosition(pair.Key), Quaternion.identity);
@@ -244,6 +244,11 @@ namespace TkrainDesigns.Tiles.Dungeons
                         if (go.TryGetComponent<PersonalStats>(out PersonalStats stats))
                         {
                             stats.SetLevel(Mathf.Max(Random.Range(level, level+2),1));
+                        }
+
+                        if (go.TryGetComponent(out BaseController c))
+                        {
+                            c.ResetTurn();
                         }
                     }
 

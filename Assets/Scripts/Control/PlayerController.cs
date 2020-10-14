@@ -180,6 +180,11 @@ namespace TkrainDesigns.Tiles.Control
             base.Die();
         }
 
+        public override void ResetTurn()
+        {
+            NextTurn = 0;
+        }
+
         void ReloadGame()
         {
             SceneManager.LoadScene(0);

@@ -48,7 +48,12 @@ namespace TkrainDesigns.Tiles.Control
 
         public bool IsCurrentTurn { get; private set; } = false;
 
-        public float NextTurn => nextTurn;
+        public float NextTurn
+        {
+            get { return nextTurn; }
+            protected set { nextTurn = value; }
+        }
+
 
         protected Animator Anim { get; private set; }
 
@@ -140,7 +145,7 @@ namespace TkrainDesigns.Tiles.Control
             ControllerCoordinator.BeginNextControllerTurn();
         }
 
-        public void ResetTurn()
+        public virtual void ResetTurn()
         {
             nextTurn = 0;
             CalculateNextTurn();
@@ -149,7 +154,7 @@ namespace TkrainDesigns.Tiles.Control
         public virtual float CalculateNextTurn()
         {
             float timeToWaitBasedOnSpeed= (100.0f / speed);
-            float randomInitiativeRoll = Random.Range(-timeToWaitBasedOnSpeed / 50.0f, timeToWaitBasedOnSpeed / 50.0f); //Initiative
+            float randomInitiativeRoll = Random.Range(-timeToWaitBasedOnSpeed / 25.0f, timeToWaitBasedOnSpeed / 25.0f); //Initiative
             nextTurn += timeToWaitBasedOnSpeed + randomInitiativeRoll;
             return nextTurn;
         }

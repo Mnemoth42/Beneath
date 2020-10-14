@@ -67,7 +67,7 @@ namespace TkrainDesigns.Grids.Stats
         {
             get
             {
-                if (stats!=null && healthStat!=null)
+                if (stats != null && healthStat != null)
                 {
                     return stats.GetStatValue(healthStat);
                 }
@@ -87,45 +87,20 @@ namespace TkrainDesigns.Grids.Stats
                 return currentHealth;
             }
         }
-        public float TakeDamage(float damage, ScriptableStat defensiveStat, GameObject instigator)
-        {
-            
-            if (IsAlive)
-            {
-                if (stats != null && defensiveStat != null)
-                {
-                    damage = (int)Mathf.Max(damage / (stats.GetStatValue(defensiveStat)/10f), damage / 2.0f);
-                    if (damage < 1.0f) damage = 1.0f;
-                }
-                GetComponent<Animator>().SetTrigger("GetHit");
-                currentHealth = Mathf.Clamp(currentHealth - damage, 0, MaxHealth);
-                onTakeDamage?.Invoke();
-                onTakeDamageFloat?.Invoke(-damage);
-                //Debug.Log($"{name} has {currentHealth} remaining!");
-                if ((int)currentHealth<1)
-                {
-                    isAlive = false;
-                    if (instigator)
-                    {
-                        if (stats && instigator.TryGetComponent<Experience>(out Experience experience))
-                        {
-                            experience.GainExperience(stats.GetExperienceForKilling());
-                        }
-                    }
-                    onDeath?.Invoke();
-                } 
-            }
-            return currentHealth;
-        }
+        
 
         public float TakeDamage(float amount, GameObject instigator)
         {
+            float actualDamage = 0.0f;
             if (IsAlive)
             {
+                float healthBeforeAttack = currentHealth;
                 GetComponent<Animator>().SetTrigger("GetHit");
-                currentHealth = Mathf.Clamp(currentHealth - amount, 0, MaxHealth);
+                currentHealth = Mathf.Floor(Mathf.Clamp(currentHealth - amount, 0, MaxHealth));
+                actualDamage = (int)(healthBeforeAttack - currentHealth);
+                Debug.Log($"{name} takes {actualDamage} damage of the {amount} that was sent to TakeDamage.  {healthBeforeAttack}-{currentHealth}");
                 onTakeDamage?.Invoke();
-                onTakeDamageFloat?.Invoke(-amount);
+                onTakeDamageFloat?.Invoke(-actualDamage);
                 if ((int)currentHealth < 1)
                 {
                     isAlive = false;
@@ -139,7 +114,7 @@ namespace TkrainDesigns.Grids.Stats
                     onDeath?.Invoke();
                 }
             }
-            return currentHealth;
+            return actualDamage;
         }
 
         public float Heal(float amountToHeal)

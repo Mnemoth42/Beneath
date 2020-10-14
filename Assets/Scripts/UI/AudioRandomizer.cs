@@ -29,7 +29,7 @@ namespace TkrainDesigns
 
         public void Play()
         {
-            Debug.Log("AudioRandomizer.Play()");
+            //Debug.Log("AudioRandomizer.Play()");
             audio.pitch = Random.Range(minPitchRange, maxPitchRange);
             if (!audioArray)
             {
@@ -45,5 +45,16 @@ namespace TkrainDesigns
 
             audio.PlayOneShot(audioArray.GetRandomClip());
         }
+
+        public void PlayIfPositive(float test)
+        {
+            if (test > 0) Play();
+        }
+
+        public void PlayIfNegative(float test)
+        {
+            if (test < 0) Play();
+        }
+
     }
 }

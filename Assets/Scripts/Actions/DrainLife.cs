@@ -8,19 +8,21 @@ using TkrainDesigns.Tiles.Actions;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Drain", menuName ="Actions/New DrainLife Spell")]
+[CreateAssetMenu(fileName = "New Drain", menuName = "Actions/New DrainLife Spell")]
 public class DrainLife : PerformableActionItem
 {
     [SerializeField] ScriptableStat attackStat;
     [SerializeField] ScriptableStat defenseStat;
     [SerializeField] float baseDamage = 3.0f;
     [SerializeField] float healPercent = 50.0f;
-    
+
 
     public override bool AIRangedAttackSpell()
     {
         return true;
     }
+
+    
 
     public override bool CanUse(GameObject user)
     {
@@ -57,7 +59,7 @@ public class DrainLife : PerformableActionItem
     {
         float damageToDo = CombatBroker.CalculateDamage(currentUser, currentTarget, baseDamage, attackStat, defenseStat);
         Debug.Log($"{currentUser.name} is attacking for {damageToDo} Drain points.");
-        Heal(currentTarget.GetComponent<Health>().TakeDamage(damageToDo, defenseStat, currentUser));
+        Heal(currentTarget.GetComponent<Health>().TakeDamage(damageToDo,  currentUser));
     }
 
     float HealPercent()
@@ -65,9 +67,15 @@ public class DrainLife : PerformableActionItem
         return healPercent / 100.0f;
     }
 
+    float HealModifiers()
+    {
+        return (currentUser.GetComponent<PersonalStats>().GetPercentageModifiers(attackStat) / 100.0f)+1.0f;
+    }
+
     void Heal(float amount)
     {
-        currentUser.GetComponent<Health>().Heal(amount*currentUser.GetComponent<PersonalStats>().GetPercentageModifiers(attackStat)*HealPercent());
+        Debug.Log($"Raw heal amount = {amount}.  HealModifiers = {HealModifiers()}.  HealPercent = {HealPercent()}.  Amount Healed = {amount*HealModifiers()*HealPercent()}");
+        currentUser.GetComponent<Health>().Heal(amount*HealModifiers()*HealPercent());
         callbackAction?.Invoke();
     }
 

@@ -93,7 +93,7 @@ namespace TkrainDesigns.Tiles.Control
         /// <returns></returns>
         public PerformableActionItem GetAvailableAction()
         {
-            Debug.Log($"{name} is considering an action.");
+            //Debug.Log($"{name} is considering an action.");
             if (!actionStore)
             {
                 Debug.Log($"{name} has no Action Store");
@@ -130,9 +130,9 @@ namespace TkrainDesigns.Tiles.Control
                 }
             }
 
-            Debug.Log(result
-                          ? $"{name} has decided upon {result.displayName}"
-                          : $"{name} could not find a suitable spell/action this turn, will fight instead.");
+            //Debug.Log(result
+            //              ? $"{name} has decided upon {result.displayName}"
+            //              : $"{name} could not find a suitable spell/action this turn, will fight instead.");
             return result;
         }
 

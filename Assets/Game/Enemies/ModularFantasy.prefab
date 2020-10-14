@@ -20973,11 +20973,14 @@ MonoBehaviour:
         m_CallState: 2
   onTakeDamage:
     m_PersistentCalls:
+      m_Calls: []
+  onTakeDamageFloat:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8683184341213835868}
-        m_TargetAssemblyTypeName: TkrainDesigns.AudioRandomizer, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 1
+      - m_Target: {fileID: 3755457078857948935}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: SpawnHealthChangeDisplay
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -20986,12 +20989,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onTakeDamageFloat:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3755457078857948935}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: SpawnHealthChangeDisplay
+      - m_Target: {fileID: 8683184341213835868}
+        m_TargetAssemblyTypeName: TkrainDesigns.AudioRandomizer, Assembly-CSharp
+        m_MethodName: PlayIfNegative
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
