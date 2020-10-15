@@ -185,17 +185,17 @@ MonoBehaviour:
     startingValue: 3
     percentageAdded: 0
     absoluteAdded: 1
-    startValue: 3
+    startValue: 1
     endValue: 100
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 3
-        inSlope: 0.97
-        outSlope: 0.97
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -203,8 +203,8 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 100
         value: 100
-        inSlope: 0.97
-        outSlope: 0.97
+        inSlope: 1
+        outSlope: 1
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -216,17 +216,17 @@ MonoBehaviour:
     startingValue: 3
     percentageAdded: 0
     absoluteAdded: 1
-    startValue: 3
+    startValue: 1
     endValue: 100
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 3
-        inSlope: 0.97
-        outSlope: 0.97
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -234,8 +234,8 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 100
         value: 100
-        inSlope: 0.97
-        outSlope: 0.97
+        inSlope: 1
+        outSlope: 1
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -247,17 +247,17 @@ MonoBehaviour:
     startingValue: 3
     percentageAdded: 0
     absoluteAdded: 1
-    startValue: 3
+    startValue: 1
     endValue: 100
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 3
-        inSlope: 0.97
-        outSlope: 0.97
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -265,8 +265,8 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 100
         value: 100
-        inSlope: 0.97
-        outSlope: 0.97
+        inSlope: 1
+        outSlope: 1
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -278,17 +278,17 @@ MonoBehaviour:
     startingValue: 3
     percentageAdded: 0
     absoluteAdded: 1
-    startValue: 3
+    startValue: 1
     endValue: 100
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 3
-        inSlope: 0.97
-        outSlope: 0.97
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -296,8 +296,8 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 100
         value: 100
-        inSlope: 0.97
-        outSlope: 0.97
+        inSlope: 1
+        outSlope: 1
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334

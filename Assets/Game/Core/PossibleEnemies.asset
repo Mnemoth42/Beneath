@@ -91,7 +91,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - character: {fileID: 1290725874115128, guid: 071b4da7cfff18347a371c677585b749,
+  - character: {fileID: 1091293637548798, guid: b603af86ac880d246a16780f2c468564,
       type: 3}
     probability:
       serializedVersion: 2
@@ -235,6 +235,41 @@ MonoBehaviour:
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 100.47394
+        value: 9.59906
+        inSlope: 0.14542484
+        outSlope: 0.14542484
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.22813241
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+  - character: {fileID: 1112885853905290, guid: cb598c38dddcdda49a7c3b18e90f08b0,
+      type: 3}
+    probability:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: -0.3568573
+        value: 10.263401
+        inSlope: 0.33461192
+        outSlope: 0.33461192
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 13.503208
+        value: 14.901144
+        inSlope: 0.22192883
+        outSlope: 0.22192883
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.39161453
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 100.47394

@@ -580,6 +580,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4673073047333490}
   - component: {fileID: 137952000876528534}
+  - component: {fileID: 5044077886463735120}
   m_Layer: 9
   m_Name: Bat
   m_TagString: Untagged
@@ -687,6 +688,18 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.000897944, y: -0.06751385, z: 0.019529998}
     m_Extent: {x: 0.8410854, y: 0.655231, z: 0.851098}
   m_DirtyAABB: 0
+--- !u!114 &5044077886463735120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439309455592690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 683fb132ed9c45444be6e6145e2fdd7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1522199433267968
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +784,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1178632462494233444}
         m_TargetAssemblyTypeName: RPG.Inventory.RandomItemDropper, Assembly-CSharp
         m_MethodName: DropRandomItems
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5044077886463735120}
+        m_TargetAssemblyTypeName: FadeOnDeath, Assembly-CSharp
+        m_MethodName: OnDeath
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

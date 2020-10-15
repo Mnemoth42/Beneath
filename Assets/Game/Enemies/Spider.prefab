@@ -893,6 +893,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 236469680722423260}
+        m_TargetAssemblyTypeName: FadeOnDeath, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onTakeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -1155,6 +1167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4601593430932004}
   - component: {fileID: 137382336397276734}
+  - component: {fileID: 236469680722423260}
   m_Layer: 9
   m_Name: Spider
   m_TagString: Untagged
@@ -1265,6 +1278,19 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.47306347, y: -0.10348591, z: 0.00000008940697}
     m_Extent: {x: 0.7717513, y: 0.87794507, z: 0.96412766}
   m_DirtyAABB: 0
+--- !u!114 &236469680722423260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801321749196730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 683fb132ed9c45444be6e6145e2fdd7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  replaceMaterial: {fileID: 2100000, guid: 797934232287e6b429183d99cbae3ced, type: 2}
 --- !u!1 &1878329160041796
 GameObject:
   m_ObjectHideFlags: 0
