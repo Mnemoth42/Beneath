@@ -91,7 +91,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - character: {fileID: 1091293637548798, guid: b603af86ac880d246a16780f2c468564,
+  - character: {fileID: 1580023137681114, guid: c96ba90c5361e27459e32a2ee29da85d,
       type: 3}
     probability:
       serializedVersion: 2

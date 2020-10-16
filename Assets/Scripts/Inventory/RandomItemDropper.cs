@@ -48,7 +48,7 @@ namespace RPG.Inventory
             }
             int level = stats.Level;
             int numberOfDrops = Random.Range(0, level+1);
-            Debug.Log($"{name} is dropping {numberOfDrops} items.");
+            //Debug.Log($"{name} is dropping {numberOfDrops} items.");
 
             for (int i = 0; i < numberOfDrops; i++)
             {

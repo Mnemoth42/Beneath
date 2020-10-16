@@ -96,9 +96,9 @@ namespace TkrainDesigns.Grids.Stats
             {
                 float healthBeforeAttack = currentHealth;
                 GetComponent<Animator>().SetTrigger("GetHit");
-                currentHealth = Mathf.Floor(Mathf.Clamp(currentHealth - amount, 0, MaxHealth));
+                currentHealth = Mathf.Floor(Mathf.Clamp(currentHealth - Mathf.Max(amount, 1.0f), 0, MaxHealth));
                 actualDamage = (int)(healthBeforeAttack - currentHealth);
-                Debug.Log($"{name} takes {actualDamage} damage of the {amount} that was sent to TakeDamage.  {healthBeforeAttack}-{currentHealth}");
+                //Debug.Log($"{name} takes {actualDamage} damage of the {amount} that was sent to TakeDamage.  {healthBeforeAttack}-{currentHealth}");
                 onTakeDamage?.Invoke();
                 onTakeDamageFloat?.Invoke(-actualDamage);
                 if ((int)currentHealth < 1)

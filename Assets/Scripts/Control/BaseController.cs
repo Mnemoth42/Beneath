@@ -70,14 +70,7 @@ namespace TkrainDesigns.Tiles.Control
 
         protected float Speed
         {
-            get
-            {
-                if (stats && speedStat)
-                {
-                    return stats.GetStatValue(speedStat);
-                }
-                return speed;
-            }
+            get { return stats != null && speedStat != null ? stats.GetStatValue(speedStat) : speed; }
         }
 
         protected virtual void Awake()
@@ -153,7 +146,7 @@ namespace TkrainDesigns.Tiles.Control
 
         public virtual float CalculateNextTurn()
         {
-            float timeToWaitBasedOnSpeed= (100.0f / speed);
+            float timeToWaitBasedOnSpeed= (100.0f / Speed);
             float randomInitiativeRoll = Random.Range(-timeToWaitBasedOnSpeed / 25.0f, timeToWaitBasedOnSpeed / 25.0f); //Initiative
             nextTurn += timeToWaitBasedOnSpeed + randomInitiativeRoll;
             return nextTurn;

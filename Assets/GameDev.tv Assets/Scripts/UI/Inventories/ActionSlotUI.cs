@@ -125,7 +125,7 @@ namespace GameDevTV.UI.Inventories
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            Debug.Log($"OnPointerClick {name}");
+           // Debug.Log($"OnPointerClick {name}");
             if (!isPlayerTurn) return;
             var item = store.GetAction(index);
             if (item && item.CanUse(player))

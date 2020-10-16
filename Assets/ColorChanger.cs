@@ -27,16 +27,24 @@ namespace TkrainDesigns.Tiles.Core
 
         public void SetMouseOver(bool mouseIsOver)
         {
+#if UNITY_ANDROID
+            return;
+#else
             rend.material.SetFloat(MouseOver, mouseIsOver? 1.0f: 0.0f);
+#endif
         }
 
         public void HighlightMaterial()
         {
-            if (rend != null && highlightMaterial != null)
+            if (rend != null)
             {
+#if UNITY_ANDROID
+                rend.material = highlightMaterial;
+#else
                 //rend.material = highlightMaterial;
                 rend.material.SetFloat(Selected, 0.0f);
                 rend.material.SetFloat(Blocked, 1.0f);
+#endif
             }
         }
 
@@ -44,20 +52,27 @@ namespace TkrainDesigns.Tiles.Core
         {
             if (rend != null)
             {
-                //rend.material = originalMaterial;
+#if UNITY_ANDROID
+                rend.material = originalMaterial;
+#else
                 rend.material.SetFloat(Selected, 0.0f);
                 rend.material.SetFloat(Blocked, 0.0f);
-                
+#endif
+
             }
         }
 
         public void SelectedMaterial()
         {
-            if (rend != null && selectedMaterial != null)
+            if (rend != null )
             {
-                //rend.material = selectedMaterial;
+
+#if UNITY_ANDROID
+                rend.material = selectedMaterial;
+#else
                 rend.material.SetFloat(Selected, 1.0f);
                 rend.material.SetFloat(Blocked, 0.0f);
+#endif
             }
         }
     }

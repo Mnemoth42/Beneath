@@ -20,9 +20,9 @@ MonoBehaviour:
   stackable: 0
   potentialStatBoosts: []
   consumable: 0
-  cooldown: 2
+  cooldown: 1
   useOnPickup: 0
-  baseDamage: 3
+  baseDamage: 10
   fireball: {fileID: 1815553834518870, guid: 7674f5091cc9ae049a2ad44f3eb88a4c, type: 3}
   damageStat: {fileID: 11400000, guid: 22215a7f67ae3334abbe1a63b23c0211, type: 2}
   defenseStat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}

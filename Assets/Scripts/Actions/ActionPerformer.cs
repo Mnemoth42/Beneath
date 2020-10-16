@@ -44,7 +44,7 @@ namespace TkrainDesigns.Tiles.Actions
             Vector2Int targetLocation = pathToFollow.Last();
             path.Remove(targetLocation);
             int stepsRequired = path.Count - actionToPerform.Range(gameObject);
-            Debug.Log($"{name} requires {stepsRequired} steps before performing action");
+            //Debug.Log($"{name} requires {stepsRequired} steps before performing action");
             if (stepsRequired > 0 && actionToPerform.AIRangedAttackSpell())
             {
                 List<Vector2Int> newPath = new List<Vector2Int>();

@@ -15,7 +15,8 @@ MonoBehaviour:
   itemId: 12556445-85e2-4e3e-a685-d919e118ebe9
   displayName: Your Fists
   description: Most adventurers prefer to attack their enemies with swords or axes. 
-    You like pummeling them with your fists.  How brave!
+    You like pummeling them with your fists.  How brave!  You should probably find
+    a sword or something.
   icon: {fileID: 21300000, guid: aadb7541f78207747bc84582718754f4, type: 3}
   pickup: {fileID: 0}
   stackable: 0

@@ -10,27 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da6285b7e6b57614baa45ce23367481d, type: 3}
-  m_Name: w_Orc
+  m_Name: w_EvilMage
   m_EditorClassIdentifier: 
-  itemId: 9ac49d5c-1d62-47e7-883a-cdec22ee9cdc
-  displayName: Warhammer
-  description: A hammer fashioned from a stick and a stone.  Crude, but quite effective. 
-    Watch out for his spin move!
-  icon: {fileID: 0}
+  itemId: 059c5328-c4ef-4518-aa04-acf7d4b6ea01
+  displayName: Mage's Stave
+  description: Not the most impressive weapon in the world, but it amplifies the
+    mage's spell power.  Don't worry about him hitting you with the staff, worry
+    about his spells.
+  icon: {fileID: 21300000, guid: aadb7541f78207747bc84582718754f4, type: 3}
   pickup: {fileID: 0}
   stackable: 0
   potentialStatBoosts: []
-  allowedEquipLocation: {fileID: 0}
+  allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,
+    type: 2}
   model: {fileID: 0}
-  controller: {fileID: 9100000, guid: 340e7c7778ff6b24ebd48e32ff48a690, type: 2}
-  damage: 8
+  controller: {fileID: 0}
+  damage: 5
   leftHanded: 0
   offensiveStat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
-  defensiveStat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
+  defensiveStat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
   stylesAndDamage:
-  - 7
-  - 8
   - 5
-  - 5
-  - 7
+  - 3
   - 4

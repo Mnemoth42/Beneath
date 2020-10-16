@@ -27,7 +27,7 @@ namespace TkrainDesigns.Saving
             {
                 buildIndex = (int)state["lastSceneBuildIndex"];
             }
-            yield return SceneManager.LoadSceneAsync(buildIndex);
+            yield return SceneManager.LoadSceneAsync(buildIndex,LoadSceneMode.Single);
             RestoreState(state);
         }
 

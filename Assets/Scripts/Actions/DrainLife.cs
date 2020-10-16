@@ -58,7 +58,7 @@ public class DrainLife : PerformableActionItem
     void Leech()
     {
         float damageToDo = CombatBroker.CalculateDamage(currentUser, currentTarget, baseDamage, attackStat, defenseStat);
-        Debug.Log($"{currentUser.name} is attacking for {damageToDo} Drain points.");
+        //Debug.Log($"{currentUser.name} is attacking for {damageToDo} Drain points.");
         Heal(currentTarget.GetComponent<Health>().TakeDamage(damageToDo,  currentUser));
     }
 
@@ -74,7 +74,7 @@ public class DrainLife : PerformableActionItem
 
     void Heal(float amount)
     {
-        Debug.Log($"Raw heal amount = {amount}.  HealModifiers = {HealModifiers()}.  HealPercent = {HealPercent()}.  Amount Healed = {amount*HealModifiers()*HealPercent()}");
+       // Debug.Log($"Raw heal amount = {amount}.  HealModifiers = {HealModifiers()}.  HealPercent = {HealPercent()}.  Amount Healed = {amount*HealModifiers()*HealPercent()}");
         currentUser.GetComponent<Health>().Heal(amount*HealModifiers()*HealPercent());
         callbackAction?.Invoke();
     }

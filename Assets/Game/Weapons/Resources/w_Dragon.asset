@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: w_Dragon
   m_EditorClassIdentifier: 
   itemId: 5654aa70-9dfb-49a8-b4bc-a1112e6560f4
-  displayName: 
-  description: 
+  displayName: Fierce bite
+  description: The jaws of a dragon will crush all the but the strongest adventurer
+    in it's grip.
   icon: {fileID: 0}
   pickup: {fileID: 0}
   stackable: 0
@@ -27,7 +28,7 @@ MonoBehaviour:
   offensiveStat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
   defensiveStat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
   stylesAndDamage:
-  - 6
+  - 7
   - 6
   - 8
   - 10

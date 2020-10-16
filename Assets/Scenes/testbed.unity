@@ -523,7 +523,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 2547657944018690717}
   m_Follow: {fileID: 2547657944018690717}
   m_Lens:
-    FieldOfView: 75
+    FieldOfView: 47
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -2012,7 +2012,7 @@ PrefabInstance:
     - target: {fileID: 8735357741626188340, guid: 48c98816136c1d54b9e71891d84c3ec2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -570.7499
+      value: -570.7498
       objectReference: {fileID: 0}
     - target: {fileID: 8735357741626188340, guid: 48c98816136c1d54b9e71891d84c3ec2,
         type: 3}
@@ -2930,7 +2930,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 75
+  field of view: 47
   orthographic: 0
   orthographic size: 5
   m_Depth: -1

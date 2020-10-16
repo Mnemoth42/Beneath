@@ -71,16 +71,16 @@ namespace TkrainDesigns.Tiles.Combat
                 Debug.Log($"{name} is trying to equip a non-existent weapon.  You might want to fix that.");
                 return;
             }
-            Debug.Log($"Equipping {config.displayName}");
+           // Debug.Log($"Equipping {config.displayName}");
             weapon = config.EquipWeapon(rightHandTransform, leftHandTransform, weapon, anim);
             currentWeaponConfig = config;
         }
 
         void CheckEquipment()
         {
-            Debug.Log("CheckEquipment");
+            //Debug.Log("CheckEquipment");
             GridWeaponConfig config = equipment.GetItemInSlot(weaponSlot) as GridWeaponConfig;
-            Debug.Log(config==null?"No Weapon?":$"{config.GetDisplayName()}");
+            //Debug.Log(config==null?"No Weapon?":$"{config.GetDisplayName()}");
             if (!config)
             {
                 EquipWeapon(defaultWeaponConfig);

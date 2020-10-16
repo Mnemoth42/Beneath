@@ -206,10 +206,16 @@ namespace TkrainDesigns.Tiles.Control
                 return new SMovementRequest();
             }
 
+#if UNITY_ANDROID
+            if(Input.touchCount>0 && EventSystem.current.IsPointerOverGameObject(Input.touches[0].fingerId))
+#else
             if (EventSystem.current.IsPointerOverGameObject())
+#endif
             {
                 return new SMovementRequest();
             }
+
+
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {

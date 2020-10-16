@@ -75,7 +75,7 @@ namespace TkrainDesigns.Tiles.Control
 
                 if (potentialActionItem)
                 {
-                    Debug.Log($"{name} is performing {potentialActionItem.displayName}");
+                    //Debug.Log($"{name} is performing {potentialActionItem.displayName}");
                     actionPerformer.BeginAction(potentialActionItem, player.GetComponent<Health>(), path,TurnCompleted);
                     return;
                 }
