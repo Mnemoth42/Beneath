@@ -9,7 +9,7 @@ using UnityEngine.UI;
 #pragma warning disable CS0649
 namespace RPG.UI
 {
-    public class UIStatDisplay : MonoBehaviour
+    public class UIStatDisplay : MonoBehaviour, IStatHolder
     {
         [SerializeField] TextMeshProUGUI titleText;
         [SerializeField] TextMeshProUGUI valueText;
@@ -24,7 +24,10 @@ namespace RPG.UI
         Equipment equipment;
         StatStore statStore;
 
-
+        public ScriptableStat GetStat()
+        {
+            return stat;
+        }
         private void Awake()
         {
             player = GameObject.FindGameObjectWithTag("Player");

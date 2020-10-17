@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using GameDevTV.Inventories;
+using UnityEngine.UI;
 
 namespace GameDevTV.UI.Inventories
 {
@@ -12,12 +13,14 @@ namespace GameDevTV.UI.Inventories
         // CONFIG DATA
         [SerializeField] TextMeshProUGUI titleText = null;
         [SerializeField] TextMeshProUGUI bodyText = null;
+        [SerializeField] Image icon = null;
 
         // PUBLIC
 
         public void Setup(InventoryItem item)
         {
             if (item == null) return;
+            icon.sprite = item.GetIcon();
             titleText.text = item.GetDisplayName();
             bodyText.text = item.GetDescription();
         }

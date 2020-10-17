@@ -100,7 +100,7 @@ namespace GameDevTV.Inventories
         /// <param name="number">How many items to add.</param>
         public void AddAction(InventoryItem item, int index, int number)
         {
-            Debug.Log($"{name}Adding {item.GetDisplayName()} to Action slot {index}");
+            //Debug.Log($"{name}Adding {item.GetDisplayName()} to Action slot {index}");
             if (dockedItems.ContainsKey(index))
             {
                 if (object.ReferenceEquals(item, dockedItems[index].item))

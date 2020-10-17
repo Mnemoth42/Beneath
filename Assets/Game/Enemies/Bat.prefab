@@ -723,6 +723,7 @@ GameObject:
   - component: {fileID: 6178602442872893142}
   - component: {fileID: -6944638180965132651}
   - component: {fileID: -1251168597061383796}
+  - component: {fileID: 7888157528977680603}
   m_Layer: 9
   m_Name: Bat
   m_TagString: Untagged
@@ -977,6 +978,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   affiliation: 2
   aimPoint: {x: 0, y: 1.4353734, z: 0}
+--- !u!136 &7888157528977680603
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522199433267968}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.66
+  m_Height: 1.73
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.27, z: 0}
 --- !u!1 &1558640783962364
 GameObject:
   m_ObjectHideFlags: 0

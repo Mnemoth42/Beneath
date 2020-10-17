@@ -13,6 +13,7 @@ namespace TkrainDesigns.Tiles.Core
 
         [SerializeField] Material highlightMaterial;
         [SerializeField] Material selectedMaterial;
+        [SerializeField] Material mouseOverMaterial;
         MeshRenderer rend;
         Material originalMaterial;
 
@@ -25,10 +26,20 @@ namespace TkrainDesigns.Tiles.Core
             }
         }
 
+        Material premouseOverMaterial;
         public void SetMouseOver(bool mouseIsOver)
         {
 #if UNITY_ANDROID
-            return;
+            if (mouseIsOver)
+            {
+                premouseOverMaterial = rend.material;
+                rend.material = mouseOverMaterial;
+            }
+            else
+            {
+                rend.material = premouseOverMaterial;
+                premouseOverMaterial = originalMaterial;
+            }
 #else
             rend.material.SetFloat(MouseOver, mouseIsOver? 1.0f: 0.0f);
 #endif

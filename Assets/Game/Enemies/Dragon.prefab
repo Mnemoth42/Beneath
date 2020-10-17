@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 4086277183097578}
   - component: {fileID: 137565097632360590}
   - component: {fileID: 2356892978655098633}
+  - component: {fileID: 4778137875093559275}
   m_Layer: 9
   m_Name: Dragon
   m_TagString: Untagged
@@ -449,6 +450,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replaceMaterial: {fileID: 2100000, guid: 797934232287e6b429183d99cbae3ced, type: 2}
+  fadeOutSpeed: 1
+--- !u!136 &4778137875093559275
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208321032373720}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.45
+  m_Height: 3.518323
+  m_Direction: 1
+  m_Center: {x: 0.14, y: -1.38, z: 0.46}
 --- !u!1 &1215662972368328
 GameObject:
   m_ObjectHideFlags: 0

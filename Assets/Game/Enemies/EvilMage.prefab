@@ -217,6 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replaceMaterial: {fileID: 2100000, guid: 797934232287e6b429183d99cbae3ced, type: 2}
+  fadeOutSpeed: 1
 --- !u!1 &1085800051743036
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,6 +873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replaceMaterial: {fileID: 2100000, guid: 797934232287e6b429183d99cbae3ced, type: 2}
+  fadeOutSpeed: 1
 --- !u!1 &1355238806501668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,6 +1199,7 @@ GameObject:
   - component: {fileID: -3293366836850863189}
   - component: {fileID: -885796797468213182}
   - component: {fileID: 7284479435221869464}
+  - component: {fileID: 1995798404840581670}
   m_Layer: 9
   m_Name: EvilMage
   m_TagString: Untagged
@@ -1478,6 +1481,20 @@ MonoBehaviour:
   defaultItems:
   - {fileID: 11400000, guid: e6d562c4634c70d44a950d568efcc644, type: 2}
   - {fileID: 11400000, guid: 0515fcb451e74604d90d87b35d3a0977, type: 2}
+--- !u!136 &1995798404840581670
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580023137681114}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.68
+  m_Height: 1.96
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.69, z: 0}
 --- !u!1 &1583688891333824
 GameObject:
   m_ObjectHideFlags: 0

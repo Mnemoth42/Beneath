@@ -46,14 +46,14 @@ namespace GameDevTV.Core.UI.Dragging
         }
 
         bool isOverGameObject = false;
-        GameObject draggingObject = null;
+        
         void IDragHandler.OnDrag(PointerEventData eventData)
         {
             transform.position = eventData.position;
-#if UNITY_ANDROID
+#if UNITY_EDITOR
+            isOverGameObject = EventSystem.current.IsPointerOverGameObject();
+#elif UNITY_ANDROID
             isOverGameObject = EventSystem.current.IsPointerOverGameObject(Input.touches[0].fingerId);
-            draggingObject = eventData.pointerEnter;
-            if(draggingObject) Debug.Log($"DragItem {eventData.pointerEnter}");
 #endif
         }
 
@@ -65,10 +65,12 @@ namespace GameDevTV.Core.UI.Dragging
             transform.SetParent(originalParent, true);
 
             IDragDestination<T> container;
-#if UNITY_ANDROID
+#if UNITY_EDITOR
+            if(!isOverGameObject)
+#elif UNITY_ANDROID
             if(!isOverGameObject)
 #else
-            if (!EventSystem.current.IsPointerOverGameObject())
+                if (!EventSystem.current.IsPointerOverGameObject())
 #endif
             {
                 container = parentCanvas.GetComponent<IDragDestination<T>>();

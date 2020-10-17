@@ -75,7 +75,6 @@ namespace RPG.Inventory.Editor
                         stretchHeight = true,
                         fontSize = 18,
                         font = EditorGUIUtility.Load("Assets/Fonts/dum1.ttf") as Font,
-                        //fixedWidth = position.width / 2.0f,
                         alignment = TextAnchor.MiddleCenter
                     };
             headerStyle = new GUIStyle(style) {fontSize = 40};

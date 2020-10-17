@@ -102,6 +102,7 @@ namespace TkrainDesigns.Stats
             foreach (var source in stat.GetSources())
             {
                 accumulator += GetAdditiveModifiers(source.stat) * source.effectPerLevel;
+                accumulator += GetRawStatValue(source.stat) * source.effectPerLevel;
             }
             
             return accumulator;

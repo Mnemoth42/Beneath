@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Warhammer
   description: A hammer fashioned from a stick and a stone.  Crude, but quite effective. 
     Watch out for his spin move!
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: c1eff8a24ca27014b80b4418fc2e4832, type: 3}
   pickup: {fileID: 0}
   stackable: 0
   potentialStatBoosts: []

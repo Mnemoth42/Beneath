@@ -9,4 +9,5 @@ namespace GameDevTV.UI.Inventories
     {
         InventoryItem GetItem();
     }
+
 }

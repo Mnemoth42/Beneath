@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9701f7a0b0a6c479fdf17203a7c4bc, type: 3}
+  m_Name: eq_NecklaceSTR
+  m_EditorClassIdentifier: 
+  itemId: b1192cc8-5911-44eb-b89f-a8df1c1f760d
+  displayName: Talisman Of Strength
+  description: Something in this bauble imbues you with extra strength.
+  icon: {fileID: 21300000, guid: eca3d4665be55824e94df3398ac5b105, type: 3}
+  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  stackable: 0
+  potentialStatBoosts:
+  - {fileID: 11400000, guid: 20b1b98bf010fae4fbe990665a91f758, type: 2}
+  - {fileID: 11400000, guid: 20b1b98bf010fae4fbe990665a91f758, type: 2}
+  - {fileID: 11400000, guid: 20b1b98bf010fae4fbe990665a91f758, type: 2}
+  - {fileID: 11400000, guid: 20b1b98bf010fae4fbe990665a91f758, type: 2}
+  - {fileID: 11400000, guid: 20b1b98bf010fae4fbe990665a91f758, type: 2}
+  - {fileID: 11400000, guid: 57590c9b3bde0714a92efbcaf98457bc, type: 2}
+  allowedEquipLocation: {fileID: 11400000, guid: 69ae1657e8bf3c44b8b1ddecf9ea1f8c,
+    type: 2}
+  additiveModifiers:
+  - stat: {fileID: 11400000, guid: 20b1b98bf010fae4fbe990665a91f758, type: 2}
+    value: 5
+  percentageModifiers: []
+  objectsToActivate: []
+  slotsToDeactivate: 

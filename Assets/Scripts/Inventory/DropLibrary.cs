@@ -85,7 +85,7 @@ namespace RPG.Inventory
 
         void SetInventoryItem(DropLibrary parent)
         {
-            InventoryItem newItem = (InventoryItem)EditorGUILayout.ObjectField("Item:", item, typeof(InventoryItem), false);
+            InventoryItem newItem = (InventoryItem)EditorGUILayout.ObjectField(item!=null?item.GetDisplayName():"Item:", item, typeof(InventoryItem), false);
             if (item == newItem) return;
             Undo.RecordObject(parent, "Select Item To Drop");
             item = newItem;

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9701f7a0b0a6c479fdf17203a7c4bc, type: 3}
+  m_Name: eq_BootsLeather
+  m_EditorClassIdentifier: 
+  itemId: 867852ec-c26e-4f9c-b8ec-16e1847c874a
+  displayName: Leather Boots
+  description: A good pair of boots help you move faster in combat.
+  icon: {fileID: 21300000, guid: a29fcdb1635c8e84da9116de6fca8a34, type: 3}
+  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  stackable: 0
+  potentialStatBoosts:
+  - {fileID: 11400000, guid: 57590c9b3bde0714a92efbcaf98457bc, type: 2}
+  allowedEquipLocation: {fileID: 11400000, guid: c15aaba4e27d56d4a8eb6cb1710f85e3,
+    type: 2}
+  additiveModifiers:
+  - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
+    value: 5
+  percentageModifiers:
+  - stat: {fileID: 11400000, guid: a19d98afd044ebf4f9102e9483362251, type: 2}
+    value: 5
+  objectsToActivate: []
+  slotsToDeactivate: 

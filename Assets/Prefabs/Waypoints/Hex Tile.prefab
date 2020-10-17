@@ -209,6 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightMaterial: {fileID: 2100000, guid: b606a80ce833e7841b75e2dd12ca3a31, type: 2}
   selectedMaterial: {fileID: 2100000, guid: ba715706134a4c449992c7098cf051af, type: 2}
+  mouseOverMaterial: {fileID: 2100000, guid: 8fc6050478040d3468ccd6471ffe3b8d, type: 2}
 --- !u!1 &1496566534129292
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,7 +660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4424325128174216
 Transform:
   m_ObjectHideFlags: 0

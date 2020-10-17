@@ -1,7 +1,9 @@
 ﻿
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using RPG.SceneManagement;
 using TkrainDesigns.Stats;
 using TkrainDesigns.Tiles.Control;
 using TkrainDesigns.Tiles.Core;
@@ -28,6 +30,9 @@ namespace TkrainDesigns.Tiles.Dungeons
         [SerializeField] [Range(1,10)]int roomProbability = 3;
         [SerializeField] [Range(1, 10)] int roomNoise;
 
+        public Fader fader;
+        public CanvasGroup UI;
+
         [Header("Dropped Items/Enemies")] [SerializeField]
         GameObject[] drops;
 
@@ -47,20 +52,28 @@ namespace TkrainDesigns.Tiles.Dungeons
 
         public Vector2Int Finish => finish;
 
+        
 
-        void Start()
+        IEnumerator Start()
         {
+            UI.alpha = 0.0f;
+            fader.FadeOutImmediate();
+            yield return null;
             level += 1;
-            GenerateNewDungeon();
+            yield return GenerateNewDungeon();
         }
 
-        public void GenerateNewDungeon()
+        public IEnumerator GenerateNewDungeon()
         {
-            CreateDungeon();
-            CreateTiles();
-            CreateWalls();
-
+            fader.SetText("Generating Dungeon");
+            yield return CreateDungeon();
+            fader.SetText("Populating Dungeon");
+            yield return CreateTiles();
+            fader.SetText("Making The Monsters Angry");
+            yield return CreateWalls();
             MovePlayer();
+            yield return fader.FadeIn(1.0f);
+            UI.alpha = 1.0f;
             ControllerCoordinator.BeginNextControllerTurn();
         }
 
@@ -78,19 +91,26 @@ namespace TkrainDesigns.Tiles.Dungeons
                 PlayerController control = player.GetComponent<PlayerController>();
                 control.InitializePlayer( TileUtilities.IdealWorldPosition(start));
                 control.ResetTurn();
-                control.SetFinish(finish, GenerateNewDungeon);
+                control.SetFinish(finish, StartFromBeginning);
             }
         }
 
-        void CreateDungeon()
+        void StartFromBeginning()
+        {
+            StartCoroutine(Start());
+        }
+
+        IEnumerator CreateDungeon()
         {
             ClearPreviousMap();
             map = new Dictionary<Vector2Int, int>();
-            BuildEssentialPath();
-            AddRandomPaths();
+            fader.SetText("Carving path through the rock.");
+            yield return BuildEssentialPath();
+            fader.SetText("Carving additional paths");
+            yield return AddRandomPaths();
         }
 
-        void AddRandomPaths()
+        IEnumerator AddRandomPaths()
         {
             List<Vector2Int> pathToExpand = new List<Vector2Int>();
             foreach (var keyPair in map)
@@ -108,6 +128,8 @@ namespace TkrainDesigns.Tiles.Dungeons
                         
                     }
                 }
+
+                yield return null;
             }
         }
 
@@ -201,7 +223,7 @@ namespace TkrainDesigns.Tiles.Dungeons
             }
         }
 
-        void BuildEssentialPath()
+        IEnumerator BuildEssentialPath()
         {
             int currentY = height / 2;
             int currentX = width/2;
@@ -220,6 +242,7 @@ namespace TkrainDesigns.Tiles.Dungeons
 
                 map[currentPosition] = 1;
                 TestLocationBounds(currentPosition);
+                yield return null;
             }
 
             finish = currentPosition;
@@ -227,7 +250,7 @@ namespace TkrainDesigns.Tiles.Dungeons
 
         
 
-        void CreateTiles()
+        IEnumerator CreateTiles()
         {
             Quaternion rotation = tile.transform.rotation;
             foreach (var pair in map)
@@ -251,18 +274,16 @@ namespace TkrainDesigns.Tiles.Dungeons
                             c.ResetTurn();
                         }
                     }
-
-                    
                 }
 
-
+                yield return null;
             }
 
             GameObject exitObject = Instantiate(exit, TileUtilities.IdealWorldPosition(finish), Quaternion.identity);
             exitObject.transform.SetParent(transform);
         }
         //TODO: Calculate bounds of actual dungeon 
-        void CreateWalls()
+        IEnumerator CreateWalls()
         {
             List<Vector2Int> actualTiles=new List<Vector2Int>();
         
@@ -296,6 +317,7 @@ namespace TkrainDesigns.Tiles.Dungeons
                         }
                     }
                 }
+                yield return null;
             }
         }
 

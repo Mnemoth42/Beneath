@@ -24,7 +24,7 @@ namespace TkrainDesigns.Tiles.Core
                 EnemyDropEntry drop = drops[d];
                 int probability = (int)drop.probability.Evaluate(level);
                 if (drop.character == null) continue;
-                Debug.Log($"Adding {probability} {drop.character}");
+                //Debug.Log($"Adding {probability} {drop.character}");
                 for (int i = 1; i < probability; i++)
                 {
                     result.Add(d);

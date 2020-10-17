@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Thorny Bite
   description: Thorns lining this plant's mouth tear into their opponent.   Since
     when do plants have mouths?
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 1aaa77a30b83afc4d82aef0f3b3a622b, type: 3}
   pickup: {fileID: 0}
   stackable: 0
   potentialStatBoosts: []

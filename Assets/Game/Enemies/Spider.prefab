@@ -821,6 +821,7 @@ GameObject:
   - component: {fileID: -1451453646643584577}
   - component: {fileID: 1068316418222935725}
   - component: {fileID: 3508283593626730126}
+  - component: {fileID: 3130238028212398722}
   m_Layer: 9
   m_Name: Spider
   m_TagString: Untagged
@@ -1062,6 +1063,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf6fc02acfbe09d409f937d1fa3154bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &3130238028212398722
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711228206799690}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.56
+  m_Center: {x: 0.11, y: 0.48, z: -0.27}
 --- !u!1 &1725598081621840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,6 +1305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replaceMaterial: {fileID: 2100000, guid: 797934232287e6b429183d99cbae3ced, type: 2}
+  fadeOutSpeed: 1
 --- !u!1 &1878329160041796
 GameObject:
   m_ObjectHideFlags: 0

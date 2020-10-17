@@ -62,6 +62,8 @@ namespace TkrainDesigns.ScriptableEnums
             EditorUtility.SetDirty(this);
         }
 
+        
+
         public void AddStatSource()
         {
             Undo.RecordObject(this, "Add Stat Source");
