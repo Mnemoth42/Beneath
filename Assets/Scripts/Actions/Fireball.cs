@@ -51,10 +51,8 @@ namespace TkrainDesigns.Tiles.Actions
             return range;
         }
 
-        Action finished;
-        GameObject currentUser;
-        GameObject currentTarget;
-        Action callbackAction;
+        
+        
 
         public override void PerformAction(GameObject user, GameObject target = null, Action callback = null)
         {
@@ -64,15 +62,12 @@ namespace TkrainDesigns.Tiles.Actions
                 return;
             }
             ActivateCooldown(user);
-            finished = callback;
-            currentUser = user;
-            currentTarget = target;
-            callbackAction = callback;
-            user.transform.LookAt(target.transform.position);
-            user.GetComponent<ActionPerformer>().SetAnimatorCallback(ReleaseFireball);
-            user.GetComponent<Animator>().SetTrigger("Cast");
-
+            CacheParameters(user, target, callback);
+            currentUser.transform.LookAt(target.transform.position);
+            InvokeCastAnimation(ReleaseFireball);
         }
+
+        
 
 
         void ReleaseFireball()

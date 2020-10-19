@@ -42,8 +42,8 @@ namespace TkrainDesigns.Tiles.Stats
         {
 
             experience += experienceToAdd.Floor(0);
-            ExperienceGained?.Invoke();
             TestLevelUp();
+            ExperienceGained?.Invoke();
             return experience;
         }
         /// <summary>

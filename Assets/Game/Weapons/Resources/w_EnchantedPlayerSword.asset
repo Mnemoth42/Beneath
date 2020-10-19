@@ -15,7 +15,7 @@ MonoBehaviour:
   itemId: 3528a597-e14c-4bdb-a51a-cd6b2b0ec806
   displayName: Enchanted Sword
   description: Glistening with Magic, this shimmering sword will put fear in your
-    enemies hearts (or at least the ones that have hears, I don't know what part
+    enemies hearts (or at least the ones that have fears, I don't know what part
     of a Golem feels fear).
   icon: {fileID: 21300000, guid: 15a065bf4cb6ce14fa09668fff247727, type: 3}
   pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
@@ -28,6 +28,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8721c49195c629747b3e609300d5c220, type: 2}
   allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,
     type: 2}
+  additiveModifiers: []
+  percentageModifiers:
+  - stat: {fileID: 11400000, guid: 22215a7f67ae3334abbe1a63b23c0211, type: 2}
+    value: 5
+  - stat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
+    value: 10
+  objectsToActivate: []
+  slotsToDeactivate: 
   model: {fileID: 1221624550297679130, guid: f3dceae71fe12bb439020345c07b8737, type: 3}
   controller: {fileID: 9100000, guid: accadbbe3e4192e47a2b168937caa4f9, type: 2}
   damage: 5
@@ -41,3 +49,12 @@ MonoBehaviour:
   - 15
   - 7
   - 10
+  controllers:
+  - controller: {fileID: 22100000, guid: 8503a3507678efb4a8f68361f020fd7c, type: 2}
+    baseDamage: 9
+  - controller: {fileID: 22100000, guid: 165206c88d192e64797198d74817f195, type: 2}
+    baseDamage: 12
+  - controller: {fileID: 22100000, guid: 313025938af4aba418083fc142cb783a, type: 2}
+    baseDamage: 15
+  - controller: {fileID: 22100000, guid: 052918e7d5506ae45a60bfe2361e53ff, type: 2}
+    baseDamage: 13

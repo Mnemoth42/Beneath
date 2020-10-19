@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using GameDevTV.Inventories;
 using RPG.Inventory;
 using TkrainDesigns.Grids.Stats;
 using TkrainDesigns.ScriptableEnums;
@@ -48,6 +49,7 @@ namespace TkrainDesigns.Tiles.Combat
         GridWeaponConfig currentWeaponConfig;
         PersonalStats personalStats;
         StatsEquipment equipment;
+        Inventory inventory;
 
         
 
@@ -55,14 +57,26 @@ namespace TkrainDesigns.Tiles.Combat
         {
             anim = GetComponent<Animator>();
             mover = GetComponent<GridMover>();
-            EquipWeapon(defaultWeaponConfig);
             personalStats = GetComponent<PersonalStats>();
-            if (TryGetComponent(out StatsEquipment e) && weaponSlot!=null)
+            EquipWeapon(defaultWeaponConfig);
+            if (TryGetComponent(out StatsEquipment e))
             {
                 equipment = e;
                 equipment.EquipmentUpdated += CheckEquipment;
             }
+
+            if (TryGetComponent(out Inventory i))
+            {
+                inventory = i;
+                inventory.InventoryUpdated += StripDefaultWeaponFromInventory;
+            }
         }
+
+        void Start()
+        {
+            CheckEquipment();
+        }
+
 
         public void EquipWeapon(GridWeaponConfig config)
         {
@@ -71,22 +85,34 @@ namespace TkrainDesigns.Tiles.Combat
                 Debug.Log($"{name} is trying to equip a non-existent weapon.  You might want to fix that.");
                 return;
             }
-           // Debug.Log($"Equipping {config.displayName}");
             weapon = config.EquipWeapon(rightHandTransform, leftHandTransform, weapon, anim);
             currentWeaponConfig = config;
         }
 
         void CheckEquipment()
         {
-            //Debug.Log("CheckEquipment");
+            if (!equipment) return;
             GridWeaponConfig config = equipment.GetItemInSlot(weaponSlot) as GridWeaponConfig;
-            //Debug.Log(config==null?"No Weapon?":$"{config.GetDisplayName()}");
+            
             if (!config)
             {
-                EquipWeapon(defaultWeaponConfig);
+                equipment.AddItem(weaponSlot, defaultWeaponConfig);
                 return;
             }
-            EquipWeapon(config);
+
+            if (config!=currentWeaponConfig)
+            {
+                EquipWeapon(config); 
+            }
+            
+        }
+
+        void StripDefaultWeaponFromInventory()
+        {
+            if (GetComponent<Inventory>().HasItem(defaultWeaponConfig))
+            {
+                GetComponent<Inventory>().RemoveItem(defaultWeaponConfig);
+            }
         }
 
         public GridWeaponConfig GetCurrentWeaponConfig() => currentWeaponConfig;
@@ -145,9 +171,10 @@ namespace TkrainDesigns.Tiles.Combat
         IEnumerator Attack()
         {
             transform.LookAt(TileUtilities.IdealWorldPosition(targetLocation));
-            anim.SetFloat("attackVariant", currentWeaponConfig.GetRandomAttackForm());
+            anim.SetFloat("attackVariant", currentWeaponConfig.GetRandomAttackForm(anim));
             anim.SetTrigger("Attack");
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(2.5f);
+            transform.position = TileUtilities.IdealWorldPosition(path.Last());
             callbackAction.Invoke();
         }
 

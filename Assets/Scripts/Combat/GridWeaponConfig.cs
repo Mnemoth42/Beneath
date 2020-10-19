@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using GameDevTV.Inventories;
+using RPG.Inventory;
 using TkrainDesigns.ScriptableEnums;
 using UnityEditor;
 using UnityEngine;
@@ -8,7 +10,7 @@ using UnityEngine;
 namespace TkrainDesigns.Tiles.Combat
 {
     [CreateAssetMenu(fileName="New WeaponConfig", menuName="Inventory/WeaponConfig")]
-    public class GridWeaponConfig : EquipableItem
+    public class GridWeaponConfig : StatsEquipableItem
     {
         [SerializeField] GridWeapon model;
         [SerializeField] RuntimeAnimatorController controller;
@@ -17,11 +19,17 @@ namespace TkrainDesigns.Tiles.Combat
         [SerializeField] ScriptableStat offensiveStat = null;
         [SerializeField] ScriptableStat defensiveStat = null;
         [SerializeField] List<float> stylesAndDamage=new List<float>();
+        [SerializeField] List<AttackVariant> controllers = new List<AttackVariant>();
+
 
         public float Damage
         {
             get
             {
+                if (controllers.Count > 0)
+                {
+                    return controllers[currentAttackForm].baseDamage;
+                }
                 if (stylesAndDamage.Count == 0) return damage;
                 return stylesAndDamage[currentAttackForm];
             }
@@ -29,8 +37,14 @@ namespace TkrainDesigns.Tiles.Combat
 
         int currentAttackForm = 0;
 
-        public int GetRandomAttackForm()
+        public int GetRandomAttackForm(Animator animator)
         {
+            if (controllers.Count > 0)
+            {
+                currentAttackForm = Random.Range(0, controllers.Count);
+                animator.runtimeAnimatorController = controllers[currentAttackForm].controller;
+                return currentAttackForm;
+            }
             if (stylesAndDamage.Count == 0) return 0;
             currentAttackForm = Random.Range(0, stylesAndDamage.Count);
             return currentAttackForm;
@@ -40,10 +54,14 @@ namespace TkrainDesigns.Tiles.Combat
         {
             if (oldWeapon!=null)
             {
-                Destroy(oldWeapon);
+                Destroy(oldWeapon.gameObject);
             }
 
-            if (controller)
+            if (controllers.Count > 0)
+            {
+                animator.runtimeAnimatorController = controllers[0].controller;
+            }
+            else if (controller)
             {
                 animator.runtimeAnimatorController = controller;
             }
@@ -70,23 +88,38 @@ namespace TkrainDesigns.Tiles.Combat
 
         public override string GetDescription()
         {
-            string result = base.description;
+            string result = base.GetDescription();
             result += "\n\n";
-            if (stylesAndDamage.Count == 0)
+            if (controllers.Count==0)
             {
-                result += $"Base Damage: {damage}";
+                if (stylesAndDamage.Count == 0)
+                {
+                    result += $"Base Damage: {damage}";
+                }
+                else
+                {
+                    float min = 100;
+                    float max = 0;
+                    foreach (float style in stylesAndDamage)
+                    {
+                        min = Mathf.Min(style, min);
+                        max = Mathf.Max(style, max);
+
+                    }
+                    result += $"Base Damage between {min} and {max}.";
+                } 
             }
             else
             {
                 float min = 100;
                 float max = 0;
-                foreach (float style in stylesAndDamage)
+                foreach (AttackVariant varient in controllers)
                 {
-                    min = Mathf.Min(style, min);
-                    max = Mathf.Max(style, max);
-                    
+                    min = Mathf.Min(varient.baseDamage, min);
+                    max = Mathf.Max(varient.baseDamage, max);
                 }
-                result += $"Base Damage between {min} and {max}.";
+
+                result += $"Base Damage between {min} and {max}";
             }
 
             return result;
@@ -171,8 +204,8 @@ namespace TkrainDesigns.Tiles.Combat
             displayGridWeapon = EditorGUILayout.Foldout(displayGridWeapon, "GridWeapon Data", style);
             if (!displayGridWeapon) return;
             SetGridWeapon((GridWeapon)EditorGUILayout.ObjectField("Weapon Model", model, typeof(GridWeapon), false));
-            SetRuntimeAnimatorController((RuntimeAnimatorController)EditorGUILayout.ObjectField("AnimatorOverride", controller, typeof(RuntimeAnimatorController),false));
-            SetLeftHanded(EditorGUILayout.Toggle("Left Handed", leftHanded));
+            //SetRuntimeAnimatorController((RuntimeAnimatorController)EditorGUILayout.ObjectField("AnimatorOverride", controller, typeof(RuntimeAnimatorController),false));
+            DrawBoolSlider(ref leftHanded, "Left Handed", "Whether or not this equipment is attached to the left hand.");
             string statName = "Choose Stat";
             if (offensiveStat != null) statName = offensiveStat.Description;
             EditorGUILayout.LabelField("Offensive Stat");
@@ -180,9 +213,39 @@ namespace TkrainDesigns.Tiles.Combat
             statName = (defensiveStat == null ? "Choose Stat" : statName = defensiveStat.Description);
             EditorGUILayout.LabelField("Choose Defensive Stat");
             SetDefensiveStat((ScriptableStat)EditorGUILayout.ObjectField(statName, defensiveStat, typeof(ScriptableStat), false));
+            DrawStylesAndDamage();
+            DrawAttackVariants();
+        }
+
+        void DrawAttackVariants()
+        {
+            int controllerToDelete = -1;
+            for (int i = 0; i < controllers.Count; i++)
+            {
+                if (controllers[i].DrawInspector(this))
+                {
+                    controllerToDelete = i;
+                }
+            }
+
+            if (controllerToDelete > -1)
+            {
+                controllers.RemoveAt(controllerToDelete);
+            }
+
+            if (GUILayout.Button("Add Controller/Damage pair"))
+            {
+                controllers.Add(new AttackVariant());
+            }
+        }
+
+        void DrawStylesAndDamage()
+        {
+            if (controllers.Count>0) return;
+            SetRuntimeAnimatorController((RuntimeAnimatorController)EditorGUILayout.ObjectField("AnimatorOverride", controller, typeof(RuntimeAnimatorController), false));
             if (stylesAndDamage.Count == 0)
             {
-                SetDamage(EditorGUILayout.IntSlider("Damage", (int)damage, 1,50));
+                SetDamage(EditorGUILayout.IntSlider("Damage", (int) damage, 1, 50));
             }
             else
             {
@@ -190,11 +253,12 @@ namespace TkrainDesigns.Tiles.Combat
                 for (int i = 0; i < stylesAndDamage.Count; i++)
                 {
                     EditorGUILayout.BeginHorizontal();
-                    SetStyleDamage(i, EditorGUILayout.IntSlider($"Style {i}:", (int)stylesAndDamage[i], 1, 50));
+                    SetStyleDamage(i, EditorGUILayout.IntSlider($"Style {i}:", (int) stylesAndDamage[i], 1, 50));
                     if (GUILayout.Button("-"))
                     {
                         styleToDelete = i;
                     }
+
                     EditorGUILayout.EndHorizontal();
                 }
 
@@ -202,9 +266,8 @@ namespace TkrainDesigns.Tiles.Combat
                 {
                     RemoveStyleDamage(styleToDelete);
                 }
-
-                
             }
+
             if (GUILayout.Button("Add Style"))
             {
                 AddStyleDamage();

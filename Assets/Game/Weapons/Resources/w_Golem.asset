@@ -20,6 +20,10 @@ MonoBehaviour:
   stackable: 0
   potentialStatBoosts: []
   allowedEquipLocation: {fileID: 0}
+  additiveModifiers: []
+  percentageModifiers: []
+  objectsToActivate: []
+  slotsToDeactivate: 
   model: {fileID: 0}
   controller: {fileID: 0}
   damage: 5
@@ -29,3 +33,4 @@ MonoBehaviour:
   stylesAndDamage:
   - 8
   - 12
+  controllers: []

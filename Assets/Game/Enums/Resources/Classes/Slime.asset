@@ -21,26 +21,26 @@ MonoBehaviour:
     startingValue: 5
     percentageAdded: 1
     absoluteAdded: 3
-    startValue: 3
-    endValue: 300
+    startValue: 15
+    endValue: 1000
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 1
-        value: 3
-        inSlope: 3
-        outSlope: 3
+        value: 15
+        inSlope: 9.949495
+        outSlope: 9.949495
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 100
-        value: 300
-        inSlope: 3
-        outSlope: 3
+        value: 1000
+        inSlope: 9.949495
+        outSlope: 9.949495
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334

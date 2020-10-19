@@ -1897,7 +1897,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8d06ef433d7c35546890f0502b45353b, type: 2}
+  - {fileID: 2100000, guid: c87a84a1d69f62e469fa582c08bf0a66, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2002,8 +2002,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683fb132ed9c45444be6e6145e2fdd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  replaceMaterial: {fileID: 2100000, guid: 797934232287e6b429183d99cbae3ced, type: 2}
-  fadeOutSpeed: 1
+  replaceMaterial: {fileID: 2100000, guid: b032a455333ee544ca966f72840fc1fe, type: 2}
+  fadeOutSpeed: 0.65
+  RedMaskColors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0.49019608, g: 0.49019608, b: 1, a: 1}
+  - {r: 1, g: 0.49019608, b: 0.49019608, a: 1}
+  - {r: 0.8584906, g: 0.5410741, b: 0, a: 1}
+  - {r: 0.039215688, g: 0.039215688, b: 0.039215688, a: 1}
+  GreenMaskColors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0.49019608, g: 0.49019608, b: 1, a: 1}
+  - {r: 1, g: 0.49019608, b: 0.49019608, a: 1}
+  - {r: 0.8584906, g: 0.5410741, b: 0, a: 1}
+  - {r: 0.039215688, g: 0.039215688, b: 0.039215688, a: 1}
+  BlueMaskColors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0.49019608, g: 0.49019608, b: 1, a: 1}
+  - {r: 1, g: 0.49019608, b: 0.49019608, a: 1}
+  - {r: 0.8584906, g: 0.5410741, b: 0, a: 1}
+  - {r: 0.039215688, g: 0.039215688, b: 0.039215688, a: 1}
 --- !u!1 &1584043933920280
 GameObject:
   m_ObjectHideFlags: 0
@@ -3137,7 +3161,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8d06ef433d7c35546890f0502b45353b, type: 2}
+  - {fileID: 2100000, guid: c87a84a1d69f62e469fa582c08bf0a66, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3243,8 +3267,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683fb132ed9c45444be6e6145e2fdd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  replaceMaterial: {fileID: 2100000, guid: 797934232287e6b429183d99cbae3ced, type: 2}
-  fadeOutSpeed: 1
+  replaceMaterial: {fileID: 2100000, guid: b032a455333ee544ca966f72840fc1fe, type: 2}
+  fadeOutSpeed: 0.65
+  RedMaskColors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0.49019608, g: 0.49019608, b: 1, a: 1}
+  - {r: 1, g: 0.49019608, b: 0.49019608, a: 1}
+  - {r: 0.8584906, g: 0.5410741, b: 0, a: 1}
+  - {r: 0.039215688, g: 0.039215688, b: 0.039215688, a: 1}
+  GreenMaskColors:
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0, g: 0.5882353, b: 0, a: 1}
+  - {r: 0.086507656, g: 0.6792453, b: 0.086507656, a: 1}
+  - {r: 0.3568441, g: 0.9339623, b: 0.3568441, a: 1}
+  - {r: 0.4392157, g: 0.36078432, b: 0, a: 1}
+  - {r: 0.1321645, g: 0.6226415, b: 0.5647059, a: 1}
+  - {r: 0.046724804, g: 0.09433961, b: 0.046724804, a: 1}
+  BlueMaskColors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0.49019608, g: 0.49019608, b: 1, a: 1}
+  - {r: 1, g: 0.49019608, b: 0.49019608, a: 1}
+  - {r: 0.8584906, g: 0.5410741, b: 0, a: 1}
+  - {r: 0.039215688, g: 0.039215688, b: 0.039215688, a: 1}
 --- !u!1 &1964192196560186
 GameObject:
   m_ObjectHideFlags: 0

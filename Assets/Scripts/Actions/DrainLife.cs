@@ -31,9 +31,7 @@ public class DrainLife : PerformableActionItem
         return true;
     }
 
-    GameObject currentUser;
-    GameObject currentTarget;
-    Action callbackAction;
+    
 
     public override void PerformAction(GameObject user, GameObject target = null, Action callback = null)
     {
@@ -106,37 +104,7 @@ public class DrainLife : PerformableActionItem
 
 #if UNITY_EDITOR
 
-    void SetDamage(float amount)
-    {
-        if (baseDamage.Equals(amount)) return;
-        Undo.RecordObject(this, "Set Damage");
-        baseDamage = amount;
-        EditorUtility.SetDirty(this);
-    }
-
-    void SetHealPercent(float amount)
-    {
-        if (healPercent.Equals(amount)) return;
-        Undo.RecordObject(this, "Set Heal Percentage");
-        healPercent = amount;
-        EditorUtility.SetDirty(this);
-    }
-
-    void SetAttackStat(ScriptableStat stat)
-    {
-        if (attackStat == stat) return;
-        Undo.RecordObject(this, "Set Attack Stat");
-        attackStat = stat;
-        EditorUtility.SetDirty(this);
-    }
-
-    void SetDefenseStat(ScriptableStat stat)
-    {
-        if (defenseStat == stat) return;
-        Undo.RecordObject(this, "Set Defense Stat");
-        defenseStat = stat;
-        EditorUtility.SetDirty(this);
-    }
+   
 
     bool showDrainLife = true;
     public override void DrawCustomInspector(float width, GUIStyle style)
@@ -144,14 +112,10 @@ public class DrainLife : PerformableActionItem
         base.DrawCustomInspector(width, style);
         showDrainLife = EditorGUILayout.Foldout(showDrainLife, "Drain Life Data", style);
         if (!showDrainLife) return;
-        GUIContent damageLabel = new GUIContent("Base Damage", "This will be multiplied by the user's damage stat to determine raw hit value");
-        SetDamage(EditorGUILayout.IntSlider(damageLabel, (int)baseDamage, 1,100));
-        GUIContent heallabel = new GUIContent("Heal Percent", "Percentage of damage dealt that the user will heal.");
-        SetHealPercent(EditorGUILayout.IntSlider(heallabel, (int) healPercent, 1, 100));
-        GUIContent attackLabel = new GUIContent("Attack Stat", "The stat that baseDamage multiplies with to calculate raw hit value.");
-        SetAttackStat((ScriptableStat)EditorGUILayout.ObjectField(attackLabel, attackStat, typeof(ScriptableStat), false));
-        GUIContent defenseLabel = new GUIContent("Defense Stat", "The stat that the target will use to defend against this attack.");
-        SetDefenseStat((ScriptableStat)EditorGUILayout.ObjectField(defenseLabel, defenseStat, typeof(ScriptableStat), false));
+        DrawFloatAsIntSlider(ref baseDamage,1,100,"Base Damage", "This will be multiplied by the user's damage to determine the raw hit value");
+        DrawFloatAsIntSlider(ref healPercent, 1,200, "Healing Percent", "Amount of damage applied that will be absorbed by the user");
+        DrawStat(ref attackStat, "Attack Stat", "The stat that the target will use to calculate raw hit value.");
+        DrawStat(ref defenseStat, "Defense Stat", "The stat that the target will use to defend against this attack.");
     }
 
 #endif

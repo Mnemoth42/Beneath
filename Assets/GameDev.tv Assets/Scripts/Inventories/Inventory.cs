@@ -95,6 +95,18 @@ namespace GameDevTV.Inventories
             return false;
         }
 
+        public void RemoveItem(InventoryItem item)
+        {
+            for (int i = 0; i < slots.Length; i++)
+            {
+                if (object.ReferenceEquals(slots[i].item, item))
+                {
+                    slots[i].item = null;
+                }
+            }
+            InventoryUpdated?.Invoke();
+        }
+
         /// <summary>
         /// Return the item type in the given slot.
         /// </summary>

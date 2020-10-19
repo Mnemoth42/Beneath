@@ -13,16 +13,22 @@ MonoBehaviour:
   m_Name: Unarmed
   m_EditorClassIdentifier: 
   itemId: 12556445-85e2-4e3e-a685-d919e118ebe9
-  displayName: Your Fists
+  displayName: Brass Knuckles
   description: Most adventurers prefer to attack their enemies with swords or axes. 
     You like pummeling them with your fists.  How brave!  You should probably find
     a sword or something.
-  icon: {fileID: 21300000, guid: 862fd868d3ac3664c956ea3cac258dd4, type: 3}
+  icon: {fileID: 21300000, guid: d647188db359ce44fbede161100e2a4b, type: 3}
   pickup: {fileID: 0}
   stackable: 0
   potentialStatBoosts: []
   allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,
     type: 2}
+  additiveModifiers: []
+  percentageModifiers:
+  - stat: {fileID: 11400000, guid: a19d98afd044ebf4f9102e9483362251, type: 2}
+    value: 10
+  objectsToActivate: []
+  slotsToDeactivate: 
   model: {fileID: 0}
   controller: {fileID: 9100000, guid: 93e304c638666a540b73ac897b5092fc, type: 2}
   damage: 5
@@ -40,3 +46,24 @@ MonoBehaviour:
   - 5
   - 5
   - 7
+  controllers:
+  - controller: {fileID: 22100000, guid: 3e668ae0624cf1a49903deca6ddba7d4, type: 2}
+    baseDamage: 3
+  - controller: {fileID: 22100000, guid: eaa75e1f79aecd640b351788661065ee, type: 2}
+    baseDamage: 5
+  - controller: {fileID: 22100000, guid: e7ff2696752e29a4e87acf907e0a7445, type: 2}
+    baseDamage: 3
+  - controller: {fileID: 22100000, guid: 6841b4fb1508e684ab53f416c4abdcc9, type: 2}
+    baseDamage: 6
+  - controller: {fileID: 22100000, guid: ae6e88c8277078d428ae558d34ba7edd, type: 2}
+    baseDamage: 4
+  - controller: {fileID: 22100000, guid: 6e61c5afbbc837240a9051acf1d221c2, type: 2}
+    baseDamage: 5
+  - controller: {fileID: 22100000, guid: 856f954391fce1444bfb3d8c9045bbef, type: 2}
+    baseDamage: 6
+  - controller: {fileID: 22100000, guid: d0a8d3d5979a900428c63282652977a0, type: 2}
+    baseDamage: 4
+  - controller: {fileID: 22100000, guid: be26972f03db9ac45b19de567ebb0afd, type: 2}
+    baseDamage: 5
+  - controller: {fileID: 22100000, guid: 60f77dfadc087ef4e997f245d9495780, type: 2}
+    baseDamage: 7

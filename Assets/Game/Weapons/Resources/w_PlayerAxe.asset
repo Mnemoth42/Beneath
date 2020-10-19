@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da6285b7e6b57614baa45ce23367481d, type: 3}
+  m_Name: w_PlayerAxe
+  m_EditorClassIdentifier: 
+  itemId: 11f115bd-31cb-47b1-9353-ba35337fad05
+  displayName: Basic Axe
+  description: Great for chopping down trees and slashing through enemies.
+  icon: {fileID: 21300000, guid: 706c39bcd47f5f545bc701361bf24716, type: 3}
+  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  stackable: 0
+  potentialStatBoosts:
+  - {fileID: 11400000, guid: 20b1b98bf010fae4fbe990665a91f758, type: 2}
+  - {fileID: 11400000, guid: 3e07f4a50a266704284df4f1c764dc8f, type: 2}
+  allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,
+    type: 2}
+  additiveModifiers: []
+  percentageModifiers:
+  - stat: {fileID: 11400000, guid: a19d98afd044ebf4f9102e9483362251, type: 2}
+    value: -5
+  objectsToActivate: []
+  slotsToDeactivate: 
+  model: {fileID: 1221624550297679130, guid: a59874fcf37febe4197dbfed85184d36, type: 3}
+  controller: {fileID: 0}
+  damage: 5
+  leftHanded: 0
+  offensiveStat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
+  defensiveStat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
+  stylesAndDamage: []
+  controllers:
+  - controller: {fileID: 22100000, guid: c27721d8c67274a43be383f6486af540, type: 2}
+    baseDamage: 5
+  - controller: {fileID: 22100000, guid: 7a056d4cd43519148b00f0d237d2d84b, type: 2}
+    baseDamage: 6
+  - controller: {fileID: 22100000, guid: 15d7ecde77f8f7f4394e1a8d35068c56, type: 2}
+    baseDamage: 7
+  - controller: {fileID: 22100000, guid: a11090e37828868428797f2f95a52761, type: 2}
+    baseDamage: 8
+  - controller: {fileID: 22100000, guid: 4341761e461b5ab41884e9e374976d73, type: 2}
+    baseDamage: 9
+  - controller: {fileID: 22100000, guid: 6ef789197c43c93499c0905886c3023e, type: 2}
+    baseDamage: 10

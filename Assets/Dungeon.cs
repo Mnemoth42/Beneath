@@ -306,7 +306,7 @@ namespace TkrainDesigns.Tiles.Dungeons
                 {
                     Vector2Int testLocation = new Vector2Int(x,y);
                     var nearestTile = actualTiles.OrderBy(t => Vector2Int.Distance(t, testLocation)).First();
-                    bool closeEnough = (Vector2Int.Distance(testLocation, nearestTile) < 10);
+                    bool closeEnough = (Vector2Int.Distance(testLocation, nearestTile) < 2.5f);
                     if (closeEnough)
                     {
                         if (!map.ContainsKey(new Vector2Int(x, y)) || x < 0 || y < 0)
@@ -314,6 +314,10 @@ namespace TkrainDesigns.Tiles.Dungeons
                             GameObject inst = Instantiate(wall, TileUtilities.IdealWorldPosition(new Vector2Int(x, y)),
                                                           Quaternion.identity);
                             inst.transform.SetParent(transform);
+                            if (Vector2Int.Distance(testLocation, nearestTile) > 1.25f)
+                            {
+                                inst.transform.Translate(Vector3.up*(.3f));
+                            }
                         }
                     }
                 }

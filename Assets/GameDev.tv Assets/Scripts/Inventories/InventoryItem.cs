@@ -167,10 +167,7 @@ namespace GameDevTV.Inventories
 
 #if UNITY_EDITOR
 
-        public void Dirty()
-        {
-            EditorUtility.SetDirty(this);
-        }
+        
 
         public void SetDisplayName(string newDisplayName)
         {
@@ -253,7 +250,8 @@ namespace GameDevTV.Inventories
         {
             drawInventoryItem = EditorGUILayout.Foldout(drawInventoryItem, "InventoryItem Data", style);
             if (!drawInventoryItem) return;
-            SetDisplayName(EditorGUILayout.TextField("Display Name", displayName));
+            //SetDisplayName(EditorGUILayout.TextField("Display Name", displayName));
+            SetItem(ref displayName, EditorGUILayout.TextField("Display Name", displayName),"Display Name");
             float textWidth = width * .66f - 40;
             GUIStyle longStyle = new GUIStyle(GUI.skin.textArea) { wordWrap = true };
             //longStyle.fixedHeight = longStyle.CalcHeight(new GUIContent(GetRawDescription()), textWidth);

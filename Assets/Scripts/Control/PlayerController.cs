@@ -67,6 +67,7 @@ namespace TkrainDesigns.Tiles.Control
 
         public void InitializePlayer(Vector3 position)
         {
+            health.SetHealthToMaxHealth();
             transform.position = position;
         }
 

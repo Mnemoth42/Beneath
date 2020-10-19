@@ -621,7 +621,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 797934232287e6b429183d99cbae3ced, type: 2}
+  - {fileID: 2100000, guid: feebed02875d0df41908846c0bd8c43b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -700,8 +700,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683fb132ed9c45444be6e6145e2fdd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  replaceMaterial: {fileID: 0}
-  fadeOutSpeed: 0.25
+  replaceMaterial: {fileID: 2100000, guid: b032a455333ee544ca966f72840fc1fe, type: 2}
+  fadeOutSpeed: 0.65
+  RedMaskColors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0.6404138, b: 0, a: 1}
+  - {r: 1, g: 0.21963641, b: 0, a: 1}
+  - {r: 0.033018887, g: 0.31168038, b: 1, a: 1}
+  - {r: 0, g: 0.90588236, b: 0, a: 1}
+  - {r: 1, g: 0.3160377, b: 0.3160377, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  GreenMaskColors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  BlueMaskColors:
+  - {r: 0.01886791, g: 0.0148629295, b: 0.0148629295, a: 1}
+  - {r: 0.3018868, g: 0.2719829, b: 0.2719829, a: 1}
+  - {r: 0.103773594, g: 0.101582155, b: 0.05629228, a: 1}
+  - {r: 0.35686275, g: 0, b: 0.07333398, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1522199433267968
 GameObject:
   m_ObjectHideFlags: 0

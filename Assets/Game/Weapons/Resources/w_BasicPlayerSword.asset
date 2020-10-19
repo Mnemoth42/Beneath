@@ -23,6 +23,10 @@ MonoBehaviour:
   potentialStatBoosts: []
   allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,
     type: 2}
+  additiveModifiers: []
+  percentageModifiers: []
+  objectsToActivate: []
+  slotsToDeactivate: 
   model: {fileID: 1221624550297679130, guid: 42901ad781bc95d4db16dcdec25e2a4c, type: 3}
   controller: {fileID: 9100000, guid: accadbbe3e4192e47a2b168937caa4f9, type: 2}
   damage: 5
@@ -36,3 +40,12 @@ MonoBehaviour:
   - 12
   - 6
   - 9
+  controllers:
+  - controller: {fileID: 22100000, guid: 8503a3507678efb4a8f68361f020fd7c, type: 2}
+    baseDamage: 6
+  - controller: {fileID: 22100000, guid: 165206c88d192e64797198d74817f195, type: 2}
+    baseDamage: 8
+  - controller: {fileID: 22100000, guid: 313025938af4aba418083fc142cb783a, type: 2}
+    baseDamage: 9
+  - controller: {fileID: 22100000, guid: 052918e7d5506ae45a60bfe2361e53ff, type: 2}
+    baseDamage: 7

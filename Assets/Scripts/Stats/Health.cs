@@ -60,6 +60,11 @@ namespace TkrainDesigns.Grids.Stats
 
         void Start()
         {
+            SetHealthToMaxHealth();
+        }
+
+        public void SetHealthToMaxHealth()
+        {
             currentHealth = MaxHealth;
         }
 

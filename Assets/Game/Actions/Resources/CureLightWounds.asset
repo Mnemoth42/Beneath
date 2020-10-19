@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Heal self for a small amount of hit points.  It beats bleeding to
     death.  These wounds are still going to hurt, though!
   icon: {fileID: 21300000, guid: 5dd2f89bc562c044992d4aaa13166303, type: 3}
-  pickup: {fileID: 0}
+  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
   stackable: 0
   potentialStatBoosts: []
   consumable: 0

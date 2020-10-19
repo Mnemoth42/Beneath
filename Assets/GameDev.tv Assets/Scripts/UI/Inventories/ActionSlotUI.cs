@@ -123,10 +123,15 @@ namespace GameDevTV.UI.Inventories
             }
         }
 
+        
+
         public void OnPointerClick(PointerEventData eventData)
         {
-           // Debug.Log($"OnPointerClick {name}");
             if (!isPlayerTurn) return;
+            if (eventData.clickCount < 2)
+            {
+                return;
+            }
             var item = store.GetAction(index);
             if (item && item.CanUse(player))
             {
@@ -135,7 +140,10 @@ namespace GameDevTV.UI.Inventories
                     ClearHighlights();
                     Highlight(Color.blue);
                 }
-
+                else
+                {
+                    Highlight(Color.white);
+                }
             }
         }
     }

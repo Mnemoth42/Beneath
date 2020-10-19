@@ -107,8 +107,6 @@ namespace RPG.Inventory.Editor
             GUIStyle contentStyle = new GUIStyle();
             contentStyle.fixedWidth = rect.width;
             GUILayout.BeginVertical(contentStyle);
-
-
             selected.DrawCustomInspector(position.width*.66f, foldoutStyle);
             GUILayout.EndVertical();
             
@@ -126,6 +124,9 @@ namespace RPG.Inventory.Editor
                 Rect canvas = GUILayoutUtility.GetRect(iconSize, iconSize);
                 GUI.DrawTexture(canvas, selected.GetIcon().texture, ScaleMode.ScaleToFit); 
             }
+
+            style.fixedWidth = rect.width-60;
+            headerStyle.fixedWidth = rect.width-60;
             EditorGUILayout.LabelField(selected.GetDisplayName(), headerStyle);
             EditorGUILayout.LabelField(selected.GetDescription(), style);
             EditorGUILayout.EndVertical();
