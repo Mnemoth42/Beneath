@@ -90,6 +90,18 @@ namespace TkrainDesigns.Tiles.Combat
         {
             string result = base.GetDescription();
             result += "\n\n";
+#if UNITY_EDITOR
+            if (offensiveStat == null)
+            {
+                result += BadString("No Offenseive Stat Selected!")+"\n";
+            }
+
+            if (defensiveStat == null)
+            {
+                result += BadString("No Defensive Stat Selected!") + "\n";
+            }
+            
+#endif
             if (controllers.Count==0)
             {
                 if (stylesAndDamage.Count == 0)

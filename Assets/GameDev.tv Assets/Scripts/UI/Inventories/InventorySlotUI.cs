@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using GameDevTV.Inventories;
 using GameDevTV.Core.UI.Dragging;
+using TkrainDesigns.Tiles.Control;
 using UnityEngine.EventSystems;
 
 namespace GameDevTV.UI.Inventories
 {
-    public class InventorySlotUI : MonoBehaviour, IItemHolder, IDragContainer<InventoryItem>, IPointerClickHandler
+    public class InventorySlotUI : MonoBehaviour, IItemHolder, IDragContainer<InventoryItem>
     {
         // CONFIG DATA
         [SerializeField] InventoryItemIcon icon = null;
@@ -84,10 +86,28 @@ namespace GameDevTV.UI.Inventories
             }
         }
 
-        public void OnPointerClick(PointerEventData eventData)
+        float lastClicked = 0.0f;
+
+        void Update()
         {
-            if (eventData.clickCount < 2) return;
+            lastClicked -= Time.deltaTime;
+        }
+
+        public void HandleClick()
+        {
+            inventory.GetComponent<PlayerController>().CancelClicks();
+            if (lastClicked<0.0f)
+            {
+                lastClicked =.5f;
+                return;
+            }
             AttemptUse();
+            lastClicked = 0;
+        }
+
+        public InventoryItem GetTooltipItem()
+        {
+            return inventory.GetItemInSlot(index);
         }
     }
 }

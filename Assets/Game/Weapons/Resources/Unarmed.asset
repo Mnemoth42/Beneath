@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Unarmed
   m_EditorClassIdentifier: 
   itemId: 12556445-85e2-4e3e-a685-d919e118ebe9
-  displayName: Brass Knuckles
+  displayName: Weapon Slot
   description: Most adventurers prefer to attack their enemies with swords or axes. 
     You like pummeling them with your fists.  How brave!  You should probably find
     a sword or something.
-  icon: {fileID: 21300000, guid: d647188db359ce44fbede161100e2a4b, type: 3}
+  icon: {fileID: 21300000, guid: 40565164252c76242b1a1b4dfb9aee23, type: 3}
   pickup: {fileID: 0}
   stackable: 0
   potentialStatBoosts: []
@@ -29,7 +29,7 @@ MonoBehaviour:
     value: 10
   objectsToActivate: []
   slotsToDeactivate: 
-  model: {fileID: 0}
+  model: {fileID: 244162791445399205, guid: 1fa09375f68149b408344513c4bfa00a, type: 3}
   controller: {fileID: 9100000, guid: 93e304c638666a540b73ac897b5092fc, type: 2}
   damage: 5
   leftHanded: 0

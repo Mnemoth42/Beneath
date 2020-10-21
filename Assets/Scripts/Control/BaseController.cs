@@ -131,7 +131,6 @@ namespace TkrainDesigns.Tiles.Control
         protected virtual void FinishTurn()
         {
             if(this==null) ControllerCoordinator.BeginNextControllerTurn();
-            //Debug.Log($"{name}/{GetInstanceID()} is ending turn.");
             IsCurrentTurn = false;
             CalculateNextTurn();
             currentVector2Int = TilePosition();

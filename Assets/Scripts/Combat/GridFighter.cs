@@ -65,16 +65,12 @@ namespace TkrainDesigns.Tiles.Combat
                 equipment.EquipmentUpdated += CheckEquipment;
             }
 
-            if (TryGetComponent(out Inventory i))
-            {
-                inventory = i;
-                inventory.InventoryUpdated += StripDefaultWeaponFromInventory;
-            }
+
         }
 
         void Start()
         {
-            CheckEquipment();
+            if(currentWeaponConfig==null) EquipWeapon(defaultWeaponConfig);
         }
 
 
@@ -82,7 +78,6 @@ namespace TkrainDesigns.Tiles.Combat
         {
             if (config == null)
             {
-                Debug.Log($"{name} is trying to equip a non-existent weapon.  You might want to fix that.");
                 return;
             }
             weapon = config.EquipWeapon(rightHandTransform, leftHandTransform, weapon, anim);
@@ -96,7 +91,7 @@ namespace TkrainDesigns.Tiles.Combat
             
             if (!config)
             {
-                equipment.AddItem(weaponSlot, defaultWeaponConfig);
+                EquipWeapon(defaultWeaponConfig);
                 return;
             }
 
@@ -107,13 +102,6 @@ namespace TkrainDesigns.Tiles.Combat
             
         }
 
-        void StripDefaultWeaponFromInventory()
-        {
-            if (GetComponent<Inventory>().HasItem(defaultWeaponConfig))
-            {
-                GetComponent<Inventory>().RemoveItem(defaultWeaponConfig);
-            }
-        }
 
         public GridWeaponConfig GetCurrentWeaponConfig() => currentWeaponConfig;
 
@@ -129,11 +117,9 @@ namespace TkrainDesigns.Tiles.Combat
 
         void Hit()
         {
-            //Debug.Log("Hit!");
             if (!target) return;
             if (!currentWeaponConfig)
             {
-                Debug.Log($"{name}'s fighter has no Weapon equipped!");
                 return;
             }
             

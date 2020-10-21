@@ -21,6 +21,11 @@ public class CooldownManager : MonoBehaviour
         onCooldownChanged?.Invoke();
     }
 
+    public void ResetCooldowns()
+    {
+        timers.Clear();
+    }
+
     public void AdvanceTimers()
     {
         var newMap = new Dictionary<string, int>();

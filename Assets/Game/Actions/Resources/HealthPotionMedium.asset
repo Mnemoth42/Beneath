@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e5256c2dc33c714d9cf345e62ff08c4, type: 3}
+  m_Name: HealthPotionMedium
+  m_EditorClassIdentifier: 
+  itemId: c2c823eb-9cc2-4467-bec1-4f425d9f7cc7
+  displayName: Health Potion
+  description: This doesn't taste much better than the minor health potion, but it
+    does heal a bit better.
+  icon: {fileID: 21300000, guid: 9f66872bddde1b64fa9d1d537c828a21, type: 3}
+  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  stackable: 1
+  potentialStatBoosts: []
+  consumable: 1
+  cooldown: 4
+  useOnPickup: 0
+  amountToHeal: 50
+  isPercentage: 0
+  particleGameObject: {fileID: 5319192194854586240, guid: c1346587e5ba69147b14aa940755c332,
+    type: 3}
+  audioArray: {fileID: 11400000, guid: ee23ad19c5628e843b3a0da734646587, type: 2}

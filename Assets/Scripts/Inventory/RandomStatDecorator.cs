@@ -22,7 +22,6 @@ namespace TkrainDesigns.Stats
         {
             if(potentialStatBoosts.Length==0)
             {
-                //Debug.Log("No potential Stat Boosts");
                 isAlreadyInitialized = true;
                 return;
             }

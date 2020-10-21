@@ -70,7 +70,6 @@ namespace GameDevTV.Inventories
         public SaveBundle CaptureState()
         {
             RemoveDestroyedDrops();
-            //Debug.LogFormat("{0} has {1} dropped items.", name, droppedItems.Count);
             var droppedItemsList = new DropRecord[droppedItems.Count];
             for (int i = 0; i < droppedItems.Count; i++)
             {
@@ -93,7 +92,6 @@ namespace GameDevTV.Inventories
             var droppedItemsList = (DropRecord[])state;
             foreach (var item in droppedItemsList)
             {
-                Debug.LogFormat("{0}: Restoring dropped item {1}", name, item.itemID);
                 var pickupItem = InventoryItem.GetFromId(item.itemID);
                 if (!pickupItem.IsStackable())
                 {

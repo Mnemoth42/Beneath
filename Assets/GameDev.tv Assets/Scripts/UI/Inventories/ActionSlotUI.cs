@@ -1,6 +1,8 @@
-﻿using GameDevTV.Core.UI.Dragging;
+﻿using System;
+using GameDevTV.Core.UI.Dragging;
 using GameDevTV.Inventories;
 using TkrainDesigns.Tiles.Actions;
+using TkrainDesigns.Tiles.Control;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,7 +13,7 @@ namespace GameDevTV.UI.Inventories
     /// <summary>
     /// The UI slot for the player action bar.
     /// </summary>
-    public class ActionSlotUI : MonoBehaviour, IItemHolder, IDragContainer<InventoryItem>, IPointerClickHandler
+    public class ActionSlotUI : MonoBehaviour, IItemHolder, IDragContainer<InventoryItem>
     {
 
 
@@ -123,15 +125,24 @@ namespace GameDevTV.UI.Inventories
             }
         }
 
-        
+        float lastClick = 0.0f;
 
-        public void OnPointerClick(PointerEventData eventData)
+        void Update()
+        {
+            lastClick -= Time.deltaTime;
+        }
+
+        public void HandleClick()
         {
             if (!isPlayerTurn) return;
-            if (eventData.clickCount < 2)
+            player.GetComponent<PlayerController>().CancelClicks();
+            if (lastClick <=0.0f)
             {
+                lastClick = .5f;
                 return;
             }
+
+            lastClick = 0.0f;
             var item = store.GetAction(index);
             if (item && item.CanUse(player))
             {
@@ -145,6 +156,12 @@ namespace GameDevTV.UI.Inventories
                     Highlight(Color.white);
                 }
             }
+        }
+
+        //Alternate way of getting item
+        public InventoryItem GetTooltipItem()
+        {
+            return store.GetAction(index);
         }
     }
 }

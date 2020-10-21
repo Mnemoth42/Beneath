@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
 using TkrainDesigns.Tiles.Stats;
@@ -66,6 +67,7 @@ namespace TkrainDesigns.Grids.Stats
         public void SetHealthToMaxHealth()
         {
             currentHealth = MaxHealth;
+            onTakeDamage?.Invoke();
         }
 
         public float MaxHealth
@@ -92,8 +94,8 @@ namespace TkrainDesigns.Grids.Stats
                 return currentHealth;
             }
         }
-        
 
+        
         public float TakeDamage(float amount, GameObject instigator)
         {
             float actualDamage = 0.0f;
@@ -103,7 +105,6 @@ namespace TkrainDesigns.Grids.Stats
                 GetComponent<Animator>().SetTrigger("GetHit");
                 currentHealth = Mathf.Floor(Mathf.Clamp(currentHealth - Mathf.Max(amount, 1.0f), 0, MaxHealth));
                 actualDamage = (int)(healthBeforeAttack - currentHealth);
-                //Debug.Log($"{name} takes {actualDamage} damage of the {amount} that was sent to TakeDamage.  {healthBeforeAttack}-{currentHealth}");
                 onTakeDamage?.Invoke();
                 onTakeDamageFloat?.Invoke(-actualDamage);
                 if ((int)currentHealth < 1)

@@ -29,7 +29,6 @@ namespace TkrainDesigns
 
         public void Play()
         {
-            //Debug.Log("AudioRandomizer.Play()");
             audio.pitch = Random.Range(minPitchRange, maxPitchRange);
             if (!audioArray)
             {

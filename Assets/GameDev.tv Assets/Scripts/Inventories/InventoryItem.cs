@@ -75,7 +75,7 @@ namespace GameDevTV.Inventories
         {
             if (pickup == null)
             {
-                Debug.LogErrorFormat("InventoryItem {0} does not have its pickup assigned.", name);
+                //Debug.LogErrorFormat("InventoryItem {0} does not have its pickup assigned.", name);
                 return null;
             }
             var pickupToSpawn = Instantiate(pickup);
@@ -101,7 +101,6 @@ namespace GameDevTV.Inventories
 
         public void InitDecorator(int level)
         {
-            Debug.LogFormat("{0} - InitDecorator - Level {1}, {2}", displayName, level, potentialStatBoosts.Count);
             Decorator = new RandomStatDecorator(level, potentialStatBoosts.ToArray());
         }
 
@@ -124,7 +123,14 @@ namespace GameDevTV.Inventories
 
         public virtual string GetDescription()
         {
-            return description;
+            string result = description;
+#if UNITY_EDITOR
+            if (pickup==null)
+            {
+                result += "\n" + BadString("No Pickup Selected!"); 
+            }
+#endif
+            return result;
         }
 
         public Pickup GetPickup()
@@ -144,18 +150,31 @@ namespace GameDevTV.Inventories
             return false;
         }
 
-        public static string StatString(string stat, float value, string modificationtype)
+        public static string GoodString(string text)
         {
-#pragma warning disable CA1305 // Specify IFormatProvider
-            return string.Format("<b><color={2}>{0:f0} {4} {1} to {3}.</b><br>", value, value < 0 ? "penalty" : "bonus", value < 0 ? "#FF1111" : "#1111FF", stat, modificationtype);
-#pragma warning restore CA1305 // Specify IFormatProvider
+            return $"<color=#8888ff>{text}</color>";
         }
 
-        public static string EditorStatString(string stat, float value, string modificationtype)
+        public static string BadString(string text)
         {
-            string bonus = "<color=#8888ff>bonus</color>";
+            return $"<color=#ff8888>{text}</color>";
+        }
+
+        public static string BoldString(string text)
+        {
+            return $"<b>{text}</b>";
+        }
+
+        public static string ItalicString(string text)
+        {
+            return $"<i>{text}</i>";
+        }
+
+
+        public static string StatString(string stat, float value, string modificationtype)
+        {
+            string bonus = BoldString(value < 0 ? BadString("penalty") : GoodString("bonus"));
             
-            if (value < 0) bonus = "<color=#ff8888>penalty</color>";
             return $"\n{Mathf.Abs(value)} {modificationtype} {bonus} to {stat}. ";
         }
 

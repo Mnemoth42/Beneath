@@ -18,8 +18,6 @@ namespace TkrainDesigns.ScriptableObjects
             }
             set
             {
-                Debug.LogWarning(value);
-                val = value;
                 AnnounceEvent();
             }
         }

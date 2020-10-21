@@ -39,7 +39,6 @@ namespace TkrainDesigns.Tiles.Actions
 
         public override void PerformAction(GameObject user, GameObject target = null, Action callback = null)
         {
-            Debug.Log($"{user} has caleld HealthPotion.PerformAction");
             Use(user);
             callback?.Invoke();
         }

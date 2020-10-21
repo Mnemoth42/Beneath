@@ -11,7 +11,8 @@ namespace GameDevTV.UI.Inventories
     {
         public override bool CanCreateTooltip()
         {
-            var item = GetComponent<IItemHolder>().GetItem();
+            
+            var item = GetComponent<IItemHolder>().GetTooltipItem();
             if (!item) return false;
 
             return true;
@@ -22,7 +23,7 @@ namespace GameDevTV.UI.Inventories
             var itemTooltip = tooltip.GetComponent<ItemTooltip>();
             if (!itemTooltip) return;
 
-            var item = GetComponent<IItemHolder>().GetItem();
+            var item = GetComponent<IItemHolder>().GetTooltipItem();
 
             itemTooltip.Setup(item);
         }

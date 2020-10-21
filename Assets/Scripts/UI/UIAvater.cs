@@ -46,4 +46,9 @@ public class UIAvater : MonoBehaviour, IItemHolder
         GridFighter fighter = stats.GetComponent<GridFighter>();
         return fighter.GetCurrentWeaponConfig();
     }
+
+    public InventoryItem GetTooltipItem()
+    {
+        return GetItem();
+    }
 }

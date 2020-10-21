@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using GameDevTV.Core.UI.Dragging;
 using GameDevTV.Inventories;
+using RPG.Inventory;
 using TkrainDesigns.ScriptableEnums;
 
 namespace GameDevTV.UI.Inventories
@@ -22,6 +23,8 @@ namespace GameDevTV.UI.Inventories
             "If you wish to crate a new equippable location, create a new ScriptableEquipSlot" +
             " and fill in the proper parameters.")]
         [SerializeField] ScriptableEquipSlot equipSlot = null;
+        [Tooltip("This is the item that will be displayed in the tooltip if there is nothing in the inspector.")]
+        [SerializeField] StatsEquipableItem defaultItem; 
 
         // CACHE
         Equipment playerEquipment;
@@ -81,6 +84,13 @@ namespace GameDevTV.UI.Inventories
         public void RemoveItems(int number)
         {
             playerEquipment.RemoveItem(equipSlot);
+        }
+
+        public InventoryItem GetTooltipItem()
+        {
+            InventoryItem result = playerEquipment.GetItemInSlot(equipSlot);
+            if (result == null) result = defaultItem;
+            return result;
         }
 
         // PRIVATE

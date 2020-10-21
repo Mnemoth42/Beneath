@@ -7,7 +7,8 @@ namespace GameDevTV.UI.Inventories
     /// </summary>
     public interface IItemHolder
     {
-        InventoryItem GetItem();
+        InventoryItem GetTooltipItem();
+        
     }
 
 }

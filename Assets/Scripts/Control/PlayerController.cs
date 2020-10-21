@@ -1,6 +1,7 @@
 ﻿using GameDevTV.Inventories;
 using System.Collections.Generic;
 using System.Linq;
+
 using TkrainDesigns.Grids.Stats;
 using TkrainDesigns.Tiles.Actions;
 using TkrainDesigns.Tiles.Core;
@@ -74,6 +75,8 @@ namespace TkrainDesigns.Tiles.Control
         void Update()
         {
             clickDetection -= Time.deltaTime;
+            PrepRects();
+            ProcessPointer();
             if (IsCurrentTurn && !turnChosen)
             {
                 if (InteractWithUI()) return;
@@ -93,7 +96,6 @@ namespace TkrainDesigns.Tiles.Control
                 onTargetChanged(request.target);
                 if (currentActionItem != null)
                 {
-                    Debug.Log($"{name} calling {currentActionItem.displayName}.BeginAction");
                     actionPerformer.BeginAction(currentActionItem, request.target.GetComponent<Health>(),
                                                 request.Path, PathComplete);
                 }
@@ -178,7 +180,6 @@ namespace TkrainDesigns.Tiles.Control
                 }
                 else
                 {
-                    //Debug.Log($"{tile} appears to have no path");
                 }
             }
         }
@@ -193,6 +194,8 @@ namespace TkrainDesigns.Tiles.Control
         public override void ResetTurn()
         {
             NextTurn = 0;
+            health.SetHealthToMaxHealth();
+            cooldownManager.ResetCooldowns();
         }
 
         void ReloadGame()
@@ -225,6 +228,8 @@ namespace TkrainDesigns.Tiles.Control
             CheckRayCastHit();
             if (hasHit)
             {
+#if UNITY_ANDROID
+#else
                 Tile tile = currentHit.transform.GetComponent<Tile>();
                 if (tile)
                 {
@@ -235,19 +240,20 @@ namespace TkrainDesigns.Tiles.Control
                         lastChanger = changer;
                     }
                 }
+#endif
             }
             else
             {
                 return new SMovementRequest();
             }
 
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
+//            if(Input.GetMouseButtonDown(0) && clickDetection>0.0f)
+//#elif UNITY_ANDROID
+//            if(Input.touchCount>0 && Input.touches[0].tapCount>1)
+//#else       
             if(Input.GetMouseButtonDown(0) && clickDetection>0.0f)
-#elif UNITY_ANDROID
-            if(Input.touchCount>0 && Input.touches[0].tapCount>1)
-#else       
-            if(Input.GetMouseButtonDown(0)) && clickDetection>0.0f)
-#endif
+//#endif
             {
 
                 Dictionary<Vector2Int, bool> obstacles = GetObstacles();
@@ -268,7 +274,6 @@ namespace TkrainDesigns.Tiles.Control
                 int availableMoves = Mover.MaxStepsPerTurn + 1;
                 if (currentActionItem)
                 {
-                    Debug.Log($"{name} has {availableMoves - 1}+{currentActionItem.Range(gameObject)} range.");
                     availableMoves += currentActionItem.Range(gameObject);
                 }
 
@@ -296,20 +301,99 @@ namespace TkrainDesigns.Tiles.Control
             return new SMovementRequest();
         }
 
+        //Kludge workaround because Unity can't make up it's mind about IsPointerOverGameObject.
+        public void CancelClicks()
+        {
+            clickDetection = 0.0f;
+        }
+
         static bool InteractWithUI()
         {
 #if UNITY_EDITOR
             if (EventSystem.current.IsPointerOverGameObject())
-#elif UNITY_ANDROID
-            if(Input.touchCount>0 && EventSystem.current.IsPointerOverGameObject(Input.touches[0].fingerId))
-#else
-            if (EventSystem.current.IsPointerOverGameObject())
-#endif
             {
                 return true;
             }
+#elif UNITY_ANDROID
+            if(Input.touchCount>0)
+            {
+                for(int i=0; i<Input.touchCount;i++)
+                {
+                    if (EventSystem.current.IsPointerOverGameObject(Input.touches[i].fingerId)) return true;
+                }
+            }  
+#else
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return true;
+            }
+#endif
+            
 
             return false;
+        }
+
+        Rect upperLeft;
+        Rect upperRight;
+        Rect lowerLeft;
+        Rect lowerRight;
+        List<Rect> rects;  
+        void PrepRects()
+        {
+            rects=new List<Rect>();
+            float centerX = (float)Screen.width / 2.0f;
+            float centerY = (float) Screen.height / 2.0f;
+            rects.Add(new Rect(0,0,centerX, centerY));
+            rects.Add(new Rect(centerX, 0, Screen.width, centerY));
+            rects.Add(new Rect(centerX, centerY, Screen.width, Screen.height));
+            rects.Add(new Rect(0,centerY, centerX, Screen.height));
+            
+        }
+
+        int FindRect(Vector3 position)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (rects[i].Contains(position))
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        Vector3 dragPoint;
+        int dragRect;
+        bool dragging = false;
+        void ProcessPointer()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (InteractWithUI())
+                {
+                    dragging = false;
+                    return;
+                }
+                dragPoint = Input.mousePosition;
+                dragRect = FindRect(dragPoint);
+                dragging = true;
+                return;
+            }
+
+            if (Input.GetMouseButton(0))
+            {
+                if (!dragging) return;
+                int newRect = FindRect(Input.mousePosition);
+                if ( newRect == dragRect) return;
+                int delta = newRect - dragRect;
+                if (Mathf.Abs(delta) > 2) delta *= -1;
+                FindObjectOfType<CameraTurner>().TurnCamera(delta<0 ? true: false);
+                dragRect = newRect;
+            }
+
+            
+            
         }
 
         bool ProcessSingleClick()
@@ -319,10 +403,9 @@ namespace TkrainDesigns.Tiles.Control
 #elif UNITY_ANDROID
             if(Input.touchCount>0 && Input.touches[0].tapCount==1)
 #else
-            if(Input.GetMouseButtonUp(0)) && clickDetection <=0.0f)
+            if(Input.GetMouseButtonUp(0) && clickDetection <=0.0f)
 #endif
             {
-                Debug.Log($"Click at {currentHit.point}, rayCastController = {rayCastController}");
                 clickDetection = .5f;
                 tileLastClicked = TileUtilities.GridPosition(currentHit.point);
                 onTargetChanged(rayCastController == this ? null : rayCastController);
@@ -341,7 +424,7 @@ namespace TkrainDesigns.Tiles.Control
                 BaseController controller = hit.transform.GetComponentInParent<BaseController>();
                 if (controller != null && controller.IsAlive)
                 {
-                    Debug.Log($"Found Controller {controller.name}");
+                    //Debug.Log($"Found Controller {controller.name}");
                     rayCastController = controller;
                 }
                 else rayCastController = null;
@@ -361,7 +444,7 @@ namespace TkrainDesigns.Tiles.Control
             {
                 if (enemy.IsAlive) return enemy;
             }
-            Debug.Log($"{name} failed to find an enemy at {loc}");
+            //Debug.Log($"{name} failed to find an enemy at {loc}");
             return null;
         }
 

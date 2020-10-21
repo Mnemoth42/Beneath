@@ -120,7 +120,6 @@ namespace TkrainDesigns.Stats
                     accumulator += modifier;
                 }
             }
-            //Debug.LogFormat("{0} Percentage Modifier is {1:1}%", stat, accumulator);
             return (accumulator + 100.0f) / 100.0f;
         }
 

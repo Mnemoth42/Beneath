@@ -59,7 +59,6 @@ namespace GameDevTV.Core.UI.Dragging
 
         void IEndDragHandler.OnEndDrag(PointerEventData eventData)
         {
-            //Debug.Log($"DragItem {eventData.pointerId}/{eventData.pointerDrag}");
             transform.position = startPosition;
             GetComponent<CanvasGroup>().blocksRaycasts = true;
             transform.SetParent(originalParent, true);

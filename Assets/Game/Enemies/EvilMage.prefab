@@ -1418,7 +1418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWeaponConfig: {fileID: 11400000, guid: e81bb056e02c5394f9a174f2e2ad1cb1,
     type: 2}
-  rightHandTransform: {fileID: 4522508599335908}
+  rightHandTransform: {fileID: 2695601849693519960}
   leftHandTransform: {fileID: 4780790932417872}
   weaponSlot: {fileID: 0}
   onHitEvent:
@@ -1475,7 +1475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   droppedItems: []
-  library: {fileID: 11400000, guid: 4aa873766be98234d81d11f40895c2cc, type: 2}
+  library: {fileID: 11400000, guid: 943ac8960956438429d56e5818627183, type: 2}
 --- !u!114 &8266374303946312645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2035,7 +2035,8 @@ Transform:
   m_LocalRotation: {x: 0.03876347, y: -0.65677077, z: 0.26873347, w: 0.7035139}
   m_LocalPosition: {x: 0.14155963, y: -0.19570963, z: 0.013587131}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2695601849693519960}
   m_Father: {fileID: 4730875177724506}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2871,3 +2872,33 @@ MonoBehaviour:
   maxPitchRange: 1.4
   minPitchRange: 0.6
   playOnAwake: 0
+--- !u!1 &4675716991462043491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2695601849693519960}
+  m_Layer: 9
+  m_Name: StaffEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2695601849693519960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4675716991462043491}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.323, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4327808937188798}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

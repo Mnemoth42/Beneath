@@ -131,6 +131,7 @@ namespace RPG.Inventory.Editor
             EditorGUILayout.LabelField(selected.GetDescription(), style);
             EditorGUILayout.EndVertical();
             GUILayout.EndArea();
+
         }
 
 

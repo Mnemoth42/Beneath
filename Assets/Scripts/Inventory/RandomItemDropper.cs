@@ -39,24 +39,25 @@ namespace RPG.Inventory
         {
             if (!library)
             {
-                Debug.LogError($"{name} does not have a DropLibrary attached.");
+                return;
             }
 
             if (!TryGetComponent<PersonalStats>(out PersonalStats stats))
             {
-                Debug.Log($"{name} does not have a personalStats attached.");
+                return;
             }
             int level = stats.Level;
             int numberOfDrops = Random.Range(0, level+1);
-            //Debug.Log($"{name} is dropping {numberOfDrops} items.");
-
+            List<string> dropsEncountered=new List<string>();
             for (int i = 0; i < numberOfDrops; i++)
             {
                 Drop drop = library.GetRandomDrop(level);
                 if (drop.item != null)
                 {
-                    //Debug.Log($"{name} has dropped {drop.item}");
+                    if (dropsEncountered.Contains(drop.item.GetItemID())) continue;
+                    dropsEncountered.Add(drop.item.GetItemID());
                     DropItem(drop.item, drop.count);
+
                 }
             }
         }

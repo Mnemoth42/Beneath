@@ -20,7 +20,12 @@ MonoBehaviour:
   pickup: {fileID: 0}
   stackable: 0
   potentialStatBoosts: []
-  allowedEquipLocation: {fileID: 0}
+  allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,
+    type: 2}
+  additiveModifiers: []
+  percentageModifiers: []
+  objectsToActivate: []
+  slotsToDeactivate: 
   model: {fileID: 0}
   controller: {fileID: 9100000, guid: a8fef1da60a213b40b94fa4724b1dc86, type: 2}
   damage: 1
@@ -32,3 +37,12 @@ MonoBehaviour:
   - 3
   - 4
   - 6
+  controllers:
+  - controller: {fileID: 22100000, guid: 887b1728bc0e17b439e8196309210dc1, type: 2}
+    baseDamage: 4
+  - controller: {fileID: 22100000, guid: 1fc5fc908a1e63144ae55e567fadda25, type: 2}
+    baseDamage: 5
+  - controller: {fileID: 22100000, guid: 1fc5fc908a1e63144ae55e567fadda25, type: 2}
+    baseDamage: 6
+  - controller: {fileID: 22100000, guid: 0530e3f8fb080a24aa03d4b638e1b2a9, type: 2}
+    baseDamage: 7

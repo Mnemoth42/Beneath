@@ -54,7 +54,6 @@ namespace GameDevTV.Inventories
         {
             if (!CanUse(user))
             {
-                Debug.Log("Item cannot be used");
                 return false;
             }
             return true;
@@ -107,8 +106,8 @@ namespace GameDevTV.Inventories
         {
             string result = base.GetDescription();
             result += $"\nCooldown {cooldown} turns.";
-            if (consumable) result += "\n<Color=4444ff>Consumable</color>";
-            if (useOnPickup) result += "\n<Color=4444ff>Uses when picked up</color>";
+            if (consumable) result += "\n<Color=#4444ff>Consumable</color>";
+            if (useOnPickup) result += "\n<Color=#4444ff>Uses when picked up</color>";
             return result;
         }
 

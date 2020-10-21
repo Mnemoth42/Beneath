@@ -58,12 +58,10 @@ namespace TkrainDesigns.Tiles.Control
             Dictionary<Vector2Int, bool> others = GetObstacles();
             others.Remove(playerPosition);
             PerformableActionItem potentialActionItem = GetAvailableAction();
-            //Debug.Log(potentialActionItem);
             int maxSteps = Mover.MaxStepsPerTurn+1 + (potentialActionItem ? potentialActionItem.Range(gameObject) : 0);
             var path = GridPathFinder<Tile>.FindPath(ourPosition, playerPosition, others);
             
             int radius = PositionInList(path, playerPosition);
-            //Debug.Log($"{name}: Max Steps = {maxSteps}, Radius = {radius}");
             if (radius >= 0)
             {
                 if (radius > maxSteps)
@@ -75,7 +73,6 @@ namespace TkrainDesigns.Tiles.Control
 
                 if (potentialActionItem)
                 {
-                    //Debug.Log($"{name} is performing {potentialActionItem.displayName}");
                     actionPerformer.BeginAction(potentialActionItem, player.GetComponent<Health>(), path,TurnCompleted);
                     return;
                 }
@@ -93,46 +90,35 @@ namespace TkrainDesigns.Tiles.Control
         /// <returns></returns>
         public PerformableActionItem GetAvailableAction()
         {
-            //Debug.Log($"{name} is considering an action.");
             if (!actionStore)
             {
-                Debug.Log($"{name} has no Action Store");
                 return null;
             }
             PerformableActionItem result = null;
             for (int i = 0; i < 6; i++)
             {
-                //Debug.Log($"Considering {i}");
                 PerformableActionItem potentialAction = actionStore.GetAction(i) as PerformableActionItem;
 
                 if (potentialAction == null)
                 {
-                    //Debug.Log($"{name}'s Action Item {i} is null or not a PerformableActionItem");
                     continue;
                 }
 
                 if (!potentialAction.CanUse(gameObject))
                 {
-                    //Debug.Log($"{name}'s spell {potentialAction.displayName} cannot be used at this time.");
                     continue;
                 }
 
                 if (potentialAction.AIRangedAttackSpell())
                 {
-                    //Debug.Log($"{name} has selected {potentialAction.displayName} because it is an offensive action.");
                     return potentialAction;
                 }
 
                 if (potentialAction.AIHealingSpell() && result == null)
                 {
-                    //Debug.Log($"{name} has potentially selected {potentialAction.displayName} as it is a healing spell.");
                     result = potentialAction;
                 }
             }
-
-            //Debug.Log(result
-            //              ? $"{name} has decided upon {result.displayName}"
-            //              : $"{name} could not find a suitable spell/action this turn, will fight instead.");
             return result;
         }
 

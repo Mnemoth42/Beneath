@@ -110,7 +110,6 @@ namespace GameDevTV.Inventories
                 ScriptableEquipSlot slot = ResourceRetriever<ScriptableEquipSlot>.GetFromID(pair.Key);
                 if (slot == null)
                 {
-                    Debug.Log("Saved Slot does not exist");
                     continue;
                 }
                 var item = (EquipableItem)InventoryItem.GetFromId(pair.Value.itemID);

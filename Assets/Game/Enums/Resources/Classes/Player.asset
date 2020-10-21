@@ -21,26 +21,26 @@ MonoBehaviour:
     startingValue: 100
     percentageAdded: 0.5
     absoluteAdded: 10
-    startValue: 51
-    endValue: 5000
+    startValue: 100
+    endValue: 1000
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 51
-        inSlope: 49.49
-        outSlope: 49.49
+        time: 1
+        value: 100
+        inSlope: 9.090909
+        outSlope: 9.090909
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 100
-        value: 5000
-        inSlope: 49.49
-        outSlope: 49.49
+        value: 1000
+        inSlope: 9.090909
+        outSlope: 9.090909
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -115,43 +115,25 @@ MonoBehaviour:
     percentageAdded: 9.56
     absoluteAdded: 100
     startValue: 100
-    endValue: 100000
-    showCurve: 1
+    endValue: 22375
+    showCurve: 0
     ValueCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 1
         value: 100
-        inSlope: 1009.0909
-        outSlope: 1009.0909
+        inSlope: 225
+        outSlope: 225
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 5.452065
-        value: 1819.4684
-        inSlope: 218.39374
-        outSlope: 218.39374
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.64523274
-      - serializedVersion: 3
-        time: 14.497082
-        value: 3566.8496
-        inSlope: 32.59239
-        outSlope: 32.59239
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.068502754
-      - serializedVersion: 3
         time: 100
-        value: 50425.566
-        inSlope: 1009.0909
-        outSlope: 1009.0909
+        value: 22375
+        inSlope: 225
+        outSlope: 225
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334

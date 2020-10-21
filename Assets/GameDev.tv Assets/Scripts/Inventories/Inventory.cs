@@ -73,9 +73,10 @@ namespace GameDevTV.Inventories
             {
                 return false;
             }
-
+            if (!item.IsStackable() && slots[i].item != null) return false;
             slots[i].item = item;
-            slots[i].number += number;
+            slots[i].number += 1;
+            if (!item.IsStackable()) slots[i].number = 1;
             InventoryUpdated?.Invoke();
             return true;
         }
@@ -102,6 +103,7 @@ namespace GameDevTV.Inventories
                 if (object.ReferenceEquals(slots[i].item, item))
                 {
                     slots[i].item = null;
+                    slots[i].number = 0;
                 }
             }
             InventoryUpdated?.Invoke();

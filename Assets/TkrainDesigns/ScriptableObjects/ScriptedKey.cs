@@ -22,7 +22,6 @@ namespace TkrainDesigns.ScriptableObjects
             {
                 if (count != value)
                 {
-                    Debug.LogWarning(keyName + " count = " + value);
                     count = value;
                     AnnounceEvent();
                 }

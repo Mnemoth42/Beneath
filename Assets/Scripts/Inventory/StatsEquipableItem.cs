@@ -26,7 +26,6 @@ namespace RPG.Inventory
         {
             if (!character)
             {
-                Debug.LogError($"No Character to activate {name} on.");
                 return;
             }
             character.ActivateItems(objectsToActivate, slotsToDeactivate);
@@ -210,12 +209,12 @@ namespace RPG.Inventory
             string result = $"{GetRawDescription()}\n";
             foreach (var pair in AdditiveTotals)
             {
-                if (pair.Key != null) result += EditorStatString(pair.Key.Description, pair.Value, "point");
+                if (pair.Key != null) result += StatString(pair.Key.Description, pair.Value, "point");
             }
 
             foreach (var pair in PercentageTotals)
             {
-                if (pair.Key != null) result += EditorStatString(pair.Key.Description, pair.Value, "percent");
+                if (pair.Key != null) result += StatString(pair.Key.Description, pair.Value, "percent");
             }
             return result;
         }

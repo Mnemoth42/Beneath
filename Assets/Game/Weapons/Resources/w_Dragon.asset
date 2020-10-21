@@ -20,15 +20,21 @@ MonoBehaviour:
   pickup: {fileID: 0}
   stackable: 0
   potentialStatBoosts: []
-  allowedEquipLocation: {fileID: 0}
+  allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,
+    type: 2}
+  additiveModifiers: []
+  percentageModifiers: []
+  objectsToActivate: []
+  slotsToDeactivate: 
   model: {fileID: 0}
   controller: {fileID: 9100000, guid: 073ac4118dc142d42890ceaf70decc2b, type: 2}
   damage: 1
   leftHanded: 0
-  offensiveStat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
+  offensiveStat: {fileID: 11400000, guid: 22215a7f67ae3334abbe1a63b23c0211, type: 2}
   defensiveStat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
   stylesAndDamage:
   - 7
   - 6
   - 8
   - 10
+  controllers: []
