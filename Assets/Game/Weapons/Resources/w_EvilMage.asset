@@ -18,7 +18,7 @@ MonoBehaviour:
     mage's spell power.  Don't worry about him hitting you with the staff, worry
     about his spells.
   icon: {fileID: 21300000, guid: 696ca2a06120ea54db2e2f4a005f8c69, type: 3}
-  pickup: {fileID: 0}
+  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
   stackable: 0
   potentialStatBoosts: []
   allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,

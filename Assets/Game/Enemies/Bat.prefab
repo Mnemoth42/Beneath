@@ -702,6 +702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   replaceMaterial: {fileID: 2100000, guid: b032a455333ee544ca966f72840fc1fe, type: 2}
   fadeOutSpeed: 0.65
+  useColors: 1
   RedMaskColors:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 1, g: 0.6404138, b: 0, a: 1}
@@ -718,6 +719,7 @@ MonoBehaviour:
   - {r: 0.103773594, g: 0.101582155, b: 0.05629228, a: 1}
   - {r: 0.35686275, g: 0, b: 0.07333398, a: 1}
   - {r: 0, g: 0, b: 0, a: 1}
+  autoHookup: 0
 --- !u!1 &1522199433267968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,7 +1808,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.806
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1950,8 +1952,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 8039288487161706052, guid: 2dd4a5c9d21f61e4c95dad06361a7e9f,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0.882
+  m_PlayOnAwake: 0
+  m_Volume: 0.81
   m_Pitch: 1
   Loop: 0
   Mute: 0

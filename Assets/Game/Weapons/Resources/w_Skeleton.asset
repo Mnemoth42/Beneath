@@ -17,7 +17,7 @@ MonoBehaviour:
   description: An old sword this skeleton must have used before he gave up this mortal
     coil.
   icon: {fileID: 21300000, guid: 3815c3687ce03d6458a71adf0a200d36, type: 3}
-  pickup: {fileID: 0}
+  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
   stackable: 0
   potentialStatBoosts: []
   allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,
@@ -32,10 +32,15 @@ MonoBehaviour:
   leftHanded: 0
   offensiveStat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
   defensiveStat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
-  stylesAndDamage:
-  - 7
-  - 7
-  - 4
-  - 4
-  - 4
-  controllers: []
+  stylesAndDamage: []
+  controllers:
+  - controller: {fileID: 22100000, guid: 17a16fb6c8f58474f80bab8bcbdac63e, type: 2}
+    baseDamage: 8
+  - controller: {fileID: 22100000, guid: de51d7c3d9cb80d4fb916965b62e17de, type: 2}
+    baseDamage: 7
+  - controller: {fileID: 22100000, guid: b16396a7cfefbd84eb17c53a91f943b4, type: 2}
+    baseDamage: 6
+  - controller: {fileID: 22100000, guid: e948246be85f71644b2cebcc804b1b36, type: 2}
+    baseDamage: 8
+  - controller: {fileID: 22100000, guid: 88f5bda922d6d4a4482fc00fb63631d3, type: 2}
+    baseDamage: 7

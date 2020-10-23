@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Slime
   description: Disgusting ball of ooze and acid with a surprising amount of speed.
   icon: {fileID: 21300000, guid: 3de33d46995e85a42952db919e4019b3, type: 3}
-  pickup: {fileID: 0}
+  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
   stackable: 0
   potentialStatBoosts: []
   allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,
@@ -31,9 +31,13 @@ MonoBehaviour:
   leftHanded: 0
   offensiveStat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
   defensiveStat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
-  stylesAndDamage:
-  - 4
-  - 4
-  - 7
-  - 8
-  controllers: []
+  stylesAndDamage: []
+  controllers:
+  - controller: {fileID: 9100000, guid: fb53b4d3a4f06844c90da7297e9082de, type: 2}
+    baseDamage: 6
+  - controller: {fileID: 9100000, guid: fb53b4d3a4f06844c90da7297e9082de, type: 2}
+    baseDamage: 4
+  - controller: {fileID: 9100000, guid: fb53b4d3a4f06844c90da7297e9082de, type: 2}
+    baseDamage: 5
+  - controller: {fileID: 9100000, guid: fb53b4d3a4f06844c90da7297e9082de, type: 2}
+    baseDamage: 7

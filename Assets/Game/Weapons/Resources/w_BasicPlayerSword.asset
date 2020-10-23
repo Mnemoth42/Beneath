@@ -18,7 +18,7 @@ MonoBehaviour:
     It''s not a horrible sword, mind you.  It works rather well, if you think about
     it.  It''s just a sword.  '
   icon: {fileID: 21300000, guid: e7e5c84b3bb7c2c419f60b8873fdae66, type: 3}
-  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  pickup: {fileID: 5279927515419474896, guid: fd05aa54a1840fc4babfb1166fc82409, type: 3}
   stackable: 0
   potentialStatBoosts: []
   allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,

@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683fb132ed9c45444be6e6145e2fdd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  replaceMaterial: {fileID: 2100000, guid: b032a455333ee544ca966f72840fc1fe, type: 2}
+  replaceMaterial: {fileID: 2100000, guid: edee3505fb247654eb9055716f7add81, type: 2}
   fadeOutSpeed: 0.65
   useColors: 0
   RedMaskColors:
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683fb132ed9c45444be6e6145e2fdd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  replaceMaterial: {fileID: 2100000, guid: b032a455333ee544ca966f72840fc1fe, type: 2}
+  replaceMaterial: {fileID: 2100000, guid: edee3505fb247654eb9055716f7add81, type: 2}
   fadeOutSpeed: 0.5
   useColors: 0
   RedMaskColors:
@@ -891,7 +891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683fb132ed9c45444be6e6145e2fdd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  replaceMaterial: {fileID: 2100000, guid: b032a455333ee544ca966f72840fc1fe, type: 2}
+  replaceMaterial: {fileID: 2100000, guid: edee3505fb247654eb9055716f7add81, type: 2}
   fadeOutSpeed: 0.5
   useColors: 0
   RedMaskColors:
@@ -1867,7 +1867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683fb132ed9c45444be6e6145e2fdd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  replaceMaterial: {fileID: 2100000, guid: b032a455333ee544ca966f72840fc1fe, type: 2}
+  replaceMaterial: {fileID: 2100000, guid: edee3505fb247654eb9055716f7add81, type: 2}
   fadeOutSpeed: 0.65
   useColors: 0
   RedMaskColors:
@@ -3449,7 +3449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683fb132ed9c45444be6e6145e2fdd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  replaceMaterial: {fileID: 2100000, guid: b032a455333ee544ca966f72840fc1fe, type: 2}
+  replaceMaterial: {fileID: 2100000, guid: edee3505fb247654eb9055716f7add81, type: 2}
   fadeOutSpeed: 0.4
   useColors: 0
   RedMaskColors:
@@ -3481,7 +3481,7 @@ GameObject:
   - component: {fileID: 6937278298635503869}
   - component: {fileID: 780920239711601040}
   m_Layer: 0
-  m_Name: NewSpider1
+  m_Name: NewSpider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4320,7 +4320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683fb132ed9c45444be6e6145e2fdd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  replaceMaterial: {fileID: 2100000, guid: b032a455333ee544ca966f72840fc1fe, type: 2}
+  replaceMaterial: {fileID: 2100000, guid: edee3505fb247654eb9055716f7add81, type: 2}
   fadeOutSpeed: 0.65
   useColors: 0
   RedMaskColors:
