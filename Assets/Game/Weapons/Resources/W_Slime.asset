@@ -21,6 +21,10 @@ MonoBehaviour:
   potentialStatBoosts: []
   allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,
     type: 2}
+  additiveModifiers: []
+  percentageModifiers: []
+  objectsToActivate: []
+  slotsToDeactivate: 
   model: {fileID: 0}
   controller: {fileID: 9100000, guid: fb53b4d3a4f06844c90da7297e9082de, type: 2}
   damage: 2
@@ -32,3 +36,4 @@ MonoBehaviour:
   - 4
   - 7
   - 8
+  controllers: []

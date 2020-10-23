@@ -3,6 +3,7 @@ using TMPro;
 using GameDevTV.Inventories;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
+using TkrainDesigns.Tiles.Stats;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 

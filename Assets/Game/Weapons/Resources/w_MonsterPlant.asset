@@ -21,6 +21,10 @@ MonoBehaviour:
   stackable: 0
   potentialStatBoosts: []
   allowedEquipLocation: {fileID: 0}
+  additiveModifiers: []
+  percentageModifiers: []
+  objectsToActivate: []
+  slotsToDeactivate: 
   model: {fileID: 0}
   controller: {fileID: 9100000, guid: b7d73eaa59bb6744c92c0e9f74e5c755, type: 2}
   damage: 1
@@ -31,3 +35,4 @@ MonoBehaviour:
   - 8
   - 6
   - 7
+  controllers: []

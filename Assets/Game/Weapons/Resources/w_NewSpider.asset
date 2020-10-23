@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da6285b7e6b57614baa45ce23367481d, type: 3}
-  m_Name: w_Dragon
+  m_Name: w_NewSpider
   m_EditorClassIdentifier: 
-  itemId: 5654aa70-9dfb-49a8-b4bc-a1112e6560f4
-  displayName: Spiked Thrust
-  description: Most headbuts hurt, but then most headbuts don't come with spikes.
-  icon: {fileID: 21300000, guid: 964bfd327364feb48b30b1c6b6cb03c0, type: 3}
+  itemId: c29ad9ca-fac2-406c-8433-49eece2d4719
+  displayName: Piercing Bite
+  description: Frightening mandibles designed to punch right through even the best
+    armor
+  icon: {fileID: 21300000, guid: ea09c1a47a4b81c4eb0c4068b4701abd, type: 3}
   pickup: {fileID: 0}
   stackable: 0
   potentialStatBoosts: []
@@ -26,18 +27,14 @@ MonoBehaviour:
   objectsToActivate: []
   slotsToDeactivate: 
   model: {fileID: 0}
-  controller: {fileID: 9100000, guid: 073ac4118dc142d42890ceaf70decc2b, type: 2}
-  damage: 1
+  controller: {fileID: 0}
+  damage: 5
   leftHanded: 0
   offensiveStat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
   defensiveStat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
-  stylesAndDamage:
-  - 7
-  - 6
-  - 8
-  - 10
+  stylesAndDamage: []
   controllers:
-  - controller: {fileID: 9100000, guid: 1b58d63f942126347865fbdde70e67c5, type: 2}
-    baseDamage: 35
-  - controller: {fileID: 9100000, guid: 1b58d63f942126347865fbdde70e67c5, type: 2}
-    baseDamage: 30
+  - controller: {fileID: 22100000, guid: 508c0d217016a5a47821dd383a3c7b8e, type: 2}
+    baseDamage: 10
+  - controller: {fileID: 22100000, guid: ef6a8b9d61efa2a41b035bed84d3e9a8, type: 2}
+    baseDamage: 15

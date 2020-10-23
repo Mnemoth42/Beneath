@@ -119,6 +119,7 @@ namespace TkrainDesigns.Tiles.Movement
 
         IEnumerator MoveToNextLocation(Vector3 newLocation)
         {
+            Debug.Log($"{name} is moving to {newLocation}");
             if (!rend || rend.isVisible)
             {
                 locationToTrack = newLocation;

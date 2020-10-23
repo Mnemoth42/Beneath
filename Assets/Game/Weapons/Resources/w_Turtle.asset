@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da6285b7e6b57614baa45ce23367481d, type: 3}
-  m_Name: w_Dragon
+  m_Name: w_Turtle
   m_EditorClassIdentifier: 
-  itemId: 5654aa70-9dfb-49a8-b4bc-a1112e6560f4
-  displayName: Spiked Thrust
-  description: Most headbuts hurt, but then most headbuts don't come with spikes.
+  itemId: 4fb9a5d3-b46b-4375-9e58-d13c22164a98
+  displayName: Head Butt
+  description: Getting a headbutt is annoying enough, but the turtle brings along
+    spikes!
   icon: {fileID: 21300000, guid: 964bfd327364feb48b30b1c6b6cb03c0, type: 3}
-  pickup: {fileID: 0}
+  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
   stackable: 0
   potentialStatBoosts: []
   allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,
@@ -26,18 +27,20 @@ MonoBehaviour:
   objectsToActivate: []
   slotsToDeactivate: 
   model: {fileID: 0}
-  controller: {fileID: 9100000, guid: 073ac4118dc142d42890ceaf70decc2b, type: 2}
-  damage: 1
+  controller: {fileID: 0}
+  damage: 5
   leftHanded: 0
   offensiveStat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
   defensiveStat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
-  stylesAndDamage:
-  - 7
-  - 6
-  - 8
-  - 10
+  stylesAndDamage: []
   controllers:
+  - controller: {fileID: 22100000, guid: 8912d0288ed247f43a63beb1ef3dc013, type: 2}
+    baseDamage: 11
   - controller: {fileID: 9100000, guid: 1b58d63f942126347865fbdde70e67c5, type: 2}
-    baseDamage: 35
-  - controller: {fileID: 9100000, guid: 1b58d63f942126347865fbdde70e67c5, type: 2}
-    baseDamage: 30
+    baseDamage: 12
+  - controller: {fileID: 22100000, guid: 8912d0288ed247f43a63beb1ef3dc013, type: 2}
+    baseDamage: 13
+  - controller: {fileID: 22100000, guid: 8912d0288ed247f43a63beb1ef3dc013, type: 2}
+    baseDamage: 14
+  - controller: {fileID: 22100000, guid: 5c1390dbc8310744681d25b5621d35ed, type: 2}
+    baseDamage: 15

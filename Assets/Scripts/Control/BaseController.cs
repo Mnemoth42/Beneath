@@ -121,6 +121,7 @@ namespace TkrainDesigns.Tiles.Control
 
         public virtual void BeginTurn()
         {
+            Debug.Log($"{name} BeginTurn()");
             if (cooldownManager)
             {
                 cooldownManager.AdvanceTimers();
@@ -130,6 +131,7 @@ namespace TkrainDesigns.Tiles.Control
 
         protected virtual void FinishTurn()
         {
+            Debug.Log($"{name} FinishTurn()");
             if(this==null) ControllerCoordinator.BeginNextControllerTurn();
             IsCurrentTurn = false;
             CalculateNextTurn();
