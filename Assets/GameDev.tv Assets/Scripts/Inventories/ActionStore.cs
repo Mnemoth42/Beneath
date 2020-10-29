@@ -56,11 +56,13 @@ namespace GameDevTV.Inventories
 
         public void BeginTurn()
         {
+            Debug.Log($"BeginTurn");
             OnBeginTurn?.Invoke();
         }
 
         public void EndTurn()
         {
+            Debug.Log("EndTurn");
             OnEndTurn?.Invoke();
         }
 
@@ -105,6 +107,11 @@ namespace GameDevTV.Inventories
                 if (object.ReferenceEquals(item, dockedItems[index].item))
                 {
                     dockedItems[index].number += number;
+                }
+                else
+                {
+                    var slot = new DockedItemSlot { item = item as ActionItem, number = number };
+                    dockedItems[index] = slot;
                 }
             }
             else
@@ -164,7 +171,7 @@ namespace GameDevTV.Inventories
         /// item is consumable.
         /// </summary>
         /// <returns>Will return int.MaxValue when there is not effective bound.</returns>
-        public int MaxAcceptable(InventoryItem item, int index)
+        public virtual int  MaxAcceptable(InventoryItem item, int index)
         {
             var actionItem = item as ActionItem;
             if (actionItem == null)

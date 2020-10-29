@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Frightening mandibles designed to punch right through even the best
     armor
   icon: {fileID: 21300000, guid: ea09c1a47a4b81c4eb0c4068b4701abd, type: 3}
-  pickup: {fileID: 0}
+  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
   stackable: 0
   potentialStatBoosts: []
   allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,
@@ -35,6 +35,6 @@ MonoBehaviour:
   stylesAndDamage: []
   controllers:
   - controller: {fileID: 22100000, guid: 508c0d217016a5a47821dd383a3c7b8e, type: 2}
-    baseDamage: 10
+    baseDamage: 6
   - controller: {fileID: 22100000, guid: ef6a8b9d61efa2a41b035bed84d3e9a8, type: 2}
-    baseDamage: 15
+    baseDamage: 8

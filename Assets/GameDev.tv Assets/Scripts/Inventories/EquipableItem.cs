@@ -37,7 +37,8 @@ namespace GameDevTV.Inventories
             base.DrawCustomInspector(width, style);
             displayEquipableItem = EditorGUILayout.Foldout(displayEquipableItem, "EquipableItem Data", style);
             if (!displayEquipableItem) return;
-            SetAllowedEquipLocation((ScriptableEquipSlot)EditorGUILayout.ObjectField("Allowed Equip Location", allowedEquipLocation, typeof(ScriptableEquipSlot), false));
+            SetAllowedEquipLocation(DrawScriptableObjectList("Allowed Equip Location", allowedEquipLocation));
+            //SetAllowedEquipLocation((ScriptableEquipSlot)EditorGUILayout.ObjectField("Allowed Equip Location", allowedEquipLocation, typeof(ScriptableEquipSlot), false));
         }
 
 #endif

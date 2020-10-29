@@ -4,87 +4,74 @@ using UnityEngine.UIElements;
 
 namespace TkrainDesigns.Tiles.Core
 {
+    public enum Tilestate
+    {
+        Normal,
+        Walkable,
+        Occupied
+    }
+
     [RequireComponent(typeof(MeshRenderer))]
     public class ColorChanger : MonoBehaviour
     {
-        const string Selected = "Bool_Selected";
-        const string Blocked = "Bool_Blocked";
-        const string MouseOver = "Bool_MouseOver";
+        
+        
+        [SerializeField] Color normalColor = Color.white;
+        [SerializeField] Color normalHighlight = Color.gray;
+        [SerializeField] Color walkableColor = Color.blue;
+        [SerializeField] Color walkableHighlightColor = Color.cyan;
+        [SerializeField] Color occupiedColor = Color.red;
+        [SerializeField] Color occupiedHighlight = Color.magenta;
+        Tilestate currentState;
+        bool selected = false;
 
-        [SerializeField] Material highlightMaterial;
-        [SerializeField] Material selectedMaterial;
-        [SerializeField] Material mouseOverMaterial;
         MeshRenderer rend;
-        Material originalMaterial;
+        Material mat;
 
         void Awake()
         {
             rend = GetComponent<MeshRenderer>();
             if(rend)
             {
-                originalMaterial = rend.material;
+                mat = rend.material;
             }
         }
 
-        Material premouseOverMaterial;
+
         public void SetMouseOver(bool mouseIsOver)
         {
-#if UNITY_ANDROID
-            if (mouseIsOver)
+            selected = mouseIsOver;
+            switch (currentState)
             {
-                premouseOverMaterial = rend.material;
-                rend.material = mouseOverMaterial;
+                case Tilestate.Normal:
+                    mat.SetColor("SelectionColor", selected?normalHighlight:normalColor );
+                    break;
+                case Tilestate.Walkable:
+                    mat.SetColor("SelectionColor", selected?walkableHighlightColor:walkableColor);
+                    break;
+                case Tilestate.Occupied:
+                    mat.SetColor("SelectionColor", selected?occupiedHighlight:occupiedColor);
+                    break;
             }
-            else
-            {
-                rend.material = premouseOverMaterial;
-                premouseOverMaterial = originalMaterial;
-            }
-#else
-            rend.material.SetFloat(MouseOver, mouseIsOver? 1.0f: 0.0f);
-#endif
+
         }
 
-        public void HighlightMaterial()
+        public void SetMaterialOccupied()
         {
-            if (rend != null)
-            {
-#if UNITY_ANDROID
-                rend.material = highlightMaterial;
-#else
-                //rend.material = highlightMaterial;
-                rend.material.SetFloat(Selected, 0.0f);
-                rend.material.SetFloat(Blocked, 1.0f);
-#endif
-            }
+            mat.SetColor("SelectionColor", selected?occupiedHighlight:occupiedColor);
+            currentState = Tilestate.Occupied;
         }
 
         public void ResetMaterial()
         {
-            if (rend != null)
-            {
-#if UNITY_ANDROID
-                rend.material = originalMaterial;
-#else
-                rend.material.SetFloat(Selected, 0.0f);
-                rend.material.SetFloat(Blocked, 0.0f);
-#endif
-
-            }
+            mat.SetColor("SelectionColor", normalColor);
+            currentState = Tilestate.Normal;
         }
 
-        public void SelectedMaterial()
+        public void SetMaterialWalkable()
         {
-            if (rend != null )
-            {
-
-#if UNITY_ANDROID
-                rend.material = selectedMaterial;
-#else
-                rend.material.SetFloat(Selected, 1.0f);
-                rend.material.SetFloat(Blocked, 0.0f);
-#endif
-            }
+            mat.SetColor("SelectionColor", selected?walkableHighlightColor: walkableColor);
+            currentState = Tilestate.Walkable;
         }
     }
 }

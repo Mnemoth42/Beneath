@@ -15,10 +15,14 @@ namespace TkrainDesigns.ScriptableEnums
         public string Description { get => description;  }
         public Sprite SlotSprite { get => slotSprite; }
 
-        
+        public override string GetDescription()
+        {
+            return description;
+        }
 
-        
-
-        
+        public override string GetDisplayName()
+        {
+            return description;
+        }
     }
 }

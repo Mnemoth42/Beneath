@@ -5,6 +5,8 @@ using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
+
 #pragma warning disable CS0649
 namespace GameDevTV.Inventories
 {
@@ -117,12 +119,12 @@ namespace GameDevTV.Inventories
             return stackable;
         }
         
-        public string GetDisplayName()
+        public override string GetDisplayName()
         {
             return displayName;
         }
 
-        public virtual string GetDescription()
+        public override string GetDescription()
         {
             string result = description;
 #if UNITY_EDITOR
@@ -186,11 +188,7 @@ namespace GameDevTV.Inventories
         }
 
 #if UNITY_EDITOR
-        List<Pickup> pickupsList=new List<Pickup>();
-        List<string> pickupNamesList = new List<string>();
-         Pickup[] pickups;
-         string[] pickupNames;
-        int pickupSlot;
+
 
         public void SetDisplayName(string newDisplayName)
         {
@@ -272,7 +270,11 @@ namespace GameDevTV.Inventories
 
         public virtual void DrawCustomInspector(float width, GUIStyle style)
         {
-
+            if (GUILayout.Button($"UUID={GetItemID()}  Press to change"))
+            {
+                ReIssueItemID();
+                Dirty();
+            }
             drawInventoryItem = EditorGUILayout.Foldout(drawInventoryItem, "InventoryItem Data", style);
             if (!drawInventoryItem) return;
             //SetDisplayName(EditorGUILayout.TextField("Display Name", displayName));
@@ -282,31 +284,7 @@ namespace GameDevTV.Inventories
             //longStyle.fixedHeight = longStyle.CalcHeight(new GUIContent(GetRawDescription()), textWidth);
             SetDescription(EditorGUILayout.TextArea(description, longStyle));
             SetIcon((Sprite) EditorGUILayout.ObjectField("Icon", icon, typeof(Sprite), false));
-            if (pickups.Length>0)
-            {
-                if (pickup != null)
-                {
-                    if (pickupNamesList.Contains(pickup.name))
-                    {
-                        pickupSlot = pickupNamesList.IndexOf(pickup.name);
-                    }
-                }
-                EditorGUILayout.BeginHorizontal();
-                pickupSlot = EditorGUILayout.Popup("Pickup", pickupSlot, pickupNames);
-                SetPickup(pickups[pickupSlot]);
-                if (GUILayout.Button("Refresh"))
-                {
-                    PopulatePickups();
-                }
-
-                EditorGUILayout.EndHorizontal();
-            }
-            else
-            {
-                PopulatePickups();
-            }
-
-                //SetPickup((Pickup)EditorGUILayout.ObjectField("Pickup", pickup, typeof(Pickup), false));
+            SetPickup(DrawObjectList("Pickup", pickup));
             SetIsStackable(EditorGUILayout.Toggle("isStackable", IsStackable()));
             if (!CanHaveStatBoosts()) return;
             int itemtoDelete = -1;
@@ -338,32 +316,7 @@ namespace GameDevTV.Inventories
 
         }
 
-        void PopulatePickups()
-        {
-            Debug.Log("Populating Pickups");
-            pickupsList=new List<Pickup>();
-            pickupNamesList = new List<string>();
-            string[] lGuids = AssetDatabase.FindAssets("t:GameObject", new string[] {"Assets/Game"});
-            Debug.Log($"Found {lGuids.Length} potential pickups.");
-            foreach (string id in lGuids)
-            {
-                string lAssetPath = AssetDatabase.GUIDToAssetPath(id);
-                GameObject go = (GameObject)AssetDatabase.LoadAssetAtPath<GameObject>(lAssetPath);
-                Debug.Log($"testing {id}/{go}");
-                if (go && go.TryGetComponent(out Pickup test))
-                {
-                    Debug.Log($"Adding {test.name}");
-                    pickupsList.Add(test);
-                    pickupNamesList.Add(test.name);
-                }
-            }
 
-            if (pickupsList.Count > 0)
-            {
-                pickups = pickupsList.ToArray();
-                pickupNames = pickupNamesList.ToArray();
-            }
-        }
 
 #endif
 

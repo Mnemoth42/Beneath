@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da6285b7e6b57614baa45ce23367481d, type: 3}
+  m_Name: w_NewOrc
+  m_EditorClassIdentifier: 
+  itemId: e7987c55-3920-420f-95ad-e1ed1e2ba8c5
+  displayName: Gruesome Mace
+  description: I hope you're not planning on letting that spiked thing hit you...
+  icon: {fileID: 21300000, guid: 1c882a8b9aeb3594a8c791ebfb0009d1, type: 3}
+  pickup: {fileID: 5279927515419474896, guid: 93115a38a4d1b6d44a92aa307e1d59a5, type: 3}
+  stackable: 0
+  potentialStatBoosts: []
+  allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,
+    type: 2}
+  additiveModifiers: []
+  percentageModifiers: []
+  objectsToActivate: []
+  slotsToDeactivate: 
+  model: {fileID: 0}
+  controller: {fileID: 0}
+  damage: 5
+  leftHanded: 0
+  offensiveStat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
+  defensiveStat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
+  stylesAndDamage: []
+  controllers:
+  - controller: {fileID: 22100000, guid: 0e27716a3ab68534b8292968dbb0394b, type: 2}
+    baseDamage: 7
+  - controller: {fileID: 22100000, guid: 0e27716a3ab68534b8292968dbb0394b, type: 2}
+    baseDamage: 9
+  - controller: {fileID: 22100000, guid: 0e27716a3ab68534b8292968dbb0394b, type: 2}
+    baseDamage: 8

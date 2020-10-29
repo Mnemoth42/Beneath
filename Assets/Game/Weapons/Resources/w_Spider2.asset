@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da6285b7e6b57614baa45ce23367481d, type: 3}
+  m_Name: w_Spider2
+  m_EditorClassIdentifier: 
+  itemId: 098c50e5-56c3-425c-ab98-65d827a85108
+  displayName: Piercing Teeth
+  description: The better to drain you with
+  icon: {fileID: 21300000, guid: cbe97b3268e60e547ac63a448f7f2256, type: 3}
+  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  stackable: 0
+  potentialStatBoosts: []
+  allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,
+    type: 2}
+  additiveModifiers: []
+  percentageModifiers: []
+  objectsToActivate: []
+  slotsToDeactivate: 
+  model: {fileID: 0}
+  controller: {fileID: 22100000, guid: 6f71d2acb0e742649be4cd6b46bb6af8, type: 2}
+  damage: 5
+  leftHanded: 0
+  offensiveStat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
+  defensiveStat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
+  stylesAndDamage: []
+  controllers:
+  - controller: {fileID: 22100000, guid: 6f71d2acb0e742649be4cd6b46bb6af8, type: 2}
+    baseDamage: 7
+  - controller: {fileID: 22100000, guid: 7c380eb090d568345a21fcfb0151cf5c, type: 2}
+    baseDamage: 8

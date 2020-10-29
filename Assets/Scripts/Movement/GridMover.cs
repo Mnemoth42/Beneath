@@ -24,7 +24,7 @@ namespace TkrainDesigns.Tiles.Movement
         ScriptableStat movementStat = null;
 
         System.Action callbackAction;
-
+        public event System.Action onMoveStepCompleted;
         PersonalStats stats;
         List<Vector2Int> path = new List<Vector2Int>();
         bool isMoving = false;
@@ -101,6 +101,7 @@ namespace TkrainDesigns.Tiles.Movement
                     Vector3 currentWaypoint = queue.Dequeue();
                     yield return MoveToNextLocation(currentWaypoint);
                     currentSteps++;
+                    onMoveStepCompleted?.Invoke();
                 }
             }
 
@@ -119,8 +120,8 @@ namespace TkrainDesigns.Tiles.Movement
 
         IEnumerator MoveToNextLocation(Vector3 newLocation)
         {
-            Debug.Log($"{name} is moving to {newLocation}");
-            if (!rend || rend.isVisible)
+            //Debug.Log($"{name} is moving to {newLocation}");
+            if (rend && rend.enabled)
             {
                 locationToTrack = newLocation;
                 transform.LookAt(newLocation);
@@ -138,8 +139,17 @@ namespace TkrainDesigns.Tiles.Movement
 
                 isMoving = false;
             }
+            else
+            {
+               // Debug.Log($"{name} is not on screen, and will move instantly");
+            }
 
             transform.position = newLocation;
+        }
+
+        public void MoveBackToIdealPosition(Vector3 location)
+        {
+            StartCoroutine(MoveToNextLocation(location));
         }
 
         void FootR()

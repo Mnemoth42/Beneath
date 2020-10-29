@@ -105,6 +105,15 @@ namespace TkrainDesigns.ScriptableEnums
             EditorUtility.SetDirty(this);
         }
 #endif
+        public override string GetDisplayName()
+        {
+            return description;
+        }
+
+        public override string GetDescription()
+        {
+            return extendedDescription;
+        }
     }
 
 

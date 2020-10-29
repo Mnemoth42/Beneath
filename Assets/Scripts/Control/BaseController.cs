@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using GameDevTV.Inventories;
 using JetBrains.Annotations;
+using RPG.Inventory;
 using TkrainDesigns.Grids.Stats;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
@@ -11,6 +12,7 @@ using TkrainDesigns.Tiles.Combat;
 using TkrainDesigns.Tiles.Grids;
 using TkrainDesigns.Tiles.Movement;
 using TkrainDesigns.Tiles.Pathfinding;
+using UnityEditorInternal;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -29,6 +31,11 @@ namespace TkrainDesigns.Tiles.Control
     [RequireComponent(typeof(GridFighter))]
     [RequireComponent(typeof(ActionPerformer))]
     [RequireComponent(typeof(ActionStore))]
+    [RequireComponent(typeof(RandomItemDropper))]
+    [RequireComponent(typeof(CooldownManager))]
+    [RequireComponent(typeof(CombatTarget))]
+    [RequireComponent(typeof(CapsuleCollider))]
+    [RequireComponent(typeof(BreakingHitSender))]
     
     public abstract class BaseController : MonoBehaviour
     {
@@ -42,7 +49,8 @@ namespace TkrainDesigns.Tiles.Control
         [SerializeField] protected bool ragdoll = false;
 
         PersonalStats stats;
-
+        public System.Action<BaseController> onTargetChanged;
+        public event System.Action onTurnEnded ;
         private float nextTurn = 0;
         public Vector2Int currentVector2Int;
 
@@ -83,6 +91,7 @@ namespace TkrainDesigns.Tiles.Control
             actionPerformer = GetComponent<ActionPerformer>();
             cooldownManager = GetComponent<CooldownManager>();
             actionStore = GetComponent<ActionStore>();
+            currentPosition = transform.position;
         }
 
         void OnEnable()
@@ -121,7 +130,7 @@ namespace TkrainDesigns.Tiles.Control
 
         public virtual void BeginTurn()
         {
-            Debug.Log($"{name} BeginTurn()");
+            //Debug.Log($"{name} BeginTurn()");
             if (cooldownManager)
             {
                 cooldownManager.AdvanceTimers();
@@ -129,13 +138,45 @@ namespace TkrainDesigns.Tiles.Control
             IsCurrentTurn = true;
         }
 
+        protected static bool CheckForObstacles(List<Vector2Int> path, Vector2Int tile, float range)
+        {
+            if (path.Count <(int) range+1) return false; //clearly there are no obstacles if we are standing next to the tile.
+            Vector3 finish = TileUtilities.IdealWorldPosition(tile);
+            for (int i = path.Count - (int)range; i > 0; i--)
+            {
+                Vector3 start = TileUtilities.IdealWorldPosition(path[i]);
+                Vector3 direction = finish - start;
+                Ray ray = new Ray(start,direction);
+                int layermask = 1 << 10;
+                if (!Physics.Raycast(ray, out RaycastHit hit, Vector3.Distance(start, finish), layermask))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        Vector3 currentPosition;
+        public Vector3 GetCurrentPosition() => currentPosition;
+
+        public virtual void RestoreCurrentPosition()
+        {
+            Anim.enabled = false;
+            transform.position = currentPosition;
+            Anim.enabled = true;
+            Debug.Log($"Restoring current position to {currentPosition} - {transform.position}");
+        }
+
         protected virtual void FinishTurn()
         {
-            Debug.Log($"{name} FinishTurn()");
+            //Debug.Log($"{name} FinishTurn()");
             if(this==null) ControllerCoordinator.BeginNextControllerTurn();
             IsCurrentTurn = false;
             CalculateNextTurn();
             currentVector2Int = TilePosition();
+            currentPosition = transform.position;
+            onTurnEnded?.Invoke();
             ControllerCoordinator.BeginNextControllerTurn();
         }
 

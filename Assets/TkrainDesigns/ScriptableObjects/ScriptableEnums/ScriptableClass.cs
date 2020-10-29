@@ -22,9 +22,14 @@ namespace TkrainDesigns.ScriptableEnums
             set => description=value;
         }
 
-        public string GetDisplayName()
+        public override string GetDisplayName()
         {
             return displayName;
+        }
+
+        public override string GetDescription()
+        {
+            return description;
         }
 
         public List<StatFormula> Formula { get => formula;  }

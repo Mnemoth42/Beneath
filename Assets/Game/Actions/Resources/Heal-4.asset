@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e5256c2dc33c714d9cf345e62ff08c4, type: 3}
+  m_Name: Heal-4
+  m_EditorClassIdentifier: 
+  itemId: 6d11ba67-7e46-4763-88bf-7f4e27a17b47
+  displayName: Cure Heavy Wounds
+  description: Reverses heavy damage.   It's even starting to have a decent effect
+    on the pain.
+  icon: {fileID: 21300000, guid: 0c5ec9d6f0e76b947b25b19474058a5c, type: 3}
+  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  stackable: 0
+  potentialStatBoosts: []
+  consumable: 0
+  cooldown: 6
+  useOnPickup: 0
+  amountToHeal: 75
+  isPercentage: 1
+  particleGameObject: {fileID: 69192902441116622, guid: 85f1bd52cccafb34fb428f1998771dbc,
+    type: 3}
+  audioArray: {fileID: 11400000, guid: ee23ad19c5628e843b3a0da734646587, type: 2}

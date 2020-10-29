@@ -21,17 +21,25 @@ namespace GameDevTV.UI.Inventories
         // CONFIG DATA
         [SerializeField] InventoryItemIcon icon = null;
         [SerializeField] int index = 0;
+        [SerializeField] bool consumables = false;
         [SerializeField] CooldownUI cooldownTimer;
         [SerializeField] Image HighlightImage = null;
+        
 
         // CACHE
         ActionStore store;
         GameObject player;
         CooldownManager cooldownManager;
+        PlayerController controller;
 
 
         int turnsToWait = 0;
         bool isPlayerTurn = false;
+
+        void Start()
+        {
+            UpdateIcon();
+        }
 
         // LIFECYCLE METHODS
         private void Awake()
@@ -39,10 +47,19 @@ namespace GameDevTV.UI.Inventories
             player = GameObject.FindGameObjectWithTag("Player");
             cooldownManager = player.GetComponent<CooldownManager>();
             cooldownManager.onCooldownChanged += SetTimer;
-            store = player.GetComponent<ActionStore>();
+            if (consumables)
+            {
+                store = player.GetComponent<ActionPotionStore>();
+            }
+            else
+            {
+                store = player.GetComponent<ActionSpellStore>();
+            }
+
+            controller = player.GetComponent<PlayerController>();
+            controller.onBeginTurnEvent.AddListener(OnBeginTurn);
+            controller.onEndTurnEvent.AddListener(OnEndTurn);
             store.StoreUpdated += UpdateIcon;
-            store.OnBeginTurn += OnBeginTurn;
-            store.OnEndTurn += OnEndTurn;
         }
 
         void SetTimer()
@@ -98,7 +115,7 @@ namespace GameDevTV.UI.Inventories
 
         void OnBeginTurn()
         {
-            ActionItem item = store.GetAction(index);
+            Debug.Log("OnBeginTurn()");
             isPlayerTurn = true;
             SetTimer();
         }
@@ -134,6 +151,7 @@ namespace GameDevTV.UI.Inventories
 
         public void HandleClick()
         {
+            Debug.Log("Click");
             if (!isPlayerTurn) return;
             player.GetComponent<PlayerController>().CancelClicks();
             if (lastClick <=0.0f)
@@ -141,11 +159,12 @@ namespace GameDevTV.UI.Inventories
                 lastClick = .5f;
                 return;
             }
-
+            Debug.Log("Double Click");
             lastClick = 0.0f;
             var item = store.GetAction(index);
             if (item && item.CanUse(player))
             {
+                Debug.Log($"Using {item}");
                 if (store.Use(index, player))
                 {
                     ClearHighlights();
@@ -155,7 +174,7 @@ namespace GameDevTV.UI.Inventories
                 {
                     Highlight(Color.white);
                 }
-            }
+            } else Debug.Log("Can't Use Item");
         }
 
         //Alternate way of getting item

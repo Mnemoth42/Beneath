@@ -25,11 +25,12 @@ namespace TkrainDesigns.Tiles.Control
 
         public  UnityEvent onItemPickedUp;
         public UnityEvent<Vector3, string> onItemPickedTextSpawn;
-
+        public UnityEvent onBeginTurnEvent;
+        public UnityEvent onEndTurnEvent;
         
         public Dictionary<Vector2Int, bool> obstacleList=new Dictionary<Vector2Int, bool>();
-
-        public System.Action<BaseController> onTargetChanged;
+        
+        
 
         PerformableActionItem currentActionItem = null;
 
@@ -45,6 +46,12 @@ namespace TkrainDesigns.Tiles.Control
 
         System.Action finishLocated;
         Vector2Int finish;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            Mover.onMoveStepCompleted += TestVisibility;
+        }
 
         public void SetFinish(Vector2Int point, System.Action resetAction)
         {
@@ -107,7 +114,7 @@ namespace TkrainDesigns.Tiles.Control
             }
             else
             {
-                onTargetChanged(null);
+                onTargetChanged?.Invoke(null);
                 Mover.BeginMoveAction(request.Path, PathComplete);
             }
         }
@@ -116,13 +123,20 @@ namespace TkrainDesigns.Tiles.Control
         {
             base.BeginTurn();
             GetComponent<ActionStore>().BeginTurn();
+            onBeginTurnEvent?.Invoke();
             turnChosen = false;
+            TestVisibility();
             FindMoveableTiles();
+        }
+
+        public override void RestoreCurrentPosition()
+        {
+            Anim.rootPosition = GetCurrentPosition();
         }
 
         void PathComplete()
         {
-            GetComponent<ActionStore>().EndTurn();
+            onEndTurnEvent?.Invoke();
             Vector2Int currentPosition = TileUtilities.GridPosition(transform.position);
             GridPathFinder<Pickup>.ConductInventory();
             //var pickups = GridPathFinder<Pickup>.GetItemsAt(currentPosition);
@@ -136,12 +150,21 @@ namespace TkrainDesigns.Tiles.Control
                 pickup.PickupItem();
             }
 
+            TestVisibility();
             currentActionItem = null;
             if (currentPosition == finish)
             {
                 finishLocated?.Invoke();
             }
             FinishTurn();
+        }
+
+        void TestVisibility()
+        {
+            foreach (Visibility visibility in FindObjectsOfType<Visibility>())
+            {
+                visibility.TestVisibility(TileUtilities.GridPosition(transform.position));
+            }
         }
 
         void FindMoveableTiles()
@@ -169,13 +192,14 @@ namespace TkrainDesigns.Tiles.Control
                     ColorChanger c = GridPathFinder<Tile>.Map[tile].GetComponentInChildren<ColorChanger>();
                     if (enemies.ContainsKey(tile))
                     {
-                        c.HighlightMaterial();
+                        //if(!CheckForObstacles(q, tile, distanceToCheck-moverdistance))
+                            c.SetMaterialOccupied();
                     }
                     else
                     
                     {
                         if(q.Count<=moverdistance)
-                             c.SelectedMaterial();
+                             c.SetMaterialWalkable();
                     }
                 }
                 else
@@ -183,6 +207,8 @@ namespace TkrainDesigns.Tiles.Control
                 }
             }
         }
+
+        
 
         protected override void Die()
         {
@@ -458,7 +484,7 @@ namespace TkrainDesigns.Tiles.Control
                     ColorChanger changer = tile.GetComponentInChildren<ColorChanger>();
                     if (changer)
                     {
-                        changer.SelectedMaterial();
+                        changer.SetMaterialWalkable();
                     }
 
                     Visibility visibility = tile.GetComponent<Visibility>();
@@ -476,7 +502,7 @@ namespace TkrainDesigns.Tiles.Control
                 ColorChanger c = finishTile.GetComponentInChildren<ColorChanger>();
                 if (c)
                 {
-                    c.HighlightMaterial();
+                    c.SetMaterialOccupied();
                 }
             }
         }

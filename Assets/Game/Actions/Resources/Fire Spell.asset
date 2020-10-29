@@ -17,14 +17,15 @@ MonoBehaviour:
   description: Hurls a ball of flame towards your opponent.  Do you like your enemies
     medium or well done?
   icon: {fileID: 21300000, guid: b91140c2b8bb411469c40a4054527fb8, type: 3}
-  pickup: {fileID: 0}
+  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
   stackable: 0
   potentialStatBoosts: []
   consumable: 0
   cooldown: 5
   useOnPickup: 0
-  baseDamage: 5
-  fireball: {fileID: 1815553834518870, guid: 7674f5091cc9ae049a2ad44f3eb88a4c, type: 3}
+  baseDamage: 10
+  fireball: {fileID: 8718950026302064531, guid: b2239f086f27bee49b1ea383c481e3a5,
+    type: 3}
   damageStat: {fileID: 11400000, guid: 22215a7f67ae3334abbe1a63b23c0211, type: 2}
   defenseStat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
   intelligenceStat: {fileID: 11400000, guid: 8ba086a12f9eafc42a893374995d17ee, type: 2}

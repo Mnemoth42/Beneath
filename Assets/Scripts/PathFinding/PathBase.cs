@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TkrainDesigns.Tiles.Grids;
 using UnityEngine;
 
 namespace TkrainDesigns.Tiles.Pathfinding
@@ -25,5 +26,16 @@ namespace TkrainDesigns.Tiles.Pathfinding
             new Vector2Int(-1,-1),
             new Vector2Int(+1,-1)
         };
+        const float XFactor = .417f;
+        const float YFactor = .478f;
+        public static Vector3 AdjacentOdd(int corner)
+        {
+            return TileUtilities.IdealWorldPosition(DirectionsHexOdd[corner]);
+        }
+
+        public static Vector3 AdjacentEven(int corner)
+        {
+            return TileUtilities.IdealWorldPosition(DirectionsHexEven[corner]);
+        }
     } 
 }

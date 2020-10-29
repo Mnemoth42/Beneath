@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed9eda05e7211640960b1c1b99d16a7, type: 3}
   m_Name: PossibleEnemies
   m_EditorClassIdentifier: 
+  itemId: ec249d58-ece8-4576-b41d-469b02b6c863
   drops:
   - character: {fileID: 1522199433267968, guid: 2e4ab17be462ca346983757421a25d62,
       type: 3}
@@ -32,32 +33,6 @@ MonoBehaviour:
         value: 5
         inSlope: -0.3
         outSlope: -0.3
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 0
-  - character: {fileID: 1269815030824246, guid: a6a7306b6e22e6c4fb178b6e77ca24d3,
-      type: 3}
-    probability:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0.24
-        outSlope: 0.24
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 100
-        value: 25
-        inSlope: 0.24
-        outSlope: 0.24
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
@@ -152,16 +127,16 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - character: {fileID: 1091293637548798, guid: b603af86ac880d246a16780f2c468564,
+  - character: {fileID: 3828944404170926917, guid: d3df0b5928a92f24785e9c78eafb34e7,
       type: 3}
     probability:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: -0.5924194
-        value: -2.9607782
-        inSlope: 0.3424992
-        outSlope: 0.3424992
+        time: 0.02114433
+        value: 15.135588
+        inSlope: 0.16893746
+        outSlope: 0.16893746
         tangentMode: 34
         weightedMode: 0
         inWeight: 0
@@ -169,8 +144,8 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 103.07507
         value: 32.545258
-        inSlope: 0.3424992
-        outSlope: 0.3424992
+        inSlope: 0.16893746
+        outSlope: 0.16893746
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
@@ -213,7 +188,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - character: {fileID: 1711228206799690, guid: dcda32f024ad4be4fac00e3568966e56,
+  - character: {fileID: 2291257290127828987, guid: 9ea052e3249837140bd1d66d64c359ff,
       type: 3}
     probability:
       serializedVersion: 2
@@ -318,7 +293,77 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - character: {fileID: 5546415601209258520, guid: fb0a65cfb9297d84a9ab067734caaf1d,
+  - character: {fileID: 3632831201058730389, guid: 7cb129f1df29ee448b9d39f43bb694fe,
+      type: 3}
+    probability:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: -0.23738861
+        value: 9.03043
+        inSlope: 0.050549567
+        outSlope: 0.050549567
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 19.834995
+        value: 10.04508
+        inSlope: 0.22192883
+        outSlope: 0.22192883
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.39161453
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 100.47394
+        value: 9.59906
+        inSlope: 0.14542484
+        outSlope: 0.14542484
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.22813241
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+  - character: {fileID: 5546415601209258520, guid: 13b3a085e39a2a9459bba193df49f00e,
+      type: 3}
+    probability:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: -0.23738861
+        value: 9.03043
+        inSlope: 0.050549567
+        outSlope: 0.050549567
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 19.834995
+        value: 10.04508
+        inSlope: 0.22192883
+        outSlope: 0.22192883
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.39161453
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 100.47394
+        value: 9.59906
+        inSlope: 0.14542484
+        outSlope: 0.14542484
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.22813241
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+  - character: {fileID: 5546415601209258520, guid: 6c6c887b55553f24db02a6379eb996ba,
       type: 3}
     probability:
       serializedVersion: 2
@@ -388,3 +433,54 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
+  - character: {fileID: 1269815030824246, guid: a6a7306b6e22e6c4fb178b6e77ca24d3,
+      type: 3}
+    probability:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0.1919192
+        outSlope: 0.1919192
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 100
+        value: 20
+        inSlope: 0.1919192
+        outSlope: 0.1919192
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  - character: {fileID: 0}
+    probability:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0.1919192
+        outSlope: 0.1919192
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 100
+        value: 20
+        inSlope: 0.1919192
+        outSlope: 0.1919192
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4

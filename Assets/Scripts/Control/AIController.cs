@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.WindowsRuntime;
-using GameDevTV.Inventories;
+﻿using System.Collections.Generic;
 using TkrainDesigns.Grids.Stats;
 using TkrainDesigns.Tiles.Actions;
 using TkrainDesigns.Tiles.Grids;
@@ -13,7 +8,7 @@ using Random = UnityEngine.Random;
 
 namespace TkrainDesigns.Tiles.Control
 {
-	public class AIController : BaseController
+    public class AIController : BaseController
     {
         [SerializeField] float pursuitDistance = 10;
 
@@ -76,6 +71,7 @@ namespace TkrainDesigns.Tiles.Control
                     actionPerformer.BeginAction(potentialActionItem, player.GetComponent<Health>(), path,TurnCompleted);
                     return;
                 }
+                onTargetChanged?.Invoke(player);
                 Fighter.BeginAttackAction(player.GetComponent<Health>(), path, TurnCompleted);
                 return;
             }

@@ -13,6 +13,8 @@ namespace TkrainDesigns.Tiles.Modular
         [Header("Slot Categories to deactivate when this item is activated.")]
         public List<ModularCategories> slotsToDeactivate = new List<ModularCategories>();
 
+        
+
         public void ActivateItem(CharacterRandomizer character)
         {
             if (!character)
@@ -22,6 +24,15 @@ namespace TkrainDesigns.Tiles.Modular
             }
             character.ActivateItems(objectsToActivate, slotsToDeactivate);
         }
-    
+
+        public override string GetDisplayName()
+        {
+            return "TODO";
+        }
+
+        public override string GetDescription()
+        {
+            return "TODO";
+        }
     }
 }

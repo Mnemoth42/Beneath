@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using TkrainDesigns.ScriptableEnums;
@@ -21,6 +22,9 @@ namespace TkrainDesigns.ResourceRetriever
         {
             itemId = Guid.NewGuid().ToString();
         }
+
+        public abstract string GetDisplayName();
+        public abstract string GetDescription();
 
         void ISerializationCallbackReceiver.OnBeforeSerialize()
         {
@@ -112,7 +116,59 @@ namespace TkrainDesigns.ResourceRetriever
             SetItem(ref itemToChange, EditorGUILayout.TextArea(itemToChange, longStyle));
         }
 
-        
+        protected T DrawObjectList<T>(GUIContent label, T obj) where T:MonoBehaviour
+        {
+            List<T> pickupsList = Statics.GetAssetsOfType<T>();
+            List<string> pickupNamesList = Statics.GetNamesFromList(pickupsList);
+            T result = null;
+            if (pickupsList.Count>0)
+            {
+                int pickupSlot = Statics.FindNameInList(pickupNamesList, obj);
+                pickupSlot = EditorGUILayout.Popup(label, pickupSlot, pickupNamesList.ToArray());
+                if (pickupsList.Count > pickupSlot)
+                {
+                    result = pickupsList[pickupSlot];
+                } 
+            }
+            else
+            {
+                EditorGUILayout.HelpBox("No Pickups found to assign!", MessageType.Error);
+            }
+            return result;
+        }
+
+        protected T DrawScriptableObjectList<T>(GUIContent label, T obj) where T : RetrievableScriptableObject
+        {
+            List<T> pickupsList = Statics.GetScriptableObjectsOfType<T>();
+            List<string> pickupNamesList = Statics.GetNamesFromScriptableObjectList(pickupsList);
+            T result = null;
+            if (pickupsList.Count>0)
+            {
+                int pickupSlot = Statics.FindNameInScriptableObjectList(pickupNamesList, obj);
+                pickupSlot = EditorGUILayout.Popup(label, pickupSlot, pickupNamesList.ToArray());
+                if (pickupsList.Count > pickupSlot)
+                {
+                    result = pickupsList[pickupSlot];
+                } 
+            }
+            else
+            {
+                EditorGUILayout.HelpBox($"No {typeof(T)} found to assign!", MessageType.Error);
+            }
+            return result;
+        }
+
+        protected T DrawObjectList<T>(string label, T obj) where T : MonoBehaviour
+        {
+            return DrawObjectList(new GUIContent(label), obj);
+        }
+
+        protected T DrawScriptableObjectList<T>(string label, T obj) where T : RetrievableScriptableObject
+        {
+            GUIContent contentLabel = new GUIContent(label);
+            if (obj != null) contentLabel.tooltip = obj.GetDescription();
+            return DrawScriptableObjectList(contentLabel, obj);
+        }
 
 #endif
 

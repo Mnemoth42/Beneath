@@ -14,12 +14,12 @@ namespace TkrainDesigns.ScriptableEnums
         [SerializeField] List<ScriptableElement> strengths;
         
 
-        public string GetDescription()
+        public override string GetDescription()
         {
             return description;
         }
 
-        public string GetDisplayName()
+        public override string GetDisplayName()
         {
             return displayName;
         }

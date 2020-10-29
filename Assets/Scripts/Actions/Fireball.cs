@@ -18,7 +18,7 @@ namespace TkrainDesigns.Tiles.Actions
     public class Fireball : PerformableActionItem
     {
         [SerializeField] float baseDamage = 5.0f;
-        [SerializeField] GameObject fireball;
+        [SerializeField] FireballMover fireball;
 
         [SerializeField] ScriptableStat damageStat;
         [SerializeField] ScriptableStat defenseStat;
@@ -79,8 +79,7 @@ namespace TkrainDesigns.Tiles.Actions
                 startPosition = fighter.GetRightHandTransform().position;
             }
 
-            GameObject go = Instantiate(fireball, startPosition, Quaternion.identity);
-            FireballMover mover = go.GetComponent<FireballMover>();
+            FireballMover mover = Instantiate(fireball, startPosition, Quaternion.identity);
             mover.SetTarget(currentTarget.transform, Damage);
 
         }
@@ -139,7 +138,7 @@ namespace TkrainDesigns.Tiles.Actions
         }
 
 
-        void SetFireball(GameObject go)
+        void SetFireball(FireballMover go)
         {
             if (fireball == go) return;
             Undo.RecordObject(this, "Change Projectile");
@@ -159,13 +158,14 @@ namespace TkrainDesigns.Tiles.Actions
         public override void DrawCustomInspector(float width, GUIStyle style)
         {
             base.DrawCustomInspector(width, style);
-            SetFireball((GameObject)EditorGUILayout.ObjectField("Projectile", fireball, typeof(GameObject), true));
+            //SetFireball((GameObject)EditorGUILayout.ObjectField("Projectile", fireball, typeof(GameObject), true));
+            SetFireball(DrawObjectList("Projectile", fireball));
             SetBaseDamage((float)EditorGUILayout.IntSlider("Base Damage", (int)baseDamage, 1, 100));
             SetRange(EditorGUILayout.IntSlider("Range", range, 0, 8));
-            SetDamageStat((ScriptableStat)EditorGUILayout.ObjectField("Damage Stat", damageStat,
-                                                                      typeof(ScriptableStat), false));
-            SetDefenseStat((ScriptableStat)EditorGUILayout.ObjectField("Defense Stat", defenseStat, typeof(ScriptableStat), false));
-            SetIntelligenceStat((ScriptableStat)EditorGUILayout.ObjectField("Intelligence Stat", intelligenceStat, typeof(ScriptableStat), false));
+            SetDamageStat(DrawScriptableObjectList("Damage Stat", damageStat));
+            SetDefenseStat(DrawScriptableObjectList("Defense Stat", defenseStat));
+            SetIntelligenceStat(DrawScriptableObjectList("Intelligence Stat",intelligenceStat));
+
         }
 
 #endif
