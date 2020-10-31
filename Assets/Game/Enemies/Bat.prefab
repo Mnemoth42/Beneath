@@ -1800,7 +1800,7 @@ GameObject:
   - component: {fileID: 5734999754800920871}
   - component: {fileID: 2800315875142583337}
   - component: {fileID: 8719764937026086563}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BatAttackAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -84,11 +84,12 @@ namespace TkrainDesigns.Tiles.Control
             clickDetection -= Time.deltaTime;
             PrepRects();
             ProcessPointer();
+            if (InteractWithUI()) return;
+            if (!CheckRayCastHit()) return;
+            SetMouseover();
+            if (ProcessSingleClick()) return;
             if (IsCurrentTurn && !turnChosen)
             {
-                if (InteractWithUI()) return;
-                if (!CheckRayCastHit()) return;
-                if (ProcessSingleClick()) return;
                 SMovementRequest request = CheckMovementRequest();
                 if (request.Path == null) return;
                 PerformRequest(request);
@@ -236,42 +237,23 @@ namespace TkrainDesigns.Tiles.Control
             SMovementRequest request = new SMovementRequest();
             request.Path = null;
             request.Perform = false;
-            if (lastChanger)
-            {
-                lastChanger.SetMouseOver(false);
-                lastChanger = null;
-            }
+
             if (!IsCurrentTurn)
             {
-                return new SMovementRequest();
+                return request;
             }
 
             if (InteractWithUI())
             {
+                return request;
+            }
+
+
+            if (!hasHit)
+            {
                 return new SMovementRequest();
             }
 
-            CheckRayCastHit();
-            if (hasHit)
-            {
-#if UNITY_ANDROID
-#else
-                Tile tile = currentHit.transform.GetComponent<Tile>();
-                if (tile)
-                {
-                    ColorChanger changer = tile.GetComponentInChildren<ColorChanger>();
-                    if (changer)
-                    {
-                        changer.SetMouseOver(true);
-                        lastChanger = changer;
-                    }
-                }
-#endif
-            }
-            else
-            {
-                return new SMovementRequest();
-            }
 
 //#if UNITY_EDITOR
 //            if(Input.GetMouseButtonDown(0) && clickDetection>0.0f)
@@ -325,6 +307,37 @@ namespace TkrainDesigns.Tiles.Control
             }
 
             return new SMovementRequest();
+        }
+
+        void SetMouseover()
+        {
+            if (lastChanger)
+            {
+                lastChanger.SetMouseOver(false);
+                lastChanger = null;
+            }
+            //Tile tile = currentHit.transform.GetComponent<Tile>();
+            if (currentHit.transform.TryGetComponent(out Tile tile))
+            {
+                ColorChanger changer = tile.GetComponentInChildren<ColorChanger>();
+                if (changer)
+                {
+                    changer.SetMouseOver(true);
+                    lastChanger = changer;
+                }
+            }
+            else if (currentHit.transform.TryGetComponent(out AIController ai))
+            {
+                tile = GridPathFinder<Tile>.GetItemAt(TileUtilities.CalcTileLocation(ai.transform.position));
+                if (tile && tile.TryGetComponent(out ColorChanger changer))
+                {
+                    changer.SetMouseOver(true);
+                    lastChanger = changer;
+                }
+
+                onTargetChanged(ai);
+            }
+
         }
 
         //Kludge workaround because Unity can't make up it's mind about IsPointerOverGameObject.
@@ -443,7 +456,8 @@ namespace TkrainDesigns.Tiles.Control
         bool CheckRayCastHit()
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            hasHit = Physics.Raycast(ray, out RaycastHit hit);
+            LayerMask mask = new LayerMask {value =  5 << 9};
+            hasHit = Physics.Raycast(ray, out RaycastHit hit, 1000,mask);
             currentHit = hit;
             if (hasHit)
             {

@@ -207,9 +207,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876f50cf401038344bbfbd0c171e3e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 13f9abc7b0191d245a5e338e478bbbf2, type: 2}
-  selectedMaterial: {fileID: 2100000, guid: 74948477992482f418ae32c5f9db35b2, type: 2}
-  mouseOverMaterial: {fileID: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  normalHighlight: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  walkableColor: {r: 0, g: 0, b: 1, a: 1}
+  walkableHighlightColor: {r: 0, g: 1, b: 1, a: 1}
+  occupiedColor: {r: 1, g: 0, b: 0, a: 1}
+  occupiedHighlight: {r: 1, g: 0, b: 1, a: 1}
 --- !u!1 &1496566534129292
 GameObject:
   m_ObjectHideFlags: 0

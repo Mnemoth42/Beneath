@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33757610989589258}
   - component: {fileID: 23285661106168458}
   - component: {fileID: 64339418276056734}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 23210666741154766}
   - component: {fileID: 64622698383335290}
   - component: {fileID: 1749810566934503769}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Face_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 6544144084463233510}
   - component: {fileID: -4853076010197636365}
   - component: {fileID: 6002783405140589811}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Hex Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 33778325352718742}
   - component: {fileID: 23248618941855154}
   - component: {fileID: 64684213396097728}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4743571838979678}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,7 +454,7 @@ GameObject:
   - component: {fileID: 2268677277914880580}
   - component: {fileID: 9199577282242554683}
   - component: {fileID: 4019080527095764788}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 33636774009499302}
   - component: {fileID: 23749260353172328}
   - component: {fileID: 64823206095160710}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Face_Top_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

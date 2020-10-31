@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962721}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordecloth1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962723}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordecloth2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962725}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962727}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeLCalf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962729}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeLCollarbone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962731}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeLDigit11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962733}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeLDigit11 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962735}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeLDigit21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962737}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeLDigit22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962739}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeLFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962741}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeLForearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962743}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeLPalm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962745}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeLThigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962747}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeLUpperarm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962749}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeMouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962751}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeNeck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962785}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeTail1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +534,7 @@ GameObject:
   - component: {fileID: 3828944404170962787}
   - component: {fileID: 3828944404174038529}
   - component: {fileID: 3254171869407530815}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Orc_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 81505772833296797}
   - component: {fileID: 3860939738364836392}
   - component: {fileID: 2129406648495297253}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NewOrc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -736,10 +736,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6d930ffbb48194f9134bada1b6b22a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  personalClass: {fileID: 11400000, guid: 0272a0e8f7fba1b46a8a09b36c23f6f4, type: 2}
+  personalClass: {fileID: 11400000, guid: 733cee24a5ffff44791c47831834990c, type: 2}
   level: 1
   shouldUseModifiers: 0
-  avatar: {fileID: 21300000, guid: c948bb775c9471841878dd7d5b69d260, type: 3}
+  avatar: {fileID: 21300000, guid: 44b61f34dfeea8f4e95b23fbcdda54f6, type: 3}
   experienceGainedStat: {fileID: 11400000, guid: 46c84e87dda9fba4e93a8949823326bb,
     type: 2}
   onLevelUpEvent:
@@ -933,7 +933,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962689}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordePelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -967,7 +967,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962691}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeRCalf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -998,7 +998,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962693}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeRCollarbone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1029,7 +1029,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962695}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeRDigit11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1059,7 +1059,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962697}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeRDigit11 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1089,7 +1089,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962699}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeRDigit21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1120,7 +1120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962701}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeRDigit22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1150,7 +1150,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962703}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeRFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1181,7 +1181,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962705}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeRForearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1212,7 +1212,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962707}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeRibcage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1245,7 +1245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962709}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeRPalm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1277,7 +1277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962711}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeRThigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1308,7 +1308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962713}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeRUpperarm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1339,7 +1339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962715}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeSpine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1370,7 +1370,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962717}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeSpine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1401,7 +1401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828944404170962719}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bip_hordeSpine3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

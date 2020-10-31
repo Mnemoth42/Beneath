@@ -66,7 +66,7 @@ namespace TkrainDesigns.Tiles.Control
                     return;
                 }
 
-                if (potentialActionItem)
+                if (potentialActionItem && TestPotentialAction(potentialActionItem, player.transform, path))
                 {
                     actionPerformer.BeginAction(potentialActionItem, player.GetComponent<Health>(), path,TurnCompleted);
                     return;
@@ -78,6 +78,9 @@ namespace TkrainDesigns.Tiles.Control
 
             TurnCompleted();
         }
+
+
+
         /// <summary>
         /// The AI will cycle through the available actions in the ActionStore and choose either the first available combat spell or
         /// the first available healing/buff type spell that it can use.  If no actions are available, no action is returned.

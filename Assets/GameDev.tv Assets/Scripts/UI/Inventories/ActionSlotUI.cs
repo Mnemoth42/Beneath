@@ -115,7 +115,7 @@ namespace GameDevTV.UI.Inventories
 
         void OnBeginTurn()
         {
-            Debug.Log("OnBeginTurn()");
+
             isPlayerTurn = true;
             SetTimer();
         }
@@ -151,7 +151,6 @@ namespace GameDevTV.UI.Inventories
 
         public void HandleClick()
         {
-            Debug.Log("Click");
             if (!isPlayerTurn) return;
             player.GetComponent<PlayerController>().CancelClicks();
             if (lastClick <=0.0f)
@@ -159,12 +158,10 @@ namespace GameDevTV.UI.Inventories
                 lastClick = .5f;
                 return;
             }
-            Debug.Log("Double Click");
             lastClick = 0.0f;
             var item = store.GetAction(index);
             if (item && item.CanUse(player))
             {
-                Debug.Log($"Using {item}");
                 if (store.Use(index, player))
                 {
                     ClearHighlights();
@@ -174,7 +171,7 @@ namespace GameDevTV.UI.Inventories
                 {
                     Highlight(Color.white);
                 }
-            } else Debug.Log("Can't Use Item");
+            } 
         }
 
         //Alternate way of getting item

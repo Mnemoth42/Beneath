@@ -211,6 +211,28 @@ namespace TkrainDesigns.Tiles.Control
             return null;
         }
 
+        protected bool TestPotentialAction(PerformableActionItem item, Transform testTarget, List<Vector2Int> path)
+        {
+            if (item.AIHealingSpell()) return true;
+            int firstPlaceToFire = Mathf.Max(path.Count - item.Range(gameObject),0);
+            int lastPlaceToFire = Mathf.Min(Mover.MaxStepsPerTurn, path.Count - 1);
+            if (lastPlaceToFire - firstPlaceToFire <= 1) 
+            {
+                return true;
+            }
+
+            Vector2Int targetLocation = TileUtilities.CalcTileLocation(testTarget.position);
+            for (int i = firstPlaceToFire; i < lastPlaceToFire; i++)
+            {
+                if (Vector2Int.Distance(path[i], targetLocation) >= (float) (path.Count - i))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         protected Dictionary<Vector2Int, BaseController> EnemiesStillAlive()
         {
             Dictionary<Vector2Int, BaseController> result = new Dictionary<Vector2Int, BaseController>();

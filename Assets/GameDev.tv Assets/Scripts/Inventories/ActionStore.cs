@@ -56,13 +56,13 @@ namespace GameDevTV.Inventories
 
         public void BeginTurn()
         {
-            Debug.Log($"BeginTurn");
+            //Debug.Log($"BeginTurn");
             OnBeginTurn?.Invoke();
         }
 
         public void EndTurn()
         {
-            Debug.Log("EndTurn");
+            //Debug.Log("EndTurn");
             OnEndTurn?.Invoke();
         }
 

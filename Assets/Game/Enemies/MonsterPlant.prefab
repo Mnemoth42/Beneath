@@ -1610,7 +1610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClips:
-  - name: Bite
+  - name: Hit
     audioClips:
     - {fileID: 8300000, guid: cff46531e474d4236bc89d454abcf7bd, type: 3}
     - {fileID: 8300000, guid: 7d3f28f437bfc40c28317116409906ff, type: 3}
