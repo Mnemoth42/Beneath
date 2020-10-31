@@ -109,6 +109,7 @@ namespace TkrainDesigns.Tiles.Movement
             anim.SetTrigger("Idle");
             while (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Idle"))
             {
+                
                 transform.position = destination;
                 yield return new WaitForEndOfFrame();
             }

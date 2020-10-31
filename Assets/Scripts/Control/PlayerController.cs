@@ -319,7 +319,7 @@ namespace TkrainDesigns.Tiles.Control
             //Tile tile = currentHit.transform.GetComponent<Tile>();
             if (currentHit.transform.TryGetComponent(out Tile tile))
             {
-                ColorChanger changer = tile.GetComponentInChildren<ColorChanger>();
+                if(tile.TryGetComponent(out ColorChanger changer))
                 if (changer)
                 {
                     changer.SetMouseOver(true);

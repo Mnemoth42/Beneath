@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TkrainDesigns.Saving;
 using UnityEngine;
+using UnityEngine.Events;
 
 #pragma warning disable CS0649
 namespace GameDevTV.Inventories
@@ -45,6 +46,8 @@ namespace GameDevTV.Inventories
         /// Broadcasts when the items in the slots are added/removed.
         /// </summary>
         public event Action StoreUpdated;
+
+        public UnityEvent<Vector3, string> StoreUpdatedAdvertiser;
 
         public event Action OnBeginTurn;
         public event Action OnEndTurn;
@@ -119,7 +122,7 @@ namespace GameDevTV.Inventories
                 var slot = new DockedItemSlot { item = item as ActionItem, number = number };
                 dockedItems[index] = slot;
             }
-
+            StoreUpdatedAdvertiser?.Invoke(transform.position, $"Learned {item.GetDisplayName()}");
             StoreUpdated?.Invoke();
         }
 

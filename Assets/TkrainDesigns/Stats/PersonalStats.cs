@@ -27,6 +27,7 @@ namespace TkrainDesigns.Stats
         ScriptableStat experienceGainedStat = null;
 
         public UnityEvent onLevelUpEvent;
+        public UnityEvent<Vector3, string> onLevelUpTextEvent;
 
         public string GetCharacterName()
         {
@@ -50,7 +51,9 @@ namespace TkrainDesigns.Stats
             Level = newLevel;
             if (Level>oldLevel)
             {
+                onLevelUpTextEvent?.Invoke(transform.position, $"You have reached Level {level}");
                 onLevelUpEvent?.Invoke(); 
+                
             }
         }
 

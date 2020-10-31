@@ -2269,6 +2269,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onBeginTurnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEndTurnEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4479351187539970853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2470,6 +2476,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onLevelUpTextEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &491360407742219182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2484,6 +2493,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experienceNeededStat: {fileID: 11400000, guid: a325e4185a8003d42a6148b192df88eb,
     type: 2}
+  OnExperienceGainedTextEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 206934741126320021}
+        m_TargetAssemblyTypeName: PickedUpItemDisplaySpawner, Assembly-CSharp
+        m_MethodName: SpawnPickupDisplay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7704700335106239169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2567,6 +2591,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultItems: []
+  StoreUpdatedAdvertiser:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3741487159531029864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2580,6 +2607,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultItems: []
+  StoreUpdatedAdvertiser:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 206934741126320021}
+        m_TargetAssemblyTypeName: PickedUpItemDisplaySpawner, Assembly-CSharp
+        m_MethodName: SpawnPickupDisplay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1044195782898225938
 GameObject:
   m_ObjectHideFlags: 0
@@ -4931,7 +4973,7 @@ GameObject:
   - component: {fileID: 2856322002843358929}
   - component: {fileID: 206934741126320021}
   m_Layer: 8
-  m_Name: PickupDisplaySpawner
+  m_Name: StatusMessageSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

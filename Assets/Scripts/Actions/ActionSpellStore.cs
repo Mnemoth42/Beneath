@@ -13,5 +13,7 @@ namespace GameDevTV.Inventories
             if (actionItem.IsStackable()) return 0;
             return base.MaxAcceptable(item, index);
         }
+
+        
     }
 }

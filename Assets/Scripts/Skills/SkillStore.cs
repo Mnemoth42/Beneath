@@ -87,7 +87,6 @@ namespace TkrainDesigns.Tiles.Skills
             Debug.Log($"Testing Skills against Level {stats.Level}");
             foreach (LearnableSkill skill in skills)
             {
-                Debug.Log($"Testing {skill.GetItem()} @ level {skill.GetLevel()}");
                 if (learnedSkills.Contains(skill)) continue;
                 if (skill.GetItem() == null) continue;
                 if (skill.GetLevel() <= stats.Level)

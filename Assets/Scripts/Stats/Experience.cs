@@ -5,6 +5,7 @@ using TkrainDesigns.Saving;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
 using UnityEngine;
+using UnityEngine.Events;
 
 #pragma warning disable CS0649
 
@@ -19,6 +20,8 @@ namespace TkrainDesigns.Tiles.Stats
         [SerializeField]
         
         ScriptableStat experienceNeededStat;
+
+        public UnityEvent<Vector3, string> OnExperienceGainedTextEvent;
 
         [NotNull] PersonalStats stats;
         int experience=0;
@@ -43,6 +46,7 @@ namespace TkrainDesigns.Tiles.Stats
 
             experience += experienceToAdd.Floor(0);
             TestLevelUp();
+            OnExperienceGainedTextEvent?.Invoke(transform.position, $"+ {experienceToAdd} XP");
             ExperienceGained?.Invoke();
             return experience;
         }
