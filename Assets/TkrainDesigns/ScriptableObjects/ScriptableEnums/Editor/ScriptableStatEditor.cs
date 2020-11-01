@@ -55,13 +55,17 @@ namespace TkrainDesigns.ScriptableEnums.Editor
                 EditorGUILayout.HelpBox("No ScriptableStat Selected!", MessageType.Error);
                 return;
             }
-            EditorGUILayout.HelpBox($"{selectedScriptableStat.Description} - UUID={selectedScriptableStat.GetItemID()}", MessageType.Info);
+            EditorGUILayout.HelpBox($"{selectedScriptableStat.DisplayName} - UUID={selectedScriptableStat.GetItemID()}", MessageType.Info);
             
             
-            string newDescription = EditorGUILayout.TextArea(selectedScriptableStat.Description);
-            string extendedDescription = EditorGUILayout.TextArea(selectedScriptableStat.ExtendedDescripton);
-            selectedScriptableStat.SetDescription(newDescription);
-            selectedScriptableStat.SetExtendedDescription(extendedDescription);
+            string newDescription = EditorGUILayout.TextField("Display Name",selectedScriptableStat.DisplayName);
+            EditorGUILayout.LabelField("Description");
+            GUIStyle style = new GUIStyle(EditorStyles.textArea);
+            style.wordWrap = true;
+            string extendedDescription = EditorGUILayout.TextArea(selectedScriptableStat.Description, style);
+            selectedScriptableStat.SetDisplayName(newDescription);
+            selectedScriptableStat.SetDescription(extendedDescription);
+            selectedScriptableStat.SetAlias(EditorGUILayout.TextField("Alias", selectedScriptableStat.Alias));
             selectedScriptableStat.SetMinimum(EditorGUILayout.FloatField("Minimum Value", selectedScriptableStat.Minumum));
             selectedScriptableStat.SetMaximum(EditorGUILayout.FloatField("Maximum", selectedScriptableStat.Maximum));
 
@@ -70,7 +74,7 @@ namespace TkrainDesigns.ScriptableEnums.Editor
             {
                 StatSource statSource = selectedScriptableStat.GetSources()[i];
                 EditorGUILayout.BeginHorizontal();
-                string statLabel = statSource.stat != null ? statSource.stat.Description : "Select Stat";
+                string statLabel = statSource.stat != null ? statSource.stat.DisplayName : "Select Stat";
                     ScriptableStat stat =
                         (ScriptableStat) EditorGUILayout.ObjectField(statLabel,statSource.stat, typeof(ScriptableStat), false);
                     float effectPerLevel = EditorGUILayout.FloatField("Effect Per Level", statSource.effectPerLevel);

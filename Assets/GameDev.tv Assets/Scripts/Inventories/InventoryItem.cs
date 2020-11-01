@@ -121,6 +121,7 @@ namespace GameDevTV.Inventories
         
         public override string GetDisplayName()
         {
+            if (decorator != null) return $"{displayName} {decorator.Alias}";
             return displayName;
         }
 
@@ -234,7 +235,7 @@ namespace GameDevTV.Inventories
             string potential = "Remove Blank Potential Boost";
             if (potentialStatBoosts[index] != null)
             {
-                potential = $"Remove Potential Boost {potentialStatBoosts[index].Description}";
+                potential = $"Remove Potential Boost {potentialStatBoosts[index].DisplayName}";
             }
             Undo.RecordObject(this, potential);
             potentialStatBoosts.RemoveAt(index);
@@ -296,7 +297,7 @@ namespace GameDevTV.Inventories
             {
                 EditorGUILayout.BeginHorizontal();
                 ScriptableStat stat = potentialStatBoosts[i];
-                SetPotentialStatModifier(i,(ScriptableStat)EditorGUILayout.ObjectField(stat==null?"Select Stat": stat.Description,stat, typeof(ScriptableStat),false));
+                SetPotentialStatModifier(i,(ScriptableStat)EditorGUILayout.ObjectField(stat==null?"Select Stat": stat.DisplayName,stat, typeof(ScriptableStat),false));
                 if (GUILayout.Button("-"))
                 {
                     itemtoDelete = i;

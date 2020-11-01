@@ -13492,6 +13492,7 @@ GameObject:
   - component: {fileID: 3303651085147754768}
   - component: {fileID: 7344569866654358439}
   - component: {fileID: 4031689625944769763}
+  - component: {fileID: 8868482706938799640}
   m_Layer: 9
   m_Name: CreepingCaveSpider
   m_TagString: Untagged
@@ -13520,6 +13521,7 @@ Transform:
   - {fileID: 2291257290127529665}
   - {fileID: 2291257290127443027}
   - {fileID: 2291257290127571769}
+  - {fileID: 648907188022195719}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13916,6 +13918,9 @@ MonoBehaviour:
   onLevelUpEvent:
     m_PersistentCalls:
       m_Calls: []
+  onLevelUpTextEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4598752003555207694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13938,7 +13943,19 @@ MonoBehaviour:
       m_Calls: []
   onTakeDamageFloat:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8128863041561562280}
+        m_TargetAssemblyTypeName: HealthChangeDisplaySpawner, Assembly-CSharp
+        m_MethodName: SpawnHealthChangeDisplay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3466795270662849054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14000,6 +14017,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultItems: []
+  StoreUpdatedAdvertiser:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8167534621865215750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14093,6 +14113,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6d20f772608fdd4d9225b53fa01f6de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8868482706938799640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2291257290127828987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56200e207d453f34a805d89e167efc47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2291257290127829197
@@ -14373,3 +14405,48 @@ Transform:
   m_Father: {fileID: 2291257290127525669}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5467136942246998119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 648907188022195719}
+  - component: {fileID: 8128863041561562280}
+  m_Layer: 9
+  m_Name: HealthChangeDisplaySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &648907188022195719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5467136942246998119}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.574, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_Children: []
+  m_Father: {fileID: 2291257290127563641}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8128863041561562280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5467136942246998119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19ab4d7cd690ef4409364b6a2fc175f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthChangeDisplay: {fileID: 7666139691609789000, guid: fdc5a2c1dca75774a8285bb2772ed19d,
+    type: 3}

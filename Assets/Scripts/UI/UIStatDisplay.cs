@@ -41,7 +41,7 @@ namespace RPG.UI
             }
             if (titleText)
             {
-                titleText.text = stat.Description;
+                titleText.text = stat.DisplayName;
             }
         }
 

@@ -84,7 +84,7 @@ namespace TkrainDesigns.Tiles.Actions
             result += $"\nBase Damage {baseDamage}";
             if (attackStat)
             {
-                result += $"\nAttacks calculated using {GoodString(attackStat.Description)}";
+                result += $"\nAttacks calculated using {GoodString(attackStat.DisplayName)}";
             }
             else
             {
@@ -93,7 +93,7 @@ namespace TkrainDesigns.Tiles.Actions
 
             if (defenseStat)
             {
-                result += $"\nDefended against by {GoodString(defenseStat.Description)}";
+                result += $"\nDefended against by {GoodString(defenseStat.DisplayName)}";
             }
             else
             {

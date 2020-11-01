@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: bs_Constitution
   m_EditorClassIdentifier: 
   itemId: e03dd1cd-1de0-498d-b74d-1af61704573c
-  description: Constitution
-  extendedDescription: 'A measure of your overall health, in the "do you get sick
-    often" sort of way.  '
+  displayName: Constitution
+  description: A measure of your overall health, in the "do you get sick often" sort
+    of way.   Adds 10 health per point.
+  alias: Fortitude
   minimum: 1
   maximum: 100
   sources: []

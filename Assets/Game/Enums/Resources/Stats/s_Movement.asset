@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: s_Movement
   m_EditorClassIdentifier: 
   itemId: 4a9250bf-2f1f-4e2e-bb34-7b941bb17cc0
-  description: Movement
-  extendedDescription: How many spaces you can move each turn.
+  displayName: Movement
+  description: How many spaces you can move each turn.
+  alias: The Traveller
   minimum: 1
   maximum: 1000
   sources:

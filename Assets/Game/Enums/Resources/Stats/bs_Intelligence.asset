@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: bs_Intelligence
   m_EditorClassIdentifier: 
   itemId: ca8270ae-032e-4026-8446-c143f49cd25e
-  description: Intelligence
-  extendedDescription: A measure of how well you think on your feet.  This is more
-    than just drinking and knowing things, this is recalling those things under pressure.
+  displayName: Intelligence
+  description: A measure of how well you think on your feet.  This is more than just
+    drinking and knowing things, this is recalling those things under pressure.
+  alias: The Scholar
   minimum: 1
   maximum: 100
   sources: []

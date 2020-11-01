@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af85ef6364f6154e9184a4449ee50df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 6
   duration: 5.16
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   healedColor: {r: 0, g: 1, b: 0, a: 1}

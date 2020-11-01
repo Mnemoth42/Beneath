@@ -3498,7 +3498,7 @@ Transform:
   m_GameObject: {fileID: 5546415601209258520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 5546415601209345000}
   - {fileID: 5546415601209410782}
@@ -3549,6 +3549,9 @@ MonoBehaviour:
   experienceGainedStat: {fileID: 11400000, guid: 46c84e87dda9fba4e93a8949823326bb,
     type: 2}
   onLevelUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onLevelUpTextEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &6902906720041397793
@@ -3647,6 +3650,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultItems: []
+  StoreUpdatedAdvertiser:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4233148106508676547
 MonoBehaviour:
   m_ObjectHideFlags: 0

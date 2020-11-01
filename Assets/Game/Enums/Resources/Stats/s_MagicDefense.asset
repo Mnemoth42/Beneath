@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: s_MagicDefense
   m_EditorClassIdentifier: 
   itemId: 6384ea44-4572-4221-ad81-3b206b5be4bc
-  description: Magic Defense
-  extendedDescription: Your ability to resist magical spells.  Enhanced by your Wisdom
-    stat.
+  displayName: Magic Defense
+  description: Your ability to resist magical spells.  Enhanced by your Wisdom stat.
+  alias: The Immune
   minimum: 1
   maximum: 1000
   sources:

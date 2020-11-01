@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: bs_Wisdom
   m_EditorClassIdentifier: 
   itemId: d1d3cf91-c16a-44ea-9251-bbe446203eff
-  description: Wisdom
-  extendedDescription: It's one thing to be smart, it's another to understand.  This
-    is your ablility to discern things.
+  displayName: Wisdom
+  description: It's one thing to be smart, it's another to understand.  This is your
+    ablility to discern things.
+  alias: Resolve
   minimum: 1
   maximum: 100
   sources: []

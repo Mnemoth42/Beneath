@@ -97,7 +97,7 @@ namespace TkrainDesigns.ScriptableEnums.Editor
                     }
                     
                     EditorGUILayout.BeginHorizontal();
-                    string statDesc = formula.Stat == null ? "Select Stat" : formula.Stat.Description;
+                    string statDesc = formula.Stat == null ? "Select Stat" : formula.Stat.DisplayName;
                     EditorGUI.BeginChangeCheck();
                     ScriptableStat newStat = (ScriptableStat)EditorGUILayout.ObjectField($"{statDesc}" ,formula.Stat, typeof(ScriptableStat), false);
                     if (newStat == null) {statToRemove = i;}

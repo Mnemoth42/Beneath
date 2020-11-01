@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using GameDevTV.Inventories;
 using JetBrains.Annotations;
 using RPG.Inventory;
@@ -12,7 +10,6 @@ using TkrainDesigns.Tiles.Combat;
 using TkrainDesigns.Tiles.Grids;
 using TkrainDesigns.Tiles.Movement;
 using TkrainDesigns.Tiles.Pathfinding;
-using UnityEditorInternal;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

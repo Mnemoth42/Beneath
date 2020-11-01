@@ -3,6 +3,8 @@ using TkrainDesigns.ResourceRetriever;
 using UnityEditor;
 
 using UnityEngine;
+using UnityEngine.Serialization;
+
 #pragma warning disable CS0649
 namespace TkrainDesigns.ScriptableEnums
 {
@@ -27,14 +29,16 @@ namespace TkrainDesigns.ScriptableEnums
     [CreateAssetMenu(fileName ="NewStat", menuName = "TkrainDesigns/ScriptableEnums/New Stat")]
     public class ScriptableStat : RetrievableScriptableObject
     {
-        [SerializeField] string description="";
-        [SerializeField] string extendedDescription="";
+        [SerializeField] string displayName="";
+        [FormerlySerializedAs("extendedDescription")] [SerializeField] string description="";
+        [SerializeField] string alias = "";
         [SerializeField] float minimum = 1.0f;
         [SerializeField] float maximum = 1000f;
         public List<StatSource> sources = new List<StatSource>();
 
+        public string DisplayName => displayName;
         public string Description => description;
-        public string ExtendedDescripton => extendedDescription;
+        public string Alias => alias;
 
         public float Minumum => minimum;
         public float Maximum => maximum;
@@ -46,23 +50,20 @@ namespace TkrainDesigns.ScriptableEnums
 
 #if UNITY_EDITOR
 
-        public void SetDescription(string newDescription)
+        public void SetDisplayName(string value)
         {
-            if (description.Equals(newDescription)) return;
-            Undo.RecordObject(this, "Change Description");
-            description = newDescription;
-            EditorUtility.SetDirty(this);
+            SetItem(ref displayName, value, "Change Display Name");
         }
 
-        public void SetExtendedDescription(string newDescription)
+        public void SetDescription(string value)
         {
-            if (extendedDescription.Equals(newDescription)) return;
-            Undo.RecordObject(this, "Change Extended Description");
-            extendedDescription = newDescription;
-            EditorUtility.SetDirty(this);
+            SetItem(ref description, value, "Change Description");
         }
 
-        
+        public void SetAlias(string value)
+        {
+            SetItem(ref alias, value, "Set Alias");
+        }
 
         public void AddStatSource()
         {
@@ -107,12 +108,12 @@ namespace TkrainDesigns.ScriptableEnums
 #endif
         public override string GetDisplayName()
         {
-            return description;
+            return displayName;
         }
 
         public override string GetDescription()
         {
-            return extendedDescription;
+            return description;
         }
     }
 

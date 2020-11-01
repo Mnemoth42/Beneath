@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: s_MagicAttack
   m_EditorClassIdentifier: 
   itemId: 02f9caa5-7544-4692-b35d-2ff3fc6c6056
-  description: Magic Attack
-  extendedDescription: Your ability to wield magical spells.  Enhanced by intelligence.
+  displayName: Magic Attack
+  description: Your ability to wield magical spells.  Enhanced by intelligence.
+  alias: Thaumaturgy
   minimum: 1
   maximum: 1000
   sources:

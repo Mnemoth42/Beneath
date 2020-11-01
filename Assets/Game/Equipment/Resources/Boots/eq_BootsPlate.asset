@@ -10,34 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec9701f7a0b0a6c479fdf17203a7c4bc, type: 3}
-  m_Name: eq_LeatherVest
+  m_Name: eq_BootsPlate
   m_EditorClassIdentifier: 
-  itemId: a5f47a1a-0094-4409-a4ee-e856d1966cad
-  displayName: Leather Vest
-  description: Stitched from pieces of fine ox hide, this vest is guaranteed to stop
-    small stones thrown by baby kobolds.
-  icon: {fileID: 21300000, guid: 618a7252d510b4946a14120813ba858b, type: 3}
+  itemId: 15eff42c-9b48-4cb7-a9c1-63c8ec4d9e3c
+  displayName: Plate Boots
+  description: Not the most comfortable boots in the world, and a bit noisy, offers
+    more pretection than leather.
+  icon: {fileID: 21300000, guid: 84b1a3fa276de3c4eb071eb535cbeaad, type: 3}
   pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
   stackable: 0
   potentialStatBoosts:
   - {fileID: 11400000, guid: 57590c9b3bde0714a92efbcaf98457bc, type: 2}
-  - {fileID: 11400000, guid: 3e07f4a50a266704284df4f1c764dc8f, type: 2}
-  - {fileID: 11400000, guid: 8ba086a12f9eafc42a893374995d17ee, type: 2}
   - {fileID: 11400000, guid: 20b1b98bf010fae4fbe990665a91f758, type: 2}
   - {fileID: 11400000, guid: d5e8aaf33d5aaf4469141f8d38f93597, type: 2}
-  - {fileID: 11400000, guid: a19d98afd044ebf4f9102e9483362251, type: 2}
+  - {fileID: 11400000, guid: 8ba086a12f9eafc42a893374995d17ee, type: 2}
   - {fileID: 11400000, guid: 3e07f4a50a266704284df4f1c764dc8f, type: 2}
-  allowedEquipLocation: {fileID: 11400000, guid: 79c078832e3b95c448c2007123df8581,
+  allowedEquipLocation: {fileID: 11400000, guid: c15aaba4e27d56d4a8eb6cb1710f85e3,
     type: 2}
   additiveModifiers:
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
-    value: 10
-  - stat: {fileID: 11400000, guid: 9194085696e99304dac7ff5bf404edd9, type: 2}
-    value: 8
-  - stat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
-    value: 2
-  percentageModifiers:
-  - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
-    value: 10
+    value: 15
+  percentageModifiers: []
   objectsToActivate: []
   slotsToDeactivate: 

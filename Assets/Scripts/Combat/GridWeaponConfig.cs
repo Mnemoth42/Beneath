@@ -219,10 +219,10 @@ namespace TkrainDesigns.Tiles.Combat
             //SetRuntimeAnimatorController((RuntimeAnimatorController)EditorGUILayout.ObjectField("AnimatorOverride", controller, typeof(RuntimeAnimatorController),false));
             DrawBoolSlider(ref leftHanded, "Left Handed", "Whether or not this equipment is attached to the left hand.");
             string statName = "Choose Stat";
-            if (offensiveStat != null) statName = offensiveStat.Description;
+            if (offensiveStat != null) statName = offensiveStat.DisplayName;
             EditorGUILayout.LabelField("Offensive Stat");
             SetOffensiveStat((ScriptableStat)EditorGUILayout.ObjectField(statName, offensiveStat, typeof(ScriptableStat),false));
-            statName = (defensiveStat == null ? "Choose Stat" : statName = defensiveStat.Description);
+            statName = (defensiveStat == null ? "Choose Stat" : statName = defensiveStat.DisplayName);
             EditorGUILayout.LabelField("Choose Defensive Stat");
             SetDefensiveStat((ScriptableStat)EditorGUILayout.ObjectField(statName, defensiveStat, typeof(ScriptableStat), false));
             DrawStylesAndDamage();

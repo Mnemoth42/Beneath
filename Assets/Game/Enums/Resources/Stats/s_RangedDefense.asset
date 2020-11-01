@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: s_RangedDefense
   m_EditorClassIdentifier: 
   itemId: 8d8acbbc-cc15-40a1-8333-3b6fc5d51d3d
-  description: Ranged Defense
-  extendedDescription: 'Your ability to avoid damage from bows and throwing knives.  '
+  displayName: Ranged Defense
+  description: 'Your ability to avoid damage from bows and throwing knives.  '
+  alias: The Archer
   minimum: 1
   maximum: 1000
   sources:

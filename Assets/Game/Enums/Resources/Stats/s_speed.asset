@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: s_speed
   m_EditorClassIdentifier: 
   itemId: 823599a5-28e9-48e2-86ba-4eddac9b7658
-  description: Speed
-  extendedDescription: How fast your turn bar regenerates.  Higher is better.
+  displayName: Speed
+  description: How fast your turn bar regenerates.  Higher is better.
+  alias: Swiftness
   minimum: 1
   maximum: 100
   sources:

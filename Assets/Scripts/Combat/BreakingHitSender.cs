@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using TkrainDesigns.Tiles.Combat;
-using TkrainDesigns.Tiles.Control;
-using TkrainDesigns.Tiles.Movement;
-using UnityEditorInternal;
+﻿using TkrainDesigns.Tiles.Control;
 using UnityEngine;
 
 public class BreakingHitSender : MonoBehaviour

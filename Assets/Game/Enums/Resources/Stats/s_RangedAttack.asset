@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: s_RangedAttack
   m_EditorClassIdentifier: 
   itemId: cbe38e0d-25bf-4254-b5d0-8410b8ed12b1
-  description: Ranged Attack
-  extendedDescription: 'Your ability with bows and throwing knives.  Agility is the
-    big key here.  '
+  displayName: Ranged Attack
+  description: 'Your ability with bows and throwing knives.  Agility is the big key
+    here.  '
+  alias: The Archer
   minimum: 1
   maximum: 1000
   sources:

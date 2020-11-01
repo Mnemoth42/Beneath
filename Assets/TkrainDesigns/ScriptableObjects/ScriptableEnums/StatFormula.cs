@@ -8,12 +8,6 @@ namespace TkrainDesigns.ScriptableEnums
     {
         [SerializeField]
         ScriptableStat stat;
-        [Range(1, 1000)]
-        [SerializeField] public float startingValue = 100;
-        [Range(0, 1)]
-        [SerializeField] public float percentageAdded = 0.0f;
-        [Range(0, 1000)]
-        [SerializeField] public float absoluteAdded = 10;
         [Range(1,1000)]
         [SerializeField] float startValue = 1.0f;
         [Range(1,1000)]
@@ -27,17 +21,8 @@ namespace TkrainDesigns.ScriptableEnums
 
         public float Calculate(int level=1)
         {
-            //if (level <= 1)
-            //    return startingValue;
-            //float c = Calculate(level - 1);
-            //return (c * percentageAdjusted()) + absoluteAdded;
             if (level < 1) level = 1;
             return ValueCurve.Evaluate(level);
-        }
-
-        float percentageAdjusted()
-        {
-            return 1.0f;
         }
 
         public float L1
@@ -62,9 +47,6 @@ namespace TkrainDesigns.ScriptableEnums
             endValue = 200;
             CreateAnimationCurve();
             Stat = _stat;
-        //    startingValue = sv;
-        //    percentageAdded = pa;
-        //    absoluteAdded = aa;
         }
 
         void CreateAnimationCurve()

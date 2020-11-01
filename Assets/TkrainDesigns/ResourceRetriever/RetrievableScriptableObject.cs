@@ -170,6 +170,11 @@ namespace TkrainDesigns.ResourceRetriever
             return DrawScriptableObjectList(contentLabel, obj);
         }
 
+        public virtual void DrawCustomInspector()
+        {
+
+        }
+
 #endif
 
     }

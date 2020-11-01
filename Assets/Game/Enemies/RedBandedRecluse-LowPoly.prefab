@@ -1605,6 +1605,7 @@ GameObject:
   - component: {fileID: 8378060843427873309}
   - component: {fileID: 5014507496303431625}
   - component: {fileID: -918458183948873730}
+  - component: {fileID: -4173607371693087784}
   m_Layer: 9
   m_Name: RedBandedRecluse-LowPoly
   m_TagString: Untagged
@@ -1621,7 +1622,7 @@ Transform:
   m_GameObject: {fileID: 3632831201058730389}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.129, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4396077678373997017}
   - {fileID: 7956128254697263714}
@@ -1672,6 +1673,9 @@ MonoBehaviour:
   experienceGainedStat: {fileID: 11400000, guid: 46c84e87dda9fba4e93a8949823326bb,
     type: 2}
   onLevelUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onLevelUpTextEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &2404559594232081836
@@ -1770,6 +1774,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultItems: []
+  StoreUpdatedAdvertiser:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4912744288843837006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2178,6 +2185,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccfeb821e4613a040aa8412f83d7d420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4173607371693087784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3632831201058730389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56200e207d453f34a805d89e167efc47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Min: 0.8
+  Max: 1.2
 --- !u!1 &3787751391761340949
 GameObject:
   m_ObjectHideFlags: 0

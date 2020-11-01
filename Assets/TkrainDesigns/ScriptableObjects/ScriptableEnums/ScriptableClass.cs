@@ -12,6 +12,7 @@ namespace TkrainDesigns.ScriptableEnums
 
         [SerializeField] string displayName = "";
         [SerializeField] string description="";
+        
         [Header("Put Stats here.  Set size to the number of stats", order =0), Space(-15,order =2), Header("Select a ScriptableStat, a Level 1 value (S), and amount added per level (A).",order =3)]
         //[Header("Select a ScriptableStat, a Level 1 value (S), and amount added per level (A).")]
         [SerializeField] List<StatFormula> formula;
@@ -31,6 +32,8 @@ namespace TkrainDesigns.ScriptableEnums
         {
             return description;
         }
+
+       
 
         public List<StatFormula> Formula { get => formula;  }
         #endregion
@@ -86,6 +89,8 @@ namespace TkrainDesigns.ScriptableEnums
             description = newDescription;
             EditorUtility.SetDirty(this);
         }
+
+        
 
 #endif
 

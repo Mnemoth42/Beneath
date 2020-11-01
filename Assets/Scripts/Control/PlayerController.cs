@@ -316,26 +316,28 @@ namespace TkrainDesigns.Tiles.Control
                 lastChanger.SetMouseOver(false);
                 lastChanger = null;
             }
-            //Tile tile = currentHit.transform.GetComponent<Tile>();
-            if (currentHit.transform.TryGetComponent(out Tile tile))
-            {
-                if(tile.TryGetComponent(out ColorChanger changer))
-                if (changer)
-                {
+            //Debug.Log($"CurrentHit is at {TileUtilities.CalcTileLocation(currentHit.point)}, {currentHit.transform.name}");
+            ColorChanger changer = currentHit.transform.GetComponentInChildren<ColorChanger>();
+            if (changer!=null)
+            { 
+                    //Debug.Log("Found Changer");
                     changer.SetMouseOver(true);
                     lastChanger = changer;
-                }
-            }
+            } 
             else if (currentHit.transform.TryGetComponent(out AIController ai))
             {
-                tile = GridPathFinder<Tile>.GetItemAt(TileUtilities.CalcTileLocation(ai.transform.position));
-                if (tile && tile.TryGetComponent(out ColorChanger changer))
+                Tile tile = GridPathFinder<Tile>.GetItemAt(ai.currentVector2Int);
+                
+                if (tile)
                 {
+                    changer = tile.GetComponentInChildren<ColorChanger>();
                     changer.SetMouseOver(true);
                     lastChanger = changer;
                 }
-
-                onTargetChanged(ai);
+                if(ai.IsAlive)
+                {
+                    onTargetChanged(ai);
+                }
             }
 
         }
@@ -447,7 +449,7 @@ namespace TkrainDesigns.Tiles.Control
             {
                 clickDetection = .5f;
                 tileLastClicked = TileUtilities.GridPosition(currentHit.point);
-                onTargetChanged(rayCastController == this ? null : rayCastController);
+                onTargetChanged(rayCastController == null ? null : rayCastController);
                 return true;
             }
             return false;

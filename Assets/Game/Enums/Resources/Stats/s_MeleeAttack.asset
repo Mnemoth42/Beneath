@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: s_MeleeAttack
   m_EditorClassIdentifier: 
   itemId: 07067940-f8dd-4e07-9103-8124e5b96404
-  description: Melee Attack
-  extendedDescription: Base damage in physical combat.   Agility contributes a little. 
-    Strength contributes a lot.
+  displayName: Melee Attack
+  description: Base damage in physical combat.   Agility contributes a little.  Strength
+    contributes a lot.
+  alias: The Destroyer
   minimum: 1
   maximum: 1000
   sources:

@@ -1,8 +1,10 @@
-﻿using TkrainDesigns.Saving;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TkrainDesigns.ResourceRetriever;
+using TkrainDesigns.Saving;
 using TkrainDesigns.ScriptableEnums;
+using Random = UnityEngine.Random;
 using UnityEngine;
+
 #pragma warning disable CS0649
 namespace TkrainDesigns.Stats
 {
@@ -13,6 +15,7 @@ namespace TkrainDesigns.Stats
         Dictionary<ScriptableStat, float> additiveModifiers= new Dictionary<ScriptableStat, float>();   
         Dictionary<ScriptableStat, float> percentageModifiers=new Dictionary<ScriptableStat, float>();
         bool isAlreadyInitialized = false;
+        string alias="";
 
         public bool IsAlreadyInitialized { get => isAlreadyInitialized; set => isAlreadyInitialized = value; }
         public Dictionary<ScriptableStat, float> AdditiveModifiers { get => additiveModifiers;  }
@@ -33,7 +36,10 @@ namespace TkrainDesigns.Stats
                 }
             }
             IsAlreadyInitialized = true;
+            alias = CreateAlias();
         }
+
+        public string Alias => alias;
 
         public RandomStatDecorator()
         {
@@ -43,7 +49,7 @@ namespace TkrainDesigns.Stats
         private void CreateRandomStatDecorator(int level, ScriptableStat[] potentialStatBoosts)
         {
             ScriptableStat stat = potentialStatBoosts[Random.Range(0, potentialStatBoosts.Length)];
-            int modifierAmount = Random.Range(-level / 4, level);
+            int modifierAmount = Random.Range(level / 4, level);
             if (modifierAmount == 0)
             {
                 modifierAmount = 1;
@@ -78,6 +84,45 @@ namespace TkrainDesigns.Stats
             }
 
             return 0;
+        }
+
+        string CreateAlias()
+        {
+            Debug.Log($"Creating Alias, Item contains {additiveModifiers.Count} Additive Modifiers and {percentageModifiers.Count} percentage modifiers");
+            Dictionary<ScriptableStat, float> accumulator = new Dictionary<ScriptableStat, float>();
+            foreach (var pair in additiveModifiers)
+            {
+                Debug.Log($"Adding {pair.Key} ({pair.Value} to accumulator.");
+                accumulator[pair.Key] = pair.Value;
+            }
+
+            foreach (var pair in percentageModifiers)
+            {
+                Debug.Log($"Adding {pair.Key} ({pair.Value}) to accumulator");
+                if (!accumulator.ContainsKey(pair.Key))
+                {
+                    accumulator[pair.Key] = pair.Value;
+                }
+                else
+                {
+                    accumulator[pair.Key] += pair.Value;
+                }
+            }
+            Debug.Log("Finding best stat");
+            ScriptableStat bestStat=null;
+            float bestValue=0.0f;
+            foreach (var pair in accumulator)
+            {
+                if (pair.Value > bestValue)
+                {
+                    Debug.Log($"Promoting {pair.Key.DisplayName}");
+                    bestStat = pair.Key;
+                    bestValue = pair.Value;
+                }
+            }
+
+            if (bestStat == null) return "";
+            return $"of {bestStat.Alias}";
         }
 
         

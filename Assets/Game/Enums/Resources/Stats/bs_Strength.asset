@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: bs_Strength
   m_EditorClassIdentifier: 
   itemId: d3f66530-f3d7-4a48-8a72-67b5abe9b2bc
-  description: Strength
-  extendedDescription: Just what you think it is... a measure of how hard you can
-    hit things and how easily you can lift and carry things.
+  displayName: Strength
+  description: Just what you think it is... a measure of how hard you can hit things
+    and how easily you can lift and carry things.
+  alias: Brutality
   minimum: 1
   maximum: 100
   sources: []

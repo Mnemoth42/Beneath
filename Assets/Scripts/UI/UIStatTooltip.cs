@@ -14,7 +14,7 @@ public class UIStatTooltip : MonoBehaviour
     public void Setup(ScriptableStat item)
     {
         if (item == null) return;
-        titleText.text = item.Description;
-        bodyText.text = item.ExtendedDescripton;
+        titleText.text = item.DisplayName;
+        bodyText.text = item.Description;
     }
 }

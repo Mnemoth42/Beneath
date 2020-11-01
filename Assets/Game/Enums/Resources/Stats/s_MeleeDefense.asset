@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: s_MeleeDefense
   m_EditorClassIdentifier: 
   itemId: 2c9c710f-84e8-4321-9429-2cbdd700db64
-  description: Melee Defense
-  extendedDescription: Ability to defend yourself in physical combat.  Higher Agility
-    means you'll dodge and avoid more damage.
+  displayName: Melee Defense
+  description: Ability to defend yourself in physical combat.  Higher Agility means
+    you'll dodge and avoid more damage.
+  alias: The Enduring Tank
   minimum: 1
   maximum: 1000
   sources:
