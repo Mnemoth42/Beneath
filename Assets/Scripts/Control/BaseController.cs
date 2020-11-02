@@ -39,18 +39,26 @@ namespace TkrainDesigns.Tiles.Control
         protected System.Action OnTurnFinished = null;
         [Header("Used to calculate whose turn is next.")]
         [SerializeField] [Range(1,100)]protected float speed = 1.0f;
-
         [Header("Place Speed ScriptableStat here")] [SerializeField]
         ScriptableStat speedStat;
-
         [SerializeField] protected bool ragdoll = false;
 
-        PersonalStats stats;
+        
         public System.Action<BaseController> onTargetChanged;
         public event System.Action onTurnEnded ;
-        private float nextTurn = 0;
+        
         public Vector2Int currentVector2Int;
+        Vector3 currentPosition;
+        PersonalStats stats;
+        protected Animator Anim { get; private set; }
+        protected GridMover Mover { get; private set; }
+        protected GridFighter Fighter { get; private set; }
+        protected Health health { get; private set; }
+        protected ActionPerformer actionPerformer { get; private set; }
+        protected CooldownManager cooldownManager { get; private set; }
+        protected ActionStore actionStore { get; private set; }
 
+        private float nextTurn = 0;
         public bool IsCurrentTurn { get; private set; } = false;
 
         public float NextTurn
@@ -60,15 +68,7 @@ namespace TkrainDesigns.Tiles.Control
         }
 
 
-        protected Animator Anim { get; private set; }
 
-        protected GridMover Mover { get; private set; }
-        protected GridFighter Fighter { get; private set; }
-        protected Health health { get; private set; }
-        protected ActionPerformer actionPerformer { get; private set; }
-
-        protected CooldownManager cooldownManager { get; private set; }
-        protected ActionStore actionStore { get; private set; }
 
 
         public bool IsAlive => health.IsAlive;
@@ -154,7 +154,7 @@ namespace TkrainDesigns.Tiles.Control
             return true;
         }
 
-        Vector3 currentPosition;
+        
         public Vector3 GetCurrentPosition() => currentPosition;
 
         public virtual void RestoreCurrentPosition()
@@ -193,7 +193,7 @@ namespace TkrainDesigns.Tiles.Control
 
         public Vector2Int TilePosition()
         {
-            return TileUtilities.CalcTileLocation(transform.position);
+            return TileUtilities.GridPosition(transform.position);
         }
 
         public static BaseController FindControllerAt(Vector2Int location)
@@ -218,7 +218,7 @@ namespace TkrainDesigns.Tiles.Control
                 return true;
             }
 
-            Vector2Int targetLocation = TileUtilities.CalcTileLocation(testTarget.position);
+            Vector2Int targetLocation = TileUtilities.GridPosition(testTarget.position);
             for (int i = firstPlaceToFire; i < lastPlaceToFire; i++)
             {
                 if (Vector2Int.Distance(path[i], targetLocation) >= (float) (path.Count - i))

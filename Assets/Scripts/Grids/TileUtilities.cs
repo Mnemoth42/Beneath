@@ -4,6 +4,7 @@ namespace TkrainDesigns.Tiles.Grids
 {
     public static class TileUtilities
     {
+        public static float TileSize = 2.0f;
         const float XFactor = .834f;
         const float YFactor = .956f;
 
@@ -30,8 +31,6 @@ namespace TkrainDesigns.Tiles.Grids
 
         public static Vector2Int GridPosition(Vector3 position)
         {
-
-
             return new Vector2Int(GridX(position), GridY(position));
         }
 
@@ -49,36 +48,36 @@ namespace TkrainDesigns.Tiles.Grids
             }
         }
 
-        public static float TileSize = 2.0f;
+        
 
-        /// <summary>
-        /// Converts a worldspace float dimension to the nearest tile.
-        /// </summary>
-        /// <param name="dimension"></param>
-        /// <returns></returns>
-        public static int CalcFloatDimToTileDimension(float dimension)
-        {
-            return Mathf.RoundToInt(dimension / TileSize);
-        }
+        ///// <summary>
+        ///// Converts a worldspace float dimension to the nearest tile.
+        ///// </summary>
+        ///// <param name="dimension"></param>
+        ///// <returns></returns>
+        //public static int CalcFloatDimToTileDimension(float dimension)
+        //{
+        //    return Mathf.RoundToInt(dimension / TileSize);
+        //}
 
-        public static float CalcTileDimToFloatDimension(int dimension)
-        {
-            return (float) dimension * TileSize;
-        }
+        //public static float CalcTileDimToFloatDimension(int dimension)
+        //{
+        //    return (float) dimension * TileSize;
+        //}
 
-        public static Vector2Int CalcTileLocation(Vector3 location)
-        {
-            return new Vector2Int(CalcFloatDimToTileDimension(location.x), CalcFloatDimToTileDimension(location.z));
-        }
+        //public static Vector2Int CalcTileLocation(Vector3 location)
+        //{
+        //    return new Vector2Int(CalcFloatDimToTileDimension(location.x), CalcFloatDimToTileDimension(location.z));
+        //}
 
-        public static Vector3 CalcTilePhysicalLocation(Vector2Int location)
-        {
-            return new Vector3(CalcTileDimToFloatDimension(location.x), 0, CalcTileDimToFloatDimension(location.y));
-        }
+        //public static Vector3 CalcTilePhysicalLocation(Vector2Int location)
+        //{
+        //    return new Vector3(CalcTileDimToFloatDimension(location.x), 0, CalcTileDimToFloatDimension(location.y));
+        //}
 
-        public static Vector3 CalculateCorrectTileLocation(Vector3 location)
-        {
-            return CalcTilePhysicalLocation(CalcTileLocation(location));
-        }
+        //public static Vector3 CalculateCorrectTileLocation(Vector3 location)
+        //{
+        //    return CalcTilePhysicalLocation(CalcTileLocation(location));
+        //}
     }
 }

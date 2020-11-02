@@ -34,6 +34,7 @@ namespace GameDevTV.Inventories
         [SerializeField]  Pickup pickup = null;
         [Tooltip("If true, multiple items of this type can be stacked in the same inventory slot.")]
         [SerializeField]  bool stackable = false;
+        [SerializeField] int level = 1;
         
         [SerializeField]  List<ScriptableStat> potentialStatBoosts = new List<ScriptableStat>();
 
@@ -42,7 +43,7 @@ namespace GameDevTV.Inventories
 
         public virtual bool CanHaveStatBoosts()
         {
-            return true;
+            return !stackable;
         }
 
         // STATE
@@ -66,6 +67,10 @@ namespace GameDevTV.Inventories
             return ResourceRetriever<InventoryItem>.GetFromID(itemId);
         }
 
+        public virtual int Price()
+        {
+            return level * level * 10;
+        }
 
         /// <summary>
         /// Spawn the pickup gameobject into the world.
@@ -93,6 +98,8 @@ namespace GameDevTV.Inventories
                         instance.Decorator = new RandomStatDecorator(level, potentialStatBoosts.ToArray());
                     }
                 }
+
+                instance.level = level;
                 pickupToSpawn.Setup(instance, number);
                 return pickupToSpawn;
             }
@@ -112,7 +119,11 @@ namespace GameDevTV.Inventories
             return icon;
         }
 
-
+        public int Level
+        {
+            get => level;
+            set => level = value;
+        }
 
         public bool IsStackable()
         {
@@ -125,9 +136,20 @@ namespace GameDevTV.Inventories
             return displayName;
         }
 
+        public virtual string PriceString()
+        {
+            return $"\nSelling Price: {Price()}";
+        }
+
         public override string GetDescription()
         {
             string result = description;
+            if(!stackable)
+            {
+                result += $"{description}\nLevel {level}";
+            }
+
+            result += PriceString();
 #if UNITY_EDITOR
             if (pickup==null)
             {
@@ -297,7 +319,8 @@ namespace GameDevTV.Inventories
             {
                 EditorGUILayout.BeginHorizontal();
                 ScriptableStat stat = potentialStatBoosts[i];
-                SetPotentialStatModifier(i,(ScriptableStat)EditorGUILayout.ObjectField(stat==null?"Select Stat": stat.DisplayName,stat, typeof(ScriptableStat),false));
+                SetPotentialStatModifier(i,DrawScriptableObjectList(stat==null?"Select Stat":stat.DisplayName , stat));
+                //SetPotentialStatModifier(i,(ScriptableStat)EditorGUILayout.ObjectField(stat==null?"Select Stat": stat.DisplayName,stat, typeof(ScriptableStat),false));
                 if (GUILayout.Button("-"))
                 {
                     itemtoDelete = i;

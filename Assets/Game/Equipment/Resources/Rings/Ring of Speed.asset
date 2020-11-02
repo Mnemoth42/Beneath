@@ -18,6 +18,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 4aade6abde689a1479733d076cf05d99, type: 3}
   pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
   stackable: 0
+  level: 1
   potentialStatBoosts:
   - {fileID: 11400000, guid: 57590c9b3bde0714a92efbcaf98457bc, type: 2}
   - {fileID: 11400000, guid: 8ba086a12f9eafc42a893374995d17ee, type: 2}
@@ -28,7 +29,7 @@ MonoBehaviour:
     type: 2}
   additiveModifiers: []
   percentageModifiers:
-  - stat: {fileID: 0}
+  - stat: {fileID: 11400000, guid: a19d98afd044ebf4f9102e9483362251, type: 2}
     value: 10
   objectsToActivate: []
   slotsToDeactivate: 

@@ -79,6 +79,7 @@ namespace GameDevTV.Inventories
         struct EquipmentBundle
         {
             public string itemID;
+            public int level;
             public SaveBundle bundle;
         }
 
@@ -90,6 +91,7 @@ namespace GameDevTV.Inventories
                 EquipmentBundle equipmentBundle;
                 equipmentBundle.itemID = pair.Value.GetItemID();
                 equipmentBundle.bundle = pair.Value.Decorator.CaptureState();
+                equipmentBundle.level = pair.Value.Level;
                 equippedItemsForSerialization[pair.Key.GetItemID()] = equipmentBundle;
             }
             SaveBundle bundle = new SaveBundle();
@@ -116,6 +118,7 @@ namespace GameDevTV.Inventories
                 if (item != null)
                 {
                     var instance = Instantiate(item);
+                    instance.Level = pair.Value.level;
                     instance.Decorator.RestoreState(pair.Value.bundle);
                     equippedItems[slot] = instance;
                 }

@@ -23,6 +23,7 @@ namespace TkrainDesigns.Tiles.Movement
         [Header("Place Movement Stat Here")] [SerializeField]
         ScriptableStat movementStat = null;
 
+        Vector2Int currentPosition;
         System.Action callbackAction;
         public event System.Action onMoveStepCompleted;
         PersonalStats stats;
@@ -49,6 +50,7 @@ namespace TkrainDesigns.Tiles.Movement
         {
             anim = GetComponent<Animator>();
             stats = GetComponent<PersonalStats>();
+            currentPosition = TileUtilities.GridPosition(transform.position);
         }
 
         public void BeginMoveAction(List<Vector2Int> pathToFollow, System.Action callback)

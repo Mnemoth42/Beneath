@@ -233,6 +233,7 @@ namespace GameDevTV.Inventories
         {
             public string itemID;
             public int number;
+            public int level;
             public SaveBundle bundle;
         }
         
@@ -270,6 +271,8 @@ namespace GameDevTV.Inventories
                         item = newItem;
                         item.Decorator.RestoreState(slotStrings[i].bundle);
                     }
+
+                    item.Level = slotStrings[i].level;
                     slots[i].item = item;
                     slots[i].number = slotStrings[i].number; 
                 }
@@ -287,6 +290,7 @@ namespace GameDevTV.Inventories
                 {
                     slotStrings[i].itemID = slots[i].item.GetItemID();
                     slotStrings[i].number = slots[i].number;
+                    slotStrings[i].level = slots[i].item.Level;
                     slotStrings[i].bundle = slots[i].item.Decorator.CaptureState();
                 }
             }

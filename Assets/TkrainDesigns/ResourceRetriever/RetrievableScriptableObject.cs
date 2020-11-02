@@ -170,6 +170,27 @@ namespace TkrainDesigns.ResourceRetriever
             return DrawScriptableObjectList(contentLabel, obj);
         }
 
+        protected T DrawScriptableObjectList<T>(T obj) where T : RetrievableScriptableObject
+        {
+            List<T> pickupsList = Statics.GetScriptableObjectsOfType<T>();
+            List<string> pickupNamesList = Statics.GetNamesFromScriptableObjectList(pickupsList);
+            T result = null;
+            if (pickupsList.Count>0)
+            {
+                int pickupSlot = Statics.FindNameInScriptableObjectList(pickupNamesList, obj);
+                pickupSlot = EditorGUILayout.Popup(pickupSlot, pickupNamesList.ToArray());
+                if (pickupsList.Count > pickupSlot)
+                {
+                    result = pickupsList[pickupSlot];
+                } 
+            }
+            else
+            {
+                EditorGUILayout.HelpBox($"No {typeof(T)} found to assign!", MessageType.Error);
+            }
+            return result;
+        }
+
         public virtual void DrawCustomInspector()
         {
 

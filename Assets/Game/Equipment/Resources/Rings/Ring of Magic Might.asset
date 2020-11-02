@@ -18,12 +18,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 4143fde63900c654c9ac61474def8119, type: 3}
   pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
   stackable: 0
-  potentialStatBoosts:
-  - {fileID: 11400000, guid: 8ba086a12f9eafc42a893374995d17ee, type: 2}
-  - {fileID: 11400000, guid: 8ba086a12f9eafc42a893374995d17ee, type: 2}
-  - {fileID: 11400000, guid: 8ba086a12f9eafc42a893374995d17ee, type: 2}
-  - {fileID: 11400000, guid: d5e8aaf33d5aaf4469141f8d38f93597, type: 2}
-  - {fileID: 11400000, guid: d5e8aaf33d5aaf4469141f8d38f93597, type: 2}
+  level: 1
+  potentialStatBoosts: []
   allowedEquipLocation: {fileID: 11400000, guid: 928c7523651960f4aa65dca80748b85c,
     type: 2}
   additiveModifiers: []

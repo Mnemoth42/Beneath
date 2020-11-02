@@ -25,6 +25,13 @@ namespace GameDevTV.Inventories
             return "Global";
         }
 
+        public override string PriceString()
+        {
+            return consumable ? "" : base.PriceString();
+        }
+
+
+
         public override bool CanHaveStatBoosts()
         {
             return false;

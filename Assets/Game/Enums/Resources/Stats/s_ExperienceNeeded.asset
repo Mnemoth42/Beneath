@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: s_ExperienceNeeded
   m_EditorClassIdentifier: 
   itemId: 5d24fa6d-88dc-4d64-8284-221bf1fb6f04
+  displayName: Experience Needed
   description: Experience Needed
-  extendedDescription: How much experience you need to progress to the next level.
+  alias: 
   minimum: 1
   maximum: 100000
   sources: []

@@ -101,10 +101,13 @@ namespace RPG.Inventory
             for (int i = 0; i < additiveModifiers.Count; i++)
             {
                 EditorGUILayout.BeginHorizontal();
-                ScriptableStat stat = (ScriptableStat)EditorGUILayout.ObjectField(additiveModifiers[i].stat == null ? "Select Stat" : additiveModifiers[i].stat.DisplayName,
-                                                                                  additiveModifiers[i].stat, 
-                                                                                  typeof(ScriptableStat), 
-                                                                                  false);
+                //ScriptableStat stat = (ScriptableStat)EditorGUILayout.ObjectField(additiveModifiers[i].stat == null ? "Select Stat" : additiveModifiers[i].stat.DisplayName,
+                //                                                                  additiveModifiers[i].stat, 
+                //                                                                  typeof(ScriptableStat), 
+                //                                                                  false);
+                ScriptableStat stat =
+                    DrawScriptableObjectList(additiveModifiers[i].stat == null ? "Select Stat" : additiveModifiers[i].stat.DisplayName,
+                                             additiveModifiers[i].stat);
                 float value = EditorGUILayout.IntSlider("Value", (int) additiveModifiers[i].value, -10, 100);
                 if (GUILayout.Button("-"))
                 {
@@ -126,10 +129,13 @@ namespace RPG.Inventory
             for (int i = 0; i < percentageModifiers.Count; i++)
             {
                 EditorGUILayout.BeginHorizontal();
-                ScriptableStat stat = (ScriptableStat)EditorGUILayout.ObjectField(percentageModifiers[i].stat == null ? "Select Stat" : percentageModifiers[i].stat.DisplayName,
-                                                                                  percentageModifiers[i].stat,
-                                                                                  typeof(ScriptableStat),
-                                                                                  false);
+                //ScriptableStat stat = (ScriptableStat)EditorGUILayout.ObjectField(percentageModifiers[i].stat == null ? "Select Stat" : percentageModifiers[i].stat.DisplayName,
+                //                                                                  percentageModifiers[i].stat,
+                //                                                                  typeof(ScriptableStat),
+                //                                                                  false);
+                ScriptableStat stat =
+                    DrawScriptableObjectList(percentageModifiers[i].stat == null ? "Select Stat" : percentageModifiers[i].stat.DisplayName,
+                                             percentageModifiers[i].stat);
                 float value = EditorGUILayout.IntSlider("Value", (int)percentageModifiers[i].value, -10, 100);
                 if (GUILayout.Button("-"))
                 {
@@ -151,7 +157,23 @@ namespace RPG.Inventory
 
 #endif
 
-		public virtual IEnumerable<float> GetAdditiveModifier(ScriptableStat stat)
+        public override int Price()
+        {
+            int result = base.Price();
+            foreach (var pair in CombineDecoratorAndBuildStat(Decorator.AdditiveModifiers, additiveModifiers.ToArray()))
+            {
+                result += (int) pair.Value * Level * 2;
+            }
+
+            foreach (var pair in CombineDecoratorAndBuildStat(Decorator.PercentageModifiers,
+                                                              percentageModifiers.ToArray()))
+            {
+                result += (int) pair.Value * Level * 4;
+            }
+            return result;
+        }
+
+        public virtual IEnumerable<float> GetAdditiveModifier(ScriptableStat stat)
 		{
 
 			foreach (Modifier modifier in additiveModifiers.Where(m => m.stat == stat).ToArray())
@@ -206,7 +228,7 @@ namespace RPG.Inventory
 
         public override string GetDescription()
         {
-            string result = $"{GetRawDescription()}\n";
+            string result = $"{base.GetDescription()}\n";
             foreach (var pair in AdditiveTotals)
             {
                 if (pair.Key != null) result += StatString(pair.Key.DisplayName, pair.Value, "point");
