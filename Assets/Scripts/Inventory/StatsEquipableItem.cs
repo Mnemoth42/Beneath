@@ -10,6 +10,8 @@ using UnityEngine;
 #pragma warning disable CS0649
 namespace RPG.Inventory
 {
+
+
     [CreateAssetMenu(menuName = "RPG/Inventory/Equipable Item")]
 	public class StatsEquipableItem : EquipableItem, IModifierProvider
 	{
@@ -17,19 +19,7 @@ namespace RPG.Inventory
 
 		[SerializeField] List<Modifier> additiveModifiers = new List<Modifier>();
 		[SerializeField] List<Modifier> percentageModifiers = new List<Modifier>();
-        [Header("The name of the object in the Modular Characters Prefab representing this item.")]
-        [SerializeField]List<string> objectsToActivate = new List<string>();
-        [Header("Slot Categories to deactivate when this item is activated.")]
-        [SerializeField] List<ModularCategories> slotsToDeactivate = new List<ModularCategories>();
 
-        public void ActivateItem(CharacterRandomizer character)
-        {
-            if (!character)
-            {
-                return;
-            }
-            character.ActivateItems(objectsToActivate, slotsToDeactivate);
-        }
 
 		
 		public int AdditiveModifierCount => additiveModifiers.Count;
@@ -101,10 +91,6 @@ namespace RPG.Inventory
             for (int i = 0; i < additiveModifiers.Count; i++)
             {
                 EditorGUILayout.BeginHorizontal();
-                //ScriptableStat stat = (ScriptableStat)EditorGUILayout.ObjectField(additiveModifiers[i].stat == null ? "Select Stat" : additiveModifiers[i].stat.DisplayName,
-                //                                                                  additiveModifiers[i].stat, 
-                //                                                                  typeof(ScriptableStat), 
-                //                                                                  false);
                 ScriptableStat stat =
                     DrawScriptableObjectList(additiveModifiers[i].stat == null ? "Select Stat" : additiveModifiers[i].stat.DisplayName,
                                              additiveModifiers[i].stat);

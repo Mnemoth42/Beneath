@@ -38,6 +38,8 @@ namespace GameDevTV.Inventories
             return equippedItems[equipLocation];
         }
 
+        public Dictionary<ScriptableEquipSlot, EquipableItem> EquippedItems => equippedItems;
+
         /// <summary>
         /// Add an item to the given equip location. Do not attempt to equip to
         /// an incompatible slot.

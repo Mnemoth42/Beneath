@@ -28,6 +28,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8ba086a12f9eafc42a893374995d17ee, type: 2}
   allowedEquipLocation: {fileID: 11400000, guid: eb3855a7c5d978843a7cc0bb0bb71896,
     type: 2}
+  objectsToActivate:
+  - category: Male_08_Hand_Right
+    index: 2
+  - category: Male_09_Hand_Left
+    index: 2
+  slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: c49fa81e11a07d340ac4338366cabc93, type: 2}
     value: 5
@@ -38,5 +44,3 @@ MonoBehaviour:
   percentageModifiers:
   - stat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
     value: 4
-  objectsToActivate: []
-  slotsToDeactivate: 
