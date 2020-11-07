@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Master's Chain
   description: 'You''ve heard of a smart fashion accessory, right?  '
   icon: {fileID: 21300000, guid: ec9f6f17af9d41e4693a01aac851aa27, type: 3}
-  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  pickup: {fileID: 6585196624951791254, guid: 85800f2077d840c4ea22e8d1588447c6, type: 3}
   stackable: 0
   level: 1
   potentialStatBoosts:
@@ -31,9 +31,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d5e8aaf33d5aaf4469141f8d38f93597, type: 2}
   allowedEquipLocation: {fileID: 11400000, guid: 69ae1657e8bf3c44b8b1ddecf9ea1f8c,
     type: 2}
+  objectsToActivate: []
+  slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: 8ba086a12f9eafc42a893374995d17ee, type: 2}
     value: 5
   percentageModifiers: []
-  objectsToActivate: []
-  slotsToDeactivate: 

@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Enchanted Leather Gloves
   description: These gloves cling to your weapon, ensuring a strong stable strike.
   icon: {fileID: 21300000, guid: dc85ca6930b719f45bcf6ad2531bb1c8, type: 3}
-  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  pickup: {fileID: 6585196624951791254, guid: 85800f2077d840c4ea22e8d1588447c6, type: 3}
   stackable: 0
   level: 1
   potentialStatBoosts:
@@ -27,6 +27,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d5e8aaf33d5aaf4469141f8d38f93597, type: 2}
   allowedEquipLocation: {fileID: 11400000, guid: eb3855a7c5d978843a7cc0bb0bb71896,
     type: 2}
+  objectsToActivate:
+  - category: Hand
+    index: 1
+  - category: LowerArm
+    index: 12
+  slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: c49fa81e11a07d340ac4338366cabc93, type: 2}
     value: 8
@@ -39,5 +45,3 @@ MonoBehaviour:
   percentageModifiers:
   - stat: {fileID: 11400000, guid: 20b1b98bf010fae4fbe990665a91f758, type: 2}
     value: 10
-  objectsToActivate: []
-  slotsToDeactivate: 

@@ -16,14 +16,22 @@ public class AdjustVolume : MonoBehaviour
     {
         slider = GetComponent<Slider>();
         
-        mixer.GetFloat(parameter, out float value);
-        value = PlayerPrefs.GetFloat(parameter, value);
-        slider.value = value;
+        
+        float value = PlayerPrefs.GetFloat(parameter);
+        Debug.Log($"{parameter}:{value}");
+        mixer.SetFloat(parameter, value);
+        if(slider)
+        {
+            slider.value = value;
+        }
+        mixer.GetFloat(parameter, out value);
+        Debug.Log($"After Awake, {parameter} is {value}");
     }
 
     public void UpdateValue()
     {
         mixer.SetFloat(parameter, slider.value);
         PlayerPrefs.SetFloat(parameter, slider.value);
+        Debug.Log($"Setting {parameter} to {slider.value}");
     }
 }

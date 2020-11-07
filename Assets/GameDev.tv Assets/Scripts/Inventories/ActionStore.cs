@@ -107,7 +107,7 @@ namespace GameDevTV.Inventories
         {
             if (dockedItems.ContainsKey(index))
             {
-                if (object.ReferenceEquals(item, dockedItems[index].item))
+                if (object.ReferenceEquals(item, dockedItems[index].item) && item.IsStackable())
                 {
                     dockedItems[index].number += number;
                 }

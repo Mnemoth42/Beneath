@@ -213,7 +213,7 @@ namespace TkrainDesigns.Tiles.Control
 
         protected override void Die()
         {
-            Anim.enabled = false;
+            //Anim.enabled = false;
             Invoke(nameof(ReloadGame), 2.0f);
             base.Die();
         }

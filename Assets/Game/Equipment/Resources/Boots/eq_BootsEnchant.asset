@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Perhaps it's the quality stitching, but these boots give you just
     a bit more spring in your step.
   icon: {fileID: 21300000, guid: b84173eb1169c1142ae6072a547f0112, type: 3}
-  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  pickup: {fileID: 6585196624951791254, guid: 85800f2077d840c4ea22e8d1588447c6, type: 3}
   stackable: 0
   level: 1
   potentialStatBoosts:
@@ -28,6 +28,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d5e8aaf33d5aaf4469141f8d38f93597, type: 2}
   allowedEquipLocation: {fileID: 11400000, guid: c15aaba4e27d56d4a8eb6cb1710f85e3,
     type: 2}
+  objectsToActivate:
+  - category: Leg
+    index: 12
+  slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
     value: 10
@@ -38,5 +42,3 @@ MonoBehaviour:
     value: 10
   - stat: {fileID: 11400000, guid: 8721c49195c629747b3e609300d5c220, type: 2}
     value: 5
-  objectsToActivate: []
-  slotsToDeactivate: 

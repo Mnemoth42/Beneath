@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9701f7a0b0a6c479fdf17203a7c4bc, type: 3}
   m_Name: eq_EnchantedLeatherHelm
   m_EditorClassIdentifier: 
-  itemId: b6a27ae6-581d-4990-bf4b-4733c3e8c5fc
+  itemId: ec9a4027-c531-4650-a4a3-139da6452446
   displayName: Enchanted Leather Helm
   description: This helm appears to have been infused with magic, granting you extra
     perception.
-  icon: {fileID: 21300000, guid: 6ffa948908595824d841fb4d5200f7ae, type: 3}
-  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  icon: {fileID: 21300000, guid: e6e5be6ad8f876d489db414b2f3beb4f, type: 3}
+  pickup: {fileID: 6585196624951791254, guid: 85800f2077d840c4ea22e8d1588447c6, type: 3}
   stackable: 0
   level: 1
   potentialStatBoosts:
@@ -28,6 +28,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d5e8aaf33d5aaf4469141f8d38f93597, type: 2}
   allowedEquipLocation: {fileID: 11400000, guid: b52af58bbb7c2d94a873e8f986abf2f5,
     type: 2}
+  objectsToActivate:
+  - category: HeadCoverings_Base_Hair
+    index: 1
+  slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
     value: 4
@@ -40,5 +44,3 @@ MonoBehaviour:
   percentageModifiers:
   - stat: {fileID: 11400000, guid: 22215a7f67ae3334abbe1a63b23c0211, type: 2}
     value: 5
-  objectsToActivate: []
-  slotsToDeactivate: 

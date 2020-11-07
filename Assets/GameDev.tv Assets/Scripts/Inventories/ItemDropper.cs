@@ -24,9 +24,9 @@ namespace GameDevTV.Inventories
         /// The number of items contained in the pickup. Only used if the item
         /// is stackable.
         /// </param>
-        public void DropItem(InventoryItem item, int number)
+        public void DropItem(InventoryItem item, int number, int level = 1)
         {
-            SpawnPickup(item, GetDropLocation(), number);
+            SpawnPickup(item, GetDropLocation(), number, level);
         }
 
         /// <summary>
@@ -51,10 +51,10 @@ namespace GameDevTV.Inventories
 
         // PRIVATE
 
-        public void SpawnPickup(InventoryItem item, Vector3 spawnLocation, int number)
+        public void SpawnPickup(InventoryItem item, Vector3 spawnLocation, int number, int level = 1)
         {
             if (item == null) return;
-            var pickup = item.SpawnPickup(spawnLocation, number, number);
+            var pickup = item.SpawnPickup(spawnLocation, number, level);
             droppedItems.Add(pickup);
         }
 

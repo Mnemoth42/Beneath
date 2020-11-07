@@ -20,4 +20,4 @@ MonoBehaviour:
   maximum: 1000
   sources:
   - stat: {fileID: 11400000, guid: 8ba086a12f9eafc42a893374995d17ee, type: 2}
-    effectPerLevel: 1.5
+    effectPerLevel: 4

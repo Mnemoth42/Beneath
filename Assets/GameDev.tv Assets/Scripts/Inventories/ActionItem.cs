@@ -113,8 +113,8 @@ namespace GameDevTV.Inventories
         {
             string result = base.GetDescription();
             result += $"\nCooldown {cooldown} turns.";
-            if (consumable) result += "\n<Color=#4444ff>Consumable</color>";
-            if (useOnPickup) result += "\n<Color=#4444ff>Uses when picked up</color>";
+            if (consumable) result += "\n<color=#4444ff>Consumable</color>";
+            if (useOnPickup) result += "\n<color=#4444ff>Uses when picked up</color>";
             return result;
         }
 

@@ -56,7 +56,7 @@ namespace RPG.Inventory
                 {
                     if (dropsEncountered.Contains(drop.item.GetItemID())) continue;
                     dropsEncountered.Add(drop.item.GetItemID());
-                    DropItem(drop.item, drop.count);
+                    DropItem(drop.item, drop.count, level);
 
                 }
             }

@@ -1,4 +1,5 @@
-﻿using TkrainDesigns.ScriptableObjects;
+﻿using System.Runtime.Remoting.Messaging;
+using TkrainDesigns.ScriptableObjects;
 using UnityEngine;
 
 namespace TkrainDesigns
@@ -7,16 +8,20 @@ namespace TkrainDesigns
     public class AudioRandomizer : MonoBehaviour
     {
         new AudioSource audio;
+        [Header("Required, must be set")]
         public ScriptableAudioArray audioArray;
+        [Header("If set, will check against CharacterGenerator for gender and play this if female.")]
+        public ScriptableAudioArray femaleAudioArray;
         public float maxPitchRange = 1.4f;
         public float minPitchRange = .6f;
+        public float spatialBlend = .95f;
         public bool playOnAwake;
 
         void Awake()
         {
             audio = GetComponent<AudioSource>();
             audio.playOnAwake = false;
-            audio.spatialBlend = .95f;
+            audio.spatialBlend = spatialBlend;
         }
 
         void Start()
@@ -42,6 +47,14 @@ namespace TkrainDesigns
                 return;
             }
 
+            if (femaleAudioArray != null)
+            {
+                CharacterGenerator generator = GetComponentInParent<CharacterGenerator>();
+                if (generator)
+                {
+                    audio.PlayOneShot(generator.isMale?audioArray.GetRandomClip():femaleAudioArray.GetRandomClip());
+                }
+            }
             audio.PlayOneShot(audioArray.GetRandomClip());
         }
 

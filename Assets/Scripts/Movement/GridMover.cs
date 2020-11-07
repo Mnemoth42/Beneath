@@ -18,7 +18,7 @@ namespace TkrainDesigns.Tiles.Movement
         [Header("Used only when Root Motion is not applied in animator.")] [SerializeField]
         float movementSpeed = 2.0f;
 
-        [SerializeField] SkinnedMeshRenderer rend;
+        [SerializeField] public SkinnedMeshRenderer rend;
 
         [Header("Place Movement Stat Here")] [SerializeField]
         ScriptableStat movementStat = null;

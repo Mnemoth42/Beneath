@@ -29,10 +29,10 @@ MonoBehaviour:
   allowedEquipLocation: {fileID: 11400000, guid: eb3855a7c5d978843a7cc0bb0bb71896,
     type: 2}
   objectsToActivate:
-  - category: Male_08_Hand_Right
-    index: 2
-  - category: Male_09_Hand_Left
-    index: 2
+  - category: Hand
+    index: 3
+  - category: LowerArm
+    index: 10
   slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: c49fa81e11a07d340ac4338366cabc93, type: 2}

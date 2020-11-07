@@ -41,6 +41,12 @@ namespace TkrainDesigns.Saving
             SaveFile(saveFile, state);
         }
 
+        public static bool SaveFileExists(string saveFile)
+        {
+            string path = GetPathFromSaveFile(saveFile);
+            return File.Exists(path);
+        }
+
         /// <summary>
         /// Delete the state in the given save file.
         /// </summary>

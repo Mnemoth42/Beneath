@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using RPG.SceneManagement;
+using TkrainDesigns.Saving;
 using TkrainDesigns.Stats;
 using TkrainDesigns.Tiles.Control;
 using TkrainDesigns.Tiles.Core;
@@ -58,7 +59,16 @@ namespace TkrainDesigns.Tiles.Dungeons
         {
             UI.alpha = 0.0f;
             fader.FadeOutImmediate();
-            yield return null;
+            SavingSystem.Load("Character");
+            level = FindObjectOfType<PlayerController>().GetComponent<PersonalStats>().Level;
+            yield return GenerateNewDungeon();
+        }
+
+        IEnumerator ResetDungeon()
+        {
+            UI.alpha = 0.0f;
+            yield return fader.FadeIn(1.0f);
+            SavingSystem.Save("Character");
             level += 1;
             yield return GenerateNewDungeon();
         }
@@ -97,7 +107,7 @@ namespace TkrainDesigns.Tiles.Dungeons
 
         void StartFromBeginning()
         {
-            StartCoroutine(Start());
+            StartCoroutine(ResetDungeon());
         }
 
         IEnumerator CreateDungeon()

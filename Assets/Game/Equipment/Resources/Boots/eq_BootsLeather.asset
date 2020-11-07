@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Leather Boots
   description: A good pair of boots help you move faster in combat.
   icon: {fileID: 21300000, guid: a29fcdb1635c8e84da9116de6fca8a34, type: 3}
-  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  pickup: {fileID: 6585196624951791254, guid: 85800f2077d840c4ea22e8d1588447c6, type: 3}
   stackable: 0
   level: 1
   potentialStatBoosts:
@@ -27,11 +27,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d5e8aaf33d5aaf4469141f8d38f93597, type: 2}
   allowedEquipLocation: {fileID: 11400000, guid: c15aaba4e27d56d4a8eb6cb1710f85e3,
     type: 2}
+  objectsToActivate:
+  - category: Leg
+    index: 4
+  slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
     value: 5
   percentageModifiers:
   - stat: {fileID: 11400000, guid: a19d98afd044ebf4f9102e9483362251, type: 2}
     value: 5
-  objectsToActivate: []
-  slotsToDeactivate: 

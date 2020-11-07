@@ -16,8 +16,9 @@ MonoBehaviour:
   displayName: Tunic
   description: Not a very effective armor, but it does allow for faster movement.
   icon: {fileID: 21300000, guid: cf6948fb5fe8d01439cff6cd856dff0d, type: 3}
-  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  pickup: {fileID: 6585196624951791254, guid: 85800f2077d840c4ea22e8d1588447c6, type: 3}
   stackable: 0
+  level: 1
   potentialStatBoosts:
   - {fileID: 11400000, guid: 57590c9b3bde0714a92efbcaf98457bc, type: 2}
   - {fileID: 11400000, guid: 3e07f4a50a266704284df4f1c764dc8f, type: 2}
@@ -26,6 +27,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d5e8aaf33d5aaf4469141f8d38f93597, type: 2}
   allowedEquipLocation: {fileID: 11400000, guid: 79c078832e3b95c448c2007123df8581,
     type: 2}
+  objectsToActivate:
+  - category: Torso
+    index: 5
+  slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
     value: 5
@@ -34,5 +39,3 @@ MonoBehaviour:
   - stat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
     value: 5
   percentageModifiers: []
-  objectsToActivate: []
-  slotsToDeactivate: 

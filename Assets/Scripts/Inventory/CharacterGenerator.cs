@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using Data.Util;
 using GameDevTV.Inventories;
 using PsychoticLab;
-using RPG.Inventory;
+using TkrainDesigns.Saving;
 using UnityEngine;
 
-public class CharacterGenerator : MonoBehaviour
+public class CharacterGenerator : MonoBehaviour, ISaveable
 {
     static Dictionary<string, List<string>> characterParts;
 
@@ -21,6 +17,21 @@ public class CharacterGenerator : MonoBehaviour
             return characterParts;
         }
     }
+
+    public static readonly string HeadCoverings_Base_Hair = "HeadCoverings_Base_Hair";
+    public static readonly string HeadCoverings_No_FacialHair = "HeadCoverings_No_FacialHair";
+    public static readonly string HeadCoverings_No_Hair = "HeadCoverings_No_Hair";
+    public static readonly string All_01_Hair = "All_01_Hair";
+    public static readonly string Helmet = "Helmet";
+    public static readonly string Back_Attachment = "All_04_Back_Attachment";
+    public static readonly string Shoulder_Attachment_Right = "All_05_Shoulder_Attachment_Right";
+    public static readonly string Shoulder_Attachment_Left = "All_06_Shoulder_Attachment_Left";
+    public static readonly string Elbow_Attachment_Right = "All_07_Elbow_Attachment_Right";
+    public static readonly string Elbow_Attachment_Left = "All_08_Elbow_Attachment_Left";
+    public static readonly string Hips_Attachment = "All_09_HipsAttachment";
+    public static readonly string Knee_Attachment_Right = "All_10_Knee_Attachment_Right";
+    public static readonly string Knee_Attachment_Left = "All_11_Knee_Atatchment_Left";
+    public static readonly string Elf_Ear = "Elf_Ear";
 
     public static readonly string[] AllGenderBodyParts = new string[]
                                                          {
@@ -40,6 +51,20 @@ public class CharacterGenerator : MonoBehaviour
                                                              "Elf_Ear"
                                                          };
 
+    public static readonly string Female_Head_All_Elements = "Female_Head_All_Elements";
+    public static readonly string Female_Head_NoElements = "Female_Head_NoElements";
+    public static readonly string Female_Eyebrows = "Female_01_Eyebrows";
+    public static readonly string Female_Torso = "Female_03_Torso";
+    public static readonly string Female_Arm_Upper_Right = "Female_04_Arm_Upper_Right";
+    public static readonly string Female_Arm_Upper_Left = "Female_05_Arm_Upper_Left";
+    public static readonly string Female_Arm_Lower_Right = "Female_06_Arm_Lower_Right";
+    public static readonly string Female_Arm_Lower_Left = "Female_07_Arm_Lower_Left";
+    public static readonly string Female_Hand_Right = "Female_08_Hand_Right";
+    public static readonly string Female_Hand_Left = "Female_09_Hand_Left";
+    public static readonly string Female_Hips = "Female_10_Hips";
+    public static readonly string Female_Leg_Right = "Female_11_Leg_Right";
+    public static readonly string Female_Leg_Left = "Female_12_Leg_Left";
+
     public static readonly string[] FemaleBodyCategories = new string[]
                                                            {
                                                                "Female_Head_All_Elements",
@@ -56,6 +81,21 @@ public class CharacterGenerator : MonoBehaviour
                                                                "Female_11_Leg_Right",
                                                                "Female_12_Leg_Left",
                                                            };
+
+    public static readonly string Male_Head_All_Elements = "Male_Head_All_Elements";
+    public static readonly string Male_Head_No_Elements = "Male_Head_No_Elements";
+    public static readonly string Male_Eyebrows = "Male_01_Eyebrows";
+    public static readonly string Male_FacialHair = "Male_02_FacialHair";
+    public static readonly string Male_Torso = "Male_03_Torso";
+    public static readonly string Male_Arm_Upper_Right = "Male_04_Arm_Upper_Right";
+    public static readonly string Male_Arm_Upper_Left = "Male_05_Arm_Upper_Left";
+    public static readonly string Male_Arm_Lower_Right = "Male_06_Arm_Lower_Right";
+    public static readonly string Male_Arm_Lower_Left = "Male_07_Arm_Lower_Left";
+    public static readonly string Male_Hand_Right = "Male_08_Hand_Right";
+    public static readonly string Male_Hand_Left = "Male_09_Hand_Left";
+    public static readonly string Male_Hips = "Male_10_Hips";
+    public static readonly string Male_Leg_Right = "Male_11_Leg_Right";
+    public static readonly string Male_Leg_Left = "Male_12_Leg_Left";
 
     public static readonly string[] MaleBodyCategories = new string[]
                                                          {
@@ -74,6 +114,10 @@ public class CharacterGenerator : MonoBehaviour
                                                              "Male_11_Leg_Right",
                                                              "Male_12_Leg_Left",
                                                          };
+
+    public static readonly string HairColor = "_Color_Hair";
+    public static readonly string SkinColor = "_Color_Skin";
+
 
     Dictionary<string, List<GameObject>> characterGameObjects;
     Dictionary<string, List<GameObject>> CharacterGameObjects
@@ -108,16 +152,135 @@ public class CharacterGenerator : MonoBehaviour
     [Range(0, 18)]
     [SerializeField] int defaultLeg = 0;
 
+            [Header("Gear Colors")]
+        public Color[] primary = { new Color(0.2862745f, 0.4f, 0.4941177f), new Color(0.4392157f, 0.1960784f, 0.172549f), new Color(0.3529412f, 0.3803922f, 0.2705882f), new Color(0.682353f, 0.4392157f, 0.2196079f), new Color(0.4313726f, 0.2313726f, 0.2705882f), new Color(0.5921569f, 0.4941177f, 0.2588235f), new Color(0.482353f, 0.4156863f, 0.3529412f), new Color(0.2352941f, 0.2352941f, 0.2352941f), new Color(0.2313726f, 0.4313726f, 0.4156863f) };
+        public Color[] secondary = { new Color(0.7019608f, 0.6235294f, 0.4666667f), new Color(0.7372549f, 0.7372549f, 0.7372549f), new Color(0.1647059f, 0.1647059f, 0.1647059f), new Color(0.2392157f, 0.2509804f, 0.1882353f) };
+
+        [Header("Metal Colors")]
+        public Color[] metalPrimary = { new Color(0.6705883f, 0.6705883f, 0.6705883f), new Color(0.5568628f, 0.5960785f, 0.6392157f), new Color(0.5568628f, 0.6235294f, 0.6f), new Color(0.6313726f, 0.6196079f, 0.5568628f), new Color(0.6980392f, 0.6509804f, 0.6196079f) };
+        public Color[] metalSecondary = { new Color(0.3921569f, 0.4039216f, 0.4117647f), new Color(0.4784314f, 0.5176471f, 0.5450981f), new Color(0.3764706f, 0.3607843f, 0.3372549f), new Color(0.3254902f, 0.3764706f, 0.3372549f), new Color(0.4f, 0.4039216f, 0.3568628f) };
+
+        [Header("Leather Colors")]
+        public Color[] leatherPrimary;
+        public Color[] leatherSecondary;
+
+        [Header("Skin Colors")] public Color[] skinColors =
+        {
+            new Color(1f, 0.8000001f, 0.682353f), new Color(0.8196079f, 0.6352941f, 0.4588236f),
+            new Color(0.5647059f, 0.4078432f, 0.3137255f)
+        };
+        public Color[] hairColors =
+        {
+            new Color(0.3098039f, 0.254902f, 0.1764706f), new Color(0.1764706f, 0.1686275f, 0.1686275f),
+            new Color(0.8313726f, 0.6235294f, 0.3607843f), new Color(0.9339623f, 0.3688644f,0.06608222f)
+        };
+        [Header("Scar Colors")]
+        public Color whiteScar = new Color(0.9294118f, 0.6862745f, 0.5921569f);
+        public Color brownScar = new Color(0.6980392f, 0.5450981f, 0.4f);
+        public Color blackScar = new Color(0.4235294f, 0.3176471f, 0.282353f);
+        public Color elfScar = new Color(0.8745099f, 0.6588235f, 0.6313726f);
+
+        [Header("Body Art Colors")]
+        public Color[] bodyArt = { new Color(0.0509804f, 0.6745098f, 0.9843138f), new Color(0.7215686f, 0.2666667f, 0.2666667f), new Color(0.3058824f, 0.7215686f, 0.6862745f), new Color(0.9254903f, 0.882353f, 0.8509805f), new Color(0.3098039f, 0.7058824f, 0.3137255f), new Color(0.5294118f, 0.3098039f, 0.6470588f), new Color(0.8666667f, 0.7764707f, 0.254902f), new Color(0.2392157f, 0.4588236f, 0.8156863f) };
+
+        int hairColor = 0;
+        int skinColor = 0;
 
     Equipment equipment;
 
     void Awake()
     {
+        gender = PlayerPrefs.GetInt("Gender") == 1 ? Gender.Male : Gender.Female;
         equipment = GetComponent<Equipment>();
         equipment.EquipmentUpdated += LoadArmor;
+        LoadDefaultCharacter();
     }
 
+    public void SetGender(bool female)
+    {
+        gender =female?Gender.Female:Gender.Male;
+        LoadDefaultCharacter();
+    }
 
+    public void SetHairColor(int index)
+    {
+        if (index >= 0 && index < hairColors.Length)
+        {
+            hairColor = index;
+        }
+        SetColorInCategory(All_01_Hair, HairColor, hairColors[hairColor]);
+        SetColorInCategory(Male_FacialHair, HairColor, hairColors[hairColor]);
+        SetColorInCategory(Female_Eyebrows, HairColor, hairColors[hairColor]);
+        SetColorInCategory(Male_Eyebrows, HairColor, hairColors[hairColor]);
+    }
+
+    public void CycleHairColor(int index)
+    {
+        hairColor += index;
+        hairColor = hairColor % hairColors.Length;
+        SetHairColor(hairColor);
+    }
+
+    public void CycleSkinColor(int index)
+    {
+        skinColor += index;
+        skinColor = skinColor % skinColors.Length;
+        SetSkinColor(skinColor);
+    }
+
+    public void CycleHairStyle(int index)
+    {
+        hair += index;
+        hair %= CharacterGameObjects[All_01_Hair].Count;
+        ActivateHair(hair);
+    }
+
+    public void CycleFacialHair(int index)
+    {
+        facialHair += index;
+        int maxHair = CharacterGameObjects[Male_FacialHair].Count;
+        if (facialHair < -1) facialHair = maxHair - 1;
+        if (facialHair >= maxHair) facialHair = -1;
+        ActivateFacialHair(facialHair);
+    }
+
+    public void CycleHead(int index)
+    {
+        head += index;
+        head %= CharacterGameObjects[Female_Head_All_Elements].Count;
+        ActivateHead(head);
+    }
+
+    public void CycleEyebrows(int index)
+    {
+        eyebrow += index;
+        eyebrow %= CharacterGameObjects[Female_Eyebrows].Count;
+        ActivateEyebrows(eyebrow);
+    }
+
+    void SetColorInCategory(string category, string shaderVariable, Color colorToSet)
+    {
+        if (!CharacterGameObjects.ContainsKey(category)) return;
+        Debug.Log($"Setting {shaderVariable} on {category}");
+        foreach (GameObject go in CharacterGameObjects[category])
+        {
+            Renderer rend = go.GetComponent<Renderer>();
+            rend.material.SetColor(shaderVariable, colorToSet);
+        }
+    }
+
+    public void SetSkinColor(int index)
+    {
+        if (index >= 0 && index < skinColors.Length)
+        {
+            skinColor = index;
+        }
+
+        foreach (var pair in CharacterGameObjects)
+        {
+            SetColorInCategory(pair.Key, "_Color_Skin", skinColors[skinColor]);
+        }
+    }
 
     public void LoadDefaultCharacter()
     {
@@ -138,6 +301,7 @@ public class CharacterGenerator : MonoBehaviour
         LoadDefaultCharacter();
         foreach (var pair in equipment.EquippedItems)
         {
+            Debug.Log(pair.Key.GetDisplayName());
             foreach (string category in pair.Value.SlotsToDeactivate)
             {
                 DeactivateCategory(category);
@@ -145,7 +309,25 @@ public class CharacterGenerator : MonoBehaviour
 
             foreach (ItemPair itemPair in pair.Value.ObjectsToActivate)
             {
-                ActivatePart(itemPair.category, itemPair.index);
+                Debug.Log($"{itemPair.category}-{itemPair.index}");
+                switch (itemPair.category)
+                {
+                    case "Leg": ActivateLeg(itemPair.index);
+                        break;
+                    case "Hips": ActivateHips(itemPair.index);
+                        break;
+                    case "Torso": ActivateTorso(itemPair.index);
+                        break;
+                    case "UpperArm": ActivateUpperArm(itemPair.index);
+                        break;
+                    case "LowerArm": ActivateLowerArm(itemPair.index);
+                        break;
+                    case "Hand": ActivateHand(itemPair.index);
+                        break;
+                    default: ActivatePart(itemPair.category, itemPair.index);
+                        break;
+                }
+                
             }
         }
     }
@@ -345,5 +527,36 @@ public class CharacterGenerator : MonoBehaviour
             Debug.Log(characterParts[category].Count);
         }
 
+    }
+
+    public SaveBundle CaptureState()
+    {
+        SaveBundle bundle = new SaveBundle();
+        bundle.PutInt("Gender", isMale?1:0);
+        bundle.PutInt("Hair", hair);
+        bundle.PutInt("FacialHair", facialHair);
+        bundle.PutInt("Head", head);
+        bundle.PutInt("Eyebrows", eyebrow);
+        bundle.PutInt("SkinColor", skinColor);
+        bundle.PutInt("HairColor", hairColor);
+        return bundle;
+    }
+
+
+
+    public void RestoreState(SaveBundle bundle)
+    {
+        equipment.EquipmentUpdated -= LoadArmor; //prevent issues
+        gender = bundle.GetInt("Gender", 1)==1 ? Gender.Male : Gender.Female;
+        hair = bundle.GetInt("Hair", hair);
+        facialHair = bundle.GetInt("FacialHair", facialHair);
+        head = bundle.GetInt("Head", head);
+        eyebrow = bundle.GetInt("Eyebrows", eyebrow);
+        skinColor = bundle.GetInt("skinColor", skinColor);
+        hairColor = bundle.GetInt("HairColor", hairColor);
+        SetHairColor(hairColor);
+        SetSkinColor(skinColor);
+        equipment.EquipmentUpdated += LoadArmor;
+        Invoke(nameof(LoadArmor), .1f);
     }
 }

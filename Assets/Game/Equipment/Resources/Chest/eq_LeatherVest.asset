@@ -17,8 +17,9 @@ MonoBehaviour:
   description: Stitched from pieces of fine ox hide, this vest is guaranteed to stop
     small stones thrown by baby kobolds.
   icon: {fileID: 21300000, guid: 618a7252d510b4946a14120813ba858b, type: 3}
-  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  pickup: {fileID: 6585196624951791254, guid: 85800f2077d840c4ea22e8d1588447c6, type: 3}
   stackable: 0
+  level: 1
   potentialStatBoosts:
   - {fileID: 11400000, guid: 57590c9b3bde0714a92efbcaf98457bc, type: 2}
   - {fileID: 11400000, guid: 3e07f4a50a266704284df4f1c764dc8f, type: 2}
@@ -29,6 +30,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3e07f4a50a266704284df4f1c764dc8f, type: 2}
   allowedEquipLocation: {fileID: 11400000, guid: 79c078832e3b95c448c2007123df8581,
     type: 2}
+  objectsToActivate:
+  - category: Torso
+    index: 3
+  - category: UpperArm
+    index: 11
+  slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
     value: 10
@@ -39,5 +46,3 @@ MonoBehaviour:
   percentageModifiers:
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
     value: 10
-  objectsToActivate: []
-  slotsToDeactivate: 

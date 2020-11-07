@@ -17,8 +17,9 @@ MonoBehaviour:
   description: Better than a bandaid, but not much.  The taste leaves a bit to be
     desired as well!
   icon: {fileID: 21300000, guid: 52772ee24b01ff34c9e2597340e7274d, type: 3}
-  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  pickup: {fileID: 6585196624951791254, guid: 85800f2077d840c4ea22e8d1588447c6, type: 3}
   stackable: 1
+  level: 1
   potentialStatBoosts: []
   consumable: 1
   cooldown: 3

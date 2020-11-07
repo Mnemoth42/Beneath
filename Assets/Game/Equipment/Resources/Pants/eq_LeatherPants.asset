@@ -17,7 +17,7 @@ MonoBehaviour:
   description: A simple pair of leather pants.  Not only do they protect your legs,
     but they also don't make you look like you're naked!
   icon: {fileID: 21300000, guid: 774e99f13931a5e4d91947078aa59ad1, type: 3}
-  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  pickup: {fileID: 6585196624951791254, guid: 85800f2077d840c4ea22e8d1588447c6, type: 3}
   stackable: 0
   level: 1
   potentialStatBoosts:
@@ -28,9 +28,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d5e8aaf33d5aaf4469141f8d38f93597, type: 2}
   allowedEquipLocation: {fileID: 11400000, guid: 17304347e5e462f40bdcdaff3cfd0d5f,
     type: 2}
+  objectsToActivate:
+  - category: Hips
+    index: 3
+  slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
     value: 5
   percentageModifiers: []
-  objectsToActivate: []
-  slotsToDeactivate: 

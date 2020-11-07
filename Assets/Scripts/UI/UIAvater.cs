@@ -16,6 +16,8 @@ public class UIAvater : MonoBehaviour, IItemHolder
     PlayerController player;
     PersonalStats stats;
     Image image;
+    public Sprite maleSprite;
+    public Sprite femaleSprite;
 
     void Awake()
     {
@@ -28,7 +30,10 @@ public class UIAvater : MonoBehaviour, IItemHolder
     {
         if (!isTarget)
         {
-            image.sprite = stats.Avatar;
+            if (player.TryGetComponent(out CharacterGenerator cg))
+            {
+                image.sprite = cg.isMale ? maleSprite : femaleSprite;
+            }
         }
     }
 

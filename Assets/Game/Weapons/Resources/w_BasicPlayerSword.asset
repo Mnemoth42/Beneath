@@ -18,15 +18,16 @@ MonoBehaviour:
     It''s not a horrible sword, mind you.  It works rather well, if you think about
     it.  It''s just a sword.  '
   icon: {fileID: 21300000, guid: e7e5c84b3bb7c2c419f60b8873fdae66, type: 3}
-  pickup: {fileID: 5279927515419474896, guid: fd05aa54a1840fc4babfb1166fc82409, type: 3}
+  pickup: {fileID: 6585196624951791254, guid: f1af2bed1ca80d3428297509a022ca90, type: 3}
   stackable: 0
+  level: 1
   potentialStatBoosts: []
   allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,
     type: 2}
+  objectsToActivate: []
+  slotsToDeactivate: []
   additiveModifiers: []
   percentageModifiers: []
-  objectsToActivate: []
-  slotsToDeactivate: 
   model: {fileID: 1221624550297679130, guid: 42901ad781bc95d4db16dcdec25e2a4c, type: 3}
   controller: {fileID: 9100000, guid: accadbbe3e4192e47a2b168937caa4f9, type: 2}
   damage: 5
