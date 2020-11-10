@@ -17,7 +17,7 @@ MonoBehaviour:
   description: 'A good pair of gloves can improve your grip and make you a better
     warrior.  Now if you could just find a good pair. '
   icon: {fileID: 21300000, guid: 862fd868d3ac3664c956ea3cac258dd4, type: 3}
-  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  pickup: {fileID: 6585196624951791254, guid: 85800f2077d840c4ea22e8d1588447c6, type: 3}
   stackable: 0
   level: 1
   potentialStatBoosts:
@@ -33,6 +33,11 @@ MonoBehaviour:
     index: 3
   - category: LowerArm
     index: 10
+  colorChanges:
+  - category: _Color_Leather_Primary
+    index: 2
+  - category: _Color_Leather_Secondary
+    index: 0
   slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: c49fa81e11a07d340ac4338366cabc93, type: 2}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9701f7a0b0a6c479fdf17203a7c4bc, type: 3}
   m_Name: eq_PlateGloves
   m_EditorClassIdentifier: 
-  itemId: fc344da0-93a8-4e04-b61f-857fa7ffebb7
+  itemId: 57bf6268-e67f-4b9c-8dd1-0ee16384f293
   displayName: Plate Gloves
   description: 'Sturdy cloth gloves plated with the finest metal in the realm. '
   icon: {fileID: 21300000, guid: 04dfa20967a12df4ebb1584283f4c4ac, type: 3}
@@ -32,6 +32,11 @@ MonoBehaviour:
     index: 11
   - category: LowerArm
     index: 16
+  colorChanges:
+  - category: _Color_Primary
+    index: 4
+  - category: _Color_Primary
+    index: 2
   slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: c49fa81e11a07d340ac4338366cabc93, type: 2}

@@ -17,7 +17,7 @@ MonoBehaviour:
   description: A powerful wizard must have accidentally sneezed on this vest, giving
     it some extra protection.
   icon: {fileID: 21300000, guid: 881abdd3f182d4d488017f7e815f7e87, type: 3}
-  pickup: {fileID: 5279927515419474896, guid: 0b87ff2a3399fa142b74aa9018985c8c, type: 3}
+  pickup: {fileID: 6585196624951791254, guid: 85800f2077d840c4ea22e8d1588447c6, type: 3}
   stackable: 0
   level: 1
   potentialStatBoosts: []
@@ -28,6 +28,21 @@ MonoBehaviour:
     index: 9
   - category: UpperArm
     index: 10
+  colorChanges:
+  - category: _Color_Primary
+    index: 3
+  - category: _Color_Secondary
+    index: 1
+  - category: _Color_Leather_Primary
+    index: 1
+  - category: _Color_Leather_Secondary
+    index: 0
+  - category: _Color_Metal_Primary
+    index: 2
+  - category: _Color_Metal_Secondary
+    index: 3
+  - category: _Color_Metal_Dark
+    index: 5
   slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}

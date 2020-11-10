@@ -270,6 +270,7 @@ namespace GameDevTV.Inventories
                         var newItem = Instantiate(item);
                         item = newItem;
                         item.Decorator.RestoreState(slotStrings[i].bundle);
+
                     }
 
                     item.Level = slotStrings[i].level;

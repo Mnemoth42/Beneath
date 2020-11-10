@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Plate Helm
   description: There's nothing like covering your head in metal to improve your confidence
     in a fight.
-  icon: {fileID: 21300000, guid: 3f10950bf12231349809e2f5034e017b, type: 3}
+  icon: {fileID: 21300000, guid: 3c9871cbc02feba4fa27347e2c27c735, type: 3}
   pickup: {fileID: 6585196624951791254, guid: 85800f2077d840c4ea22e8d1588447c6, type: 3}
   stackable: 0
   level: 1
@@ -29,8 +29,15 @@ MonoBehaviour:
   allowedEquipLocation: {fileID: 11400000, guid: b52af58bbb7c2d94a873e8f986abf2f5,
     type: 2}
   objectsToActivate:
+  - category: HeadCoverings_No_Hair
+    index: 10
   - category: Helmet
-    index: 3
+    index: 5
+  colorChanges:
+  - category: _Color_Metal_Dark
+    index: 2
+  - category: _Color_Metal_Primary
+    index: 1
   slotsToDeactivate:
   - All_01_Hair
   additiveModifiers:

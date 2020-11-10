@@ -115,11 +115,29 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
                                                              "Male_12_Leg_Left",
                                                          };
 
-    public static readonly string HairColor = "_Color_Hair";
-    public static readonly string SkinColor = "_Color_Skin";
+    public const string HairColor = "_Color_Hair";
+    public const string SkinColor = "_Color_Skin";
+    public const string PrimaryColor = "_Color_Primary";
+    public const string SecondaryColor = "_Color_Secondary";
+    public const string LeatherPrimaryColor = "_Color_Leather_Primary";
+    public const string LeatherSecondaryColor = "_Color_Leather_Secondary";
+    public const string MetalPrimaryColor = "_Color_Metal_Primary";
+    public const string MetalSecondaryColor = "_Color_Metal_Secondary";
+    public const string MetalDarkColor = "_Color_Metal_Dark";
 
+    public static string[] GearColors = new string[]
+                                        {
+                                            PrimaryColor,
+                                            SecondaryColor,
+                                            LeatherPrimaryColor,
+                                            LeatherSecondaryColor,
+                                            MetalPrimaryColor,
+                                            MetalSecondaryColor,
+                                            MetalDarkColor
+                                        };
 
     Dictionary<string, List<GameObject>> characterGameObjects;
+
     Dictionary<string, List<GameObject>> CharacterGameObjects
     {
         get
@@ -131,60 +149,100 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
 
     [SerializeField] Gender gender = Gender.Male;
     [SerializeField] Race race = Race.Human;
-    [Range(0, 37)]
-    [SerializeField] int hair = 0;
-    [Range(0, 21)]
-    [SerializeField] int head = 0;
-    [Range(0, 6)]
-    [SerializeField] int eyebrow = 0;
-    [Range(0, 17)]
-    [SerializeField] int facialHair = 0;
-    [Range(0, 27)]
-    [SerializeField] int defaultTorso = 1;
-    [Range(0, 20)]
-    [SerializeField] int defaultUpperArm = 0;
-    [Range(0, 17)]
-    [SerializeField] int defaultLowerArm = 0;
-    [Range(0, 16)]
-    [SerializeField] int defaultHand = 0;
-    [Range(0, 27)]
-    [SerializeField] int defaultHips = 0;
-    [Range(0, 18)]
-    [SerializeField] int defaultLeg = 0;
+    [Range(0, 37)] [SerializeField] int hair = 0;
+    [Range(0, 21)] [SerializeField] int head = 0;
+    [Range(0, 6)] [SerializeField] int eyebrow = 0;
+    [Range(0, 17)] [SerializeField] int facialHair = 0;
+    [Range(0, 27)] [SerializeField] int defaultTorso = 1;
+    [Range(0, 20)] [SerializeField] int defaultUpperArm = 0;
+    [Range(0, 17)] [SerializeField] int defaultLowerArm = 0;
+    [Range(0, 16)] [SerializeField] int defaultHand = 0;
+    [Range(0, 27)] [SerializeField] int defaultHips = 0;
+    [Range(0, 18)] [SerializeField] int defaultLeg = 0;
 
-            [Header("Gear Colors")]
-        public Color[] primary = { new Color(0.2862745f, 0.4f, 0.4941177f), new Color(0.4392157f, 0.1960784f, 0.172549f), new Color(0.3529412f, 0.3803922f, 0.2705882f), new Color(0.682353f, 0.4392157f, 0.2196079f), new Color(0.4313726f, 0.2313726f, 0.2705882f), new Color(0.5921569f, 0.4941177f, 0.2588235f), new Color(0.482353f, 0.4156863f, 0.3529412f), new Color(0.2352941f, 0.2352941f, 0.2352941f), new Color(0.2313726f, 0.4313726f, 0.4156863f) };
-        public Color[] secondary = { new Color(0.7019608f, 0.6235294f, 0.4666667f), new Color(0.7372549f, 0.7372549f, 0.7372549f), new Color(0.1647059f, 0.1647059f, 0.1647059f), new Color(0.2392157f, 0.2509804f, 0.1882353f) };
+    public static Color[] primary =
+    {
+        new Color(0.2862745f, 0.4f, 0.4941177f), new Color(0.4392157f, 0.1960784f, 0.172549f),
+        new Color(0.3529412f, 0.3803922f, 0.2705882f), new Color(0.682353f, 0.4392157f, 0.2196079f),
+        new Color(0.4313726f, 0.2313726f, 0.2705882f), new Color(0.5921569f, 0.4941177f, 0.2588235f),
+        new Color(0.482353f, 0.4156863f, 0.3529412f), new Color(0.2352941f, 0.2352941f, 0.2352941f),
+        new Color(0.2313726f, 0.4313726f, 0.4156863f), Color.magenta, Color.blue, Color.green, Color.red,
+        new Color32(165, 42, 42, 255), new Color32(255, 165, 0, 255)
+    };
 
-        [Header("Metal Colors")]
-        public Color[] metalPrimary = { new Color(0.6705883f, 0.6705883f, 0.6705883f), new Color(0.5568628f, 0.5960785f, 0.6392157f), new Color(0.5568628f, 0.6235294f, 0.6f), new Color(0.6313726f, 0.6196079f, 0.5568628f), new Color(0.6980392f, 0.6509804f, 0.6196079f) };
-        public Color[] metalSecondary = { new Color(0.3921569f, 0.4039216f, 0.4117647f), new Color(0.4784314f, 0.5176471f, 0.5450981f), new Color(0.3764706f, 0.3607843f, 0.3372549f), new Color(0.3254902f, 0.3764706f, 0.3372549f), new Color(0.4f, 0.4039216f, 0.3568628f) };
+    public static Color[] secondary =
+    {
+        new Color(0.7019608f, 0.6235294f, 0.4666667f), new Color(0.7372549f, 0.7372549f, 0.7372549f),
+        new Color(0.1647059f, 0.1647059f, 0.1647059f), new Color(0.2392157f, 0.2509804f, 0.1882353f), Color.magenta,
+        Color.blue, Color.green, Color.red, new Color32(165, 42, 42, 255), new Color32(255, 165, 0, 255)
+    };
 
-        [Header("Leather Colors")]
-        public Color[] leatherPrimary;
-        public Color[] leatherSecondary;
+    public static Color[] metalPrimary =
+    {
+        new Color(0.6705883f, 0.6705883f, 0.6705883f), new Color(0.5568628f, 0.5960785f, 0.6392157f),
+        new Color(0.5568628f, 0.6235294f, 0.6f), new Color(0.6313726f, 0.6196079f, 0.5568628f),
+        new Color(0.6980392f, 0.6509804f, 0.6196079f), Color.magenta, Color.blue, Color.green, Color.red,
+        new Color32(165, 42, 42, 255), new Color32(255, 165, 0, 255)
+    };
 
-        [Header("Skin Colors")] public Color[] skinColors =
-        {
-            new Color(1f, 0.8000001f, 0.682353f), new Color(0.8196079f, 0.6352941f, 0.4588236f),
-            new Color(0.5647059f, 0.4078432f, 0.3137255f)
-        };
-        public Color[] hairColors =
-        {
-            new Color(0.3098039f, 0.254902f, 0.1764706f), new Color(0.1764706f, 0.1686275f, 0.1686275f),
-            new Color(0.8313726f, 0.6235294f, 0.3607843f), new Color(0.9339623f, 0.3688644f,0.06608222f)
-        };
-        [Header("Scar Colors")]
-        public Color whiteScar = new Color(0.9294118f, 0.6862745f, 0.5921569f);
-        public Color brownScar = new Color(0.6980392f, 0.5450981f, 0.4f);
-        public Color blackScar = new Color(0.4235294f, 0.3176471f, 0.282353f);
-        public Color elfScar = new Color(0.8745099f, 0.6588235f, 0.6313726f);
+    public static Color[] metalSecondary =
+    {
+        new Color(0.3921569f, 0.4039216f, 0.4117647f), new Color(0.4784314f, 0.5176471f, 0.5450981f),
+        new Color(0.3764706f, 0.3607843f, 0.3372549f), new Color(0.3254902f, 0.3764706f, 0.3372549f),
+        new Color(0.4f, 0.4039216f, 0.3568628f), Color.magenta, Color.blue, Color.green, Color.red,
+        new Color32(165, 42, 42, 255), new Color32(255, 165, 0, 255)
+    };
 
-        [Header("Body Art Colors")]
-        public Color[] bodyArt = { new Color(0.0509804f, 0.6745098f, 0.9843138f), new Color(0.7215686f, 0.2666667f, 0.2666667f), new Color(0.3058824f, 0.7215686f, 0.6862745f), new Color(0.9254903f, 0.882353f, 0.8509805f), new Color(0.3098039f, 0.7058824f, 0.3137255f), new Color(0.5294118f, 0.3098039f, 0.6470588f), new Color(0.8666667f, 0.7764707f, 0.254902f), new Color(0.2392157f, 0.4588236f, 0.8156863f) };
+    public static Color[] metalDark =
+    {
+        new Color32(0x2D, 0x32, 0x37, 0xff), new Color32(0x1D, 0x22, 0x27, 0xff),
+        new Color32(0x50, 0x50, 0x50, 0xff), new Color32(0x90, 0x90, 0x90, 0xff),
+        new Color32(0x0c, 0x37, 0x63, 0xff), new Color32(0x63, 0x37, 0x0c, 0xff),
+        new Color32(0x0c, 0x63, 0x37, 0xff), Color.magenta, Color.blue, Color.green, Color.red,
+        new Color32(165, 42, 42, 255), new Color32(255, 165, 0, 255)
+    };
 
-        int hairColor = 0;
-        int skinColor = 0;
+    public static Color[] leatherPrimary =
+    {
+        new Color(0.282353f, 0.2078432f, 0.1647059f), new Color(0.342549f, 0.3094118f, 0.2384314f),
+        new Color32(0x4D, 0x2C, 0x18, 0xFF), Color.magenta, Color.blue, Color.green, Color.red,
+        new Color32(165, 42, 42, 255), new Color32(255, 165, 0, 255)
+    };
+
+    public static Color[] leatherSecondary =
+    {
+        new Color(0.372549f, 0.3294118f, 0.2784314f), new Color(0.5566038f, 0.4759794f, 0.4759794f), Color.magenta,
+        Color.blue, Color.green, Color.red, new Color32(165, 42, 42, 255), new Color32(255, 165, 0, 255)
+    };
+
+    public static Color[] skinColors =
+    {
+        new Color(1f, 0.8000001f, 0.682353f), new Color(0.8196079f, 0.6352941f, 0.4588236f),
+        new Color(0.5647059f, 0.4078432f, 0.3137255f)
+    };
+
+    public static Color[] hairColors =
+    {
+        new Color(0.3098039f, 0.254902f, 0.1764706f), new Color(0.1764706f, 0.1686275f, 0.1686275f),
+        new Color(0.8313726f, 0.6235294f, 0.3607843f), new Color(0.9339623f, 0.3688644f, 0.06608222f), Color.magenta,
+        Color.blue, Color.green, Color.red
+    };
+
+    public static Color whiteScar = new Color(0.9294118f, 0.6862745f, 0.5921569f);
+    public static Color brownScar = new Color(0.6980392f, 0.5450981f, 0.4f);
+    public static Color blackScar = new Color(0.4235294f, 0.3176471f, 0.282353f);
+    public static Color elfScar = new Color(0.8745099f, 0.6588235f, 0.6313726f);
+
+    public static Color[] bodyArt =
+    {
+        new Color(0.0509804f, 0.6745098f, 0.9843138f), new Color(0.7215686f, 0.2666667f, 0.2666667f),
+        new Color(0.3058824f, 0.7215686f, 0.6862745f), new Color(0.9254903f, 0.882353f, 0.8509805f),
+        new Color(0.3098039f, 0.7058824f, 0.3137255f), new Color(0.5294118f, 0.3098039f, 0.6470588f),
+        new Color(0.8666667f, 0.7764707f, 0.254902f), new Color(0.2392157f, 0.4588236f, 0.8156863f)
+    };
+
+    int hairColor = 0;
+    int skinColor = 0;
 
     Equipment equipment;
 
@@ -198,7 +256,7 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
 
     public void SetGender(bool female)
     {
-        gender =female?Gender.Female:Gender.Male;
+        gender = female ? Gender.Female : Gender.Male;
         LoadDefaultCharacter();
     }
 
@@ -208,6 +266,7 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
         {
             hairColor = index;
         }
+
         SetColorInCategory(All_01_Hair, HairColor, hairColors[hairColor]);
         SetColorInCategory(Male_FacialHair, HairColor, hairColors[hairColor]);
         SetColorInCategory(Female_Eyebrows, HairColor, hairColors[hairColor]);
@@ -284,6 +343,14 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
 
     public void LoadDefaultCharacter()
     {
+        foreach (var pair in CharacterGameObjects)
+        {
+            foreach (var item in pair.Value)
+            {
+                item.SetActive(false);
+            }
+        }
+
         ActivateHair(hair);
         ActivateHead(head);
         ActivateEyebrows(eyebrow);
@@ -299,6 +366,7 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
     void LoadArmor()
     {
         LoadDefaultCharacter();
+
         foreach (var pair in equipment.EquippedItems)
         {
             Debug.Log(pair.Key.GetDisplayName());
@@ -307,73 +375,82 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
                 DeactivateCategory(category);
             }
 
+            var colorChanger = pair.Value.ColorChangers;
             foreach (ItemPair itemPair in pair.Value.ObjectsToActivate)
             {
                 Debug.Log($"{itemPair.category}-{itemPair.index}");
                 switch (itemPair.category)
                 {
-                    case "Leg": ActivateLeg(itemPair.index);
+                    case "Leg":
+                        ActivateLeg(itemPair.index, colorChanger);
                         break;
-                    case "Hips": ActivateHips(itemPair.index);
+                    case "Hips":
+                        ActivateHips(itemPair.index,colorChanger);
                         break;
-                    case "Torso": ActivateTorso(itemPair.index);
+                    case "Torso":
+                        ActivateTorso(itemPair.index,colorChanger);
                         break;
-                    case "UpperArm": ActivateUpperArm(itemPair.index);
+                    case "UpperArm":
+                        ActivateUpperArm(itemPair.index,colorChanger);
                         break;
-                    case "LowerArm": ActivateLowerArm(itemPair.index);
+                    case "LowerArm":
+                        ActivateLowerArm(itemPair.index,colorChanger);
                         break;
-                    case "Hand": ActivateHand(itemPair.index);
+                    case "Hand":
+                        ActivateHand(itemPair.index,colorChanger);
                         break;
-                    default: ActivatePart(itemPair.category, itemPair.index);
+                    default:
+                        ActivatePart(itemPair.category, itemPair.index, colorChanger);
                         break;
                 }
-                
             }
         }
     }
 
 
-    void ActivateLeg(int selector)
+    void ActivateLeg(int selector, List<ItemPair> colorChanges = null)
     {
-        ActivatePart(gender == Gender.Male ? "Male_12_Leg_Left" : "Female_12_Leg_Left", selector);
-        ActivatePart(gender == Gender.Male ? "Male_11_Leg_Right" : "Female_11_Leg_Right", selector);
+        ActivatePart(gender == Gender.Male ? "Male_12_Leg_Left" : "Female_12_Leg_Left", selector, colorChanges);
+        ActivatePart(gender == Gender.Male ? "Male_11_Leg_Right" : "Female_11_Leg_Right", selector, colorChanges);
         DeactivateCategory(isMale ? "Female_12_Leg_Left" : "Male_12_Leg_Left");
         DeactivateCategory(isMale ? "Female_11_Leg_Right" : "Male_11_Leg_Right");
     }
 
-    void ActivateHips(int selector)
+    void ActivateHips(int selector, List<ItemPair> colorChanges = null)
     {
-        ActivatePart(gender == Gender.Male ? "Male_10_Hips" : "Female_10_Hips", selector);
+        ActivatePart(gender == Gender.Male ? "Male_10_Hips" : "Female_10_Hips", selector, colorChanges);
         DeactivateCategory(isMale ? "Female_10_Hips" : "Male_10_Hips");
     }
 
-    void ActivateHand(int selector)
+    void ActivateHand(int selector, List<ItemPair> colorChanges = null)
     {
-        ActivatePart(gender == Gender.Male ? "Male_08_Hand_Right" : "Female_08_Hand_Right", selector);
-        ActivatePart(gender == Gender.Male ? "Male_09_Hand_Left" : "Female_09_Hand_Left", selector);
+        ActivatePart(gender == Gender.Male ? "Male_08_Hand_Right" : "Female_08_Hand_Right", selector, colorChanges);
+        ActivatePart(gender == Gender.Male ? "Male_09_Hand_Left" : "Female_09_Hand_Left", selector, colorChanges);
         DeactivateCategory(isMale ? "Female_08_Hand_Right" : "Male_08_Hand_Right");
         DeactivateCategory(isMale ? "Female_09_Hand_Left" : "Male_09_Hand_Left");
     }
 
-    void ActivateLowerArm(int selector)
+    void ActivateLowerArm(int selector, List<ItemPair> colorChanges = null)
     {
-        ActivatePart(gender == Gender.Male ? "Male_06_Arm_Lower_Right" : "Female_06_Arm_Lower_Right", selector);
-        ActivatePart(gender == Gender.Male ? "Male_07_Arm_Lower_Left" : "Female_07_Arm_Lower_Left", selector);
+        ActivatePart(gender == Gender.Male ? "Male_06_Arm_Lower_Right" : "Female_06_Arm_Lower_Right", selector,
+                     colorChanges);
+        ActivatePart(gender == Gender.Male ? "Male_07_Arm_Lower_Left" : "Female_07_Arm_Lower_Left", selector,
+                     colorChanges);
         DeactivateCategory(isMale ? "Female_06_Arm_Lower_Right" : "Male_06_Arm_Lower_Right");
         DeactivateCategory(isMale ? "Female_07_Arm_Lower_Left" : "Male_07_Arm_Lower_Left");
     }
 
-    void ActivateUpperArm(int selector)
+    void ActivateUpperArm(int selector, List<ItemPair> colorChanges = null)
     {
-        ActivatePart(isMale ? "Male_04_Arm_Upper_Right" : "Female_04_Arm_Upper_Right", selector);
-        ActivatePart(isMale ? "Male_05_Arm_Upper_Left" : "Female_05_Arm_Upper_Left", selector);
+        ActivatePart(isMale ? "Male_04_Arm_Upper_Right" : "Female_04_Arm_Upper_Right", selector, colorChanges);
+        ActivatePart(isMale ? "Male_05_Arm_Upper_Left" : "Female_05_Arm_Upper_Left", selector, colorChanges);
         DeactivateCategory(isMale ? "Female_04_Arm_Upper_Right" : "Male_04_Arm_Upper_Right");
         DeactivateCategory(isMale ? "Female_05_Arm_Upper_Left" : "Male_05_Arm_Upper_Left");
     }
 
-    void ActivateTorso(int selector)
+    void ActivateTorso(int selector, List<ItemPair> colorChanges = null)
     {
-        ActivatePart(isMale ? "Male_03_Torso" : "Female_03_Torso", selector);
+        ActivatePart(isMale ? "Male_03_Torso" : "Female_03_Torso", selector, colorChanges);
         DeactivateCategory(isMale ? "Female_03_Torso" : "Male_03_Torso");
     }
 
@@ -384,6 +461,7 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
             DeactivateCategory("Male_02_FacialHair");
             return;
         }
+
         ActivatePart("Male_02_FacialHair", selector);
     }
 
@@ -411,25 +489,34 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
         return GetComponentsInChildren<Transform>().First(x => x.name == n);
     }
 
-    void ActivatePart(string identifier, int selector)
+    void ActivatePart(string identifier, int selector, List<ItemPair> colorChanges = null)
     {
         if (selector < 0)
         {
             DeactivateCategory(identifier);
             return;
         }
+
         if (!CharacterGameObjects.ContainsKey(identifier))
         {
             Debug.Log($"{identifier} not found in dictionary");
             return;
         }
+
         if ((CharacterGameObjects[identifier].Count < selector))
         {
-            Debug.Log($"Index {selector }out of range for {identifier}");
+            Debug.Log($"Index {selector}out of range for {identifier}");
             return;
         }
+
         DeactivateCategory(identifier);
-        CharacterGameObjects[identifier][selector].SetActive(true);
+        GameObject go = CharacterGameObjects[identifier][selector];
+        go.SetActive(true);
+        if (colorChanges == null) return;
+        foreach (var pair in colorChanges)
+        { 
+            SetColor(go, pair.category, pair.index);
+        }
     }
 
     void DeactivateCategory(string identifier)
@@ -439,6 +526,7 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
             Debug.LogError($"Category {identifier} not found in database!");
             return;
         }
+
         foreach (GameObject g in CharacterGameObjects[identifier])
         {
             g.SetActive(false);
@@ -459,7 +547,7 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
     {
         foreach (string category in catalogue)
         {
-            Debug.Log($"Building {category}");
+            //Debug.Log($"Building {category}");
             List<GameObject> list = new List<GameObject>();
             Transform t = GetComponentsInChildren<Transform>().First(x => x.gameObject.name == category);
             if (t)
@@ -505,6 +593,7 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
             {
                 Debug.Log($"Source is {source.name}");
             }
+
             Debug.Log($"Testing {category}");
             Transform t = source.GetComponentsInChildren<Transform>().First(x => x.gameObject.name == category);
             if (t == null)
@@ -515,6 +604,7 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
             {
                 Debug.Log($"Category {t.name}");
             }
+
             foreach (Transform tr in t.gameObject.GetComponentsInChildren<Transform>())
             {
                 if (tr == t) continue;
@@ -526,13 +616,12 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
             characterParts[category] = items;
             Debug.Log(characterParts[category].Count);
         }
-
     }
 
     public SaveBundle CaptureState()
     {
         SaveBundle bundle = new SaveBundle();
-        bundle.PutInt("Gender", isMale?1:0);
+        bundle.PutInt("Gender", isMale ? 1 : 0);
         bundle.PutInt("Hair", hair);
         bundle.PutInt("FacialHair", facialHair);
         bundle.PutInt("Head", head);
@@ -543,11 +632,10 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
     }
 
 
-
     public void RestoreState(SaveBundle bundle)
     {
         equipment.EquipmentUpdated -= LoadArmor; //prevent issues
-        gender = bundle.GetInt("Gender", 1)==1 ? Gender.Male : Gender.Female;
+        gender = bundle.GetInt("Gender", 1) == 1 ? Gender.Male : Gender.Female;
         hair = bundle.GetInt("Hair", hair);
         facialHair = bundle.GetInt("FacialHair", facialHair);
         head = bundle.GetInt("Head", head);
@@ -558,5 +646,157 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
         SetSkinColor(skinColor);
         equipment.EquipmentUpdated += LoadArmor;
         Invoke(nameof(LoadArmor), .1f);
+    }
+
+    public int SetParameter(string parameterString, int value, int i)
+    {
+        if (!CharacterGameObjects.ContainsKey(parameterString)) return TryAlternateParameter(parameterString, value, i);
+        int available = CharacterGameObjects[parameterString].Count;
+        value += i;
+        if (value >= available) value = -1;
+        else if (value < -1) value = available - 1;
+        ActivatePart(parameterString, value);
+        return value;
+    }
+
+    int TryAlternateParameter(string parameterString, int value, int i)
+    {
+        switch (parameterString)
+        {
+            case "Torso":
+                value = CycleValue(Male_Torso, value, i);
+                ActivateTorso(value);
+                break;
+            case "UpperArm":
+                value = CycleValue(Male_Arm_Upper_Left, value, i);
+                ActivateUpperArm(value);
+                break;
+            case "LowerArm":
+                value = CycleValue(Male_Arm_Lower_Left, value, i);
+                ActivateLowerArm(value);
+                break;
+            case "Hand":
+                value = CycleValue(Male_Hand_Left, value, i);
+                ActivateHand(value);
+                break;
+            case "Hips":
+                value = CycleValue(Male_Hips, value, i);
+                ActivateHips(value);
+                break;
+            case "Leg":
+                value = CycleValue(Male_Leg_Left, value, i);
+                ActivateLeg(value);
+                break;
+            default:
+                value = -999;
+                break;
+        }
+
+        return value;
+    }
+
+    int CycleValue(string parameterString, int value, int i)
+    {
+        int available = CharacterGameObjects[parameterString].Count;
+        value += i + available;
+        value %= available;
+        return value;
+    }
+
+    void SetColor(GameObject item, string parameterString, int value)
+    {
+        
+        Color colorToSet = Color.white;
+        colorToSet = GetColor(parameterString, value);
+        Debug.Log($"Changing {item}/{parameterString} to {colorToSet}");
+        item.GetComponent<Renderer>().material.SetColor(parameterString, colorToSet);
+    }
+
+    public static Color GetColor(string parameterString, int value)
+    {
+        Color colorToSet;
+        switch (parameterString)
+        {
+            case LeatherPrimaryColor:
+                colorToSet = leatherPrimary[value];
+                break;
+            case LeatherSecondaryColor:
+                colorToSet = leatherSecondary[value];
+                break;
+            case MetalPrimaryColor:
+                colorToSet = metalPrimary[value];
+                break;
+            case MetalSecondaryColor:
+                colorToSet = metalSecondary[value];
+                break;
+            case PrimaryColor:
+                colorToSet = primary[value];
+                break;
+            case SecondaryColor:
+                colorToSet = secondary[value];
+                break;
+            case MetalDarkColor:
+                colorToSet = metalDark[value];
+                break;
+            default:
+                colorToSet = Color.white;
+                break;
+        }
+
+        return colorToSet;
+    }
+
+
+    public int CycleColor(string parameterString, int value, int modifier)
+    {
+        int cycleValue = 0;
+        cycleValue = GetColorCount(parameterString);
+
+        value += modifier + cycleValue;
+        value %= cycleValue;
+
+        foreach (var itemList in CharacterGameObjects.Values)
+        {
+            foreach (GameObject item in itemList)
+            {
+                SetColor(item, parameterString, value);
+            }
+        }
+
+        return value;
+    }
+
+    public static int GetColorCount(string parameterString)
+    {
+        int cycleValue;
+        switch (parameterString)
+        {
+            case LeatherPrimaryColor:
+                cycleValue = leatherPrimary.Length;
+                break;
+            case LeatherSecondaryColor:
+                cycleValue = leatherSecondary.Length;
+                break;
+            case MetalPrimaryColor:
+                cycleValue = metalPrimary.Length;
+                break;
+            case MetalSecondaryColor:
+                cycleValue = metalSecondary.Length;
+                break;
+            case PrimaryColor:
+                cycleValue = primary.Length;
+                break;
+            case SecondaryColor:
+                cycleValue = secondary.Length;
+                break;
+            case MetalDarkColor:
+                cycleValue = metalDark.Length;
+                break;
+            default:
+                cycleValue = 0;
+                break;
+        }
+
+        return cycleValue;
     }
 }

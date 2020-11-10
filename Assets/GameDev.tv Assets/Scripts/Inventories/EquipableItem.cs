@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TkrainDesigns.ScriptableEnums;
 using UnityEditor;
 using UnityEngine;
@@ -26,11 +27,15 @@ namespace GameDevTV.Inventories
         [SerializeField] ScriptableEquipSlot allowedEquipLocation = null;
         [Header("The name of the object in the Modular Characters Prefab representing this item.")]
         [SerializeField]List<ItemPair> objectsToActivate = new List<ItemPair>();
+        [SerializeField] List<ItemPair> colorChanges = new List<ItemPair>();
         [Header("Slot Categories to deactivate when this item is activated.")]
         [SerializeField] List<string> slotsToDeactivate = new List<string>();
+        
 
         public IEnumerable<ItemPair> ObjectsToActivate => objectsToActivate;
         public IEnumerable<string> SlotsToDeactivate => slotsToDeactivate;
+        public List<ItemPair> ColorChangers => colorChanges;
+        
         // PUBLIC
 
         public ScriptableEquipSlot GetAllowedEquipLocation()
@@ -65,9 +70,15 @@ namespace GameDevTV.Inventories
                                                              "LowerArm",
                                                              "Hand",
                                                              "Hips",
-                                                             "Leg"
+                                                             "Leg",
                                                          };
 
+            public static readonly List<int> CategoryCount = new List<int>
+                                                             {
+                                                                 11, 4, 13, 38, 13, 15, 21, 21, 6, 6, 12, 11, 11, 3,
+                                                                 22, 13, 10, 22, 13, 10, 18,
+                                                                 28, 20, 18, 17, 28, 19
+                                                             };
 
 #if UNITY_EDITOR
 
@@ -114,6 +125,29 @@ namespace GameDevTV.Inventories
             Dirty();
         }
 
+        void AddColorToChange()
+        {
+            SetUndo("Add Color Changer");
+            colorChanges.Add(new ItemPair());
+            Dirty();
+        }
+
+        void RemoveColorChange(int i)
+        {
+            SetUndo("Remove Color Change");
+            colorChanges.RemoveAt(i);
+            Dirty();
+        }
+
+        void SetColorChange(int i, string category, int index)
+        {
+            if (index == colorChanges[i].index && category == colorChanges[i].category) return;
+            SetUndo("Modify color change");
+            colorChanges[i].category = category;
+            colorChanges[i].index = index;
+            Dirty();
+        }
+
         void SetObjectToActivate(int i, string category, int index)
         {
             if (index == objectsToActivate[i].index && category == objectsToActivate[i].category) return;
@@ -137,7 +171,7 @@ namespace GameDevTV.Inventories
                 int cat = Categories.IndexOf(objectsToActivate[i].category);
                 if (cat == -1) cat = 0;
                 cat = EditorGUILayout.Popup(cat, Categories.ToArray());
-                int index = EditorGUILayout.IntSlider(objectsToActivate[i].index, 0, 30);
+                int index = EditorGUILayout.IntSlider(objectsToActivate[i].index, 0, CategoryCount[cat]);
                 if (GUILayout.Button("-")) itemToRemove = i;
                 SetObjectToActivate(i, Categories[cat], index);
                 EditorGUILayout.EndHorizontal();
@@ -169,6 +203,27 @@ namespace GameDevTV.Inventories
             {
                 AddCategoryToRemove();
             }
+
+            itemToRemove = -1;
+            for (int i=0;i<colorChanges.Count;i++)
+            {
+
+                EditorGUILayout.BeginHorizontal();
+                int cat = CharacterGenerator.GearColors.ToList().IndexOf(colorChanges[i].category);
+                if (cat < 0) cat = 0;
+                cat = EditorGUILayout.Popup(cat, CharacterGenerator.GearColors);
+                int maxColor = CharacterGenerator.GetColorCount(CharacterGenerator.GearColors[cat]);
+                int index = EditorGUILayout.IntSlider(colorChanges[i].index, 0, maxColor-1);
+                SetColorChange(i, CharacterGenerator.GearColors[cat], index);
+                EditorGUILayout.ColorField(CharacterGenerator.GetColor(CharacterGenerator.GearColors[cat], index));
+                if (GUILayout.Button("-"))
+                {
+                    itemToRemove = i;
+                }
+                EditorGUILayout.EndHorizontal();
+            }
+            if(itemToRemove>-1) RemoveColorChange(itemToRemove);
+            if(GUILayout.Button("Add Color Change")) AddColorToChange();
         }
 
 #endif

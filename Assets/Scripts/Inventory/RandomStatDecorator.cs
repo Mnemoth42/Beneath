@@ -92,13 +92,13 @@ namespace TkrainDesigns.Stats
             Dictionary<ScriptableStat, float> accumulator = new Dictionary<ScriptableStat, float>();
             foreach (var pair in additiveModifiers)
             {
-                Debug.Log($"Adding {pair.Key} ({pair.Value} to accumulator.");
+                //Debug.Log($"Adding {pair.Key} ({pair.Value} to accumulator.");
                 accumulator[pair.Key] = pair.Value;
             }
 
             foreach (var pair in percentageModifiers)
             {
-                Debug.Log($"Adding {pair.Key} ({pair.Value}) to accumulator");
+               // Debug.Log($"Adding {pair.Key} ({pair.Value}) to accumulator");
                 if (!accumulator.ContainsKey(pair.Key))
                 {
                     accumulator[pair.Key] = pair.Value;
@@ -108,14 +108,14 @@ namespace TkrainDesigns.Stats
                     accumulator[pair.Key] += pair.Value;
                 }
             }
-            Debug.Log("Finding best stat");
+            //Debug.Log("Finding best stat");
             ScriptableStat bestStat=null;
             float bestValue=0.0f;
             foreach (var pair in accumulator)
             {
                 if (pair.Value > bestValue)
                 {
-                    Debug.Log($"Promoting {pair.Key.DisplayName}");
+                   // Debug.Log($"Promoting {pair.Key.DisplayName}");
                     bestStat = pair.Key;
                     bestValue = pair.Value;
                 }
@@ -173,6 +173,8 @@ namespace TkrainDesigns.Stats
                     }
                 }
             }
+
+            CreateAlias();
         }
     }
 }

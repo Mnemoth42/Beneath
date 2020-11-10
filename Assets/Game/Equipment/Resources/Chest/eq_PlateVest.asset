@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9701f7a0b0a6c479fdf17203a7c4bc, type: 3}
   m_Name: eq_PlateVest
   m_EditorClassIdentifier: 
-  itemId: dbf1f918-83e3-4157-8b37-decc99ecb1a5
+  itemId: d3b5ca93-1536-4baf-801d-43db73fab6be
   displayName: Plate Chest Piece
   description: Hardened steel from the finest blacksmiths in the land.  Very effective
     against strikes and blows, but very weak against magical spells.
@@ -33,6 +33,19 @@ MonoBehaviour:
     index: 16
   - category: UpperArm
     index: 12
+  - category: All_05_Shoulder_Attachment_Right
+    index: 11
+  - category: All_06_Shoulder_Attachment_Left
+    index: 11
+  colorChanges:
+  - category: _Color_Metal_Secondary
+    index: 1
+  - category: _Color_Metal_Dark
+    index: 3
+  - category: _Color_Leather_Primary
+    index: 1
+  - category: _Color_Metal_Primary
+    index: 1
   slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}

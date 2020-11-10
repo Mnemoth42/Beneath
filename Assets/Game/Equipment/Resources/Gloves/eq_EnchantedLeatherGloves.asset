@@ -32,6 +32,11 @@ MonoBehaviour:
     index: 1
   - category: LowerArm
     index: 12
+  colorChanges:
+  - category: _Color_Metal_Secondary
+    index: 1
+  - category: _Color_Metal_Dark
+    index: 4
   slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: c49fa81e11a07d340ac4338366cabc93, type: 2}

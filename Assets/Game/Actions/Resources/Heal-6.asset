@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5256c2dc33c714d9cf345e62ff08c4, type: 3}
   m_Name: Heal-6
   m_EditorClassIdentifier: 
-  itemId: 78c96916-e11c-4fba-87d7-899e7822d865
+  itemId: c7368d4a-914e-4c02-a756-2123b517bce2
   displayName: Cure Heavy Wounds III
   description: Reverses heavy damage.   Shorter cooldowns mean you may just survive
     down here yet.

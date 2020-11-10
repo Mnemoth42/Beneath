@@ -37,6 +37,7 @@ public class CharacterGeneratorEditor :Editor
 
     public override void OnInspectorGUI()
     {
+
         
         EditorGUI.BeginChangeCheck();
         CharacterGenerator generator = (CharacterGenerator) target;

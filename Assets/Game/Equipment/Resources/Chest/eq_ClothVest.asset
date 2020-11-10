@@ -30,6 +30,15 @@ MonoBehaviour:
   objectsToActivate:
   - category: Torso
     index: 5
+  colorChanges:
+  - category: _Color_Primary
+    index: 7
+  - category: _Color_Secondary
+    index: 3
+  - category: _Color_Leather_Primary
+    index: 2
+  - category: _Color_Leather_Secondary
+    index: 0
   slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}

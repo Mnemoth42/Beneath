@@ -33,7 +33,18 @@ MonoBehaviour:
     type: 2}
   objectsToActivate:
   - category: Leg
-    index: 9
+    index: 18
+  - category: All_10_Knee_Attachement_Right
+    index: 8
+  - category: All_11_Knee_Attachement_Left
+    index: 8
+  colorChanges:
+  - category: _Color_Leather_Primary
+    index: 2
+  - category: _Color_Leather_Secondary
+    index: 0
+  - category: _Color_Metal_Primary
+    index: 0
   slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}

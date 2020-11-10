@@ -32,9 +32,22 @@ MonoBehaviour:
     type: 2}
   objectsToActivate:
   - category: Torso
-    index: 3
+    index: 6
   - category: UpperArm
     index: 11
+  - category: All_06_Shoulder_Attachment_Left
+    index: 15
+  - category: All_05_Shoulder_Attachment_Right
+    index: 15
+  colorChanges:
+  - category: _Color_Primary
+    index: 1
+  - category: _Color_Secondary
+    index: 3
+  - category: _Color_Leather_Primary
+    index: 1
+  - category: _Color_Metal_Primary
+    index: 2
   slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}

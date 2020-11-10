@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5256c2dc33c714d9cf345e62ff08c4, type: 3}
   m_Name: Heal-4
   m_EditorClassIdentifier: 
-  itemId: 6d11ba67-7e46-4763-88bf-7f4e27a17b47
+  itemId: 29ebe76b-2d8c-46de-b6e6-0d7852199ea0
   displayName: Cure Heavy Wounds
   description: Reverses heavy damage.   It's even starting to have a decent effect
     on the pain.

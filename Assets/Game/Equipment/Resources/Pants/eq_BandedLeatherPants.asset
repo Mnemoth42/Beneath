@@ -29,7 +29,14 @@ MonoBehaviour:
     type: 2}
   objectsToActivate:
   - category: Hips
-    index: 13
+    index: 15
+  colorChanges:
+  - category: _Color_Metal_Secondary
+    index: 9
+  - category: _Color_Metal_Dark
+    index: 4
+  - category: _Color_Metal_Primary
+    index: 9
   slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}

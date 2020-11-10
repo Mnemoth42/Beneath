@@ -28,12 +28,18 @@ MonoBehaviour:
   allowedEquipLocation: {fileID: 11400000, guid: b52af58bbb7c2d94a873e8f986abf2f5,
     type: 2}
   objectsToActivate:
-  - category: Helmet
-    index: 7
   - category: HeadCoverings_No_FacialHair
-    index: 3
+    index: 2
+  - category: HeadCoverings_No_Hair
+    index: 5
+  colorChanges:
+  - category: _Color_Leather_Secondary
+    index: 2
+  - category: _Color_Metal_Dark
+    index: 4
   slotsToDeactivate:
   - All_01_Hair
+  - Male_02_FacialHair
   additiveModifiers:
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
     value: 1
