@@ -163,6 +163,7 @@ namespace GameDevTV.Inventories
             base.DrawCustomInspector(width, style);
             displayEquipableItem = EditorGUILayout.Foldout(displayEquipableItem, "EquipableItem Data", style);
             if (!displayEquipableItem) return;
+            BeginIndent();
             SetAllowedEquipLocation(DrawScriptableObjectList("Allowed Equip Location", allowedEquipLocation));
             int itemToRemove = -1;
             for (int i = 0; i < objectsToActivate.Count; i++)
@@ -224,6 +225,7 @@ namespace GameDevTV.Inventories
             }
             if(itemToRemove>-1) RemoveColorChange(itemToRemove);
             if(GUILayout.Button("Add Color Change")) AddColorToChange();
+            EndIndent();
         }
 
 #endif

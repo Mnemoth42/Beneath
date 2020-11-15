@@ -58,7 +58,7 @@ namespace TkrainDesigns.Tiles.Combat
             anim = GetComponent<Animator>();
             mover = GetComponent<GridMover>();
             personalStats = GetComponent<PersonalStats>();
-            EquipWeapon(defaultWeaponConfig);
+            //EquipWeapon(defaultWeaponConfig);
             if (TryGetComponent(out StatsEquipment e))
             {
                 equipment = e;
@@ -70,7 +70,12 @@ namespace TkrainDesigns.Tiles.Combat
 
         void Start()
         {
-            if(currentWeaponConfig==null) EquipWeapon(defaultWeaponConfig);
+            if(currentWeaponConfig==null)
+            {
+                GridWeaponConfig defaultWeapon = Instantiate(defaultWeaponConfig);
+                if(equipment!=null) defaultWeapon.Level = personalStats.Level;
+                EquipWeapon(defaultWeapon);
+            }
         }
 
 

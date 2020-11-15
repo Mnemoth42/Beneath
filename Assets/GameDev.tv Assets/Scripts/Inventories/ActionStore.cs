@@ -110,12 +110,10 @@ namespace GameDevTV.Inventories
                 if (object.ReferenceEquals(item, dockedItems[index].item) && item.IsStackable())
                 {
                     dockedItems[index].number += number;
+                    StoreUpdated?.Invoke();
                 }
-                else
-                {
-                    var slot = new DockedItemSlot { item = item as ActionItem, number = number };
-                    dockedItems[index] = slot;
-                }
+
+                return;
             }
             else
             {

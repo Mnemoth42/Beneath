@@ -320,7 +320,7 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
     void SetColorInCategory(string category, string shaderVariable, Color colorToSet)
     {
         if (!CharacterGameObjects.ContainsKey(category)) return;
-        Debug.Log($"Setting {shaderVariable} on {category}");
+        //Debug.Log($"Setting {shaderVariable} on {category}");
         foreach (GameObject go in CharacterGameObjects[category])
         {
             Renderer rend = go.GetComponent<Renderer>();
@@ -369,7 +369,7 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
 
         foreach (var pair in equipment.EquippedItems)
         {
-            Debug.Log(pair.Key.GetDisplayName());
+           // Debug.Log(pair.Key.GetDisplayName());
             foreach (string category in pair.Value.SlotsToDeactivate)
             {
                 DeactivateCategory(category);
@@ -378,7 +378,7 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
             var colorChanger = pair.Value.ColorChangers;
             foreach (ItemPair itemPair in pair.Value.ObjectsToActivate)
             {
-                Debug.Log($"{itemPair.category}-{itemPair.index}");
+                //Debug.Log($"{itemPair.category}-{itemPair.index}");
                 switch (itemPair.category)
                 {
                     case "Leg":
@@ -708,7 +708,7 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
         
         Color colorToSet = Color.white;
         colorToSet = GetColor(parameterString, value);
-        Debug.Log($"Changing {item}/{parameterString} to {colorToSet}");
+        //Debug.Log($"Changing {item}/{parameterString} to {colorToSet}");
         item.GetComponent<Renderer>().material.SetColor(parameterString, colorToSet);
     }
 

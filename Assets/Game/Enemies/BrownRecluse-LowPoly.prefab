@@ -128,6 +128,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: f82fc8557416d51488d2c498e260efb0,
         type: 2}
+    - target: {fileID: 7771182325387064391, guid: 86f06ddfb5df2984798508356b873b0e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7983261847937425748, guid: 86f06ddfb5df2984798508356b873b0e,
         type: 3}
       propertyPath: replaceMaterial

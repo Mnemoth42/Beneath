@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0124697bdaa05ef438aafd498ca96373, type: 3}
-  m_Name: Fire Spell
+  m_Name: Fire II
   m_EditorClassIdentifier: 
-  itemId: 18ebf7c0-2232-4df2-882c-bcdfa8aeb7f5
-  displayName: Fireball
+  itemId: 57d22f99-af28-43d3-a9c4-188dc8f215cb
+  displayName: FireBomb
   description: Hurls a ball of flame towards your opponent.  Do you like your enemies
     medium or well done?
-  icon: {fileID: 21300000, guid: b91140c2b8bb411469c40a4054527fb8, type: 3}
+  icon: {fileID: 21300000, guid: 208730466642bd949be2f130fdb3a5d3, type: 3}
   pickup: {fileID: 6585196624951791254, guid: 85800f2077d840c4ea22e8d1588447c6, type: 3}
   stackable: 0
   level: 1
   potentialStatBoosts: []
   consumable: 0
-  cooldown: 5
+  cooldown: 4
   useOnPickup: 0
-  baseDamage: 10
+  baseDamage: 15
   fireball: {fileID: 8718950026302064531, guid: b2239f086f27bee49b1ea383c481e3a5,
     type: 3}
-  splashDamage: 0
+  splashDamage: 1
   damageStat: {fileID: 11400000, guid: 22215a7f67ae3334abbe1a63b23c0211, type: 2}
   defenseStat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
   intelligenceStat: {fileID: 11400000, guid: 8ba086a12f9eafc42a893374995d17ee, type: 2}

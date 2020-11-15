@@ -146,7 +146,23 @@ namespace GameDevTV.Inventories
             string result = description;
             if(!stackable)
             {
-                result += $"{description}\nLevel {level}";
+                if (Application.isPlaying)
+                {
+                    GameObject player = GameObject.FindGameObjectWithTag("Player");
+                    PersonalStats stats = player.GetComponent<PersonalStats>();
+                    if (level > stats.Level)
+                    {
+                        result += $"\n<color=#ff8888>Level {level} required to equip</color>";
+                    } 
+                    else
+                    {
+                        result += $"\nLevel {level}";
+                    }
+                }
+                else
+                {
+                    result += $"\nLevel {level}";
+                }
             }
 
             result += PriceString();
@@ -291,6 +307,17 @@ namespace GameDevTV.Inventories
 
         bool drawInventoryItem = true;
 
+        protected GUIStyle indent;
+        protected void BeginIndent()
+        {
+            EditorGUILayout.BeginVertical(indent);
+        }
+
+        protected void EndIndent()
+        {
+            EditorGUILayout.EndVertical();
+        }
+
         public virtual void DrawCustomInspector(float width, GUIStyle style)
         {
             if (GUILayout.Button($"UUID={GetItemID()}  Press to change"))
@@ -298,20 +325,25 @@ namespace GameDevTV.Inventories
                 ReIssueItemID();
                 Dirty();
             }
+            GUIStyle indent = new GUIStyle();
+            indent.padding= new RectOffset(10,10,0,0);
             drawInventoryItem = EditorGUILayout.Foldout(drawInventoryItem, "InventoryItem Data", style);
             if (!drawInventoryItem) return;
-            //SetDisplayName(EditorGUILayout.TextField("Display Name", displayName));
-            SetItem(ref displayName, EditorGUILayout.TextField("Display Name", displayName), "Display Name");
-            float textWidth = width * .66f - 40;
-            GUIStyle longStyle = new GUIStyle(GUI.skin.textArea) {wordWrap = true};
+            EditorGUILayout.BeginVertical(indent);
+                SetItem(ref displayName, EditorGUILayout.TextField("Display Name", displayName), "Display Name");
+                GUIStyle longStyle = new GUIStyle(GUI.skin.textArea) {wordWrap = true};
             //longStyle.fixedHeight = longStyle.CalcHeight(new GUIContent(GetRawDescription()), textWidth);
-            SetDescription(EditorGUILayout.TextArea(description, longStyle));
-            SetIcon((Sprite) EditorGUILayout.ObjectField("Icon", icon, typeof(Sprite), false));
-            SetPickup(DrawObjectList("Pickup", pickup));
-            SetIsStackable(EditorGUILayout.Toggle("isStackable", IsStackable()));
-            if (!CanHaveStatBoosts()) return;
-            int itemtoDelete = -1;
-            if (potentialStatBoosts.Count > 0)
+                SetDescription(EditorGUILayout.TextArea(description, longStyle));
+                SetIcon((Sprite) EditorGUILayout.ObjectField("Icon", icon, typeof(Sprite), false));
+                SetPickup(DrawObjectList("Pickup", pickup));
+                SetIsStackable(EditorGUILayout.Toggle("isStackable", IsStackable()));
+                if (!CanHaveStatBoosts())
+                {
+                    EditorGUILayout.EndVertical();
+                    return;
+                };
+                int itemtoDelete = -1;
+                if (potentialStatBoosts.Count > 0)
             {
                 EditorGUILayout.LabelField("Potential Random Stat Boosts");
             }
@@ -337,7 +369,7 @@ namespace GameDevTV.Inventories
             {
                 AddPotentialStatModifier();
             }
-
+            EditorGUILayout.EndVertical();
         }
 
 

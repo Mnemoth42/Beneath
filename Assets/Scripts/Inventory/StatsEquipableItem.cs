@@ -87,6 +87,7 @@ namespace RPG.Inventory
             drawStatsEquippableItem =
                 EditorGUILayout.Foldout(drawStatsEquippableItem, "StatsEquippableItem Data", style);
             if (!drawStatsEquippableItem) return;
+           BeginIndent();
             int statToRemove = -1;
             for (int i = 0; i < additiveModifiers.Count; i++)
             {
@@ -139,6 +140,8 @@ namespace RPG.Inventory
             {
                 RemovePercentageModifier(statToRemove);
             }
+
+            EndIndent();
         }
 
 #endif
@@ -148,13 +151,13 @@ namespace RPG.Inventory
             int result = base.Price();
             foreach (var pair in CombineDecoratorAndBuildStat(Decorator.AdditiveModifiers, additiveModifiers.ToArray()))
             {
-                result += (int) pair.Value * Level * 2;
+                result += (int) Mathf.Max(pair.Value * Level * 2, 0);
             }
 
             foreach (var pair in CombineDecoratorAndBuildStat(Decorator.PercentageModifiers,
                                                               percentageModifiers.ToArray()))
             {
-                result += (int) pair.Value * Level * 4;
+                result += (int) Mathf.Max(pair.Value * Level * 4,0);
             }
             return result;
         }
@@ -164,7 +167,7 @@ namespace RPG.Inventory
 
 			foreach (Modifier modifier in additiveModifiers.Where(m => m.stat == stat).ToArray())
 			{
-				yield return modifier.value;
+				yield return modifier.value+Level*.34f;
 			}
 			yield return Decorator.GetAdditiveModifier(stat);
 		}
@@ -174,7 +177,7 @@ namespace RPG.Inventory
 			
 			foreach (Modifier modifier in percentageModifiers.Where(m => m.stat == stat).ToArray())
 			{
-				yield return modifier.value;
+				yield return modifier.value+ Level * .34f;
 			}
 			yield return Decorator.GetPercentageModifier(stat);
 			
@@ -185,7 +188,7 @@ namespace RPG.Inventory
 
         protected Dictionary<ScriptableStat, float> PercentageTotals => CombineDecoratorAndBuildStat(Decorator.PercentageModifiers, percentageModifiers.ToArray());
 
-        protected static Dictionary<ScriptableStat, float> CombineDecoratorAndBuildStat(Dictionary<ScriptableStat, float> decoratorStatModifiers, Modifier[] equipmentStatModifiers)
+        protected  Dictionary<ScriptableStat, float> CombineDecoratorAndBuildStat(Dictionary<ScriptableStat, float> decoratorStatModifiers, Modifier[] equipmentStatModifiers)
 		{
 			Dictionary<ScriptableStat, float> result = new Dictionary<ScriptableStat, float>();
 			foreach (var pair in decoratorStatModifiers)
@@ -198,11 +201,11 @@ namespace RPG.Inventory
                 if (modifier.stat == null) continue;
 				if (result.ContainsKey(modifier.stat))
 				{
-					result[modifier.stat] += modifier.value;
+					result[modifier.stat] += modifier.value+Mathf.Floor(.34f*Level);
 				}
 				else
 				{
-					result[modifier.stat] = modifier.value;
+					result[modifier.stat] = modifier.value+Mathf.Floor(.34f*Level);
 				}
 			}
 			return result;

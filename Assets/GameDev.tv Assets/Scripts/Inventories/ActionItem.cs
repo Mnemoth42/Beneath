@@ -149,9 +149,11 @@ namespace GameDevTV.Inventories
             base.DrawCustomInspector(width, style);
             drawActionItem = EditorGUILayout.Foldout(drawActionItem, "ActionItem Data");
             if (!drawActionItem) return;
+            BeginIndent();
             SetConsumable(EditorGUILayout.Toggle("Is Consumable", consumable));
             SetUseOnPickup(EditorGUILayout.Toggle("Use On Pickup", useOnPickup));
             SetCooldown(EditorGUILayout.IntSlider("Cooldown", (int)cooldown, 1,30));
+            EndIndent();
         }
 
 #endif

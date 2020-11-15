@@ -4,6 +4,7 @@ using GameDevTV.Core.UI.Dragging;
 using GameDevTV.Inventories;
 using RPG.Inventory;
 using TkrainDesigns.ScriptableEnums;
+using TkrainDesigns.Stats;
 
 namespace GameDevTV.UI.Inventories
 {
@@ -28,12 +29,14 @@ namespace GameDevTV.UI.Inventories
 
         // CACHE
         Equipment playerEquipment;
+        PersonalStats stats;
 
         // LIFECYCLE METHODS
        
         private void Awake() 
         {
             var player = GameObject.FindGameObjectWithTag("Player");
+            stats = player.GetComponent<PersonalStats>();
             playerEquipment = player.GetComponent<Equipment>();
             playerEquipment.EquipmentUpdated += RedrawUI;
         }
@@ -54,6 +57,7 @@ namespace GameDevTV.UI.Inventories
             EquipableItem equipableItem = item as EquipableItem;
             if (equipableItem == null) return 0;
             if (equipableItem.GetAllowedEquipLocation() != equipSlot) return 0;
+            if (equipableItem.Level > stats.Level) return 0;
             if (GetItem() != null) return 0;
 
             return 1;

@@ -13,7 +13,7 @@ namespace Tkraindesigns.Tiles.Core
     public class EnemyVisibility : MonoBehaviour
     {
         PlayerController  player;
-
+        public event Action<bool> onChangeVisibility; 
         void Awake()
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -54,6 +54,7 @@ namespace Tkraindesigns.Tiles.Core
             {
                 rend.enabled = visible;
             }
+            onChangeVisibility?.Invoke(visible);
         }
     }
 }

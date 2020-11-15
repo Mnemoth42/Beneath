@@ -28,10 +28,10 @@ namespace TkrainDesigns.Tiles.Combat
             {
                 if (controllers.Count > 0)
                 {
-                    return controllers[currentAttackForm].baseDamage;
+                    return controllers[currentAttackForm].baseDamage+Level;
                 }
-                if (stylesAndDamage.Count == 0) return damage;
-                return stylesAndDamage[currentAttackForm];
+                if (stylesAndDamage.Count == 0) return damage+Level;
+                return stylesAndDamage[currentAttackForm]+Level;
             }
         }
 
@@ -118,7 +118,7 @@ namespace TkrainDesigns.Tiles.Combat
                         max = Mathf.Max(style, max);
 
                     }
-                    result += $"Base Damage between {min} and {max}.";
+                    result += $"Base Damage between {min+Level} and {max+Level}.";
                 } 
             }
             else
@@ -131,7 +131,7 @@ namespace TkrainDesigns.Tiles.Combat
                     max = Mathf.Max(varient.baseDamage, max);
                 }
 
-                result += $"Base Damage between {min} and {max}";
+                result += $"Base Damage between {min+Level} and {max+Level}";
             }
 
             return result;
@@ -216,7 +216,7 @@ namespace TkrainDesigns.Tiles.Combat
             displayGridWeapon = EditorGUILayout.Foldout(displayGridWeapon, "GridWeapon Data", style);
             if (!displayGridWeapon) return;
             SetGridWeapon((GridWeapon)EditorGUILayout.ObjectField("Weapon Model", model, typeof(GridWeapon), false));
-            //SetRuntimeAnimatorController((RuntimeAnimatorController)EditorGUILayout.ObjectField("AnimatorOverride", controller, typeof(RuntimeAnimatorController),false));
+            EditorGUILayout.BeginVertical(indent);
             DrawBoolSlider(ref leftHanded, "Left Handed", "Whether or not this equipment is attached to the left hand.");
             string statName = "Choose Stat";
             if (offensiveStat != null) statName = offensiveStat.DisplayName;
@@ -227,6 +227,7 @@ namespace TkrainDesigns.Tiles.Combat
             SetDefensiveStat((ScriptableStat)EditorGUILayout.ObjectField(statName, defensiveStat, typeof(ScriptableStat), false));
             DrawStylesAndDamage();
             DrawAttackVariants();
+            EditorGUILayout.EndVertical();
         }
 
         void DrawAttackVariants()

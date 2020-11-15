@@ -88,7 +88,7 @@ namespace TkrainDesigns.Stats
 
         string CreateAlias()
         {
-            Debug.Log($"Creating Alias, Item contains {additiveModifiers.Count} Additive Modifiers and {percentageModifiers.Count} percentage modifiers");
+           // Debug.Log($"Creating Alias, Item contains {additiveModifiers.Count} Additive Modifiers and {percentageModifiers.Count} percentage modifiers");
             Dictionary<ScriptableStat, float> accumulator = new Dictionary<ScriptableStat, float>();
             foreach (var pair in additiveModifiers)
             {
@@ -122,6 +122,7 @@ namespace TkrainDesigns.Stats
             }
 
             if (bestStat == null) return "";
+            Debug.Log($"Alias = {bestStat.Alias}");
             return $"of {bestStat.Alias}";
         }
 
@@ -174,7 +175,7 @@ namespace TkrainDesigns.Stats
                 }
             }
 
-            CreateAlias();
+            alias = CreateAlias();
         }
     }
 }

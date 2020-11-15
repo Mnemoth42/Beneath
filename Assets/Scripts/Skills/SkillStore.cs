@@ -84,14 +84,14 @@ namespace TkrainDesigns.Tiles.Skills
 
         void UpdateSkillStore()
         {
-            Debug.Log($"Testing Skills against Level {stats.Level}");
+            //Debug.Log($"Testing Skills against Level {stats.Level}");
             foreach (LearnableSkill skill in skills)
             {
                 if (learnedSkills.Contains(skill)) continue;
                 if (skill.GetItem() == null) continue;
                 if (skill.GetLevel() <= stats.Level)
                 {
-                    Debug.Log($"Adding {skill.GetItem()} to ActionStore");
+                   // Debug.Log($"Adding {skill.GetItem()} to ActionStore");
                     store.AddAction(skill.GetItem(), skill.GetSlot(), 1);
                     learnedSkills.Add(skill);
                 }

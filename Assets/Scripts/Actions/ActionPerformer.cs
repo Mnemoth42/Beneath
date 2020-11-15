@@ -87,7 +87,7 @@ namespace TkrainDesigns.Tiles.Actions
                 Debug.Log("Path is NULL");
                 return null;
             }
-            Debug.Log($"{name} is checking for a path to execute {actionToPerform.displayName} (Start length = {pathToFollow.Count}");
+           // Debug.Log($"{name} is checking for a path to execute {actionToPerform.displayName} (Start length = {pathToFollow.Count}");
             if (actionToPerform.AIHealingSpell())
             {
                 Debug.Log($"{name}'s action {actionToPerform.GetDisplayName()} is a healing spell, no movement required.");
@@ -98,7 +98,7 @@ namespace TkrainDesigns.Tiles.Actions
             pathToFollow.Remove(targetLocation);
             if(pathToFollow.Count==1)
             {
-                Debug.Log($"{name}'s target is adjacent to self, no movement required");
+              //  Debug.Log($"{name}'s target is adjacent to self, no movement required");
                 return new List<Vector2Int>();
             }
 

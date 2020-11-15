@@ -19,7 +19,7 @@ namespace TkrainDesigns.Tiles.Actions
     {
         [SerializeField] float baseDamage = 5.0f;
         [SerializeField] FireballMover fireball;
-
+        [SerializeField] bool splashDamage = false;
         [SerializeField] ScriptableStat damageStat;
         [SerializeField] ScriptableStat defenseStat;
         [SerializeField] ScriptableStat intelligenceStat;
@@ -155,17 +155,23 @@ namespace TkrainDesigns.Tiles.Actions
             Dirty();
         }
 
+
+
+        bool drawFireball;
         public override void DrawCustomInspector(float width, GUIStyle style)
         {
             base.DrawCustomInspector(width, style);
-            //SetFireball((GameObject)EditorGUILayout.ObjectField("Projectile", fireball, typeof(GameObject), true));
+            drawFireball = EditorGUILayout.Foldout(drawFireball, "Fireball Data", style);
+            if (!drawFireball) return;
+            BeginIndent();
+            SetItem(ref splashDamage, EditorGUILayout.Toggle("Splash Damage:", splashDamage));
             SetFireball(DrawObjectList("Projectile", fireball));
             SetBaseDamage((float)EditorGUILayout.IntSlider("Base Damage", (int)baseDamage, 1, 100));
             SetRange(EditorGUILayout.IntSlider("Range", range, 0, 8));
             SetDamageStat(DrawScriptableObjectList("Damage Stat", damageStat));
             SetDefenseStat(DrawScriptableObjectList("Defense Stat", defenseStat));
             SetIntelligenceStat(DrawScriptableObjectList("Intelligence Stat",intelligenceStat));
-
+            EndIndent();
         }
 
 #endif
