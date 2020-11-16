@@ -15,3 +15,4 @@ MonoBehaviour:
   itemId: b95f2817-b268-4162-8220-3d9eb6c64c94
   description: Feet
   slotSprite: {fileID: 21300000, guid: b07063b02f9791b46a361c2754a420f3, type: 3}
+  sortOrder: 40

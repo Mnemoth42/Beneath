@@ -39,11 +39,11 @@ MonoBehaviour:
   slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
-    value: 10
+    value: 4
   - stat: {fileID: 11400000, guid: a19d98afd044ebf4f9102e9483362251, type: 2}
-    value: 5
+    value: 2
   percentageModifiers:
   - stat: {fileID: 11400000, guid: a19d98afd044ebf4f9102e9483362251, type: 2}
-    value: 10
+    value: 2
   - stat: {fileID: 11400000, guid: 8721c49195c629747b3e609300d5c220, type: 2}
-    value: 5
+    value: 2

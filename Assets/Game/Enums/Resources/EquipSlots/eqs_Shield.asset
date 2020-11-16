@@ -15,3 +15,4 @@ MonoBehaviour:
   itemId: c0d6b11a-6e0a-445f-920f-9878d884b11b
   description: Shield
   slotSprite: {fileID: 21300000, guid: edf00729a4d2b8c48b3f34037dbce92c, type: 3}
+  sortOrder: 60

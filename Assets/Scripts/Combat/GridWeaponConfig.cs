@@ -14,6 +14,7 @@ namespace TkrainDesigns.Tiles.Combat
     {
         [SerializeField] GridWeapon model;
         [SerializeField] RuntimeAnimatorController controller;
+        [SerializeField] float levelsBetweenIncrease = 1.0f;
         [SerializeField] float damage = 5.0f;
         [SerializeField] bool leftHanded = false;
         [SerializeField] ScriptableStat offensiveStat = null;
@@ -28,10 +29,10 @@ namespace TkrainDesigns.Tiles.Combat
             {
                 if (controllers.Count > 0)
                 {
-                    return controllers[currentAttackForm].baseDamage+Level;
+                    return controllers[currentAttackForm].baseDamage+LevelBonus;
                 }
-                if (stylesAndDamage.Count == 0) return damage+Level;
-                return stylesAndDamage[currentAttackForm]+Level;
+                if (stylesAndDamage.Count == 0) return damage+LevelBonus;
+                return stylesAndDamage[currentAttackForm]+LevelBonus;
             }
         }
 
@@ -106,7 +107,7 @@ namespace TkrainDesigns.Tiles.Combat
             {
                 if (stylesAndDamage.Count == 0)
                 {
-                    result += $"Base Damage: {damage}";
+                    result += $"Base Damage: {damage+LevelBonus}";
                 }
                 else
                 {
@@ -118,7 +119,7 @@ namespace TkrainDesigns.Tiles.Combat
                         max = Mathf.Max(style, max);
 
                     }
-                    result += $"Base Damage between {min+Level} and {max+Level}.";
+                    result += $"Base Damage between {min+LevelBonus} and {max+LevelBonus}.";
                 } 
             }
             else
@@ -131,11 +132,13 @@ namespace TkrainDesigns.Tiles.Combat
                     max = Mathf.Max(varient.baseDamage, max);
                 }
 
-                result += $"Base Damage between {min+Level} and {max+Level}";
+                result += $"Base Damage between {min+LevelBonus} and {max+LevelBonus}";
             }
 
             return result;
         }
+
+        int LevelBonus => Level / (int)levelsBetweenIncrease;
 
 #if UNITY_EDITOR
 
@@ -225,6 +228,7 @@ namespace TkrainDesigns.Tiles.Combat
             statName = (defensiveStat == null ? "Choose Stat" : statName = defensiveStat.DisplayName);
             EditorGUILayout.LabelField("Choose Defensive Stat");
             SetDefensiveStat((ScriptableStat)EditorGUILayout.ObjectField(statName, defensiveStat, typeof(ScriptableStat), false));
+            DrawFloatAsIntSlider(ref levelsBetweenIncrease, 1, 100, "Levels Between Increase");
             DrawStylesAndDamage();
             DrawAttackVariants();
             EditorGUILayout.EndVertical();

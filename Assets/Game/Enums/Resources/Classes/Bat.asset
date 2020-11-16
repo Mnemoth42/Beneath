@@ -17,20 +17,17 @@ MonoBehaviour:
   description: Fast fliers who will pester you until you are completely drained.
   formula:
   - stat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
-    startingValue: 2
-    percentageAdded: 1
-    absoluteAdded: 2
-    startValue: 2
-    endValue: 260
+    startValue: 5
+    endValue: 700
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 2
-        inSlope: 2.58
-        outSlope: 2.58
+        time: 1
+        value: 5
+        inSlope: 2.5757575
+        outSlope: 2.5757575
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -38,8 +35,8 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 100
         value: 260
-        inSlope: 2.58
-        outSlope: 2.58
+        inSlope: 2.5757575
+        outSlope: 2.5757575
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -48,9 +45,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 6abb4d47f38ff3a48993fe29c2953618, type: 2}
-    startingValue: 8
-    percentageAdded: 1
-    absoluteAdded: 4
     startValue: 5
     endValue: 400
     showCurve: 0
@@ -79,11 +73,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
-    startingValue: 3
-    percentageAdded: 1
-    absoluteAdded: 3
     startValue: 2
-    endValue: 300
+    endValue: 714
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
@@ -110,9 +101,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 46c84e87dda9fba4e93a8949823326bb, type: 2}
-    startingValue: 10
-    percentageAdded: 1
-    absoluteAdded: 8
     startValue: 10
     endValue: 500
     showCurve: 1
@@ -150,9 +138,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
-    startingValue: 2
-    percentageAdded: 1
-    absoluteAdded: 1
     startValue: 2
     endValue: 150
     showCurve: 0
@@ -181,11 +166,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 9194085696e99304dac7ff5bf404edd9, type: 2}
-    startingValue: 8
-    percentageAdded: 1
-    absoluteAdded: 8
-    startValue: 6
-    endValue: 400
+    startValue: 31
+    endValue: 1000
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
@@ -212,9 +194,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: a19d98afd044ebf4f9102e9483362251, type: 2}
-    startingValue: 13.3
-    percentageAdded: 0
-    absoluteAdded: 0.4
     startValue: 13
     endValue: 90
     showCurve: 1
@@ -252,10 +231,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 8721c49195c629747b3e609300d5c220, type: 2}
-    startingValue: 1.05
-    percentageAdded: 0
-    absoluteAdded: 0.05
-    startValue: 1
+    startValue: 2
     endValue: 4
     showCurve: 0
     ValueCurve:
@@ -283,9 +259,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 22215a7f67ae3334abbe1a63b23c0211, type: 2}
-    startingValue: 8
-    percentageAdded: 3
-    absoluteAdded: 3
     startValue: 6
     endValue: 300
     showCurve: 0

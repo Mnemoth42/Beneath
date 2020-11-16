@@ -21,15 +21,22 @@ MonoBehaviour:
   pickup: {fileID: 6585196624951791254, guid: f1af2bed1ca80d3428297509a022ca90, type: 3}
   stackable: 0
   level: 1
-  potentialStatBoosts: []
+  potentialStatBoosts:
+  - {fileID: 11400000, guid: 20b1b98bf010fae4fbe990665a91f758, type: 2}
+  - {fileID: 11400000, guid: 20b1b98bf010fae4fbe990665a91f758, type: 2}
+  - {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
+  - {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
+  - {fileID: 11400000, guid: 57590c9b3bde0714a92efbcaf98457bc, type: 2}
   allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,
     type: 2}
   objectsToActivate: []
+  colorChanges: []
   slotsToDeactivate: []
   additiveModifiers: []
   percentageModifiers: []
   model: {fileID: 1221624550297679130, guid: 42901ad781bc95d4db16dcdec25e2a4c, type: 3}
   controller: {fileID: 9100000, guid: accadbbe3e4192e47a2b168937caa4f9, type: 2}
+  levelsBetweenIncrease: 3
   damage: 5
   leftHanded: 0
   offensiveStat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}

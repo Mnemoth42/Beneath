@@ -37,6 +37,10 @@ namespace GameDevTV.Inventories
         public List<ItemPair> ColorChangers => colorChanges;
         
         // PUBLIC
+        public override int SortOrder()
+        {
+            return 100 + allowedEquipLocation.SortOrder();
+        }
 
         public ScriptableEquipSlot GetAllowedEquipLocation()
         {

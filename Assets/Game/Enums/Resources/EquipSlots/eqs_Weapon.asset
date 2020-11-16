@@ -15,3 +15,4 @@ MonoBehaviour:
   itemId: c376fda5-4db3-40d2-8f9d-0b8658e858e8
   description: Weapon
   slotSprite: {fileID: 21300000, guid: 40565164252c76242b1a1b4dfb9aee23, type: 3}
+  sortOrder: 50

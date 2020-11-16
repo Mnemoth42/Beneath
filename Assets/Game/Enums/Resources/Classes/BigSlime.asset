@@ -18,9 +18,6 @@ MonoBehaviour:
     like you're next.
   formula:
   - stat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
-    startingValue: 5
-    percentageAdded: 1
-    absoluteAdded: 3
     startValue: 30
     endValue: 1000
     showCurve: 0
@@ -49,9 +46,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 6abb4d47f38ff3a48993fe29c2953618, type: 2}
-    startingValue: 4
-    percentageAdded: 1
-    absoluteAdded: 2
     startValue: 12
     endValue: 1000
     showCurve: 0
@@ -80,11 +74,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
-    startingValue: 4
-    percentageAdded: 0
-    absoluteAdded: 2
-    startValue: 6
-    endValue: 500
+    startValue: 10
+    endValue: 1000
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
@@ -111,11 +102,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 46c84e87dda9fba4e93a8949823326bb, type: 2}
-    startingValue: 15
-    percentageAdded: 1
-    absoluteAdded: 5
-    startValue: 20
-    endValue: 600
+    startValue: 25
+    endValue: 700
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
@@ -142,9 +130,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
-    startingValue: 6
-    percentageAdded: 0
-    absoluteAdded: 6
     startValue: 100
     endValue: 1000
     showCurve: 0
@@ -173,9 +158,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 9194085696e99304dac7ff5bf404edd9, type: 2}
-    startingValue: 6
-    percentageAdded: 0
-    absoluteAdded: 6
     startValue: 25
     endValue: 1000
     showCurve: 0
@@ -204,9 +186,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: a19d98afd044ebf4f9102e9483362251, type: 2}
-    startingValue: 8
-    percentageAdded: 0
-    absoluteAdded: 0.5
     startValue: 6
     endValue: 35
     showCurve: 0
@@ -235,9 +214,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 8721c49195c629747b3e609300d5c220, type: 2}
-    startingValue: 3
-    percentageAdded: 0
-    absoluteAdded: 0.05
     startValue: 2
     endValue: 4
     showCurve: 0

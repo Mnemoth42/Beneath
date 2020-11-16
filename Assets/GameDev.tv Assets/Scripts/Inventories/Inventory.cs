@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 using TkrainDesigns.Saving;
 
@@ -249,6 +250,18 @@ namespace GameDevTV.Inventories
             coins -= coinsToLose;
             coins = Mathf.Max(coinsToLose, 0);
             return coins;
+        }
+
+        public void SortInventory()
+        {
+            var sortables = slots.Where(i => i.item != null).OrderBy(j => j.item.SortOrder())
+                                 .ThenByDescending(k => k.item.Level).ToList();
+            slots = new InventorySlot[inventorySize];
+            for (int i = 0; i < sortables.Count; i++)
+            {
+                slots[i] = sortables[i];
+            }
+            InventoryUpdated?.Invoke();
         }
 
         public int Coins { get => coins; protected set => coins = Mathf.Min(0,value); }

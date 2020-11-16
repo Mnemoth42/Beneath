@@ -2,19 +2,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using TkrainDesigns.Grids.Stats;
+using TkrainDesigns.Stats;
 using TkrainDesigns.Tiles.Control;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UISelectedEnemy : MonoBehaviour
 {
-    [SerializeField] GameObject enemyPanel = null;
-    [SerializeField] UINameDisplay nameDisplay;
-    [SerializeField] UIHealthDisplay healthDisplay;
-    [SerializeField] UILevelDisplay levelDisplay;
-    [SerializeField] UIDescription description;
-    [SerializeField] UIAvater avatarDisplay;
+    [SerializeField] GameObject enemyPanel;   
+    [Header("Enemy Description")]
+    [SerializeField] Image playerIcon;
+    [SerializeField] TextMeshProUGUI enemyName;
+    [SerializeField] TextMeshProUGUI enemyDescription;
+    [Header("Health")]
+    [SerializeField] Image healthBar;
+    [SerializeField] TextMeshProUGUI healthText;
+
+    [Header("Level")] [SerializeField] TextMeshProUGUI LevelText;
+
+    
     PlayerController player;
     Health health;
+    PersonalStats stats;
+
 
     void Awake()
     {
@@ -35,23 +46,28 @@ public class UISelectedEnemy : MonoBehaviour
             if (health)
             {
                 health.onDeath.RemoveListener(CancelDisplay);
+                health.onTakeDamage.RemoveListener(UpdateHealth);
             }
-            
         }
         else
         {
             enemyPanel?.SetActive(true);
-            healthDisplay?.UpdateTargetDisplay(target);
-            levelDisplay?.UpdateTargetDisplay(target);
-            avatarDisplay?.UpdateTargetDisplay(target);
-            description?.UpdateTargetDisplay(target);
-            nameDisplay?.UpdateTargetDisplay(target);
+            stats = target.GetComponent<PersonalStats>();
+            LevelText.text = stats.Level.ToString();
             health = target.GetComponent<Health>();
-            if (health)
-            {
-                health.onDeath.AddListener(CancelDisplay); 
-            }
+            health.onDeath.AddListener(CancelDisplay); 
+            health.onTakeDamage.AddListener(UpdateHealth);
+            UpdateHealth();
+            playerIcon.sprite = stats.Avatar;
+            enemyDescription.text = stats.GetDescription();
+            enemyName.text = stats.GetCharacterName();
         }
+    }
+
+    void UpdateHealth()
+    {
+        healthBar.fillAmount = health.HealthAsPercentage;
+        healthText.text = $"{(int) health.CurrentHealth}/{(int) health.MaxHealth}";
     }
 
     void CancelDisplay()

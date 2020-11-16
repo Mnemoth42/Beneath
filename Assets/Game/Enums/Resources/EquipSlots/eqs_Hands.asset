@@ -15,3 +15,4 @@ MonoBehaviour:
   itemId: d21fd565-0976-4582-bed1-8d6af41197a9
   description: Hands
   slotSprite: {fileID: 21300000, guid: 7c371b9204193d542b637190bda1d0f4, type: 3}
+  sortOrder: 20

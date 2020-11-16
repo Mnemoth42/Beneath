@@ -17,7 +17,7 @@ public class UiExperienceDisplay : MonoBehaviour
     PersonalStats stats;
     BaseController target;
     PlayerController player;
-    [SerializeField] Slider slider;
+    [SerializeField] Image image;
 
     void Awake()
     {
@@ -53,9 +53,9 @@ public class UiExperienceDisplay : MonoBehaviour
 
     void UpdateDisplay()
     {
-        if (slider)
+        if (image)
         {
-            slider.value = experience.GetExperience / stats.GetStatValue(experience.ExperienceNeededStat);
+            image.fillAmount= experience.GetExperience / stats.GetStatValue(experience.ExperienceNeededStat);
         }
         text.text = $"Exp: {experience.GetExperience}/{(int)stats.GetStatValue(experience.ExperienceNeededStat)}";
     }

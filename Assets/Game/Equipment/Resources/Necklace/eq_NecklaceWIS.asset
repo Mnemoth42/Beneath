@@ -33,8 +33,9 @@ MonoBehaviour:
   allowedEquipLocation: {fileID: 11400000, guid: 69ae1657e8bf3c44b8b1ddecf9ea1f8c,
     type: 2}
   objectsToActivate: []
+  colorChanges: []
   slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: d5e8aaf33d5aaf4469141f8d38f93597, type: 2}
-    value: 5
+    value: 3
   percentageModifiers: []

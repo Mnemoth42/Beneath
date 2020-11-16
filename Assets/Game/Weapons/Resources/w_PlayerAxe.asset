@@ -25,6 +25,7 @@ MonoBehaviour:
   allowedEquipLocation: {fileID: 11400000, guid: 91581648dc5ee9a41b42c6b3f15f8a19,
     type: 2}
   objectsToActivate: []
+  colorChanges: []
   slotsToDeactivate: []
   additiveModifiers: []
   percentageModifiers:
@@ -32,6 +33,7 @@ MonoBehaviour:
     value: -5
   model: {fileID: 1221624550297679130, guid: a59874fcf37febe4197dbfed85184d36, type: 3}
   controller: {fileID: 0}
+  levelsBetweenIncrease: 3
   damage: 5
   leftHanded: 0
   offensiveStat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}

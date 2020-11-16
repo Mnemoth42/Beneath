@@ -12,6 +12,8 @@ namespace TkrainDesigns.ScriptableEnums
         [PreviewSprite]
         [SerializeField] Sprite slotSprite;
 
+        [SerializeField] int sortOrder;
+
         public string Description { get => description;  }
         public Sprite SlotSprite { get => slotSprite; }
 
@@ -23,6 +25,11 @@ namespace TkrainDesigns.ScriptableEnums
         public override string GetDisplayName()
         {
             return description;
+        }
+
+        public int SortOrder()
+        {
+            return sortOrder;
         }
     }
 }

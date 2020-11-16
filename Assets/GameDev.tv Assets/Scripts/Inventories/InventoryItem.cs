@@ -180,7 +180,10 @@ namespace GameDevTV.Inventories
             return pickup;
         }
 
-
+        public virtual int SortOrder()
+        {
+            return 0;
+        }
         
         public virtual bool UseImmediate(GameObject user, int qty=1)
         {

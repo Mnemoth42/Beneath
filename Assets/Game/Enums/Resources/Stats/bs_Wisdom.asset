@@ -15,7 +15,7 @@ MonoBehaviour:
   itemId: d1d3cf91-c16a-44ea-9251-bbe446203eff
   displayName: Wisdom
   description: It's one thing to be smart, it's another to understand.  This is your
-    ablility to discern things.
+    ablility to discern things. Adds 2 points of Magic defense per level.
   alias: Resolve
   minimum: 1
   maximum: 100

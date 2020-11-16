@@ -15,9 +15,9 @@ MonoBehaviour:
   itemId: f01bd101-0207-43f4-8005-eb909a2d6589
   displayName: Agility
   description: 'A measure of your speed and accuracy under pressure.  An agile warrior
-    can dodge more effectively and make quicker decisions.   <br>Adds 5 points of
-    Melee defense per level.<br>Adds 4 points of Ranged defense per level.<br>Adds
-    2 points of Melee offense per level.<br>Adds 5 points of Ranged offense per level.
+    can dodge more effectively and make quicker decisions.   <br>Adds 2 points of
+    Melee defense per level.<br>Adds 3 points of Ranged defense per level.<br>Adds
+    1 points of Melee offense per level.<br>Adds 2 points of Ranged offense per level.
 
     <br>Adds
     1 point of speed every 4 levels.'

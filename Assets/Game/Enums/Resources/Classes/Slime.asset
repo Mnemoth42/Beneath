@@ -18,10 +18,7 @@ MonoBehaviour:
     magic and ranged weapons.
   formula:
   - stat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
-    startingValue: 5
-    percentageAdded: 1
-    absoluteAdded: 3
-    startValue: 15
+    startValue: 12
     endValue: 1000
     showCurve: 0
     ValueCurve:
@@ -29,9 +26,9 @@ MonoBehaviour:
       m_Curve:
       - serializedVersion: 3
         time: 1
-        value: 15
-        inSlope: 9.949495
-        outSlope: 9.949495
+        value: 12
+        inSlope: 9.979798
+        outSlope: 9.979798
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -39,8 +36,8 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 100
         value: 1000
-        inSlope: 9.949495
-        outSlope: 9.949495
+        inSlope: 9.979798
+        outSlope: 9.979798
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -49,9 +46,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 6abb4d47f38ff3a48993fe29c2953618, type: 2}
-    startingValue: 4
-    percentageAdded: 1
-    absoluteAdded: 2
     startValue: 6
     endValue: 600
     showCurve: 0
@@ -80,11 +74,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
-    startingValue: 4
-    percentageAdded: 0
-    absoluteAdded: 2
     startValue: 3
-    endValue: 250
+    endValue: 19
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
@@ -92,17 +83,17 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 1
         value: 3
-        inSlope: 2.4949496
-        outSlope: 2.4949496
+        inSlope: 0.16161616
+        outSlope: 0.16161616
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 100
-        value: 250
-        inSlope: 2.4949496
-        outSlope: 2.4949496
+        value: 19
+        inSlope: 0.16161616
+        outSlope: 0.16161616
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -111,9 +102,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 46c84e87dda9fba4e93a8949823326bb, type: 2}
-    startingValue: 15
-    percentageAdded: 1
-    absoluteAdded: 5
     startValue: 10
     endValue: 300
     showCurve: 0
@@ -142,9 +130,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
-    startingValue: 6
-    percentageAdded: 0
-    absoluteAdded: 6
     startValue: 50
     endValue: 1000
     showCurve: 0
@@ -173,9 +158,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 9194085696e99304dac7ff5bf404edd9, type: 2}
-    startingValue: 6
-    percentageAdded: 0
-    absoluteAdded: 6
     startValue: 50
     endValue: 1000
     showCurve: 0
@@ -204,9 +186,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: a19d98afd044ebf4f9102e9483362251, type: 2}
-    startingValue: 8
-    percentageAdded: 0
-    absoluteAdded: 0.5
     startValue: 12
     endValue: 50
     showCurve: 0
@@ -235,10 +214,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 8721c49195c629747b3e609300d5c220, type: 2}
-    startingValue: 3
-    percentageAdded: 0
-    absoluteAdded: 0.05
-    startValue: 3
+    startValue: 2
     endValue: 6
     showCurve: 0
     ValueCurve:
@@ -246,9 +222,9 @@ MonoBehaviour:
       m_Curve:
       - serializedVersion: 3
         time: 1
-        value: 3
-        inSlope: 0.030303031
-        outSlope: 0.030303031
+        value: 2
+        inSlope: 0.04040404
+        outSlope: 0.04040404
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -256,8 +232,8 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 100
         value: 6
-        inSlope: 0.030303031
-        outSlope: 0.030303031
+        inSlope: 0.04040404
+        outSlope: 0.04040404
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334

@@ -17,11 +17,8 @@ MonoBehaviour:
   description: Plants can't move, can they?
   formula:
   - stat: {fileID: 11400000, guid: 6abb4d47f38ff3a48993fe29c2953618, type: 2}
-    startingValue: 20
-    percentageAdded: 1
-    absoluteAdded: 5
     startValue: 15
-    endValue: 350
+    endValue: 401
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
@@ -48,29 +45,26 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
-    startingValue: 5
-    percentageAdded: 0
-    absoluteAdded: 2
-    startValue: 5
-    endValue: 250
+    startValue: 10
+    endValue: 400
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 1
-        value: 5
-        inSlope: 2.4747474
-        outSlope: 2.4747474
+        value: 10
+        inSlope: 3.939394
+        outSlope: 3.939394
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 100
-        value: 250
-        inSlope: 2.4747474
-        outSlope: 2.4747474
+        value: 400
+        inSlope: 3.939394
+        outSlope: 3.939394
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -79,29 +73,26 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
-    startingValue: 4
-    percentageAdded: 0
-    absoluteAdded: 2.5
-    startValue: 6
-    endValue: 300
+    startValue: 10
+    endValue: 600
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 1
-        value: 6
-        inSlope: 2.969697
-        outSlope: 2.969697
+        value: 10
+        inSlope: 5.959596
+        outSlope: 5.959596
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 100
-        value: 300
-        inSlope: 2.969697
-        outSlope: 2.969697
+        value: 600
+        inSlope: 5.959596
+        outSlope: 5.959596
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -110,9 +101,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 46c84e87dda9fba4e93a8949823326bb, type: 2}
-    startingValue: 20
-    percentageAdded: 3
-    absoluteAdded: 20
     startValue: 15
     endValue: 500
     showCurve: 0
@@ -141,9 +129,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
-    startingValue: 2
-    percentageAdded: 0
-    absoluteAdded: 2
     startValue: 2
     endValue: 150
     showCurve: 0
@@ -172,29 +157,26 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 9194085696e99304dac7ff5bf404edd9, type: 2}
-    startingValue: 2
-    percentageAdded: 0
-    absoluteAdded: 2
-    startValue: 6
-    endValue: 300
+    startValue: 15
+    endValue: 700
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 1
-        value: 6
-        inSlope: 2.969697
-        outSlope: 2.969697
+        value: 15
+        inSlope: 6.919192
+        outSlope: 6.919192
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 100
-        value: 300
-        inSlope: 2.969697
-        outSlope: 2.969697
+        value: 700
+        inSlope: 6.919192
+        outSlope: 6.919192
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -203,9 +185,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: a19d98afd044ebf4f9102e9483362251, type: 2}
-    startingValue: 6.5
-    percentageAdded: 0
-    absoluteAdded: 0.25
     startValue: 7
     endValue: 45
     showCurve: 0
@@ -234,9 +213,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 8721c49195c629747b3e609300d5c220, type: 2}
-    startingValue: 2.05
-    percentageAdded: 0
-    absoluteAdded: 0.06
     startValue: 2
     endValue: 4
     showCurve: 0

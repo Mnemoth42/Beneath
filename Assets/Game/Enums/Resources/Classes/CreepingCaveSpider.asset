@@ -17,11 +17,8 @@ MonoBehaviour:
   description: Death on 8 legs.
   formula:
   - stat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
-    startingValue: 2
-    percentageAdded: 1
-    absoluteAdded: 2
     startValue: 10
-    endValue: 250
+    endValue: 500
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
@@ -29,17 +26,17 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 1
         value: 10
-        inSlope: 2.4242425
-        outSlope: 2.4242425
+        inSlope: 4.949495
+        outSlope: 4.949495
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 100
-        value: 250
-        inSlope: 2.4242425
-        outSlope: 2.4242425
+        value: 500
+        inSlope: 4.949495
+        outSlope: 4.949495
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -48,9 +45,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 6abb4d47f38ff3a48993fe29c2953618, type: 2}
-    startingValue: 4
-    percentageAdded: 1
-    absoluteAdded: 1
     startValue: 8
     endValue: 400
     showCurve: 0
@@ -79,9 +73,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
-    startingValue: 2
-    percentageAdded: 0
-    absoluteAdded: 0.75
     startValue: 7
     endValue: 600
     showCurve: 0
@@ -110,9 +101,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 46c84e87dda9fba4e93a8949823326bb, type: 2}
-    startingValue: 10
-    percentageAdded: 1
-    absoluteAdded: 5
     startValue: 12
     endValue: 300
     showCurve: 0
@@ -141,9 +129,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
-    startingValue: 1
-    percentageAdded: 0
-    absoluteAdded: 1
     startValue: 4
     endValue: 600
     showCurve: 0
@@ -172,9 +157,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 9194085696e99304dac7ff5bf404edd9, type: 2}
-    startingValue: 2
-    percentageAdded: 0
-    absoluteAdded: 2
     startValue: 4
     endValue: 600
     showCurve: 0
@@ -203,9 +185,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: a19d98afd044ebf4f9102e9483362251, type: 2}
-    startingValue: 15
-    percentageAdded: 0
-    absoluteAdded: 0.6
     startValue: 8
     endValue: 50
     showCurve: 0
@@ -234,9 +213,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 8721c49195c629747b3e609300d5c220, type: 2}
-    startingValue: 3
-    percentageAdded: 0
-    absoluteAdded: 0.1
     startValue: 2
     endValue: 4
     showCurve: 0

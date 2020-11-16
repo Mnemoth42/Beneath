@@ -23,14 +23,15 @@ MonoBehaviour:
   allowedEquipLocation: {fileID: 11400000, guid: 928c7523651960f4aa65dca80748b85c,
     type: 2}
   objectsToActivate: []
+  colorChanges: []
   slotsToDeactivate: []
   additiveModifiers: []
   percentageModifiers:
   - stat: {fileID: 11400000, guid: 22215a7f67ae3334abbe1a63b23c0211, type: 2}
-    value: 15
+    value: 5
   - stat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
-    value: 15
+    value: 5
   - stat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
-    value: -5
+    value: -2
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
-    value: -5
+    value: -2

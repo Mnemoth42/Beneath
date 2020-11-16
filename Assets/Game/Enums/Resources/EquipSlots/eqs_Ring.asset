@@ -15,3 +15,4 @@ MonoBehaviour:
   itemId: 79dcb54b-f5b8-4112-b083-ffa144d87d79
   description: Ring
   slotSprite: {fileID: 21300000, guid: e86a926f1b6bc6c4790b8b5df3c9ee5a, type: 3}
+  sortOrder: 70

@@ -17,29 +17,26 @@ MonoBehaviour:
   description: Death on 8 legs.
   formula:
   - stat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
-    startingValue: 2
-    percentageAdded: 1
-    absoluteAdded: 2
-    startValue: 22
-    endValue: 350
+    startValue: 15
+    endValue: 600
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 1
-        value: 22
-        inSlope: 3.3131313
-        outSlope: 3.3131313
+        value: 15
+        inSlope: 5.909091
+        outSlope: 5.909091
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 100
-        value: 350
-        inSlope: 3.3131313
-        outSlope: 3.3131313
+        value: 600
+        inSlope: 5.909091
+        outSlope: 5.909091
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -48,9 +45,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 6abb4d47f38ff3a48993fe29c2953618, type: 2}
-    startingValue: 4
-    percentageAdded: 1
-    absoluteAdded: 1
     startValue: 9
     endValue: 550
     showCurve: 0
@@ -79,10 +73,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
-    startingValue: 2
-    percentageAdded: 0
-    absoluteAdded: 0.75
-    startValue: 16
+    startValue: 12
     endValue: 625
     showCurve: 0
     ValueCurve:
@@ -90,9 +81,9 @@ MonoBehaviour:
       m_Curve:
       - serializedVersion: 3
         time: 1
-        value: 16
-        inSlope: 6.151515
-        outSlope: 6.151515
+        value: 12
+        inSlope: 6.1919193
+        outSlope: 6.1919193
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -100,8 +91,8 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 100
         value: 625
-        inSlope: 6.151515
-        outSlope: 6.151515
+        inSlope: 6.1919193
+        outSlope: 6.1919193
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -110,29 +101,26 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 46c84e87dda9fba4e93a8949823326bb, type: 2}
-    startingValue: 10
-    percentageAdded: 1
-    absoluteAdded: 5
-    startValue: 15
-    endValue: 300
+    startValue: 20
+    endValue: 400
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 1
-        value: 15
-        inSlope: 2.878788
-        outSlope: 2.878788
+        value: 20
+        inSlope: 3.838384
+        outSlope: 3.838384
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 100
-        value: 300
-        inSlope: 2.878788
-        outSlope: 2.878788
+        value: 400
+        inSlope: 3.838384
+        outSlope: 3.838384
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -141,11 +129,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
-    startingValue: 1
-    percentageAdded: 0
-    absoluteAdded: 1
     startValue: 4
-    endValue: 600
+    endValue: 400
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
@@ -153,17 +138,17 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 1
         value: 4
-        inSlope: 6.020202
-        outSlope: 6.020202
+        inSlope: 4
+        outSlope: 4
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 100
-        value: 600
-        inSlope: 6.020202
-        outSlope: 6.020202
+        value: 400
+        inSlope: 4
+        outSlope: 4
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -172,11 +157,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 9194085696e99304dac7ff5bf404edd9, type: 2}
-    startingValue: 2
-    percentageAdded: 0
-    absoluteAdded: 2
     startValue: 4
-    endValue: 600
+    endValue: 400
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
@@ -184,17 +166,17 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 1
         value: 4
-        inSlope: 6.020202
-        outSlope: 6.020202
+        inSlope: 4
+        outSlope: 4
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 100
-        value: 600
-        inSlope: 6.020202
-        outSlope: 6.020202
+        value: 400
+        inSlope: 4
+        outSlope: 4
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -203,10 +185,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: a19d98afd044ebf4f9102e9483362251, type: 2}
-    startingValue: 15
-    percentageAdded: 0
-    absoluteAdded: 0.6
-    startValue: 14
+    startValue: 10
     endValue: 54
     showCurve: 0
     ValueCurve:
@@ -214,9 +193,9 @@ MonoBehaviour:
       m_Curve:
       - serializedVersion: 3
         time: 1
-        value: 14
-        inSlope: 0.4040404
-        outSlope: 0.4040404
+        value: 10
+        inSlope: 0.44444445
+        outSlope: 0.44444445
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -224,8 +203,8 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 100
         value: 54
-        inSlope: 0.4040404
-        outSlope: 0.4040404
+        inSlope: 0.44444445
+        outSlope: 0.44444445
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -234,10 +213,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 8721c49195c629747b3e609300d5c220, type: 2}
-    startingValue: 3
-    percentageAdded: 0
-    absoluteAdded: 0.1
-    startValue: 3
+    startValue: 2
     endValue: 4
     showCurve: 0
     ValueCurve:
@@ -245,9 +221,9 @@ MonoBehaviour:
       m_Curve:
       - serializedVersion: 3
         time: 1
-        value: 3
-        inSlope: 0.01010101
-        outSlope: 0.01010101
+        value: 2
+        inSlope: 0.02020202
+        outSlope: 0.02020202
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -255,8 +231,8 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 100
         value: 4
-        inSlope: 0.01010101
-        outSlope: 0.01010101
+        inSlope: 0.02020202
+        outSlope: 0.02020202
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334

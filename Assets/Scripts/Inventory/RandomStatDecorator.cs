@@ -30,7 +30,7 @@ namespace TkrainDesigns.Stats
             }
             for (int i = 0; i < level; i++)
             {
-                if (Random.Range(0, 1) < level)
+                if (Random.Range(0, level) >= i)
                 {
                     CreateRandomStatDecorator(level, potentialStatBoosts);
                 }
@@ -122,7 +122,7 @@ namespace TkrainDesigns.Stats
             }
 
             if (bestStat == null) return "";
-            Debug.Log($"Alias = {bestStat.Alias}");
+            //Debug.Log($"Alias = {bestStat.Alias}");
             return $"of {bestStat.Alias}";
         }
 

@@ -15,3 +15,4 @@ MonoBehaviour:
   itemId: ed9b4639-392e-41ef-b718-31ee589e5955
   description: Legs
   slotSprite: {fileID: 21300000, guid: 8ea36d63941ce804b94081b1dba026ea, type: 3}
+  sortOrder: 30

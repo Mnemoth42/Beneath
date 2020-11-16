@@ -47,7 +47,7 @@ namespace RPG.Inventory
                 return;
             }
             int level = stats.Level;
-            int numberOfDrops = Random.Range(0, level+1);
+            int numberOfDrops = Mathf.Clamp(Random.Range(0, level+1),0,2);
             List<string> dropsEncountered=new List<string>();
             for (int i = 0; i < numberOfDrops; i++)
             {

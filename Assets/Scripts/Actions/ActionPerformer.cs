@@ -104,7 +104,7 @@ namespace TkrainDesigns.Tiles.Actions
 
             int firstPossibleCastingPoint = Mathf.Max(pathToFollow.Count-2-actionToPerform.Range(gameObject), 0);
             int lastPossibleCastingPoint = Mathf.Min(mover.MaxStepsPerTurn-1, pathToFollow.Count-2);
-            Debug.Log($"{name} is calculating path, First possible spot = {firstPossibleCastingPoint}, second possible spot = {lastPossibleCastingPoint}");
+            //Debug.Log($"{name} is calculating path, First possible spot = {firstPossibleCastingPoint}, second possible spot = {lastPossibleCastingPoint}");
             List<Vector2Int> result = new List<Vector2Int>();
             for (int i = 0; i <= lastPossibleCastingPoint; i++)
             {
@@ -112,17 +112,17 @@ namespace TkrainDesigns.Tiles.Actions
                 result.Add(pathToFollow[i]);
                 if (i < firstPossibleCastingPoint)
                 {
-                    Debug.Log($"Point {i} is out of range.");
+                    //Debug.Log($"Point {i} is out of range.");
                     continue;
                 }
                 if (Vector2Int.Distance(targetLocation, pathToFollow[i]) < pathToFollow.Count - i)
                 {
                     continue;
                 }
-                Debug.Log($"Ideal casting point located.");
+                //Debug.Log($"Ideal casting point located.");
                 return result;
             }
-            Debug.Log("No adequate casting point located.");
+            //Debug.Log("No adequate casting point located.");
             return null;
         }
 

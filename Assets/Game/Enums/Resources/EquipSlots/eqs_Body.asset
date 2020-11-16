@@ -15,3 +15,4 @@ MonoBehaviour:
   itemId: f3a0ea4f-8bfb-44de-8f7b-c08ed1af882d
   description: Body
   slotSprite: {fileID: 21300000, guid: d632dd1c71e21694b99e9a5a1485de1f, type: 3}
+  sortOrder: 10

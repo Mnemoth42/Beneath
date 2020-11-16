@@ -40,5 +40,5 @@ MonoBehaviour:
   slotsToDeactivate: []
   additiveModifiers:
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
-    value: 7
+    value: 4
   percentageModifiers: []

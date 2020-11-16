@@ -42,11 +42,11 @@ MonoBehaviour:
   - stat: {fileID: 11400000, guid: c49fa81e11a07d340ac4338366cabc93, type: 2}
     value: 8
   - stat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
-    value: 6
+    value: 4
   - stat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
-    value: 5
+    value: 3
   - stat: {fileID: 11400000, guid: 22215a7f67ae3334abbe1a63b23c0211, type: 2}
-    value: 5
+    value: 3
   percentageModifiers:
   - stat: {fileID: 11400000, guid: 20b1b98bf010fae4fbe990665a91f758, type: 2}
     value: 10
