@@ -283,6 +283,7 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
     public void CycleSkinColor(int index)
     {
         skinColor += index;
+        if (skinColor < 0) skinColor += skinColors.Length-1;
         skinColor = skinColor % skinColors.Length;
         SetSkinColor(skinColor);
     }
@@ -290,6 +291,7 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
     public void CycleHairStyle(int index)
     {
         hair += index;
+        if (hair < -1) hair = characterGameObjects[All_01_Hair].Count - 1;
         hair %= CharacterGameObjects[All_01_Hair].Count;
         ActivateHair(hair);
     }
@@ -306,6 +308,7 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
     public void CycleHead(int index)
     {
         head += index;
+        if (head < 0) head += CharacterGameObjects[Female_Head_All_Elements].Count-1;
         head %= CharacterGameObjects[Female_Head_All_Elements].Count;
         ActivateHead(head);
     }
@@ -313,6 +316,7 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
     public void CycleEyebrows(int index)
     {
         eyebrow += index;
+        if (eyebrow < 0) eyebrow += CharacterGameObjects[Female_Eyebrows].Count-1;
         eyebrow %= CharacterGameObjects[Female_Eyebrows].Count;
         ActivateEyebrows(eyebrow);
     }
