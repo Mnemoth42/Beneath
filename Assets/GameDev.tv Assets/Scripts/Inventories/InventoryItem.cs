@@ -328,8 +328,7 @@ namespace GameDevTV.Inventories
                 ReIssueItemID();
                 Dirty();
             }
-            GUIStyle indent = new GUIStyle();
-            indent.padding= new RectOffset(10,10,0,0);
+            indent = new GUIStyle {padding = new RectOffset(10, 10, 0, 0)};
             drawInventoryItem = EditorGUILayout.Foldout(drawInventoryItem, "InventoryItem Data", style);
             if (!drawInventoryItem) return;
             EditorGUILayout.BeginVertical(indent);

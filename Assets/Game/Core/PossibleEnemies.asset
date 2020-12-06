@@ -485,3 +485,28 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  - character: {fileID: 197970, guid: 57d7ff17c5aad55428743e449e3dbe97, type: 3}
+    probability:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.29620814
+        value: 17.428583
+        inSlope: 0.1919192
+        outSlope: 0.1919192
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 99.64807
+        value: 1.9523811
+        inSlope: 0.1919192
+        outSlope: 0.1919192
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4

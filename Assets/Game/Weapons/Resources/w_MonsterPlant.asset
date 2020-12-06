@@ -17,16 +17,20 @@ MonoBehaviour:
   description: Thorns lining this plant's mouth tear into their opponent.   Since
     when do plants have mouths?
   icon: {fileID: 21300000, guid: 1aaa77a30b83afc4d82aef0f3b3a622b, type: 3}
-  pickup: {fileID: 0}
+  pickup: {fileID: 6585196624951791254, guid: 85800f2077d840c4ea22e8d1588447c6, type: 3}
   stackable: 0
+  level: 1
   potentialStatBoosts: []
-  allowedEquipLocation: {fileID: 0}
+  allowedEquipLocation: {fileID: 11400000, guid: 79c078832e3b95c448c2007123df8581,
+    type: 2}
+  objectsToActivate: []
+  colorChanges: []
+  slotsToDeactivate: []
   additiveModifiers: []
   percentageModifiers: []
-  objectsToActivate: []
-  slotsToDeactivate: 
   model: {fileID: 0}
   controller: {fileID: 9100000, guid: b7d73eaa59bb6744c92c0e9f74e5c755, type: 2}
+  levelsBetweenIncrease: 1
   damage: 1
   leftHanded: 0
   offensiveStat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}

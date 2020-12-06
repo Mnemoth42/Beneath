@@ -121,6 +121,11 @@ namespace TkrainDesigns.Tiles.Movement
             callbackAction?.Invoke();
         }
 
+        public void InvokeOnStepCompleted()
+        {
+            onMoveStepCompleted?.Invoke();
+        }
+
         IEnumerator MoveToNextLocation(Vector3 newLocation)
         {
             //Debug.Log($"{name} is moving to {newLocation}");

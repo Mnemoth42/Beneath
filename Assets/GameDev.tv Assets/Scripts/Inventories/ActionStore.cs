@@ -111,11 +111,9 @@ namespace GameDevTV.Inventories
                 {
                     dockedItems[index].number += number;
                     StoreUpdated?.Invoke();
+                    return;
                 }
-
-                return;
             }
-            else
             {
                 var slot = new DockedItemSlot { item = item as ActionItem, number = number };
                 dockedItems[index] = slot;

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0124697bdaa05ef438aafd498ca96373, type: 3}
+  m_Name: MushroomSporeSpell
+  m_EditorClassIdentifier: 
+  itemId: 9d8c27f3-76fa-41aa-93d2-dbbf32a59ea9
+  displayName: Spore Attack
+  description: Mushrooms can fire deadly spores that will inflict heavy damage.
+  icon: {fileID: 21300000, guid: 306d7efccbab3294ab9e682eab556ea6, type: 3}
+  pickup: {fileID: 6585196624951791254, guid: 85800f2077d840c4ea22e8d1588447c6, type: 3}
+  stackable: 0
+  level: 1
+  potentialStatBoosts: []
+  consumable: 0
+  cooldown: 5
+  useOnPickup: 0
+  baseDamage: 7
+  damageStat: {fileID: 11400000, guid: c49fa81e11a07d340ac4338366cabc93, type: 2}
+  defenseStat: {fileID: 11400000, guid: 9194085696e99304dac7ff5bf404edd9, type: 2}
+  intelligenceStat: {fileID: 11400000, guid: 8ba086a12f9eafc42a893374995d17ee, type: 2}
+  range: 2
+  fireball: {fileID: 7286478863157995677, guid: 85282e799bdcad044ad51df71e489880,
+    type: 3}
+  splashDamage: 0

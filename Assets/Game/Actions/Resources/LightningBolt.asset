@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 879bb295dcc00ec4f8954795c7bcee3c, type: 3}
+  m_Name: LightningBolt
+  m_EditorClassIdentifier: 
+  itemId: ee75ddf0-dfe0-4827-8ea4-237aeb235278
+  displayName: Lightning Bolt
+  description: 'Blasts a bolt of lightning at your opponent.  '
+  icon: {fileID: 21300000, guid: 092b84f3ac74d0e4bba826d0a4837822, type: 3}
+  pickup: {fileID: 6585196624951791254, guid: 85800f2077d840c4ea22e8d1588447c6, type: 3}
+  stackable: 0
+  level: 1
+  potentialStatBoosts: []
+  consumable: 0
+  cooldown: 5
+  useOnPickup: 0
+  baseDamage: 15
+  damageStat: {fileID: 11400000, guid: 22215a7f67ae3334abbe1a63b23c0211, type: 2}
+  defenseStat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
+  intelligenceStat: {fileID: 11400000, guid: 8ba086a12f9eafc42a893374995d17ee, type: 2}
+  range: 3
+  boltPrefab: {fileID: 11413728, guid: a84cb58ef7faa67488076810242453b9, type: 3}

@@ -138,6 +138,7 @@ namespace TkrainDesigns.Tiles.Control
         void PathComplete()
         {
             onEndTurnEvent?.Invoke();
+            ResetAllColorChangers();
             Vector2Int currentPosition = TileUtilities.GridPosition(transform.position);
             GridPathFinder<Pickup>.ConductInventory();
             //var pickups = GridPathFinder<Pickup>.GetItemsAt(currentPosition);
@@ -158,6 +159,13 @@ namespace TkrainDesigns.Tiles.Control
                 finishLocated?.Invoke();
             }
             FinishTurn();
+        }
+
+        public void EndTurn()
+        {
+            if (!IsCurrentTurn) return;
+            
+            PathComplete();
         }
 
         void TestVisibility()
@@ -223,6 +231,7 @@ namespace TkrainDesigns.Tiles.Control
             NextTurn = 0;
             health.SetHealthToMaxHealth();
             cooldownManager.ResetCooldowns();
+            Mover.InvokeOnStepCompleted();
         }
 
         void ReloadGame()

@@ -90,7 +90,10 @@ namespace TkrainDesigns.ScriptableEnums
             EditorUtility.SetDirty(this);
         }
 
-        
+        public ScriptableStat SelectScriptableStat(ScriptableStat currentStat)
+        {
+            return DrawScriptableObjectList(currentStat);
+        }
 
 #endif
 

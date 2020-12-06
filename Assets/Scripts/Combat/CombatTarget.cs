@@ -19,6 +19,8 @@ namespace TkrainDesigns.Tiles.Combat
         public EAffiliation affiliation = EAffiliation.Bandits;
         public Vector3 aimPoint = new Vector3(0,1,0);
 
+        public Vector3 WorldAimPoint => transform.TransformPoint(aimPoint);
+
         void OnDrawGizmos()
         {
             Gizmos.color = Color.red;

@@ -2,6 +2,7 @@
 using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using GameDevTV.Inventories;
 using TkrainDesigns.Grids.Stats;
 using TkrainDesigns.ScriptableEnums;
@@ -15,15 +16,11 @@ using UnityEngine;
 namespace TkrainDesigns.Tiles.Actions
 {
     [CreateAssetMenu(fileName = "Fire Spell", menuName = "Actions/New Fire Spell")]
-    public class Fireball : PerformableActionItem
+    public class Fireball : OffensiveSpellBase
     {
-        [SerializeField] float baseDamage = 5.0f;
         [SerializeField] FireballMover fireball;
         [SerializeField] bool splashDamage = false;
-        [SerializeField] ScriptableStat damageStat;
-        [SerializeField] ScriptableStat defenseStat;
-        [SerializeField] ScriptableStat intelligenceStat;
-        [SerializeField] int range = 3;
+
 
         public override string TimerToken()
         {
@@ -72,12 +69,7 @@ namespace TkrainDesigns.Tiles.Actions
 
         void ReleaseFireball()
         {
-            Vector3 startPosition = currentUser.transform.position + Vector3.up;
-            GridFighter fighter = currentUser.GetComponent<GridFighter>();
-            if (fighter.GetRightHandTransform() != null)
-            {
-                startPosition = fighter.GetRightHandTransform().position;
-            }
+            Vector3 startPosition = GetStartPosition();
 
             FireballMover mover = Instantiate(fireball, startPosition, Quaternion.identity);
             mover.SetTarget(currentTarget.transform, Damage);
@@ -90,52 +82,29 @@ namespace TkrainDesigns.Tiles.Actions
             currentTarget.GetComponent<Health>()
                          .TakeDamage(CombatBroker.CalculateDamage(currentUser, currentTarget,
                                                                   baseDamage, damageStat, defenseStat), currentUser);
+            if(splashDamage) PerformSplashDamage();
             callbackAction();
         }
 
-        public override bool Use(GameObject user)
+        void PerformSplashDamage()
         {
-            if (user.TryGetComponent(out PlayerController controller))
+            foreach (BaseController c in FindObjectsOfType<BaseController>()
+                                         .Where(t => Vector3.Distance(t.transform.position,
+                                                                      currentTarget.transform.position) < 3)
+                                         .Where(z => z.gameObject != currentTarget)
+                                         .Where(y => y.gameObject != currentUser)
+                                         .Where(w => w.IsAlive))
             {
-                return controller.SetCurrentAction(this);
-
+                c.GetComponent<Health>().TakeDamage(CombatBroker.CalculateDamage(currentUser, c.gameObject,
+                                                                                 baseDamage, damageStat, defenseStat),
+                                                    currentUser);
             }
-
-            return false;
         }
+
 
 #if UNITY_EDITOR
 
-        void SetBaseDamage(float value)
-        {
-            if (baseDamage == value) return;
-            Undo.RecordObject(this, "Change Base Damage");
-            baseDamage = value;
-            Dirty();
-        }
-
-        void SetDamageStat(ScriptableStat stat)
-        {
-            if (damageStat == stat) return;
-            Undo.RecordObject(this, "Set Damage Stat");
-            damageStat = stat;
-            Dirty();
-        }
-
-        void SetDefenseStat(ScriptableStat stat)
-        {
-            if (defenseStat == stat) return;
-            Undo.RecordObject(this, "Set Defense Stat");
-            defenseStat = stat;
-            Dirty();
-        }
-
-        void SetIntelligenceStat(ScriptableStat stat)
-        {
-            Undo.RecordObject(this, "Set Intelligence Stat");
-            intelligenceStat = stat;
-            Dirty();
-        }
+        
 
 
         void SetFireball(FireballMover go)
@@ -148,12 +117,7 @@ namespace TkrainDesigns.Tiles.Actions
 
         
 
-        void SetRange(int newRange)
-        {
-            Undo.RecordObject(this, "Set Range");
-            range = newRange;
-            Dirty();
-        }
+
 
 
 
@@ -163,15 +127,11 @@ namespace TkrainDesigns.Tiles.Actions
             base.DrawCustomInspector(width, style);
             drawFireball = EditorGUILayout.Foldout(drawFireball, "Fireball Data", style);
             if (!drawFireball) return;
-            BeginIndent();
+            //BeginIndent();
             SetItem(ref splashDamage, EditorGUILayout.Toggle("Splash Damage:", splashDamage));
             SetFireball(DrawObjectList("Projectile", fireball));
-            SetBaseDamage((float)EditorGUILayout.IntSlider("Base Damage", (int)baseDamage, 1, 100));
-            SetRange(EditorGUILayout.IntSlider("Range", range, 0, 8));
-            SetDamageStat(DrawScriptableObjectList("Damage Stat", damageStat));
-            SetDefenseStat(DrawScriptableObjectList("Defense Stat", defenseStat));
-            SetIntelligenceStat(DrawScriptableObjectList("Intelligence Stat",intelligenceStat));
-            EndIndent();
+
+            //EndIndent();
         }
 
 #endif

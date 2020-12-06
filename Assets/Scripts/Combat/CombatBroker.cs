@@ -19,10 +19,7 @@ public class CombatBroker : MonoBehaviour
         {
             float attackRoll = Random.Range(0.0f, attackValue);
             float defenseRoll = Mathf.Max(Random.Range(0.0f, defenseValue),1.0f);
-            float damageThisRoll = 1.0f;
-            if (attackRoll > defenseRoll * 2.0f) damageThisRoll = 2.0f;
-            if (defenseRoll > attackRoll) damageThisRoll = .5f;
-            if (defenseRoll > attackRoll * 2) damageThisRoll = 0;
+            float damageThisRoll = Mathf.Clamp(attackRoll / defenseRoll, .33f, 3.0f);
             result += damageThisRoll;
         }
 

@@ -276,6 +276,7 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
     public void CycleHairColor(int index)
     {
         hairColor += index;
+        if (hairColor < 0) hairColor = hairColors.Length - 1;
         hairColor = hairColor % hairColors.Length;
         SetHairColor(hairColor);
     }

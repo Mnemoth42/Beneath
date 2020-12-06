@@ -99,7 +99,8 @@ namespace TkrainDesigns.ScriptableEnums.Editor
                     EditorGUILayout.BeginHorizontal();
                     string statDesc = formula.Stat == null ? "Select Stat" : formula.Stat.DisplayName;
                     EditorGUI.BeginChangeCheck();
-                    ScriptableStat newStat = (ScriptableStat)EditorGUILayout.ObjectField($"{statDesc}" ,formula.Stat, typeof(ScriptableStat), false);
+                    //ScriptableStat newStat = (ScriptableStat)EditorGUILayout.ObjectField($"{statDesc}" ,formula.Stat, typeof(ScriptableStat), false);
+                    ScriptableStat newStat = selectedScriptableClass.SelectScriptableStat(formula.Stat);
                     if (newStat == null) {statToRemove = i;}
                     else
                     {
@@ -134,6 +135,7 @@ namespace TkrainDesigns.ScriptableEnums.Editor
                         }
                     }
 
+                    if (GUILayout.Button("-")) statToRemove = i;
                     EditorGUILayout.EndHorizontal();
                 }
 

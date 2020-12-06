@@ -146,8 +146,12 @@ namespace TkrainDesigns.Saving
         private void Update()
         {
             if (Application.IsPlaying(gameObject)) return;
-            if (string.IsNullOrEmpty(gameObject.scene.path)) return;
-
+            if (string.IsNullOrEmpty(gameObject.scene.path))
+            {
+                Debug.Log($"{name} is a prefab");
+                return;
+            }
+            Debug.Log($"{name} is in the scene {gameObject.scene.path}");
             SerializedObject serializedObject = new SerializedObject(this);
             SerializedProperty property = serializedObject.FindProperty("UniqueIdentifier");
             if (string.IsNullOrEmpty(property.stringValue) | !IsUnique(property.stringValue))
