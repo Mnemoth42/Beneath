@@ -7,16 +7,9 @@ using UnityEngine;
 
 public class CharacterGenerator : MonoBehaviour, ISaveable
 {
-    static Dictionary<string, List<string>> characterParts;
+    
 
-    public static Dictionary<string, List<string>> CharacterParts
-    {
-        get
-        {
-            InitCharacterParts();
-            return characterParts;
-        }
-    }
+    #region statics
 
     public static readonly string HeadCoverings_Base_Hair = "HeadCoverings_Base_Hair";
     public static readonly string HeadCoverings_No_FacialHair = "HeadCoverings_No_FacialHair";
@@ -136,30 +129,6 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
                                             MetalDarkColor
                                         };
 
-    Dictionary<string, List<GameObject>> characterGameObjects;
-
-    Dictionary<string, List<GameObject>> CharacterGameObjects
-    {
-        get
-        {
-            InitGameObjects();
-            return characterGameObjects;
-        }
-    }
-
-    [SerializeField] Gender gender = Gender.Male;
-    [SerializeField] Race race = Race.Human;
-    [Range(0, 37)] [SerializeField] int hair = 0;
-    [Range(0, 21)] [SerializeField] int head = 0;
-    [Range(0, 6)] [SerializeField] int eyebrow = 0;
-    [Range(0, 17)] [SerializeField] int facialHair = 0;
-    [Range(0, 27)] [SerializeField] int defaultTorso = 1;
-    [Range(0, 20)] [SerializeField] int defaultUpperArm = 0;
-    [Range(0, 17)] [SerializeField] int defaultLowerArm = 0;
-    [Range(0, 16)] [SerializeField] int defaultHand = 0;
-    [Range(0, 27)] [SerializeField] int defaultHips = 0;
-    [Range(0, 18)] [SerializeField] int defaultLeg = 0;
-
     public static Color[] primary =
     {
         new Color(0.2862745f, 0.4f, 0.4941177f), new Color(0.4392157f, 0.1960784f, 0.172549f),
@@ -241,10 +210,54 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
         new Color(0.8666667f, 0.7764707f, 0.254902f), new Color(0.2392157f, 0.4588236f, 0.8156863f)
     };
 
+    #endregion
+
+    #region Fields
+
+    /// <summary>
+    /// A dictionary containing all of the modular parts, organized by category.
+    /// Use this catalogue, not the static one when actually customizing the character.
+    /// </summary>
+    Dictionary<string, List<GameObject>> characterGameObjects;
+    /// <summary>
+    /// A dictionary containing all of the modular parts, organized by category.
+    /// Use this catalogue, not the static one when actually customizing the character.
+    /// </summary>
+    Dictionary<string, List<GameObject>> CharacterGameObjects
+    {
+        get
+        {
+            InitGameObjects(); //This will build the dictionary if it hasn't yet been initialized.
+            return characterGameObjects;
+        }
+    }
+
+
+
+    [SerializeField] Gender gender = Gender.Male;
+    [SerializeField] Race race = Race.Human;
+    [Range(0, 37)] [SerializeField] int hair = 0;
+    [Range(0, 21)] [SerializeField] int head = 0;
+    [Range(0, 6)] [SerializeField] int eyebrow = 0;
+    [Range(0, 17)] [SerializeField] int facialHair = 0;
+    [Range(0, 27)] [SerializeField] int defaultTorso = 1;
+    [Range(0, 20)] [SerializeField] int defaultUpperArm = 0;
+    [Range(0, 17)] [SerializeField] int defaultLowerArm = 0;
+    [Range(0, 16)] [SerializeField] int defaultHand = 0;
+    [Range(0, 27)] [SerializeField] int defaultHips = 0;
+    [Range(0, 18)] [SerializeField] int defaultLeg = 0;
+    public bool isMale => gender == Gender.Male;
+
+    
+
     int hairColor = 0;
     int skinColor = 0;
 
     Equipment equipment;
+
+    #endregion
+
+    #region Initialization
 
     void Awake()
     {
@@ -254,12 +267,55 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
         LoadDefaultCharacter();
     }
 
+    public void InitGameObjects()
+    {
+        if (characterGameObjects != null) return;
+        characterGameObjects = new Dictionary<string, List<GameObject>>();
+        BuildCharacterGameObjectFromCatalogue(AllGenderBodyParts);
+        BuildCharacterGameObjectFromCatalogue(MaleBodyCategories);
+        BuildCharacterGameObjectFromCatalogue(FemaleBodyCategories);
+    }
+
+    void BuildCharacterGameObjectFromCatalogue(string[] catalogue)
+    {
+        foreach (string category in catalogue)
+        {
+            List<GameObject> list = new List<GameObject>();
+            Transform t = GetComponentsInChildren<Transform>().First(x => x.gameObject.name == category);
+            if (t)
+            {
+                for (int i = 0; i < t.childCount; i++)
+                {
+                    Transform tr = t.GetChild(i);
+                    if (tr == t) continue;
+                    {
+                        list.Add(tr.gameObject);
+                        tr.gameObject.SetActive(false);
+                    }
+                }
+                characterGameObjects[category] = list;
+            }
+        }
+    }
+
+    #endregion
+
+    #region Character Generation
+
+    /// <summary>
+    /// Should only be called when creating the character or from within RestoreState()
+    /// </summary>
+    /// <param name="female"></param>
     public void SetGender(bool female)
     {
         gender = female ? Gender.Female : Gender.Male;
         LoadDefaultCharacter();
     }
 
+    /// <summary>
+    /// Should only be called when creating the character or from within RestoreState()
+    /// </summary>
+    /// <param name="index"></param>
     public void SetHairColor(int index)
     {
         if (index >= 0 && index < hairColors.Length)
@@ -272,7 +328,10 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
         SetColorInCategory(Female_Eyebrows, HairColor, hairColors[hairColor]);
         SetColorInCategory(Male_Eyebrows, HairColor, hairColors[hairColor]);
     }
-
+    /// <summary>
+    /// Should only be called when creating the character.
+    /// </summary>
+    /// <param name="index"></param>
     public void CycleHairColor(int index)
     {
         hairColor += index;
@@ -280,7 +339,10 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
         hairColor = hairColor % hairColors.Length;
         SetHairColor(hairColor);
     }
-
+    /// <summary>
+    /// Should only be called when creating the character.
+    /// </summary>
+    /// <param name="index"></param>
     public void CycleSkinColor(int index)
     {
         skinColor += index;
@@ -288,7 +350,10 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
         skinColor = skinColor % skinColors.Length;
         SetSkinColor(skinColor);
     }
-
+    /// <summary>
+    /// Should only be called when creating the character.
+    /// </summary>
+    /// <param name="index"></param>
     public void CycleHairStyle(int index)
     {
         hair += index;
@@ -296,7 +361,10 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
         hair %= CharacterGameObjects[All_01_Hair].Count;
         ActivateHair(hair);
     }
-
+    /// <summary>
+    /// Should only be called when creating the character.
+    /// </summary>
+    /// <param name="index"></param>
     public void CycleFacialHair(int index)
     {
         facialHair += index;
@@ -305,7 +373,10 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
         if (facialHair >= maxHair) facialHair = -1;
         ActivateFacialHair(facialHair);
     }
-
+    /// <summary>
+    /// Should only be called when creating the character.
+    /// </summary>
+    /// <param name="index"></param>
     public void CycleHead(int index)
     {
         head += index;
@@ -313,7 +384,10 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
         head %= CharacterGameObjects[Female_Head_All_Elements].Count;
         ActivateHead(head);
     }
-
+    /// <summary>
+    /// Should only be called when creating the character.
+    /// </summary>
+    /// <param name="index"></param>
     public void CycleEyebrows(int index)
     {
         eyebrow += index;
@@ -321,18 +395,25 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
         eyebrow %= CharacterGameObjects[Female_Eyebrows].Count;
         ActivateEyebrows(eyebrow);
     }
-
+    /// <summary>
+    /// Should only be called when creating the character.
+    /// </summary>
+    /// <param name="category"></param>
+    /// <param name="shaderVariable"></param>
+    /// <param name="colorToSet"></param>
     void SetColorInCategory(string category, string shaderVariable, Color colorToSet)
     {
         if (!CharacterGameObjects.ContainsKey(category)) return;
-        //Debug.Log($"Setting {shaderVariable} on {category}");
         foreach (GameObject go in CharacterGameObjects[category])
         {
             Renderer rend = go.GetComponent<Renderer>();
             rend.material.SetColor(shaderVariable, colorToSet);
         }
     }
-
+    /// <summary>
+    /// Should only be called when creating the character or from RestoreState
+    /// </summary>
+    /// <param name="index"></param>
     public void SetSkinColor(int index)
     {
         if (index >= 0 && index < skinColors.Length)
@@ -346,6 +427,13 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
         }
     }
 
+    #endregion
+
+    #region CharacterActivation
+
+    /// <summary>
+    /// This sets the character to the default state, assuming no items in the EquipmentManager. 
+    /// </summary>
     public void LoadDefaultCharacter()
     {
         foreach (var pair in CharacterGameObjects)
@@ -415,84 +503,80 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
 
     void ActivateLeg(int selector, List<ItemPair> colorChanges = null)
     {
-        ActivatePart(gender == Gender.Male ? "Male_12_Leg_Left" : "Female_12_Leg_Left", selector, colorChanges);
-        ActivatePart(gender == Gender.Male ? "Male_11_Leg_Right" : "Female_11_Leg_Right", selector, colorChanges);
-        DeactivateCategory(isMale ? "Female_12_Leg_Left" : "Male_12_Leg_Left");
-        DeactivateCategory(isMale ? "Female_11_Leg_Right" : "Male_11_Leg_Right");
+        ActivatePart(gender == Gender.Male ? Male_Leg_Left : Female_Leg_Left, selector, colorChanges);
+        ActivatePart(gender == Gender.Male ? Male_Leg_Right : Female_Leg_Right, selector, colorChanges);
+        DeactivateCategory(isMale ? Female_Leg_Left : Male_Leg_Left);
+        DeactivateCategory(isMale ? Female_Leg_Right : Male_Leg_Right);
     }
 
     void ActivateHips(int selector, List<ItemPair> colorChanges = null)
     {
-        ActivatePart(gender == Gender.Male ? "Male_10_Hips" : "Female_10_Hips", selector, colorChanges);
-        DeactivateCategory(isMale ? "Female_10_Hips" : "Male_10_Hips");
+        ActivatePart(gender == Gender.Male ? Male_Hips : Female_Hips, selector, colorChanges);
+        DeactivateCategory(isMale ? Female_Hips : Male_Hips);
     }
 
     void ActivateHand(int selector, List<ItemPair> colorChanges = null)
     {
-        ActivatePart(gender == Gender.Male ? "Male_08_Hand_Right" : "Female_08_Hand_Right", selector, colorChanges);
-        ActivatePart(gender == Gender.Male ? "Male_09_Hand_Left" : "Female_09_Hand_Left", selector, colorChanges);
-        DeactivateCategory(isMale ? "Female_08_Hand_Right" : "Male_08_Hand_Right");
-        DeactivateCategory(isMale ? "Female_09_Hand_Left" : "Male_09_Hand_Left");
+        ActivatePart(gender == Gender.Male ? Male_Hand_Right : Female_Hand_Right, selector, colorChanges);
+        ActivatePart(gender == Gender.Male ? Male_Hand_Left : Female_Hand_Left, selector, colorChanges);
+        DeactivateCategory(isMale ? Female_Hand_Right : Male_Hand_Right);
+        DeactivateCategory(isMale ? Female_Hand_Left : Male_Hand_Left);
     }
 
     void ActivateLowerArm(int selector, List<ItemPair> colorChanges = null)
     {
-        ActivatePart(gender == Gender.Male ? "Male_06_Arm_Lower_Right" : "Female_06_Arm_Lower_Right", selector,
+        ActivatePart(gender == Gender.Male ? Male_Arm_Lower_Right : Female_Arm_Lower_Right, selector,
                      colorChanges);
-        ActivatePart(gender == Gender.Male ? "Male_07_Arm_Lower_Left" : "Female_07_Arm_Lower_Left", selector,
+        ActivatePart(gender == Gender.Male ? Male_Arm_Lower_Left : Female_Arm_Lower_Left, selector,
                      colorChanges);
-        DeactivateCategory(isMale ? "Female_06_Arm_Lower_Right" : "Male_06_Arm_Lower_Right");
-        DeactivateCategory(isMale ? "Female_07_Arm_Lower_Left" : "Male_07_Arm_Lower_Left");
+        DeactivateCategory(isMale ? Female_Arm_Lower_Right : Male_Arm_Lower_Right);
+        DeactivateCategory(isMale ? Female_Arm_Lower_Left : Male_Arm_Lower_Left);
     }
 
     void ActivateUpperArm(int selector, List<ItemPair> colorChanges = null)
     {
-        ActivatePart(isMale ? "Male_04_Arm_Upper_Right" : "Female_04_Arm_Upper_Right", selector, colorChanges);
-        ActivatePart(isMale ? "Male_05_Arm_Upper_Left" : "Female_05_Arm_Upper_Left", selector, colorChanges);
-        DeactivateCategory(isMale ? "Female_04_Arm_Upper_Right" : "Male_04_Arm_Upper_Right");
-        DeactivateCategory(isMale ? "Female_05_Arm_Upper_Left" : "Male_05_Arm_Upper_Left");
+        ActivatePart(isMale ? Male_Arm_Upper_Right : Female_Arm_Upper_Right, selector, colorChanges);
+        ActivatePart(isMale ? Male_Arm_Upper_Left : Female_Arm_Upper_Left, selector, colorChanges);
+        DeactivateCategory(isMale ? Female_Arm_Upper_Right : Male_Arm_Upper_Right);
+        DeactivateCategory(isMale ? Female_Arm_Upper_Left : Male_Arm_Upper_Left);
     }
 
     void ActivateTorso(int selector, List<ItemPair> colorChanges = null)
     {
-        ActivatePart(isMale ? "Male_03_Torso" : "Female_03_Torso", selector, colorChanges);
-        DeactivateCategory(isMale ? "Female_03_Torso" : "Male_03_Torso");
+        ActivatePart(isMale ? Male_Torso : Female_Torso, selector, colorChanges);
+        DeactivateCategory(isMale ? Female_Torso : Male_Torso);
     }
 
     void ActivateFacialHair(int selector)
     {
         if (!isMale)
         {
-            DeactivateCategory("Male_02_FacialHair");
+            DeactivateCategory(Male_FacialHair);
             return;
         }
 
-        ActivatePart("Male_02_FacialHair", selector);
+        ActivatePart(Male_FacialHair, selector);
     }
 
     void ActivateEyebrows(int selector)
     {
-        ActivatePart(isMale ? "Male_01_Eyebrows" : "Female_01_Eyebrows", selector);
-        DeactivateCategory(isMale ? "Female_01_Eyebrows" : "Male_01_Eyebrows");
+        ActivatePart(isMale ? Male_Eyebrows : Female_Eyebrows, selector);
+        DeactivateCategory(isMale ? Female_Eyebrows : Male_Eyebrows);
     }
 
     void ActivateHead(int selector)
     {
-        ActivatePart(isMale ? "Male_Head_All_Elements" : "Female_Head_All_Elements", selector);
-        DeactivateCategory(isMale ? "Female_Head_All_Elements" : "Male_Head_All_Elements");
+        ActivatePart(isMale ? Male_Head_All_Elements : Female_Head_All_Elements, selector);
+        DeactivateCategory(isMale ? Female_Head_All_Elements : Male_Head_All_Elements);
     }
 
-    public bool isMale => gender == Gender.Male;
+
 
     void ActivateHair(int selector)
     {
-        ActivatePart("All_01_Hair", selector);
+        ActivatePart(All_01_Hair, selector);
     }
 
-    Transform Find(string n)
-    {
-        return GetComponentsInChildren<Transform>().First(x => x.name == n);
-    }
 
     void ActivatePart(string identifier, int selector, List<ItemPair> colorChanges = null)
     {
@@ -538,38 +622,23 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
         }
     }
 
-    public void InitGameObjects()
-    {
-        if (characterGameObjects != null) return;
-        characterGameObjects = new Dictionary<string, List<GameObject>>();
-        var catalogue = AllGenderBodyParts;
-        BuildCharacterGameObjectFromCatalogue(AllGenderBodyParts);
-        BuildCharacterGameObjectFromCatalogue(MaleBodyCategories);
-        BuildCharacterGameObjectFromCatalogue(FemaleBodyCategories);
-    }
+    #endregion
 
-    void BuildCharacterGameObjectFromCatalogue(string[] catalogue)
+    #region StaticDictionary
+
+    /// <summary>
+    /// This static dictionary is for a hook for the custom editors for EquipableItem and other Editor windows.
+    /// Outside of this, it should not be used as a reference to get/set items on the character because it is
+    /// terribly inefficient for this purpose.
+    /// </summary>
+    static Dictionary<string, List<string>> characterParts;
+
+    public static Dictionary<string, List<string>> CharacterParts
     {
-        foreach (string category in catalogue)
+        get
         {
-            //Debug.Log($"Building {category}");
-            List<GameObject> list = new List<GameObject>();
-            Transform t = GetComponentsInChildren<Transform>().First(x => x.gameObject.name == category);
-            if (t)
-            {
-                //foreach (Transform tr in t.GetComponentsInChildren<Transform>())
-                for (int i = 0; i < t.childCount; i++)
-                {
-                    Transform tr = t.GetChild(i);
-                    if (tr == t) continue;
-                    {
-                        list.Add(tr.gameObject);
-                        tr.gameObject.SetActive(false);
-                    }
-                }
-
-                characterGameObjects[category] = list;
-            }
+            InitCharacterParts();
+            return characterParts;
         }
     }
 
@@ -622,6 +691,9 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
             Debug.Log(characterParts[category].Count);
         }
     }
+    #endregion
+
+    #region ISaveable
 
     public SaveBundle CaptureState()
     {
@@ -652,6 +724,11 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
         equipment.EquipmentUpdated += LoadArmor;
         Invoke(nameof(LoadArmor), .1f);
     }
+
+    #endregion
+
+    /* This section is used by the EquipmentBuilder scene only */
+    #region EquipmentBuilder
 
     public int SetParameter(string parameterString, int value, int i)
     {
@@ -804,4 +881,5 @@ public class CharacterGenerator : MonoBehaviour, ISaveable
 
         return cycleValue;
     }
+    #endregion
 }

@@ -138,6 +138,11 @@ PrefabInstance:
       propertyPath: replaceMaterial
       value: 
       objectReference: {fileID: 2100000, guid: f3d19fa8848f82c4a9c0b89e8d73b8a4, type: 2}
+    - target: {fileID: 8378060843427873309, guid: 86f06ddfb5df2984798508356b873b0e,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2.4
+      objectReference: {fileID: 0}
     - target: {fileID: 8939825359299067026, guid: 86f06ddfb5df2984798508356b873b0e,
         type: 3}
       propertyPath: replaceMaterial
