@@ -71,6 +71,11 @@ namespace TkrainDesigns.Tiles.Skills
             store = GetComponent<ActionSpellStore>();
         }
 
+        void Start()
+        {
+            UpdateSkillStore();
+        }
+
         void OnEnable()
         {
             stats.onLevelUpEvent.AddListener(UpdateSkillStore);

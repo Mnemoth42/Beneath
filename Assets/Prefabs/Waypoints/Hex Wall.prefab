@@ -114,7 +114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4660289010812396
 Transform:
   m_ObjectHideFlags: 0
@@ -262,12 +262,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496566534129292}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a895f4e422ad8e54086a4eac0e52365e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToBeSeen: 7
+  distanceToBeSeen: 6
+  setIntensity: 0
+  minIntensity: 0.1
+  maxIntensity: 0.75
 --- !u!136 &7647797264384216983
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -342,7 +345,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 67f7514bf1d282b4ebe8d75d0ac48815, type: 2}
+  - {fileID: 2100000, guid: 24dcbdf958f0fc94e8bb35bacd38dced, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -393,7 +396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4743571838979678
 Transform:
   m_ObjectHideFlags: 0

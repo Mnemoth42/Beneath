@@ -7,9 +7,11 @@ using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
 using TkrainDesigns.Tiles.Actions;
 using TkrainDesigns.Tiles.Combat;
+using Tkraindesigns.Tiles.Core;
 using TkrainDesigns.Tiles.Grids;
 using TkrainDesigns.Tiles.Movement;
 using TkrainDesigns.Tiles.Pathfinding;
+using TkrainDesigns.Tiles.Skills;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -27,11 +29,14 @@ namespace TkrainDesigns.Tiles.Control
     [RequireComponent(typeof(GridMover))]
     [RequireComponent(typeof(GridFighter))]
     [RequireComponent(typeof(ActionPerformer))]
-    [RequireComponent(typeof(ActionStore))]
     [RequireComponent(typeof(RandomItemDropper))]
     [RequireComponent(typeof(CooldownManager))]
     [RequireComponent(typeof(CombatTarget))]
     [RequireComponent(typeof(CapsuleCollider))]
+    [RequireComponent(typeof(BreakingHitSender))]
+    [RequireComponent(typeof(ActionSpellStore))]
+    [RequireComponent(typeof(SkillStore))]
+    [RequireComponent(typeof(EnemyVisibility))]
     [RequireComponent(typeof(BreakingHitSender))]
     
     public abstract class BaseController : MonoBehaviour

@@ -41,9 +41,11 @@ namespace Tkraindesigns.Tiles.Core
         void TestVisiblity()
         {
             bool visible = false;
+            
             Vector2Int myPosition = TileUtilities.GridPosition(transform.position);
             Vector2Int playerPosition = TileUtilities.GridPosition(player.transform.position);
-            if (Vector2.Distance(myPosition, playerPosition) < 6.0f)
+            float distance = Vector2.Distance(myPosition, playerPosition);
+            if (distance< 6.0f)
             {
                 if (!Visibility.ExtendedRayTrace(myPosition, player.transform.position, transform.position, transform))
                 {
@@ -55,6 +57,16 @@ namespace Tkraindesigns.Tiles.Core
                 rend.enabled = visible;
             }
             onChangeVisibility?.Invoke(visible);
+            if (visible)
+            {
+                float glow = (5.0f-distance)/12.0f;
+                
+                glow = Mathf.Clamp(glow, .1f, .5f);
+                foreach(Renderer rend in GetComponentsInChildren<Renderer>())
+                {
+                    rend.material.SetFloat("Glow", glow);
+                }
+            }
         }
     }
 }

@@ -29,6 +29,6 @@ MonoBehaviour:
   defenseStat: {fileID: 11400000, guid: 7d3d194dc25dab9499bc5e9a41f2128a, type: 2}
   intelligenceStat: {fileID: 11400000, guid: 8ba086a12f9eafc42a893374995d17ee, type: 2}
   range: 3
-  fireball: {fileID: 8718950026302064531, guid: b2239f086f27bee49b1ea383c481e3a5,
+  fireball: {fileID: 3708710424089111390, guid: 305a87c2136134cf7aa00ab1225c5289,
     type: 3}
   splashDamage: 0

@@ -439,6 +439,7 @@ namespace TkrainDesigns.Tiles.Control
                 int delta = newRect - dragRect;
                 if (Mathf.Abs(delta) > 2) delta *= -1;
                 FindObjectOfType<CameraTurner>().TurnCamera(delta<0 ? true: false);
+                FindObjectOfType<MiniMapCameraTurner>().TurnCamera(delta<0?true: false);
                 dragRect = newRect;
             }
 

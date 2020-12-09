@@ -7,38 +7,58 @@ namespace TkrainDesigns.Tiles.Core
     public class Visibility : MonoBehaviour
     {
         public float distanceToBeSeen = 10;
-       
+        public bool setIntensity = false;
+        public float minIntensity = .1f;
+        public float maxIntensity = .75f;
+        bool hasBeenSeen = false;
+        Vector2Int location;
 
         void Start()
         {
+            location = TileUtilities.GridPosition(transform.position);
             foreach (MeshRenderer rend in GetComponentsInChildren<MeshRenderer>())
             {
                 rend.enabled = false;
             }
         }
 
-        
+        float Distance(Vector2Int tile)
+        {
+            return Vector2Int.Distance(tile, location);
+        }
 
         public void TestVisibility(Vector2Int tile)
         {
             
-                if (Vector2Int.Distance(tile, TileUtilities.GridPosition(transform.position)) < distanceToBeSeen)
+                if (!hasBeenSeen && Vector2Int.Distance(tile, TileUtilities.GridPosition(transform.position)) < distanceToBeSeen)
                 {
                     Vector3 testPosition = TileUtilities.IdealWorldPosition(tile);
                     Vector3 position = transform.position;
                     Transform transformToCheck = transform;
-                    if (ExtendedRayTrace(tile, testPosition, position, transformToCheck))
+                    if (RayTrace( testPosition, position, transformToCheck))
                     {
                         return;
                     }
 
-
+                    hasBeenSeen = true;
                     foreach (MeshRenderer rend in GetComponentsInChildren<MeshRenderer>())
                     {
                         rend.enabled = true;
-                        Destroy(this);
                     }
                 }
+
+                if (hasBeenSeen && setIntensity)
+                {
+                    float intensity = Distance(tile) / distanceToBeSeen;
+                    intensity = 1 - intensity;
+                    intensity *= maxIntensity;
+                    intensity = Mathf.Clamp(intensity, minIntensity, maxIntensity);
+                    foreach (MeshRenderer rend in GetComponentsInChildren<MeshRenderer>())
+                    {
+                        rend.material.SetFloat("Glow", intensity);
+                    }
+                }
+                
             
         }
 
