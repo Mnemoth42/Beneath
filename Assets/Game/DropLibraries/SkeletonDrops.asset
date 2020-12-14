@@ -258,7 +258,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  - item: {fileID: 11400000, guid: 32b1ac164c08b5f49b16e2a62f127e85, type: 2}
+  - item: {fileID: 11400000, guid: 4f5ed33b17e4d8447a0e438c330f5ada, type: 2}
     chance:
       serializedVersion: 2
       m_Curve:

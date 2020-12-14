@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
+using Tkraindesigns.Tiles.Core;
 using TkrainDesigns.Tiles.Grids;
 using UnityEngine;
 using UnityEngine.AI;
@@ -30,6 +31,8 @@ namespace TkrainDesigns.Tiles.Movement
         List<Vector2Int> path = new List<Vector2Int>();
         bool isMoving = false;
         Vector3 locationToTrack;
+        EnemyVisibility visibility;
+        bool isvisibilityNull;
 
 
         public int MaxStepsPerTurn
@@ -46,11 +49,17 @@ namespace TkrainDesigns.Tiles.Movement
             //set => maxStepsPerTurn = value;
         }
 
+        void Start()
+        {
+            isvisibilityNull = visibility==null;
+        }
+
         void Awake()
         {
             anim = GetComponent<Animator>();
             stats = GetComponent<PersonalStats>();
             currentPosition = TileUtilities.GridPosition(transform.position);
+            visibility = GetComponent<EnemyVisibility>();
         }
 
         public void BeginMoveAction(List<Vector2Int> pathToFollow, System.Action callback)
@@ -129,7 +138,7 @@ namespace TkrainDesigns.Tiles.Movement
         IEnumerator MoveToNextLocation(Vector3 newLocation)
         {
             //Debug.Log($"{name} is moving to {newLocation}");
-            if ((rend==null) || rend.enabled)
+            if (isvisibilityNull || visibility.Visible)
             {
                 locationToTrack = newLocation;
                 transform.LookAt(newLocation);

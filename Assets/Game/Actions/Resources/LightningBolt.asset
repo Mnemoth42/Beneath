@@ -18,7 +18,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 092b84f3ac74d0e4bba826d0a4837822, type: 3}
   pickup: {fileID: 6585196624951791254, guid: 85800f2077d840c4ea22e8d1588447c6, type: 3}
   stackable: 0
-  level: 1
+  level: 4
   potentialStatBoosts: []
   consumable: 0
   cooldown: 5

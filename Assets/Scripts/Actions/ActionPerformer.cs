@@ -108,7 +108,7 @@ namespace TkrainDesigns.Tiles.Actions
             List<Vector2Int> result = new List<Vector2Int>();
             for (int i = 0; i <= lastPossibleCastingPoint; i++)
             {
-                Debug.Log($"{name} adding {i} {pathToFollow[i]}");
+                //Debug.Log($"{name} adding {i} {pathToFollow[i]}");
                 result.Add(pathToFollow[i]);
                 if (i < firstPossibleCastingPoint)
                 {

@@ -96,7 +96,7 @@ namespace TkrainDesigns.Tiles.Skills
                 if (skill.GetItem() == null) continue;
                 if (skill.GetLevel() <= stats.Level)
                 {
-                    Debug.Log($"Adding {skill.GetItem()} to ActionStore");
+                    //Debug.Log($"Adding {skill.GetItem()} to ActionStore");
                     store.AddAction(skill.GetItem(), skill.GetSlot(), 1);
                     learnedSkills.Add(skill);
                 }

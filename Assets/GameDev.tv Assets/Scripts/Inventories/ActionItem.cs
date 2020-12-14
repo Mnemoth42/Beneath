@@ -1,3 +1,4 @@
+using TkrainDesigns.Stats;
 using UnityEditor;
 using UnityEngine;
 
@@ -25,12 +26,29 @@ namespace GameDevTV.Inventories
             return "Global";
         }
 
-        public override string PriceString()
+        protected override string LevelNotMetString()
         {
-            return consumable ? "" : base.PriceString();
+            return $"\n<color=#ff8888>Level {Level} required to use</color>";
         }
 
+        public override string PriceString()
+        {
+            return consumable ?  base.PriceString():"";
+        }
 
+        public override int Level
+        {
+            get { return base.Level; }
+            set
+            {
+#if UNITY_EDITOR
+                if (Application.isPlaying) return;
+                Undo.RecordObject(this, "Set Item Level");
+                base.Level = value;
+                Dirty();
+#endif
+            }
+        }
 
         public override bool CanHaveStatBoosts()
         {
@@ -75,6 +93,12 @@ namespace GameDevTV.Inventories
         public virtual bool CanUse(GameObject user)
         {
             if (!user) return false;
+            if (!user.TryGetComponent(out PersonalStats stats) || (stats.Level < Level))
+            {
+                if(!stats) Debug.Log("No stats?"); else Debug.Log($"{stats.Level} < {Level}");
+                return false;
+            }
+
             if (user.TryGetComponent<CooldownManager>(out CooldownManager cooldownManager))
             {
                 return cooldownManager.TurnsRemaining(TimerToken()) == 0;
@@ -149,7 +173,7 @@ namespace GameDevTV.Inventories
             base.DrawCustomInspector(width, style);
             drawActionItem = EditorGUILayout.Foldout(drawActionItem, "ActionItem Data");
             if (!drawActionItem) return;
-            
+            Level = EditorGUILayout.IntSlider("Level", Level, 1, 100);
             SetConsumable(EditorGUILayout.Toggle("Is Consumable", consumable));
             SetUseOnPickup(EditorGUILayout.Toggle("Use On Pickup", useOnPickup));
             SetCooldown(EditorGUILayout.IntSlider("Cooldown", (int)cooldown, 1,30));

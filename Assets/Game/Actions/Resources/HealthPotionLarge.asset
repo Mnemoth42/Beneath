@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5256c2dc33c714d9cf345e62ff08c4, type: 3}
   m_Name: HealthPotionLarge
   m_EditorClassIdentifier: 
-  itemId: e20cd352-7093-49d8-b880-9e30c1eec6c7
+  itemId: f2a5e86b-345c-4b49-a45d-7057bf371e37
   displayName: Major Health Potion
   description: Nope, still tastes like castor oil, with a hint of anchovies, but
     it sure heals well.
   icon: {fileID: 21300000, guid: ad84a7cd30be12f46a92bbc31e95f7ec, type: 3}
   pickup: {fileID: 6585196624951791254, guid: 85800f2077d840c4ea22e8d1588447c6, type: 3}
   stackable: 1
-  level: 1
+  level: 8
   potentialStatBoosts: []
   consumable: 1
   cooldown: 5

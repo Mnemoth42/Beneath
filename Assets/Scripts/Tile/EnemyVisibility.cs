@@ -13,7 +13,11 @@ namespace Tkraindesigns.Tiles.Core
     public class EnemyVisibility : MonoBehaviour
     {
         PlayerController  player;
-        public event Action<bool> onChangeVisibility; 
+        public event Action<bool> onChangeVisibility;
+        bool visible;
+
+        public bool Visible => visible;
+
         void Awake()
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -23,6 +27,7 @@ namespace Tkraindesigns.Tiles.Core
                 rend.enabled = false;
             }
 
+            visible = false;
             GetComponent<AIController>().onTurnEnded += TestVisiblity;
             GetComponent<Health>().onDeath.AddListener(Death);
             GetComponent<GridMover>().onMoveStepCompleted += TestVisiblity;
@@ -40,7 +45,7 @@ namespace Tkraindesigns.Tiles.Core
 
         void TestVisiblity()
         {
-            bool visible = false;
+            visible = false;
             
             Vector2Int myPosition = TileUtilities.GridPosition(transform.position);
             Vector2Int playerPosition = TileUtilities.GridPosition(player.transform.position);

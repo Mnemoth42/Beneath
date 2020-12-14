@@ -38,8 +38,13 @@ namespace RPG.Inventory
         }
 
 #if UNITY_EDITOR
+        Vector2 scrollpos = new Vector2();
         public void DrawCustomInspector()
         {
+            GUIStyle style = new GUIStyle();
+            style.padding = new RectOffset(0, 10,0,0);
+            scrollpos = EditorGUILayout.BeginScrollView(scrollpos);
+            EditorGUILayout.BeginVertical(style);
             int deleteDropEntry = -1;
             for (int i=0;i<entries.Count;i++)
             {
@@ -60,8 +65,10 @@ namespace RPG.Inventory
                 entries.Add(new DropEntry());
                 EditorUtility.SetDirty(this);
             }
+            EditorGUILayout.EndVertical();
+            EditorGUILayout.EndScrollView();
         }
-
+        
 #endif
 
     }
@@ -85,7 +92,11 @@ namespace RPG.Inventory
 
         void SetInventoryItem(DropLibrary parent)
         {
-            InventoryItem newItem = (InventoryItem)EditorGUILayout.ObjectField(item!=null?item.GetDisplayName():"Item:", item, typeof(InventoryItem), false);
+            var itemList = Statics.GetScriptableObjectsOfType<InventoryItem>();
+            var itemStrings = Statics.GetNamesFromScriptableObjectList(itemList);
+            var index = Statics.FindNameInScriptableObjectList(itemStrings, item);
+            InventoryItem newItem = itemList[EditorGUILayout.Popup(index, itemStrings.ToArray())];
+            //InventoryItem newItem = (InventoryItem)EditorGUILayout.ObjectField(item!=null?item.GetDisplayName():"Item:", item, typeof(InventoryItem), false);
             if (item == newItem) return;
             Undo.RecordObject(parent, "Select Item To Drop");
             item = newItem;

@@ -67,7 +67,7 @@ namespace TkrainDesigns.Tiles.Dungeons
         IEnumerator ResetDungeon()
         {
             UI.alpha = 0.0f;
-            yield return fader.FadeIn(1.0f);
+            yield return fader.FadeOut(1.0f);
             SavingSystem.Save("Character");
             level += 1;
             yield return GenerateNewDungeon();

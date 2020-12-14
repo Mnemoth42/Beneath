@@ -69,7 +69,7 @@ namespace GameDevTV.Inventories
 
         public virtual int Price()
         {
-            return level * level * 10;
+            return Level * Level * 10;
         }
 
         /// <summary>
@@ -77,9 +77,9 @@ namespace GameDevTV.Inventories
         /// </summary>
         /// <param name="position">Where to spawn the pickup.</param>
         /// <param name="number">How many instances of the item does the pickup represent.</param>
-        /// <param name="level">Used to calculate the values of potential stat moifiers</param>
+        /// <param name="itemLevel">Used to calculate the values of potential stat moifiers</param>
         /// <returns>Reference to the pickup object spawned.</returns>
-        public Pickup SpawnPickup(Vector3 position, int number, int level)
+        public Pickup SpawnPickup(Vector3 position, int number, int itemLevel)
         {
             if (pickup == null)
             {
@@ -95,11 +95,11 @@ namespace GameDevTV.Inventories
                 {
                     if (!stackable)
                     {
-                        instance.Decorator = new RandomStatDecorator(level, potentialStatBoosts.ToArray());
+                        instance.Decorator = new RandomStatDecorator(itemLevel, potentialStatBoosts.ToArray());
                     }
                 }
 
-                instance.level = level;
+                instance.Level = itemLevel;
                 pickupToSpawn.Setup(instance, number);
                 return pickupToSpawn;
             }
@@ -109,9 +109,9 @@ namespace GameDevTV.Inventories
             
         }
 
-        public void InitDecorator(int level)
+        public void InitDecorator(int itemLevel)
         {
-            Decorator = new RandomStatDecorator(level, potentialStatBoosts.ToArray());
+            Decorator = new RandomStatDecorator(itemLevel, potentialStatBoosts.ToArray());
         }
 
         public Sprite GetIcon()
@@ -119,7 +119,7 @@ namespace GameDevTV.Inventories
             return icon;
         }
 
-        public int Level
+        public virtual int Level
         {
             get => level;
             set => level = value;
@@ -138,41 +138,44 @@ namespace GameDevTV.Inventories
 
         public virtual string PriceString()
         {
-            return $"\nSelling Price: {Price()}";
+            return $"\nValue: {Price()}";
         }
 
         public override string GetDescription()
         {
             string result = description;
-            if(!stackable)
+
+            if (Application.isPlaying)
             {
-                if (Application.isPlaying)
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+                PersonalStats stats = player.GetComponent<PersonalStats>();
+                if (Level > stats.Level)
                 {
-                    GameObject player = GameObject.FindGameObjectWithTag("Player");
-                    PersonalStats stats = player.GetComponent<PersonalStats>();
-                    if (level > stats.Level)
-                    {
-                        result += $"\n<color=#ff8888>Level {level} required to equip</color>";
-                    } 
-                    else
-                    {
-                        result += $"\nLevel {level}";
-                    }
+                    result += LevelNotMetString();
                 }
                 else
                 {
-                    result += $"\nLevel {level}";
+                    result += $"\nLevel {Level}";
                 }
+            }
+            else
+            {
+                result += $"\nLevel {Level}";
             }
 
             result += PriceString();
 #if UNITY_EDITOR
-            if (pickup==null)
+            if (pickup==null && !Application.isPlaying)
             {
                 result += "\n" + BadString("No Pickup Selected!"); 
             }
 #endif
             return result;
+        }
+
+        protected virtual string LevelNotMetString()
+        {
+            return $"\n<color=#ff8888>Level {Level} required to equip</color>";
         }
 
         public Pickup GetPickup()
