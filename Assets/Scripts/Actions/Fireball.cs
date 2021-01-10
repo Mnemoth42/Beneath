@@ -81,7 +81,7 @@ namespace TkrainDesigns.Tiles.Actions
         {
             currentTarget.GetComponent<Health>()
                          .TakeDamage(CombatBroker.CalculateDamage(currentUser, currentTarget,
-                                                                  baseDamage, damageStat, defenseStat), currentUser);
+                                                                  AdjustedDamage, damageStat, defenseStat), currentUser);
             if(splashDamage) PerformSplashDamage();
             callbackAction();
         }

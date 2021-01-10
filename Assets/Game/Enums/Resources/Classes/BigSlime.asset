@@ -18,26 +18,26 @@ MonoBehaviour:
     like you're next.
   formula:
   - stat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
-    startValue: 30
-    endValue: 1000
+    startValue: 15
+    endValue: 850
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 1
-        value: 30
-        inSlope: 9.797979
-        outSlope: 9.797979
+        value: 15
+        inSlope: 8.434343
+        outSlope: 8.434343
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 100
-        value: 1000
-        inSlope: 9.797979
-        outSlope: 9.797979
+        value: 850
+        inSlope: 8.434343
+        outSlope: 8.434343
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334

@@ -22,7 +22,17 @@ namespace TkrainDesigns.Tiles.Actions
         {
             return true;
         }
-
+        protected int AdjustedDamage
+        {
+            get
+            {
+                if (currentUser.TryGetComponent(out PersonalStats stats))
+                {
+                    return (int) (baseDamage + (stats.Level / 2.0f));
+                }
+                return (int)baseDamage;
+            }
+        }
     
 
         public override bool CanUse(GameObject user)
@@ -56,7 +66,7 @@ namespace TkrainDesigns.Tiles.Actions
 
         void Leech()
         {
-            float damageToDo = CombatBroker.CalculateDamage(currentUser, currentTarget, baseDamage, attackStat, defenseStat);
+            float damageToDo = CombatBroker.CalculateDamage(currentUser, currentTarget, AdjustedDamage, attackStat, defenseStat);
             //Debug.Log($"{currentUser.name} is attacking for {damageToDo} Drain points.");
             Heal(currentTarget.GetComponent<Health>().TakeDamage(damageToDo,  currentUser));
         }

@@ -19,6 +19,7 @@ namespace RPG.Inventory
 
 		[SerializeField] List<Modifier> additiveModifiers = new List<Modifier>();
 		[SerializeField] List<Modifier> percentageModifiers = new List<Modifier>();
+        [SerializeField]  float growthPerLevel = .2f;
 
 
 		
@@ -81,6 +82,8 @@ namespace RPG.Inventory
         }
 
         bool drawStatsEquippableItem = false;
+       
+
         public override void DrawCustomInspector(float width, GUIStyle style)
         {
             base.DrawCustomInspector(width, style);
@@ -88,6 +91,7 @@ namespace RPG.Inventory
                 EditorGUILayout.Foldout(drawStatsEquippableItem, "StatsEquippableItem Data", style);
             if (!drawStatsEquippableItem) return;
            BeginIndent();
+            DrawFloat(ref growthPerLevel, "Growth Per Level", "The rate at which the stat will grow.  Higher means more growth");
             int statToRemove = -1;
             for (int i = 0; i < additiveModifiers.Count; i++)
             {
@@ -116,10 +120,6 @@ namespace RPG.Inventory
             for (int i = 0; i < percentageModifiers.Count; i++)
             {
                 EditorGUILayout.BeginHorizontal();
-                //ScriptableStat stat = (ScriptableStat)EditorGUILayout.ObjectField(percentageModifiers[i].stat == null ? "Select Stat" : percentageModifiers[i].stat.DisplayName,
-                //                                                                  percentageModifiers[i].stat,
-                //                                                                  typeof(ScriptableStat),
-                //                                                                  false);
                 ScriptableStat stat =
                     DrawScriptableObjectList(percentageModifiers[i].stat == null ? "Select Stat" : percentageModifiers[i].stat.DisplayName,
                                              percentageModifiers[i].stat);
@@ -167,7 +167,7 @@ namespace RPG.Inventory
 
 			foreach (Modifier modifier in additiveModifiers.Where(m => m.stat == stat).ToArray())
 			{
-				yield return modifier.value+Level*.34f;
+				yield return modifier.value+Level*growthPerLevel;
 			}
 			yield return Decorator.GetAdditiveModifier(stat);
 		}
@@ -177,7 +177,7 @@ namespace RPG.Inventory
 			
 			foreach (Modifier modifier in percentageModifiers.Where(m => m.stat == stat).ToArray())
 			{
-				yield return modifier.value+ Level * .34f;
+				yield return modifier.value+ Level * growthPerLevel;
 			}
 			yield return Decorator.GetPercentageModifier(stat);
 			
@@ -201,11 +201,11 @@ namespace RPG.Inventory
                 if (modifier.stat == null) continue;
 				if (result.ContainsKey(modifier.stat))
 				{
-					result[modifier.stat] += modifier.value+Mathf.Floor(.34f*Level);
+					result[modifier.stat] += modifier.value+Mathf.Floor(growthPerLevel*Level);
 				}
 				else
 				{
-					result[modifier.stat] = modifier.value+Mathf.Floor(.34f*Level);
+					result[modifier.stat] = modifier.value+Mathf.Floor(growthPerLevel*Level);
 				}
 			}
 			return result;

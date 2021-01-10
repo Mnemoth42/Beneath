@@ -68,6 +68,11 @@ namespace GameDevTV.Inventories
         /// <returns>Whether or not the item could be added.</returns>
         public bool AddToFirstEmptySlot(InventoryItem item, int number)
         {
+            if (item is CoinDrop coinDrop)
+            {
+                AddCoins(coinDrop.CoinAmount);
+                return true;
+            }
             int i = FindSlot(item);
 
             if (i < 0)
@@ -264,7 +269,7 @@ namespace GameDevTV.Inventories
             InventoryUpdated?.Invoke();
         }
 
-        public int Coins { get => coins; protected set => coins = Mathf.Min(0,value); }
+        public int Coins { get => coins; protected set => coins = Mathf.Max(0,value); }
 
         public void RestoreState(SaveBundle bundle)
         {

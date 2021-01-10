@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Your ability to wield magical spells.  Enhanced by intelligence.
   alias: Thaumaturgy
   minimum: 1
-  maximum: 1000
+  maximum: 10000
   sources:
   - stat: {fileID: 11400000, guid: 8ba086a12f9eafc42a893374995d17ee, type: 2}
     effectPerLevel: 2

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a63ea81381893cb4db6f3ece6dd7765e, type: 3}
+  m_Name: Coin
+  m_EditorClassIdentifier: 
+  itemId: 7d4155de-9932-48fa-82df-ccb87c91e9a3
+  displayName: Coins
+  description: This is the sort of thing you migth want to hang on to, you could
+    probably buy something interesting with it.
+  icon: {fileID: 21300000, guid: 5a1e01de51cb11c42b3a20e19caf0bb8, type: 3}
+  pickup: {fileID: 6585196624951791254, guid: 85800f2077d840c4ea22e8d1588447c6, type: 3}
+  stackable: 0
+  level: 1
+  potentialStatBoosts: []

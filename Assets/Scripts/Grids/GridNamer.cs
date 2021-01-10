@@ -3,14 +3,13 @@ using UnityEngine;
 
 namespace TkrainDesigns.Tiles.Grids
 {
-    [ExecuteAlways]
+
     public class GridNamer : MonoBehaviour
     {
         [SerializeField]
         TextMeshPro text;
 #if UNITY_EDITOR
-        // Update is called once per frame
-        void Update()
+        void Awake()
         {
             if (gameObject.activeInHierarchy)
             {

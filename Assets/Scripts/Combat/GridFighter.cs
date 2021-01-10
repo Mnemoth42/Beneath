@@ -73,7 +73,7 @@ namespace TkrainDesigns.Tiles.Combat
             if(currentWeaponConfig==null)
             {
                 GridWeaponConfig defaultWeapon = Instantiate(defaultWeaponConfig);
-                if(equipment!=null) defaultWeapon.Level = personalStats.Level;
+                defaultWeapon.Level = personalStats.Level;
                 EquipWeapon(defaultWeapon);
             }
         }

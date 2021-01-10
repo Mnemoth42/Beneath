@@ -38,6 +38,7 @@ MonoBehaviour:
     value: 5
   - stat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
     value: 10
+  growthPerLevel: 0.2
   model: {fileID: 1221624550297679130, guid: f3dceae71fe12bb439020345c07b8737, type: 3}
   controller: {fileID: 9100000, guid: accadbbe3e4192e47a2b168937caa4f9, type: 2}
   levelsBetweenIncrease: 2

@@ -35,7 +35,7 @@ namespace TkrainDesigns.Tiles.Actions
             bolt.StartPosition = GetStartPosition();
             bolt.EndPosition = currentTarget.GetComponent<CombatTarget>().WorldAimPoint;
             float damageAmount =
-                CombatBroker.CalculateDamage(currentUser, currentTarget, baseDamage, damageStat, defenseStat);
+                CombatBroker.CalculateDamage(currentUser, currentTarget, AdjustedDamage, damageStat, defenseStat);
             currentTarget.GetComponent<Health>().TakeDamage(damageAmount, currentUser);
             callbackAction?.Invoke();
         }

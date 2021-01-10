@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using TkrainDesigns.Tiles.Pathfinding;
+using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace TkrainDesigns.Tiles.Grids
 {
@@ -17,6 +19,7 @@ namespace TkrainDesigns.Tiles.Grids
             return Mathf.RoundToInt(position.x / HexGridSizeX);
         }
 
+        
         static int Xeven(Vector3 position)
         {
             return Mathf.Abs(GridX(position) % 2);
@@ -34,6 +37,11 @@ namespace TkrainDesigns.Tiles.Grids
             return new Vector2Int(GridX(position), GridY(position));
         }
 
+        public static Vector2Int ToGridPosition(this Vector3 position)
+        {
+            return GridPosition(position);
+        }
+
         public static Vector3 IdealWorldPosition(Vector2Int location)
         {
             
@@ -48,7 +56,17 @@ namespace TkrainDesigns.Tiles.Grids
             }
         }
 
-        
+        public static Vector3 ToWorldPosition(this Vector2Int location)
+        {
+            return IdealWorldPosition(location);
+        }
+
+
+
+        public static Vector2Int Adjecent(this Vector2Int location, int face)
+        {
+            return PathBase.Adjacent(location, face);
+        }
 
         ///// <summary>
         ///// Converts a worldspace float dimension to the nearest tile.

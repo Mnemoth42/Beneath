@@ -13912,7 +13912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   personalClass: {fileID: 11400000, guid: b9aecfdf9b6612b479a5ac1a6b0d8e48, type: 2}
   level: 1
-  shouldUseModifiers: 0
+  shouldUseModifiers: 1
   avatar: {fileID: 21300000, guid: cbe97b3268e60e547ac63a448f7f2256, type: 3}
   experienceGainedStat: {fileID: 11400000, guid: 46c84e87dda9fba4e93a8949823326bb,
     type: 2}

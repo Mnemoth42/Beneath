@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TkrainDesigns.ScriptableEnums;
+using TkrainDesigns.Stats;
 using TkrainDesigns.Tiles.Combat;
 using TkrainDesigns.Tiles.Control;
 using UnityEditor;
@@ -15,6 +16,18 @@ namespace TkrainDesigns.Tiles.Actions
         [SerializeField] protected ScriptableStat defenseStat;
         [SerializeField] protected ScriptableStat intelligenceStat;
         [SerializeField] protected int range = 3;
+
+        protected int AdjustedDamage
+        {
+            get
+            {
+                if (currentUser.TryGetComponent(out PersonalStats stats))
+                {
+                    return (int) (baseDamage + (stats.Level / 2.0f));
+                }
+                return (int)baseDamage;
+            }
+        }
 
         protected Vector3 GetStartPosition()
         {

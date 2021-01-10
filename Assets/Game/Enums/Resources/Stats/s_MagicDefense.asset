@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Your ability to resist magical spells.  Enhanced by your Wisdom stat.
   alias: The Immune
   minimum: 1
-  maximum: 1000
+  maximum: 10000
   sources:
   - stat: {fileID: 11400000, guid: d5e8aaf33d5aaf4469141f8d38f93597, type: 2}
     effectPerLevel: 2

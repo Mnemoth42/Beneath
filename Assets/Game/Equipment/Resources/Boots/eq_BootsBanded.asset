@@ -52,3 +52,4 @@ MonoBehaviour:
   percentageModifiers:
   - stat: {fileID: 11400000, guid: a19d98afd044ebf4f9102e9483362251, type: 2}
     value: 2
+  growthPerLevel: 0.2

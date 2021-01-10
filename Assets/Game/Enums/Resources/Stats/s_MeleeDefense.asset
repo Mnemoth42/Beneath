@@ -18,7 +18,7 @@ MonoBehaviour:
     you'll dodge and avoid more damage.
   alias: The Enduring Tank
   minimum: 1
-  maximum: 1000
+  maximum: 10000
   sources:
   - stat: {fileID: 11400000, guid: 57590c9b3bde0714a92efbcaf98457bc, type: 2}
     effectPerLevel: 2

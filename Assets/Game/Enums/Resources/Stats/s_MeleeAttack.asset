@@ -18,7 +18,7 @@ MonoBehaviour:
     contributes a lot.
   alias: The Destroyer
   minimum: 1
-  maximum: 1000
+  maximum: 10000
   sources:
   - stat: {fileID: 11400000, guid: 20b1b98bf010fae4fbe990665a91f758, type: 2}
     effectPerLevel: 2

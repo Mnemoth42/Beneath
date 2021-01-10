@@ -19,7 +19,7 @@ namespace TkrainDesigns.Stats
         [Tooltip("Level for this entity.  Ignored if entity's level is saved in save file.")]
         [SerializeField] int level = 1;
         [Tooltip("If checked, stat system will search entity for possible modifiers.  Generally this should only be on the player.")]
-        [SerializeField] bool shouldUseModifiers = false;
+        //[SerializeField] bool shouldUseModifiers = false;
 
         [SerializeField] Sprite avatar = null;
 
@@ -79,7 +79,7 @@ namespace TkrainDesigns.Stats
                 return fallback;
             }
             float rawstat = personalClass.GetStat(stat, Level, fallback);
-            return shouldUseModifiers? ( rawstat * GetPercentageModifiers(stat)) + GetAdditiveModifiers(stat): rawstat;
+            return  ( rawstat * GetPercentageModifiers(stat)) + GetAdditiveModifiers(stat);
         }
 
         
@@ -92,7 +92,7 @@ namespace TkrainDesigns.Stats
 
         public float GetAdditiveModifiers(ScriptableStat stat, float fallback = 0)
         {
-            if (!shouldUseModifiers || !stat) return fallback;
+            //if (!shouldUseModifiers || !stat) return fallback;
             float accumulator = 0;
             foreach (IModifierProvider provider in GetComponents<IModifierProvider>())
             {
@@ -114,7 +114,7 @@ namespace TkrainDesigns.Stats
 
         public float GetPercentageModifiers(ScriptableStat stat, float fallback = 1)
         {
-            if (!shouldUseModifiers || !stat) return fallback;
+            //if (!shouldUseModifiers || !stat) return fallback;
             float accumulator = 0;
             foreach (IModifierProvider provider in GetComponents<IModifierProvider>())
             {

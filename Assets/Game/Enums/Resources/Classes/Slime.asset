@@ -75,7 +75,7 @@ MonoBehaviour:
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
     startValue: 3
-    endValue: 19
+    endValue: 600
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
@@ -83,17 +83,17 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 1
         value: 3
-        inSlope: 0.16161616
-        outSlope: 0.16161616
+        inSlope: 6.030303
+        outSlope: 6.030303
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 100
-        value: 19
-        inSlope: 0.16161616
-        outSlope: 0.16161616
+        value: 600
+        inSlope: 6.030303
+        outSlope: 6.030303
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334

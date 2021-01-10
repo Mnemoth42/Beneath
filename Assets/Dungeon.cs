@@ -1,6 +1,4 @@
-﻿
-using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using RPG.SceneManagement;
@@ -10,16 +8,14 @@ using TkrainDesigns.Tiles.Control;
 using TkrainDesigns.Tiles.Core;
 using TkrainDesigns.Tiles.Grids;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.PlayerLoop;
 using Random = UnityEngine.Random;
 
 namespace TkrainDesigns.Tiles.Dungeons
 {
     public class Dungeon : MonoBehaviour
     {
-        [Header("Floor Tile")]
-        [SerializeField] Tile tile;
+        [Header("Floor Tiles")]
+        [SerializeField] Tile[] tiles;
         [Header("Wall tile")]
         [SerializeField] GameObject wall;
         [Header("Exit Tile")] [SerializeField] GameObject exit;
@@ -262,21 +258,24 @@ namespace TkrainDesigns.Tiles.Dungeons
 
         IEnumerator CreateTiles()
         {
-            Quaternion rotation = tile.transform.rotation;
+            Quaternion rotation = Quaternion.identity;
             foreach (var pair in map)
             {
                 if (pair.Key.x >= 0 && pair.Key.y >= 0)
                 {
-                    Tile inst = Instantiate(tile, TileUtilities.IdealWorldPosition(pair.Key), rotation);
+                    int choice = Random.Range(0, tiles.Length);
+                    Tile inst = Instantiate(tiles[choice], TileUtilities.IdealWorldPosition(pair.Key), rotation);
+                    inst.transform.Rotate(0,Random.Range(0,6)*60,0);
                     inst.transform.SetParent(transform);
                     if (pair.Value > 1 && pair.Key!=start && pair.Key!=finish && Vector2.Distance(start,pair.Key)>4)
                     {
                         GameObject go = Instantiate(enemyDrops.GetDrop(level),
                                                     TileUtilities.IdealWorldPosition(pair.Key), Quaternion.identity);
+                        go.transform.Rotate(0,Random.Range(0,6)*60,0);
                         go.transform.SetParent(transform);
                         if (go.TryGetComponent<PersonalStats>(out PersonalStats stats))
                         {
-                            stats.SetLevel(Mathf.Max(Random.Range(level, level+2),1));
+                            stats.SetLevel(Mathf.Max(Random.Range(level, Mathf.Max(level+2, (int)(level*1.25f))),1));
                         }
 
                         if (go.TryGetComponent(out BaseController c))
@@ -324,9 +323,13 @@ namespace TkrainDesigns.Tiles.Dungeons
                             GameObject inst = Instantiate(wall, TileUtilities.IdealWorldPosition(new Vector2Int(x, y)),
                                                           Quaternion.identity);
                             inst.transform.SetParent(transform);
-                            if (Vector2Int.Distance(testLocation, nearestTile) > 1.25f)
+                            if(inst.TryGetComponent(out Wall w))
+                            for (int i = 0; i < 6; i++)
                             {
-                                inst.transform.Translate(Vector3.up*(.3f));
+                                if (map.ContainsKey(new Vector2Int(x, y).Adjecent(i)))
+                                {
+                                    w.ActivateWall(i);
+                                }
                             }
                         }
                     }

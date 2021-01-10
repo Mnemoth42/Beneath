@@ -18,7 +18,7 @@ MonoBehaviour:
   formula:
   - stat: {fileID: 11400000, guid: 8a026be08a1459d41859566a775be063, type: 2}
     startValue: 15
-    endValue: 600
+    endValue: 1100
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
@@ -26,17 +26,17 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 1
         value: 15
-        inSlope: 5.909091
-        outSlope: 5.909091
+        inSlope: 10.959596
+        outSlope: 10.959596
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 100
-        value: 600
-        inSlope: 5.909091
-        outSlope: 5.909091
+        value: 1100
+        inSlope: 10.959596
+        outSlope: 10.959596
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -74,7 +74,7 @@ MonoBehaviour:
       m_RotationOrder: 4
   - stat: {fileID: 11400000, guid: 41b34691536f91b41b4e517ea03feefa, type: 2}
     startValue: 12
-    endValue: 625
+    endValue: 1000
     showCurve: 0
     ValueCurve:
       serializedVersion: 2
@@ -82,17 +82,17 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 1
         value: 12
-        inSlope: 6.1919193
-        outSlope: 6.1919193
+        inSlope: 9.979798
+        outSlope: 9.979798
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 100
-        value: 625
-        inSlope: 6.1919193
-        outSlope: 6.1919193
+        value: 1000
+        inSlope: 9.979798
+        outSlope: 9.979798
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
