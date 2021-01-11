@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using TkrainDesigns.Grids.Stats;
+using TkrainDesigns.Attributes;
 using TkrainDesigns.Tiles.Actions;
 using TkrainDesigns.Tiles.Grids;
 using TkrainDesigns.Tiles.Pathfinding;
@@ -47,8 +47,8 @@ namespace TkrainDesigns.Tiles.Control
         void ConsiderMove()
         {
 
-            Vector2Int playerPosition = TileUtilities.GridPosition(player.transform.position);
-            Vector2Int ourPosition = TileUtilities.GridPosition(transform.position);
+            Vector2Int playerPosition = player.transform.position.ToGridPosition();
+            Vector2Int ourPosition = transform.position.ToGridPosition();
             
             Dictionary<Vector2Int, bool> others = GetObstacles();
             others.Remove(playerPosition);
@@ -126,7 +126,7 @@ namespace TkrainDesigns.Tiles.Control
 
         void ConsiderRandomMove()
         {
-            Vector2Int ourPosition = TileUtilities.GridPosition(transform.position);
+            Vector2Int ourPosition = transform.position.ToGridPosition();
             Vector2Int potentialPosition = new Vector2Int(ourPosition.x+Random.Range(-5,5),ourPosition.y+Random.Range(-2,2));
             var others = GridPathFinder<BaseController>.GetLocations();
             others.Remove(ourPosition);

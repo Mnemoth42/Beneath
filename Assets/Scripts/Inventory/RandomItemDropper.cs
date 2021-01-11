@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using GameDevTV.Inventories;
-using TkrainDesigns.Grids.Stats;
+using TkrainDesigns.Attributes;
 using TkrainDesigns.Stats;
 using UnityEngine;
 using Random = UnityEngine.Random;

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TkrainDesigns.Tiles.Pathfinding
 {
-    public class PathBase
+    public  static class PathBase
     {
         public static readonly Vector2Int[] DirectionsHexEven =
         {
@@ -24,16 +24,15 @@ namespace TkrainDesigns.Tiles.Pathfinding
             new Vector2Int(-1,-1),
             new Vector2Int(+1,-1)
         };
-        const float XFactor = .417f;
-        const float YFactor = .478f;
+
         public static Vector3 AdjacentOdd(int corner)
         {
-            return TileUtilities.IdealWorldPosition(DirectionsHexOdd[corner]);
+            return DirectionsHexOdd[corner].ToWorldPosition();
         }
 
         public static Vector3 AdjacentEven(int corner)
         {
-            return TileUtilities.IdealWorldPosition(DirectionsHexEven[corner]);
+            return DirectionsHexEven[corner].ToWorldPosition();
         }
 
         public static Vector2Int Adjacent(int x, int y, int corner)
@@ -46,5 +45,14 @@ namespace TkrainDesigns.Tiles.Pathfinding
         {
             return Adjacent(location.x, location.y, corner);
         }
-    } 
+    }
+
+    public static class PathBaseExtensions
+    {
+        public static Vector2Int Adjacent(this Vector2Int location, int face)
+        {
+            return PathBase.Adjacent(location, face);
+        }
+    }
+
 }

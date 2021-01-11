@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
-using Tkraindesigns.Tiles.Core;
+using TkrainDesigns.Tiles.Core;
 using TkrainDesigns.Tiles.Grids;
+using TkrainDesigns.Tiles.Visible;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -58,7 +59,7 @@ namespace TkrainDesigns.Tiles.Movement
         {
             anim = GetComponent<Animator>();
             stats = GetComponent<PersonalStats>();
-            currentPosition = TileUtilities.GridPosition(transform.position);
+            currentPosition = transform.position.ToGridPosition();
             visibility = GetComponent<EnemyVisibility>();
         }
 
@@ -87,7 +88,7 @@ namespace TkrainDesigns.Tiles.Movement
                 {
                     if (i < MaxStepsPerTurn + 1)
                     {
-                        destination = TileUtilities.IdealWorldPosition(path[i]);
+                        destination = path[i].ToWorldPosition();
                     }
 
                     queue.Enqueue(destination);

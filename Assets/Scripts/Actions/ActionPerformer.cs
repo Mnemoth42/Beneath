@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using TkrainDesigns.Grids.Stats;
+using TkrainDesigns.Attributes;
 using TkrainDesigns.Tiles.Movement;
 using UnityEngine;
 

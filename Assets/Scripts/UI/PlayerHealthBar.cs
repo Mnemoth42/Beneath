@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using TkrainDesigns.Grids.Stats;
+using TkrainDesigns.Attributes;
 using TkrainDesigns.Tiles.Control;
 using UnityEngine;
 using UnityEngine.UI;

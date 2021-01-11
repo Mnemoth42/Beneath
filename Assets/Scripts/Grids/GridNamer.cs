@@ -13,7 +13,7 @@ namespace TkrainDesigns.Tiles.Grids
         {
             if (gameObject.activeInHierarchy)
             {
-                Vector2Int position = TileUtilities.GridPosition(transform.position);
+                Vector2Int position = transform.position.ToGridPosition();
                 name = $"{position.x},{position.y}";
                 if (text)
                 {

@@ -7,7 +7,7 @@ namespace TkrainDesigns.Tiles.Pathfinding
 {
     
 
-    public  class GridPathFinder<T>:PathBase where T : MonoBehaviour
+    public static class GridPathFinder<T> where T : MonoBehaviour
     {
         static Dictionary<Vector2Int, T> map;
 
@@ -38,7 +38,7 @@ namespace TkrainDesigns.Tiles.Pathfinding
             map = new Dictionary<Vector2Int, T>();
             foreach (T t in Object.FindObjectsOfType<T>())
             {
-                Vector2Int key = TileUtilities.GridPosition(t.transform.position);
+                Vector2Int key = t.transform.position.ToGridPosition(); //TileUtilities.GridPosition(t.transform.position);
                 if (Map.ContainsKey(key))
                 {
                     //Debug.LogWarning($"{t.name} appears more than once in the grid.  Discarding extra tile.");
@@ -55,7 +55,7 @@ namespace TkrainDesigns.Tiles.Pathfinding
             List<T> result = new List<T>();
             foreach (T t in Object.FindObjectsOfType<T>())
             {
-                Vector2Int test = TileUtilities.GridPosition(t.transform.position);
+                Vector2Int test = t.transform.position.ToGridPosition(); //TileUtilities.GridPosition(t.transform.position);
                 if (test == location)
                 {
                     result.Add(t);
@@ -177,7 +177,7 @@ namespace TkrainDesigns.Tiles.Pathfinding
 
                     for (int i = 0; i < 6; i++)
                     {
-                        TryEnqueue(currentTile+ (odd? DirectionsHexEven[i]: DirectionsHexOdd[i]));
+                        TryEnqueue(currentTile+ (odd? PathBase.DirectionsHexEven[i]: PathBase.DirectionsHexOdd[i]));
                     }
                 }
             }

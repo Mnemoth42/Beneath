@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using GameDevTV.Inventories;
-using TkrainDesigns.Grids.Stats;
+using TkrainDesigns.Attributes;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
 using TkrainDesigns.Tiles.Combat;

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using GameDevTV.Inventories;
-using TkrainDesigns.Grids.Stats;
+using TkrainDesigns.Attributes;
 using TkrainDesigns.ScriptableObjects;
 using TMPro;
 using UnityEditor;

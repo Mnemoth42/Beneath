@@ -10,7 +10,7 @@ namespace TkrainDesigns.Tiles.Grids
         {
             //if (Application.isPlaying) return;
             Vector3 position = transform.position;
-            transform.position = TileUtilities.IdealWorldPosition(TileUtilities.GridPosition(position));
+            transform.position = position.ToGridPosition().ToWorldPosition();
         }
 #endif
     }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using PsychoticLab;
 using TkrainDesigns.ScriptableEnums;
+using TkrainDesigns.Stats;
 using TkrainDesigns.Tiles.Stats;
 using UnityEditor;
 using UnityEngine;

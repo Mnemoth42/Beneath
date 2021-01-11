@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using GameDevTV.Inventories;
 using RPG.Inventory;
-using TkrainDesigns.Grids.Stats;
+using TkrainDesigns.Attributes;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
 using TkrainDesigns.Tiles.Grids;
@@ -161,11 +161,11 @@ namespace TkrainDesigns.Tiles.Combat
 
         IEnumerator Attack()
         {
-            transform.LookAt(TileUtilities.IdealWorldPosition(targetLocation));
+            transform.LookAt(targetLocation.ToWorldPosition());
             anim.SetFloat("attackVariant", currentWeaponConfig.GetRandomAttackForm(anim));
             anim.SetTrigger("Attack");
             yield return new WaitForSeconds(2.5f);
-            transform.position = TileUtilities.IdealWorldPosition(path.Last());
+            transform.position = path.Last().ToWorldPosition();
             callbackAction.Invoke();
         }
 

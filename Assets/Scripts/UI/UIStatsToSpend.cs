@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TkrainDesigns.Stats;
 using TkrainDesigns.Tiles.Stats;
 using TMPro;
 using UnityEngine;

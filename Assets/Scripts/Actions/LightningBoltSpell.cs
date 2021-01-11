@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using DigitalRuby.LightningBolt;
-using TkrainDesigns.Grids.Stats;
+using TkrainDesigns.Attributes;
+using TkrainDesigns.Stats;
 using TkrainDesigns.Tiles.Combat;
 using UnityEditor;
 using UnityEngine;

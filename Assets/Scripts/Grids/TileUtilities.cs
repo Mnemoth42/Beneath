@@ -1,6 +1,4 @@
-﻿using TkrainDesigns.Tiles.Pathfinding;
-using UnityEngine;
-using UnityEngine.Tilemaps;
+﻿using UnityEngine;
 
 namespace TkrainDesigns.Tiles.Grids
 {
@@ -32,17 +30,21 @@ namespace TkrainDesigns.Tiles.Grids
             return Mathf.RoundToInt(zed / HexGridSizeY);
         }
 
-        public static Vector2Int GridPosition(Vector3 position)
+        static Vector2Int GridPosition(Vector3 position)
         {
             return new Vector2Int(GridX(position), GridY(position));
         }
-
+        /// <summary>
+        /// The Position in Hex Tile space for Vector3(x,y,z)
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public static Vector2Int ToGridPosition(this Vector3 position)
         {
             return GridPosition(position);
         }
 
-        public static Vector3 IdealWorldPosition(Vector2Int location)
+        static Vector3 IdealWorldPosition(Vector2Int location)
         {
             
             {
@@ -55,47 +57,14 @@ namespace TkrainDesigns.Tiles.Grids
                 
             }
         }
-
+        /// <summary>
+        /// The Position in 3D space for a tile located at Vector2(x,y)
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
         public static Vector3 ToWorldPosition(this Vector2Int location)
         {
             return IdealWorldPosition(location);
         }
-
-
-
-        public static Vector2Int Adjecent(this Vector2Int location, int face)
-        {
-            return PathBase.Adjacent(location, face);
-        }
-
-        ///// <summary>
-        ///// Converts a worldspace float dimension to the nearest tile.
-        ///// </summary>
-        ///// <param name="dimension"></param>
-        ///// <returns></returns>
-        //public static int CalcFloatDimToTileDimension(float dimension)
-        //{
-        //    return Mathf.RoundToInt(dimension / TileSize);
-        //}
-
-        //public static float CalcTileDimToFloatDimension(int dimension)
-        //{
-        //    return (float) dimension * TileSize;
-        //}
-
-        //public static Vector2Int CalcTileLocation(Vector3 location)
-        //{
-        //    return new Vector2Int(CalcFloatDimToTileDimension(location.x), CalcFloatDimToTileDimension(location.z));
-        //}
-
-        //public static Vector3 CalcTilePhysicalLocation(Vector2Int location)
-        //{
-        //    return new Vector3(CalcTileDimToFloatDimension(location.x), 0, CalcTileDimToFloatDimension(location.y));
-        //}
-
-        //public static Vector3 CalculateCorrectTileLocation(Vector3 location)
-        //{
-        //    return CalcTilePhysicalLocation(CalcTileLocation(location));
-        //}
     }
 }

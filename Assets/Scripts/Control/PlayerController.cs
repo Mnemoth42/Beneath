@@ -1,12 +1,12 @@
 ﻿using GameDevTV.Inventories;
 using System.Collections.Generic;
 using System.Linq;
-
-using TkrainDesigns.Grids.Stats;
+using TkrainDesigns.Attributes;
 using TkrainDesigns.Tiles.Actions;
 using TkrainDesigns.Tiles.Core;
 using TkrainDesigns.Tiles.Grids;
 using TkrainDesigns.Tiles.Pathfinding;
+using TkrainDesigns.Tiles.Visible;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -139,7 +139,7 @@ namespace TkrainDesigns.Tiles.Control
         {
             onEndTurnEvent?.Invoke();
             ResetAllColorChangers();
-            Vector2Int currentPosition = TileUtilities.GridPosition(transform.position);
+            Vector2Int currentPosition = transform.position.ToGridPosition();
             GridPathFinder<Pickup>.ConductInventory();
             //var pickups = GridPathFinder<Pickup>.GetItemsAt(currentPosition);
             var pickups = FindObjectsOfType<Pickup>()
@@ -172,7 +172,7 @@ namespace TkrainDesigns.Tiles.Control
         {
             foreach (Visibility visibility in FindObjectsOfType<Visibility>())
             {
-                visibility.TestVisibility(TileUtilities.GridPosition(transform.position));
+                visibility.TestVisibility(transform.position.ToGridPosition());
             }
         }
 
@@ -186,16 +186,16 @@ namespace TkrainDesigns.Tiles.Control
                 distanceToCheck += currentActionItem.Range(gameObject);
             }
             var tiles = GridPathFinder<Tile>.GetLocationsList()
-                                            .Where(t => Vector2Int.Distance(t, TileUtilities.GridPosition(transform.position)) <= distanceToCheck)
+                                            .Where(t => Vector2Int.Distance(t, transform.position.ToGridPosition()) <= distanceToCheck)
                                             .ToList();
             var enemies = EnemiesStillAlive();
             var obstacles = GetObstacles();
-            obstacles.Remove(TileUtilities.GridPosition(transform.position));
+            obstacles.Remove(transform.position.ToGridPosition());
             
             foreach (Vector2Int tile in tiles)
             {
 
-                var q = GridPathFinder<Tile>.FindPath(tile, TileUtilities.GridPosition(transform.position),obstacles);
+                var q = GridPathFinder<Tile>.FindPath(tile, transform.position.ToGridPosition(),obstacles);
                 if (q.Count > 1 && q.Count <= distanceToCheck)
                 {
                     ColorChanger c = GridPathFinder<Tile>.Map[tile].GetComponentInChildren<ColorChanger>();
@@ -274,10 +274,10 @@ namespace TkrainDesigns.Tiles.Control
             {
 
                 Dictionary<Vector2Int, bool> obstacles = GetObstacles();
-                Vector2Int currentPosition = TileUtilities.GridPosition(transform.position);
-                Vector2Int clickedGridLocation = TileUtilities.GridPosition(currentHit.transform.position);
+                Vector2Int currentPosition =transform.position.ToGridPosition();
+                Vector2Int clickedGridLocation = currentHit.transform.position.ToGridPosition();
                 if (rayCastController)
-                    clickedGridLocation = TileUtilities.GridPosition(rayCastController.transform.position);
+                    clickedGridLocation = rayCastController.transform.position.ToGridPosition();
                 if (obstacles.ContainsKey(clickedGridLocation))
                 {
                     obstacles.Remove(clickedGridLocation);
@@ -458,7 +458,7 @@ namespace TkrainDesigns.Tiles.Control
 #endif
             {
                 clickDetection = .5f;
-                tileLastClicked = TileUtilities.GridPosition(currentHit.point);
+                tileLastClicked = currentHit.point.ToGridPosition();
                 onTargetChanged(rayCastController == null ? null : rayCastController);
                 return true;
             }
@@ -516,7 +516,7 @@ namespace TkrainDesigns.Tiles.Control
                     Visibility visibility = tile.GetComponent<Visibility>();
                     if (visibility)
                     {
-                        visibility.TestVisibility(TileUtilities.GridPosition(transform.position));
+                        visibility.TestVisibility(transform.position.ToGridPosition());
                     }
                 }
             }

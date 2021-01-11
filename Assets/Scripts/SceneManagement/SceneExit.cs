@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using TkrainDesigns.Saving;
-using TkrainDesigns.Tiles.Control;
-using TkrainDesigns.Tiles.Dungeons;
+﻿using System.Collections;
+using TkrainDesigns.Dungeons;
 using UnityEngine;
 
 namespace TkrainDesigns.Tiles.SceneManagement
@@ -12,18 +8,16 @@ namespace TkrainDesigns.Tiles.SceneManagement
     {
         void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent<PlayerController>(out PlayerController controller))
+            if (other.CompareTag("Player"))
             {
-                StartCoroutine(LoadNextScene(controller));
+                LoadNextScene();
             }
         }
 
-        IEnumerator LoadNextScene(PlayerController controller)
+        void LoadNextScene()
         {
-            SaveableEntity entity = controller.GetComponent<SaveableEntity>();
-            yield return null;
             Dungeon dungeon = FindObjectOfType<Dungeon>();
-            dungeon.GenerateNewDungeon();
+            dungeon.StartFromBeginning();
         }
     }
 }

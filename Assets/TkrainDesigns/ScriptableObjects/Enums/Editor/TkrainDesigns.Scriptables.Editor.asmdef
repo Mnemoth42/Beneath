@@ -1,0 +1,19 @@
+{
+    "name": "TkrainDesigns-Scriptables-Editor",
+    "references": [
+        "GUID:b90981787f495484998d6cc8b67654d3"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [
+        ""
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

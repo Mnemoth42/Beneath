@@ -2,16 +2,17 @@
 using GameDevTV.Inventories;
 using JetBrains.Annotations;
 using RPG.Inventory;
-using TkrainDesigns.Grids.Stats;
+using TkrainDesigns.Attributes;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
 using TkrainDesigns.Tiles.Actions;
 using TkrainDesigns.Tiles.Combat;
-using Tkraindesigns.Tiles.Core;
+using TkrainDesigns.Tiles.Core;
 using TkrainDesigns.Tiles.Grids;
 using TkrainDesigns.Tiles.Movement;
 using TkrainDesigns.Tiles.Pathfinding;
 using TkrainDesigns.Tiles.Skills;
+using TkrainDesigns.Tiles.Visible;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -143,10 +144,10 @@ namespace TkrainDesigns.Tiles.Control
         protected static bool CheckForObstacles(List<Vector2Int> path, Vector2Int tile, float range)
         {
             if (path.Count <(int) range+1) return false; //clearly there are no obstacles if we are standing next to the tile.
-            Vector3 finish = TileUtilities.IdealWorldPosition(tile);
+            Vector3 finish = tile.ToWorldPosition();
             for (int i = path.Count - (int)range; i > 0; i--)
             {
-                Vector3 start = TileUtilities.IdealWorldPosition(path[i]);
+                Vector3 start = path[i].ToWorldPosition();
                 Vector3 direction = finish - start;
                 Ray ray = new Ray(start,direction);
                 int layermask = 1 << 10;
@@ -198,7 +199,7 @@ namespace TkrainDesigns.Tiles.Control
 
         public Vector2Int TilePosition()
         {
-            return TileUtilities.GridPosition(transform.position);
+            return transform.position.ToGridPosition();
         }
 
         public static BaseController FindControllerAt(Vector2Int location)
@@ -223,7 +224,7 @@ namespace TkrainDesigns.Tiles.Control
                 return true;
             }
 
-            Vector2Int targetLocation = TileUtilities.GridPosition(testTarget.position);
+            Vector2Int targetLocation =testTarget.position.ToGridPosition();
             for (int i = firstPlaceToFire; i < lastPlaceToFire; i++)
             {
                 if (Vector2Int.Distance(path[i], targetLocation) >= (float) (path.Count - i))
