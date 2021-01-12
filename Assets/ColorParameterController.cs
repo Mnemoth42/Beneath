@@ -23,7 +23,7 @@ public class ColorParameterController : MonoBehaviour
     void Awake()
     {
         character = FindObjectOfType<CharacterGenerator>();
-        parameterString = CharacterGenerator.GearColors[parameter];
+        parameterString = SyntyStatics.GearColors[parameter];
         var textMeshes = GetComponentsInChildren <TextMeshProUGUI>();
         title = textMeshes[0];
         result = textMeshes[1];
@@ -35,7 +35,7 @@ public class ColorParameterController : MonoBehaviour
     void DrawDisplay()
     {
         result.text = $"{value}";
-       image.color = CharacterGenerator.GetColor(CharacterGenerator.GearColors[parameter], value);
+       image.color = SyntyStatics.GetColor(SyntyStatics.GearColors[parameter], value);
     }
 
     void Start()
@@ -70,11 +70,11 @@ public class ColorParameterController : MonoBehaviour
 
         public override void OnInspectorGUI()
         {
-            EditorGUILayout.IntSlider(parameter, 0, CharacterGenerator.GearColors.Length - 1);
+            EditorGUILayout.IntSlider(parameter, 0, SyntyStatics.GearColors.Length - 1);
             serializedObject.ApplyModifiedProperties();
             ColorParameterController controller = (ColorParameterController) target;
             TextMeshProUGUI[] texts = controller.GetComponentsInChildren<TextMeshProUGUI>();
-            texts[0].text = CharacterGenerator.GearColors[parameter.intValue];
+            texts[0].text = SyntyStatics.GearColors[parameter.intValue];
             texts[1].text =  "0";
             controller.name = texts[0].text;
         }

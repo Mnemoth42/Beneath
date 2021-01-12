@@ -1,11 +1,7 @@
-﻿using System;
-using GameDevTV.Core.UI.Dragging;
+﻿using GameDevTV.Core.UI.Dragging;
 using GameDevTV.Inventories;
-using TkrainDesigns.Tiles.Actions;
-using TkrainDesigns.Tiles.Control;
-using TMPro;
+using TkrainDesigns.Extensions;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace GameDevTV.UI.Inventories
@@ -30,7 +26,7 @@ namespace GameDevTV.UI.Inventories
         ActionStore store;
         GameObject player;
         CooldownManager cooldownManager;
-        PlayerController controller;
+        ITurnBasedControlEventSource controller;
 
 
         int turnsToWait = 0;
@@ -56,9 +52,9 @@ namespace GameDevTV.UI.Inventories
                 store = player.GetComponent<ActionSpellStore>();
             }
 
-            controller = player.GetComponent<PlayerController>();
-            controller.onBeginTurnEvent.AddListener(OnBeginTurn);
-            controller.onEndTurnEvent.AddListener(OnEndTurn);
+            controller = player.GetComponent<ITurnBasedControlEventSource>();
+            controller.OnBeginTurnEventAddListener(OnBeginTurn);
+            controller.OnEndTurnEventAddListener(OnEndTurn);
             store.StoreUpdated += UpdateIcon;
         }
 
@@ -152,7 +148,7 @@ namespace GameDevTV.UI.Inventories
         public void HandleClick()
         {
             if (!isPlayerTurn) return;
-            player.GetComponent<PlayerController>().CancelClicks();
+            player.GetComponent<ICancelClicks>().CancelClicks();
             if (lastClick <=0.0f)
             {
                 lastClick = .5f;

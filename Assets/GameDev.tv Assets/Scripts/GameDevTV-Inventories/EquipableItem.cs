@@ -214,13 +214,13 @@ namespace GameDevTV.Inventories
             {
 
                 EditorGUILayout.BeginHorizontal();
-                int cat = CharacterGenerator.GearColors.ToList().IndexOf(colorChanges[i].category);
+                int cat = SyntyStatics.GearColors.ToList().IndexOf(colorChanges[i].category);
                 if (cat < 0) cat = 0;
-                cat = EditorGUILayout.Popup(cat, CharacterGenerator.GearColors);
-                int maxColor = CharacterGenerator.GetColorCount(CharacterGenerator.GearColors[cat]);
+                cat = EditorGUILayout.Popup(cat, SyntyStatics.GearColors);
+                int maxColor = SyntyStatics.GetColorCount(SyntyStatics.GearColors[cat]);
                 int index = EditorGUILayout.IntSlider(colorChanges[i].index, 0, maxColor-1);
-                SetColorChange(i, CharacterGenerator.GearColors[cat], index);
-                EditorGUILayout.ColorField(CharacterGenerator.GetColor(CharacterGenerator.GearColors[cat], index));
+                SetColorChange(i, SyntyStatics.GearColors[cat], index);
+                EditorGUILayout.ColorField(SyntyStatics.GetColor(SyntyStatics.GearColors[cat], index));
                 if (GUILayout.Button("-"))
                 {
                     itemToRemove = i;

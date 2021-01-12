@@ -2,7 +2,6 @@
 using UnityEngine.UI;
 using GameDevTV.Core.UI.Dragging;
 using GameDevTV.Inventories;
-using RPG.Inventory;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
 
@@ -25,7 +24,7 @@ namespace GameDevTV.UI.Inventories
             " and fill in the proper parameters.")]
         [SerializeField] ScriptableEquipSlot equipSlot = null;
         [Tooltip("This is the item that will be displayed in the tooltip if there is nothing in the inspector.")]
-        [SerializeField] StatsEquipableItem defaultItem; 
+        [SerializeField] EquipableItem defaultItem; 
 
         // CACHE
         Equipment playerEquipment;

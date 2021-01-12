@@ -1,7 +1,9 @@
-﻿using GameDevTV.Inventories;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using GameDevTV.Inventories;
 using TkrainDesigns.Attributes;
+using TkrainDesigns.Extensions;
 using TkrainDesigns.Tiles.Actions;
 using TkrainDesigns.Tiles.Core;
 using TkrainDesigns.Tiles.Grids;
@@ -17,7 +19,7 @@ namespace TkrainDesigns.Tiles.Control
 {
 
 
-    public class PlayerController : BaseController
+    public class PlayerController : BaseController, ICancelClicks,ITurnBasedControlEventSource
     {
         [SerializeField] bool debug = false;
 
@@ -545,6 +547,26 @@ namespace TkrainDesigns.Tiles.Control
                     changer.ResetMaterial();
                 }
             }
+        }
+
+        public void OnBeginTurnEventAddListener(UnityAction listener)
+        {
+            onBeginTurnEvent.AddListener(listener);
+        }
+
+        public void OnBeginTurnEventRemoveListener(UnityAction listener)
+        {
+            onBeginTurnEvent.RemoveListener(listener);
+        }
+
+        public void OnEndTurnEventAddListener(UnityAction listener)
+        {
+            onEndTurnEvent.AddListener(listener);
+        }
+
+        public void OnEndTurnEventRemoveListener(UnityAction listener)
+        {
+            onEndTurnEvent.RemoveListener(listener);
         }
     } 
 }

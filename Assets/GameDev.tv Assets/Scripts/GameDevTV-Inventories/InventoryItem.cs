@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TkrainDesigns.ResourceRetriever;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 #pragma warning disable CS0649
 namespace GameDevTV.Inventories

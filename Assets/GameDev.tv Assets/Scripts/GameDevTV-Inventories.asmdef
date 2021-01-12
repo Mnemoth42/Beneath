@@ -1,0 +1,20 @@
+{
+    "name": "GameDevTV-Inventories",
+    "references": [
+        "GUID:702605a64ed555f41b754fd0602e1bcc",
+        "GUID:03a8339dd29841a4fbb7124de646d66b",
+        "GUID:645b3dcef60e4584582fc22e0a3d4d3e",
+        "GUID:b90981787f495484998d6cc8b67654d3",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:6b744e325c1d90b4cb6af77359728b8f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

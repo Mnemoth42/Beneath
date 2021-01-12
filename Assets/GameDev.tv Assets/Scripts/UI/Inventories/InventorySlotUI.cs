@@ -1,10 +1,9 @@
-﻿using System;
-using UnityEngine;
-using GameDevTV.Inventories;
+﻿using GameDevTV.Core.UI;
 using GameDevTV.Core.UI.Dragging;
+using GameDevTV.Inventories;
+using TkrainDesigns.Extensions;
 using TkrainDesigns.Stats;
-using TkrainDesigns.Tiles.Control;
-using UnityEngine.EventSystems;
+using UnityEngine;
 
 namespace GameDevTV.UI.Inventories
 {
@@ -99,7 +98,7 @@ namespace GameDevTV.UI.Inventories
 
         public void HandleClick()
         {
-            inventory.GetComponent<PlayerController>().CancelClicks();
+            inventory.GetComponent<ICancelClicks>().CancelClicks();
             if (lastClicked<0.0f)
             {
                 lastClicked =.5f;
