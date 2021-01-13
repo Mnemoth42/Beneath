@@ -1,0 +1,20 @@
+{
+    "name": "TkrainDesigns-Inventory-Editor",
+    "references": [
+        "GUID:399c87bcd39c4744d8aff24e4e38316d",
+        "GUID:94d745ec39a20df41bb0cbca955f6843",
+        "GUID:03a8339dd29841a4fbb7124de646d66b",
+        "GUID:b90981787f495484998d6cc8b67654d3"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using GameDevTV.Inventories;
 using TkrainDesigns.Attributes;
+using TkrainDesigns.Core.Interfaces;
 using TkrainDesigns.Extensions;
 using TkrainDesigns.Tiles.Actions;
 using TkrainDesigns.Tiles.Core;
@@ -19,7 +20,7 @@ namespace TkrainDesigns.Tiles.Control
 {
 
 
-    public class PlayerController : BaseController, ICancelClicks,ITurnBasedControlEventSource
+    public class PlayerController : BaseController, ICancelClicks,ITurnBasedControlEventSource, IController
     {
         [SerializeField] bool debug = false;
 
@@ -73,6 +74,16 @@ namespace TkrainDesigns.Tiles.Control
             currentActionItem = action;
             FindMoveableTiles();
             return true;
+        }
+
+        public bool SetCurrentActionItem(ScriptableObject action)
+        {
+            if (action is PerformableActionItem performableActionItem)
+            {
+                return SetCurrentAction(performableActionItem);
+            }
+
+            return false;
         }
 
         public void InitializePlayer(Vector3 position)

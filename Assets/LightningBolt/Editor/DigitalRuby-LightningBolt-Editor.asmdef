@@ -1,0 +1,15 @@
+{
+    "name": "DigitalRuby-LightningBolt-Editor",
+    "references": [
+        "GUID:311be4361d4b2264f9e2ecd85129d3ca"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

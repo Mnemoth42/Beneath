@@ -1,0 +1,19 @@
+{
+    "name": "TkrainDesigns-Inventory",
+    "references": [
+        "GUID:399c87bcd39c4744d8aff24e4e38316d",
+        "GUID:03a8339dd29841a4fbb7124de646d66b",
+        "GUID:b90981787f495484998d6cc8b67654d3",
+        "",
+        "GUID:29555b7420dc2d347aa5e62495c0fecd"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

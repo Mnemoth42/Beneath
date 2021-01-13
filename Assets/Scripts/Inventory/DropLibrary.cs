@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using GameDevTV.Inventories;
+using RPG.Inventory;
+using TkrainDesigns.Inventories;
 using TkrainDesigns.ResourceRetriever;
 using UnityEditor;
 using UnityEngine;
 
-namespace RPG.Inventory
+namespace TkrainDesigns.Inventories
 {
     [CreateAssetMenu(fileName="New DropLibrary", menuName="Inventory/DropLibrary")]
     public class DropLibrary : ScriptableObject
@@ -73,7 +75,10 @@ namespace RPG.Inventory
 #endif
 
     }
+}
 
+namespace RPG.Inventory
+{
     [System.Serializable]
     public class DropEntry
     {

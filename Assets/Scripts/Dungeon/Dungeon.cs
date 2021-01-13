@@ -5,9 +5,9 @@ using RPG.SceneManagement;
 using TkrainDesigns.Saving;
 using TkrainDesigns.Stats;
 using TkrainDesigns.Tiles.Control;
-using TkrainDesigns.Tiles.Core;
 using TkrainDesigns.Tiles.Grids;
 using TkrainDesigns.Tiles.Pathfinding;
+using TkrainDesigns.Tiles.SceneManagement;
 using UnityEngine;
 
 
@@ -290,6 +290,7 @@ namespace TkrainDesigns.Dungeons
             }
 
             GameObject exitObject = Instantiate(exit, finish.ToWorldPosition(), Quaternion.identity);
+            exitObject.GetComponent<SceneExit>().SetSceneFinishedCallback(StartFromBeginning);
             exitObject.transform.SetParent(transform);
         }
         //TODO: Calculate bounds of actual dungeon 

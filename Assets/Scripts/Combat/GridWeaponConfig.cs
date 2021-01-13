@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using GameDevTV.Inventories;
+﻿using System.Collections.Generic;
 using RPG.Inventory;
+using TkrainDesigns.Inventories;
 using TkrainDesigns.ScriptableEnums;
 using UnityEditor;
 using UnityEngine;

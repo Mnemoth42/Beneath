@@ -1,0 +1,17 @@
+{
+    "name": "TkrainDesigns-Combat-Editor",
+    "references": [
+        "GUID:102b90fc3a3aef546826b499974daf70"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

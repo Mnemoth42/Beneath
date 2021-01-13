@@ -1,30 +1,30 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Chest : MonoBehaviour
+namespace TkrainDesigns.Inventories
 {
-    Animator anim;
-
-    void Awake()
+    public class Chest : MonoBehaviour
     {
-        anim = GetComponentInChildren<Animator>();
+        Animator anim;
+
+        void Awake()
+        {
+            anim = GetComponentInChildren<Animator>();
         
-    }
+        }
 
-    void Start()
-    {
-        Open();
-    }
+        void Start()
+        {
+            Open();
+        }
 
-    public void Open()
-    {
-        anim.SetTrigger("openLid");
-    }
+        public void Open()
+        {
+            anim.SetTrigger("openLid");
+        }
 
-    public void Close()
-    {
-        anim.SetTrigger("closeLid");
+        public void Close()
+        {
+            anim.SetTrigger("closeLid");
+        }
     }
 }

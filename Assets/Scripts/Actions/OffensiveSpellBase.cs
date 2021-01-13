@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TkrainDesigns.ScriptableEnums;
+﻿using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
 using TkrainDesigns.Tiles.Combat;
-using TkrainDesigns.Tiles.Control;
 using UnityEditor;
 using UnityEngine;
 
@@ -43,9 +40,9 @@ namespace TkrainDesigns.Tiles.Actions
 
         public override bool Use(GameObject user)
         {
-            if (user.TryGetComponent(out PlayerController controller))
+            if (user.TryGetComponent(out IController controller))
             {
-                return controller.SetCurrentAction(this);
+                return controller.SetCurrentActionItem(this);
 
             }
 

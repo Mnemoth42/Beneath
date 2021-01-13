@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using GameDevTV.Inventories;
+using RPG.Inventory;
 using TkrainDesigns.Attributes;
 using TkrainDesigns.Stats;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-namespace RPG.Inventory
+
+namespace TkrainDesigns.Inventories
 {
     public class RandomItemDropper : ItemDropper
     {

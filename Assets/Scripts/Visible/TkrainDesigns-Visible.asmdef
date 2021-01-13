@@ -1,0 +1,18 @@
+{
+    "name": "TkrainDesigns-Visible",
+    "references": [
+        "GUID:29555b7420dc2d347aa5e62495c0fecd",
+        "GUID:6b744e325c1d90b4cb6af77359728b8f",
+        "GUID:86b46ffb1997bf244a62bb2c90aa7e03",
+        "GUID:56e1e5da5a148a2489f707c5ec659622"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

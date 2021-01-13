@@ -1,14 +1,7 @@
 ﻿using System;
-using System.CodeDom;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using GameDevTV.Inventories;
 using TkrainDesigns.Attributes;
-using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
-using TkrainDesigns.Tiles.Combat;
-using TkrainDesigns.Tiles.Control;
 using UnityEditor;
 using UnityEngine;
 
@@ -88,7 +81,7 @@ namespace TkrainDesigns.Tiles.Actions
 
         void PerformSplashDamage()
         {
-            foreach (BaseController c in FindObjectsOfType<BaseController>()
+            foreach (Health c in FindObjectsOfType<Health>()
                                          .Where(t => Vector3.Distance(t.transform.position,
                                                                       currentTarget.transform.position) < 3)
                                          .Where(z => z.gameObject != currentTarget)

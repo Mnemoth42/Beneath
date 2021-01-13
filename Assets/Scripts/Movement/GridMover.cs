@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using TkrainDesigns.Core.Interfaces;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
-using TkrainDesigns.Tiles.Core;
 using TkrainDesigns.Tiles.Grids;
-using TkrainDesigns.Tiles.Visible;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace TkrainDesigns.Tiles.Movement
 {
@@ -32,7 +28,7 @@ namespace TkrainDesigns.Tiles.Movement
         List<Vector2Int> path = new List<Vector2Int>();
         bool isMoving = false;
         Vector3 locationToTrack;
-        EnemyVisibility visibility;
+        IVisible visibility;
         bool isvisibilityNull;
 
 
@@ -60,7 +56,7 @@ namespace TkrainDesigns.Tiles.Movement
             anim = GetComponent<Animator>();
             stats = GetComponent<PersonalStats>();
             currentPosition = transform.position.ToGridPosition();
-            visibility = GetComponent<EnemyVisibility>();
+            visibility = GetComponent<IVisible>();
         }
 
         public void BeginMoveAction(List<Vector2Int> pathToFollow, System.Action callback)

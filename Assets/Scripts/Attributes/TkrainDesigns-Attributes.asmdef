@@ -1,0 +1,16 @@
+{
+    "name": "TkrainDesigns-Attributes",
+    "references": [
+        "GUID:03a8339dd29841a4fbb7124de646d66b",
+        "GUID:b90981787f495484998d6cc8b67654d3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -3,6 +3,7 @@ using GameDevTV.Inventories;
 using JetBrains.Annotations;
 using RPG.Inventory;
 using TkrainDesigns.Attributes;
+using TkrainDesigns.Inventories;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
 using TkrainDesigns.Tiles.Actions;

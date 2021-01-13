@@ -1,11 +1,12 @@
-﻿using System.Collections;
-using TkrainDesigns.Dungeons;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TkrainDesigns.Tiles.SceneManagement
 {
     public class SceneExit : MonoBehaviour
     {
+
+        System.Action sceneFinishedCallback = null;
+
         void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
@@ -14,10 +15,11 @@ namespace TkrainDesigns.Tiles.SceneManagement
             }
         }
 
+        public void SetSceneFinishedCallback(System.Action callback) => sceneFinishedCallback = callback;
+
         void LoadNextScene()
         {
-            Dungeon dungeon = FindObjectOfType<Dungeon>();
-            dungeon.StartFromBeginning();
+            sceneFinishedCallback?.Invoke();
         }
     }
 }

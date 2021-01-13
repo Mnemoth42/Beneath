@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
-using TkrainDesigns.Tiles.Stats;
 
-namespace RPG.Inventory
+
+namespace TkrainDesigns.Inventories
 {
     public class StatsEquipment : Equipment, IModifierProvider
     {

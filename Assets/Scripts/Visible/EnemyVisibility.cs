@@ -1,15 +1,15 @@
 ﻿using System;
 using TkrainDesigns.Attributes;
-using TkrainDesigns.Tiles.Control;
+using TkrainDesigns.Core.Interfaces;
 using TkrainDesigns.Tiles.Grids;
 using TkrainDesigns.Tiles.Movement;
 using UnityEngine;
 
 namespace TkrainDesigns.Tiles.Visible
 {
-    public class EnemyVisibility : MonoBehaviour
+    public class EnemyVisibility : MonoBehaviour, IVisible
     {
-        PlayerController  player;
+        GridMover  player;
         public event Action<bool> onChangeVisibility;
         bool visible;
 
@@ -17,27 +17,26 @@ namespace TkrainDesigns.Tiles.Visible
 
         void Awake()
         {
-            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-            player.onTurnEnded += TestVisiblity;
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<GridMover>();
+            player.onMoveStepCompleted += TestVisiblity;
             foreach (Renderer rend in GetComponentsInChildren<Renderer>())
             {
                 rend.enabled = false;
             }
 
             visible = false;
-            GetComponent<AIController>().onTurnEnded += TestVisiblity;
             GetComponent<Health>().onDeath.AddListener(Death);
             GetComponent<GridMover>().onMoveStepCompleted += TestVisiblity;
         }
 
         void Death()
         {
-            player.onTurnEnded -= TestVisiblity;
+            player.onMoveStepCompleted -= TestVisiblity;
         }
 
         void OnDestroy()
         {
-            player.onTurnEnded -= TestVisiblity;
+            player.onMoveStepCompleted -= TestVisiblity;
         }
 
         void TestVisiblity()
