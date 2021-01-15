@@ -1,0 +1,26 @@
+{
+    "name": "TkrainDesigns-Control",
+    "references": [
+        "GUID:399c87bcd39c4744d8aff24e4e38316d",
+        "GUID:91dc9a51abd3ef1488854b4daee8ad0d",
+        "GUID:29555b7420dc2d347aa5e62495c0fecd",
+        "GUID:102b90fc3a3aef546826b499974daf70",
+        "GUID:6b744e325c1d90b4cb6af77359728b8f",
+        "GUID:86b46ffb1997bf244a62bb2c90aa7e03",
+        "GUID:56e1e5da5a148a2489f707c5ec659622",
+        "GUID:03a8339dd29841a4fbb7124de646d66b",
+        "GUID:9bb2b8bec8f96b644b1d406022d3073a",
+        "GUID:b90981787f495484998d6cc8b67654d3",
+        "GUID:94d745ec39a20df41bb0cbca955f6843",
+        "GUID:645b3dcef60e4584582fc22e0a3d4d3e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

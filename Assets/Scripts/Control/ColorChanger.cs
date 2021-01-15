@@ -1,16 +1,7 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.UIElements;
+﻿using UnityEngine;
 
-namespace TkrainDesigns.Tiles.Core
+namespace TkrainDesigns.Tiles.Control
 {
-    public enum Tilestate
-    {
-        Normal,
-        Walkable,
-        Occupied
-    }
-
     [RequireComponent(typeof(MeshRenderer))]
     public class ColorChanger : MonoBehaviour
     {
@@ -73,5 +64,12 @@ namespace TkrainDesigns.Tiles.Core
             mat.SetColor("SelectionColor", selected?walkableHighlightColor: walkableColor);
             currentState = Tilestate.Walkable;
         }
+    }
+
+    public enum Tilestate
+    {
+        Normal,
+        Walkable,
+        Occupied
     }
 }

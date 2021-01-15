@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IController
+namespace TkrainDesigns.Core.Interfaces
 {
-     bool SetCurrentActionItem(ScriptableObject action);
+    public interface IController
+    {
+        bool SetCurrentActionItem(ScriptableObject action);
+    }
 }

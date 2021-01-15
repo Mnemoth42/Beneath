@@ -1,4 +1,5 @@
-﻿using TkrainDesigns.ScriptableEnums;
+﻿using TkrainDesigns.Core.Interfaces;
+using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
 using TkrainDesigns.Tiles.Combat;
 using UnityEditor;

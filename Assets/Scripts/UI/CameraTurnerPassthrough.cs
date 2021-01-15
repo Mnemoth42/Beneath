@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TkrainDesigns.Core.Cameras;
 using UnityEngine;
 
-public class CameraTurnerPassthrough : MonoBehaviour
+namespace TkrainDesign.Core.Cameras
 {
-    public void Clicked(bool left)
+    public class CameraTurnerPassthrough : MonoBehaviour
     {
-        FindObjectOfType<CameraTurner>().TurnCamera(left);
+        public void Clicked(bool left)
+        {
+            FindObjectOfType<CameraTurner>().TurnCamera(left);
+        }
     }
 }

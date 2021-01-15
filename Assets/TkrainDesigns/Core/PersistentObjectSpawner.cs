@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TkrainDesigns.Tiles.Core
+namespace TkrainDesigns.Core
 {
     public class PersistentObjectSpawner : MonoBehaviour
     {

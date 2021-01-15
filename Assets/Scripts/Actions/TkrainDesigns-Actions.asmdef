@@ -1,0 +1,23 @@
+{
+    "name": "TkrainDesigns-Actions",
+    "references": [
+        "GUID:399c87bcd39c4744d8aff24e4e38316d",
+        "GUID:56e1e5da5a148a2489f707c5ec659622",
+        "GUID:29555b7420dc2d347aa5e62495c0fecd",
+        "GUID:03a8339dd29841a4fbb7124de646d66b",
+        "GUID:b90981787f495484998d6cc8b67654d3",
+        "GUID:311be4361d4b2264f9e2ecd85129d3ca",
+        "GUID:102b90fc3a3aef546826b499974daf70",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:6b744e325c1d90b4cb6af77359728b8f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

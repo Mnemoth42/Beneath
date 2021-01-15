@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TkrainDesigns.Attributes;
-using TkrainDesigns.Tiles.Core;
 using TkrainDesigns.Tiles.Visible;
 using UnityEngine;
 using UnityEngine.UI;
