@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TkrainDesigns.Core.Cameras;
+﻿using TkrainDesigns.Core;
 using UnityEngine;
 
 namespace TkrainDesign.Core.Cameras

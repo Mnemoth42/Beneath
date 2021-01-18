@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using GameDevTV.Inventories;
 using TkrainDesigns.Attributes;
 using TkrainDesigns.ScriptableObjects;
-using TMPro;
 using UnityEditor;
 using UnityEngine;
 

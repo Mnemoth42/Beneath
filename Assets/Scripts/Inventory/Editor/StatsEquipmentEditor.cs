@@ -1,8 +1,5 @@
-﻿using System;
-
+﻿
 using GameDevTV.Inventories;
-using RPG.Stats.Modifiers;
-using TkrainDesigns.ScriptableEnums;
 using UnityEditor;
 using UnityEditor.Callbacks;
 

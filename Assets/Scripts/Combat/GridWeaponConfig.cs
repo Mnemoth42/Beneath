@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using RPG.Inventory;
 using TkrainDesigns.Inventories;
 using TkrainDesigns.ScriptableEnums;
 using UnityEditor;

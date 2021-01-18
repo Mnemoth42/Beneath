@@ -1,4 +1,4 @@
-﻿using TkrainDesigns.Core.Interfaces;
+﻿using TkrainDesigns.Core;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
 using TkrainDesigns.Tiles.Combat;

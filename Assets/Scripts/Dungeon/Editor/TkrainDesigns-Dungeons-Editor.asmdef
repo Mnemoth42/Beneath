@@ -1,7 +1,12 @@
 {
-    "name": "TkrainDesigns-Extensions",
-    "references": [],
-    "includePlatforms": [],
+    "name": "TkrainDesigns-Dungeons-Editor",
+    "references": [
+        "GUID:a94f3039281544b45b0338c6a897557b",
+        "GUID:b90981787f495484998d6cc8b67654d3"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

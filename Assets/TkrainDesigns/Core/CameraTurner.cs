@@ -1,7 +1,7 @@
 ﻿using Cinemachine;
 using UnityEngine;
 
-namespace TkrainDesigns.Core.Cameras
+namespace TkrainDesigns.Core
 {
     public class CameraTurner : MonoBehaviour
     {

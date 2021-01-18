@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using TkrainDesigns.Dungeons;
+﻿using TkrainDesigns.Dungeons;
 using UnityEditor;
 using UnityEditor.Callbacks;
-using UnityEngine;
 
 namespace TkrainDesigns.Dungeons.Editor
 {

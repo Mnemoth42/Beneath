@@ -2,7 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-namespace RPG.SceneManagement
+namespace TkrainDesigns.SceneManagement
 {
     public class Fader : MonoBehaviour
     {

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TkrainDesigns.Tiles.Grids;
+﻿using TkrainDesigns.Tiles.Grids;
 using UnityEngine;
 
 namespace TkrainDesigns.Dungeons

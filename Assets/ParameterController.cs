@@ -1,8 +1,4 @@
-﻿using System;
-using System.CodeDom;
-using System.Collections;
-using System.Collections.Generic;
-using GameDevTV.Inventories;
+﻿using GameDevTV.Inventories;
 using TMPro;
 using UnityEditor;
 using UnityEngine;

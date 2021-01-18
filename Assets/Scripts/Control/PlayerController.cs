@@ -2,10 +2,9 @@
 using System.Linq;
 using GameDevTV.Inventories;
 using TkrainDesigns.Attributes;
+using TkrainDesigns.Core;
 using TkrainDesigns.Core.Interfaces;
-using TkrainDesigns.Extensions;
 using TkrainDesigns.Tiles.Actions;
-using TkrainDesigns.Core.Cameras;
 using TkrainDesigns.Tiles.Grids;
 using TkrainDesigns.Tiles.Pathfinding;
 using TkrainDesigns.Tiles.Visible;

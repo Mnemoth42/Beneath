@@ -1,0 +1,20 @@
+{
+    "name": "TkrainDesigns-Dungeons",
+    "references": [
+        "GUID:86b46ffb1997bf244a62bb2c90aa7e03",
+        "GUID:702605a64ed555f41b754fd0602e1bcc",
+        "GUID:81206e92a52f3e44d98b08f233b19572",
+        "GUID:c8335a7ad3d84f44e83634bfc76c451f",
+        "GUID:03a8339dd29841a4fbb7124de646d66b",
+        "GUID:b90981787f495484998d6cc8b67654d3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

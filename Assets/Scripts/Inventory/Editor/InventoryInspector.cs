@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using GameDevTV.Inventories;
+﻿using GameDevTV.Inventories;
 using UnityEditor;
 using UnityEngine;
 

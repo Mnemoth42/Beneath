@@ -1,10 +1,8 @@
-﻿using UnityEngine;
-using TMPro;
-using GameDevTV.Inventories;
+﻿using GameDevTV.Inventories;
 using TkrainDesigns.ScriptableEnums;
 using TkrainDesigns.Stats;
-using TkrainDesigns.Tiles.Stats;
-using UnityEngine.Rendering;
+using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 #pragma warning disable CS0649

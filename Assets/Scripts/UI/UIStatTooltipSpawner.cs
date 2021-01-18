@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using GameDevTV.Core.UI.Tooltips;
-using GameDevTV.UI.Inventories;
+﻿using GameDevTV.Core.UI.Tooltips;
 using UnityEngine;
 
 namespace TkrainDesigns.ScriptableEnums

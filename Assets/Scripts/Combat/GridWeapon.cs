@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using TkrainDesigns.Extensions;
-using UnityEditor;
+﻿using TkrainDesigns.Core;
 using UnityEngine;
 using UnityEngine.Events;
 

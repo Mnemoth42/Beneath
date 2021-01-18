@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TkrainDesigns.ScriptableEnums;
+﻿using TkrainDesigns.ScriptableEnums;
 using TMPro;
 using UnityEngine;
 

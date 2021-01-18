@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TkrainDesigns.Extensions
+namespace TkrainDesigns.Core
 {
     /// <summary>
     /// Useful extensions for common mathmatical functions.  Many of these functions simply invoke Mathf functions,

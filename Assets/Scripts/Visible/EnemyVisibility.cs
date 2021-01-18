@@ -1,6 +1,6 @@
 ﻿using System;
 using TkrainDesigns.Attributes;
-using TkrainDesigns.Core.Interfaces;
+using TkrainDesigns.Core;
 using TkrainDesigns.Tiles.Grids;
 using TkrainDesigns.Tiles.Movement;
 using UnityEngine;

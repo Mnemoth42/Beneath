@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TkrainDesigns.Tiles.Control;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class IdleAnimatorBehavior : StateMachineBehaviour
 {

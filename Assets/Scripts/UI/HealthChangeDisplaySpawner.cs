@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using RPG.UI;
+﻿using RPG.UI;
 using UnityEngine;
 
 public class HealthChangeDisplaySpawner : MonoBehaviour

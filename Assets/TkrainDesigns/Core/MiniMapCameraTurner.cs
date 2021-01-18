@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TkrainDesigns.Core.Cameras
+namespace TkrainDesigns.Core
 {
     public class MiniMapCameraTurner : MonoBehaviour
     {

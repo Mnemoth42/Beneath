@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TkrainDesigns.Tiles.SceneManagement
+namespace TkrainDesigns.SceneManagement
 {
     public class SceneExit : MonoBehaviour
     {

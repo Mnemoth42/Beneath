@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using GameDevTV.Inventories;
 using TkrainDesigns.Attributes;
 using TkrainDesigns.Inventories;
 using TkrainDesigns.ScriptableEnums;
@@ -48,7 +47,7 @@ namespace TkrainDesigns.Tiles.Combat
         GridWeaponConfig currentWeaponConfig;
         PersonalStats personalStats;
         StatsEquipment equipment;
-        Inventory inventory;
+
 
         
 

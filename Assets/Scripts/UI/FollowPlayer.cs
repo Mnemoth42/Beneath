@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using TkrainDesigns.Tiles.Control;
+﻿using TkrainDesigns.Tiles.Control;
 using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour

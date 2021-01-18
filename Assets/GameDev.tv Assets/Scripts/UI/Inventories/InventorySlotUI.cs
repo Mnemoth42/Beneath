@@ -1,7 +1,6 @@
-﻿using GameDevTV.Core.UI;
-using GameDevTV.Core.UI.Dragging;
+﻿using GameDevTV.Core.UI.Dragging;
 using GameDevTV.Inventories;
-using TkrainDesigns.Extensions;
+using TkrainDesigns.Core.Interfaces;
 using TkrainDesigns.Stats;
 using UnityEngine;
 

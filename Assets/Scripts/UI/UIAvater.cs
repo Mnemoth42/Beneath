@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using GameDevTV.Inventories;
+﻿using GameDevTV.Inventories;
 using GameDevTV.UI.Inventories;
 using TkrainDesigns.Stats;
 using TkrainDesigns.Tiles.Combat;
